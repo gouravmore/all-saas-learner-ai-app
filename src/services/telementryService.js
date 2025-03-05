@@ -31,6 +31,9 @@ url = getUrl && getUrl.includes("#") && getUrl.split("#")[1].split("/")[1];
 
 export const initialize = async ({ context, config, metadata }) => {
   playSessionId = uniqueId();
+  const tenantId = localStorage.getItem("tenantId");
+  const cohortId = localStorage.getItem("cohortId");
+
   if (!CsTelemetryModule.instance.isInitialised) {
     await CsTelemetryModule.instance.init({});
     const telemetryConfig = {
@@ -53,6 +56,8 @@ export const initialize = async ({ context, config, metadata }) => {
         cdata: [
           { id: contentSessionId, type: "ContentSession" },
           { id: playSessionId, type: "PlaySession" },
+          ...(tenantId ? [{ id: tenantId, type: "TenantId" }] : []),
+          ...(cohortId ? [{ id: cohortId, type: "CohortId" }] : []),
         ],
       },
       userOrgDetails: {},
@@ -209,6 +214,8 @@ function checkTelemetryMode(currentMode) {
 export const getEventOptions = () => {
   var emis_username = "anonymous";
   var buddyUserId = "";
+  const tenantId = localStorage.getItem("tenantId");
+  const cohortId = localStorage.getItem("cohortId");
 
   if (localStorage.getItem("token") !== null) {
     let jwtToken = localStorage.getItem("token");
@@ -246,6 +253,8 @@ export const getEventOptions = () => {
         { id: playSessionId, type: "PlaySession" },
         { id: userId, type: userType },
         { id: localStorage.getItem("lang") || "ta", type: "language" },
+        ...(tenantId ? [{ id: tenantId, type: "TenantId" }] : []),
+        ...(cohortId ? [{ id: cohortId, type: "CohortId" }] : []),
         { id: userDetails?.school_name, type: "school_name" },
         {
           id: userDetails?.class_studying_id,
