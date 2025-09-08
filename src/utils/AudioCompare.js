@@ -1,308 +1,378 @@
-import React, { Component } from "react";
-import AudioAnalyser from "react-audio-analyser";
-import mic from "../assets/mic.png";
-import listen from "../assets/listen.png";
-import pause from "../assets/pause.png";
-import mic_on from "../assets/mic.png";
-import { Box } from "@mui/material";
+import React, { useState, useEffect, useRef } from "react";
+import RecordRTC from "recordrtc";
+import { Box, CircularProgress } from "@mui/material";
 import { ListenButton, RetryIcon, SpeakButton, StopButton } from "./constants";
 import RecordVoiceVisualizer from "./RecordVoiceVisualizer";
+import playButton from "../../src/assets/listen.png";
+import pauseButton from "../../src/assets/pause.png";
+import PropTypes from "prop-types";
 
-export default class AudioRecorderCompair extends Component {
-  MIN_DECIBELS = Number(-45);
-  constructor(props) {
-    super(props);
-    this.state = {
-      status: "",
-      pauseAudio: false,
-      soundDetected: false,
-      stopDetection: false,
+const AudioRecorder = (props) => {
+  const [isRecording, setIsRecording] = useState(false);
+  const [status, setStatus] = useState("");
+  const [audioBlob, setAudioBlob] = useState(null);
+  const recorderRef = useRef(null);
+  const mediaStreamRef = useRef(null);
+  const [showLoader, setShowLoader] = useState(false);
+
+  console.log("pageName", props.pageName);
+
+  useEffect(() => {
+    // Cleanup when component unmounts
+    return () => {
+      if (recorderRef.current) {
+        recorderRef.current.destroy();
+      }
+      if (mediaStreamRef.current) {
+        mediaStreamRef.current.getTracks().forEach((track) => track.stop());
+      }
     };
-  }
+  }, []);
 
-  controlAudio(status) {
-    this.setState({
-      status,
-    });
-  }
-
-  changeScheme(e) {
-    this.setState({
-      audioType: e.target.value,
-    });
-  }
-
-  componentDidMount() {
-    this.setState({
-      audioType: "audio/wav",
-    });
-  }
-
-  handleMic() {
-    if (this.props.setEnableNext) {
-      this.props.setEnableNext(false);
-    }
-
-    if (this.props.isAudioPreprocessing) {
-      this.setState({ soundDetected: false, stopDetection: false });
-      document.getElementById("startaudio_compair").click();
-      this.startSoundDetection();
-    } else {
-      document.getElementById("startaudio_compair").click();
-    }
-  }
-
-  handleStop() {
-    if (this.props.setEnableNext) {
-      this.props.setEnableNext(true);
-    }
-
-    if (this.props.isAudioPreprocessing) {
-      document.getElementById("stopaudio_compair").click();
-      this.setState({ stopDetection: true });
-    } else {
-      document.getElementById("stopaudio_compair").click();
-    }
-  }
-
-  startSoundDetection = async () => {
+  const startRecording = async () => {
     try {
-      navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-        const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (props.setEnableNext) {
+        props.setEnableNext(false);
+      }
+      setStatus("recording");
+      mediaStreamRef.current = stream;
 
-        const audioChunks = [];
-        mediaRecorder.addEventListener("dataavailable", (event) => {
-          audioChunks.push(event.data);
-        });
-
-        const audioContext = new AudioContext();
-        const audioStreamSource = audioContext.createMediaStreamSource(stream);
-        const analyser = audioContext.createAnalyser();
-        analyser.minDecibels = this.MIN_DECIBELS;
-        audioStreamSource.connect(analyser);
-
-        const bufferLength = analyser.frequencyBinCount;
-        const domainData = new Uint8Array(bufferLength);
-
-        let soundDetected = false;
-
-        const detectSound = () => {
-          if (this.state.stopDetection) {
-            return; // Stop detection if stopDetection is true
-          }
-          if (this.state.soundDetected) {
-            return;
-          }
-
-          analyser.getByteFrequencyData(domainData);
-
-          for (let i = 0; i < bufferLength; i++) {
-            const value = domainData[i];
-
-            if (domainData[i] > 0) {
-              this.setState({ soundDetected: true });
-            }
-          }
-
-          window.requestAnimationFrame(detectSound);
-        };
-
-        window.requestAnimationFrame(detectSound);
-
-        mediaRecorder.addEventListener("stop", () => {
-          const audioBlob = new Blob(audioChunks);
-          const audioUrl = URL.createObjectURL(audioBlob);
-          const audio = new Audio(audioUrl);
-          audio.play();
-
-        });
+      // Use RecordRTC with specific configurations to match the blob structure
+      recorderRef.current = new RecordRTC(stream, {
+        type: "audio",
+        mimeType: "audio/wav", // Ensuring the same MIME type as AudioRecorderCompair
+        recorderType: RecordRTC.StereoAudioRecorder, // Use StereoAudioRecorder for better compatibility
+        numberOfAudioChannels: 1, // Match the same number of audio channels
+        desiredSampRate: 16000, // Adjust the sample rate if necessary to match
+        disableLogs: true,
       });
-    } catch (error) {
-      console.error("Error accessing microphone:", error);
+
+      recorderRef.current.startRecording();
+
+      setIsRecording(true);
+
+      props.handleStartRecording?.();
+    } catch (err) {
+      console.error("Failed to start recording:", err);
     }
   };
 
-  render() {
-    const { status, audioSrc, audioType, recordingInitialized } = this.state;
-    const audioProps = {
-      audioType,
-      status,
-      audioSrc,
-      timeslice: 1000, // timeslice
-      startCallback: (e) => {
-        this.setState({
-          audioSrc: "",
-        });
-        this.props.setRecordedAudio("");
-        this.setState({
-          recordingInitialized: true,
-        });
-      },
-      pauseCallback: (e) => {
-      },
-      stopCallback: (e) => {
-        let temp_audioSrc = window.URL.createObjectURL(e);
-        this.setState({
-          audioSrc: temp_audioSrc,
-        });
-
-        if (!this.props.isAudioPreprocessing) {
-          this.props.setRecordedAudio(temp_audioSrc);
-        } else {
-          if (this.state.soundDetected) {
-            this.props.setRecordedAudio(temp_audioSrc);
+  const stopRecording = () => {
+    setShowLoader(true);
+    const timeoutId = setTimeout(() => {
+      setShowLoader(false);
+      setStatus("inactive");
+      if (recorderRef.current) {
+        recorderRef.current.stopRecording(() => {
+          const blob = recorderRef.current.getBlob();
+          if (blob) {
+            setAudioBlob(blob);
+            saveBlob(blob);
           } else {
-            alert("Please Speak Louder and Clear");
+            console.error("Failed to retrieve audio blob.");
           }
-        }
+          if (mediaStreamRef.current) {
+            mediaStreamRef.current.getTracks().forEach((track) => track.stop());
+          }
+          setIsRecording(false);
+          props.setEnableNext?.(true);
 
-        this.setState({
-          recordingInitialized: false,
+          props.handleStopRecording?.();
         });
-      },
-      onRecordCallback: (e) => {
-      },
-      errorCallback: (err) => {
-      },
-      backgroundColor: "hsla(0, 100%, 0%, 0)",
-      strokeColor: "#73DD24",
-      /* path76 */
-    };
+      }
+    }, 500);
 
-    return (
+    return () => clearTimeout(timeoutId);
+  };
+
+  const saveBlob = (blob) => {
+    const url = window.URL.createObjectURL(blob);
+    props?.setRecordedAudio(url);
+  };
+
+  const getPulseAnimationStyle = (color) => ({
+    position: "absolute",
+    width: "90px",
+    height: "90px",
+    backgroundColor: color,
+    borderRadius: "50%",
+    animation: "pulse 1.2s linear infinite",
+    "@keyframes pulse": {
+      "0%": {
+        transform: "scale(0.6)",
+        opacity: 0,
+      },
+      "50%": {
+        opacity: 1,
+      },
+      "100%": {
+        transform: "scale(1.4)",
+        opacity: 0,
+      },
+    },
+  });
+
+  return (
+    <div>
       <div>
-        <div>
-          {(() => {
-            if (status === "recording" && recordingInitialized) {
-              return (
-                <div
-                  style={{
-                    display: "flex",
-                    // width: '13%',
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    margin: "0 auto",
+        {(() => {
+          if (status === "recording") {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "0 auto",
+                }}
+              >
+                <Box
+                  sx={{
+                    cursor: "pointer",
+                    ...((props.pageName === "m7" ||
+                      props.pageName === "m8") && {
+                      width: "90px",
+                      height: "90px",
+                      borderRadius: "50%",
+                      position: "relative",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }),
                   }}
+                  onClick={stopRecording}
                 >
                   <Box
+                    sx={
+                      props.pageName === "m7" ||
+                      (props.pageName === "m8" && props.buttonAnimation)
+                        ? getPulseAnimationStyle("#FF4B4B33")
+                        : {}
+                    }
+                  />
+                  <Box
                     sx={{
-                      cursor: "pointer",
-                      height: "38px",
+                      position: "relative",
+                      zIndex: 1,
                     }}
-                    onClick={() => this.handleStop()}
                   >
-                    <StopButton />
+                    <StopButton
+                      height={
+                        props.pageName == "m7" || props.pageName === "m8"
+                          ? 45
+                          : 70
+                      }
+                      width={
+                        props.pageName == "m7" || props.pageName === "m8"
+                          ? 45
+                          : 70
+                      }
+                    />
                   </Box>
-                  <Box style={{ marginTop: "50px", marginBottom: "50px" }}>
-                    <RecordVoiceVisualizer />
-                    {/* <AudioAnalyser {...audioProps}></AudioAnalyser> */}
+                </Box>
+                {showLoader ? (
+                  <div className="loader"></div>
+                ) : (
+                  <Box style={{ marginTop: "10px", marginBottom: "50px" }}>
+                    {props.pageName !== "m8" && <RecordVoiceVisualizer />}
                   </Box>
-                </div>
-              );
-            } else {
-              return (
-                <div
-                  style={{
-                    display: "flex",
-                    // width: '13%',
-                    justifyContent: "space-between",
-                    margin: "0 auto",
-                  }}
-                  className="game-action-button"
-                >
-                  {(!this.props.dontShowListen || this.props.recordedAudio) && (
+                )}
+              </div>
+            );
+          } else {
+            return (
+              <div
+                style={{
+                  display: !props.showOnlyListen ? "flex" : "",
+                  margin: "0 auto",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                className="game-action-button"
+              >
+                {props.enableAfterLoad &&
+                  props?.originalText &&
+                  (!props.dontShowListen ||
+                    props.recordedAudio ||
+                    !props.pageName === "m8") && (
                     <>
-                      {!this.props.pauseAudio ? (
-                        <div
-                          onClick={() => {
-                            this.props.playAudio(true);
-                          }}
-                        >
-                          <Box sx={{ cursor: "pointer" }}>
-                            <ListenButton />
-                          </Box>
-                        </div>
-                      ) : (
-                        <>
-                          <Box
-                            sx={{ cursor: "pointer" }}
-                            onClick={() => {
-                              this.props.playAudio(false);
-                            }}
-                          >
-                            <StopButton />
-                          </Box>
-                        </>
+                      {!props.isShowCase && !(props.pageName === "m8") && (
+                        <Box>
+                          {!props.pauseAudio ? (
+                            <div
+                              onClick={() => {
+                                props.playAudio(true);
+                              }}
+                            >
+                              <Box sx={{ cursor: "pointer" }}>
+                                <ListenButton
+                                  height={
+                                    props.pageName == "m7" ||
+                                    props.pageName === "m8"
+                                      ? 45
+                                      : 70
+                                  }
+                                  width={
+                                    props.pageName == "m7" ||
+                                    props.pageName === "m8"
+                                      ? 45
+                                      : 70
+                                  }
+                                />
+                              </Box>
+                            </div>
+                          ) : (
+                            <Box
+                              sx={{ cursor: "pointer" }}
+                              onClick={() => {
+                                props.playAudio(false);
+                              }}
+                            >
+                              <StopButton
+                                height={
+                                  props.pageName == "m7" ||
+                                  props.pageName === "m8"
+                                    ? 45
+                                    : 70
+                                }
+                                width={
+                                  props.pageName == "m7" ||
+                                  props.pageName === "m8"
+                                    ? 45
+                                    : 70
+                                }
+                              />
+                            </Box>
+                          )}
+                        </Box>
                       )}
+                      <Box
+                        sx={{
+                          marginLeft: props.isShowCase ? "" : "30px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {props.recordedAudio ? (
+                          <img
+                            onClick={() =>
+                              props.playRecordedAudio(
+                                !props.isStudentAudioPlaying
+                              )
+                            }
+                            style={{
+                              height:
+                                props.pageName == "m7" ||
+                                props.pageName === "m8"
+                                  ? 45
+                                  : 70,
+                            }}
+                            src={
+                              props.isStudentAudioPlaying
+                                ? pauseButton
+                                : playButton
+                            }
+                            alt={props.isStudentAudioPlaying ? "Pause" : "Play"}
+                          />
+                        ) : (
+                          <Box></Box>
+                        )}
+                      </Box>
                     </>
                   )}
 
-                  <div>
-                    {!this.props.showOnlyListen && (
+                <div>
+                  {props.enableAfterLoad ? (
+                    props?.originalText &&
+                    !props.showOnlyListen && (
                       <Box
-                        marginLeft={
-                          !this.props.dontShowListen || this.props.recordedAudio
-                            ? "32px"
-                            : "0px"
-                        }
+                        marginLeft={props.recordedAudio ? "32px" : "0px"}
                         sx={{ cursor: "pointer" }}
-                        onClick={() => this.handleMic()}
+                        onClick={startRecording}
                       >
-                        {!this.props.recordedAudio ? (
-                          <SpeakButton />
+                        {!props.recordedAudio ? (
+                          <Box
+                            sx={{
+                              ...((props.pageName == "m7" ||
+                                props.pageName === "m8") && {
+                                width: "90px",
+                                height: "90px",
+                                borderRadius: "50%",
+                                position: "relative",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }),
+                            }}
+                          >
+                            <Box
+                              sx={
+                                props.pageName == "m7" ||
+                                (props.pageName === "m8" &&
+                                  props.buttonAnimation)
+                                  ? getPulseAnimationStyle("#58CC0233")
+                                  : {}
+                              }
+                            />
+                            <Box
+                              sx={{
+                                position: "relative",
+                                zIndex: 1,
+                              }}
+                            >
+                              <SpeakButton
+                                height={
+                                  props.pageName == "m7" ||
+                                  props.pageName === "m8"
+                                    ? 45
+                                    : 70
+                                }
+                                width={
+                                  props.pageName == "m7" ||
+                                  props.pageName === "m8"
+                                    ? 45
+                                    : 70
+                                }
+                              />
+                            </Box>
+                          </Box>
                         ) : (
-                          <RetryIcon />
+                          <RetryIcon
+                            height={
+                              props.pageName == "m7" || props.pageName === "m8"
+                                ? 45
+                                : 70
+                            }
+                            width={
+                              props.pageName == "m7" || props.pageName === "m8"
+                                ? 45
+                                : 70
+                            }
+                          />
                         )}
                       </Box>
-                    )}
-                    {/* <img
-                                            src={mic}
-                                            className="micimg mic_record"
-                                          
-                                            style={{
-                                                cursor: 'pointer',
-                                                padding: '5px',
-                                                height: '38px',
-                                            }}
-                                            alt="mic"
-                                        />
-                                        <div
-                                            style={{
-                                                color: 'white',
-                                                fontWeight: '600',
-                                                fontSize: '14px',
-                                            }}
-                                        >
-                                            SPEAK
-                                        </div> */}
-                  </div>
+                    )
+                  ) : (
+                    <Box sx={{ display: "flex" }}>
+                      <CircularProgress size="3rem" sx={{ color: "#E15404" }} />
+                    </Box>
+                  )}
                 </div>
-              );
-            }
-          })()}
-          <AudioAnalyser {...audioProps} className="hide">
-            <div className="btn-box">
-              <br />
-              <button
-                className="btn"
-                id="startaudio_compair"
-                onClick={() => this.controlAudio("recording")}
-              >
-                Start
-              </button>
-              <button
-                className="btn"
-                id="stopaudio_compair"
-                onClick={() => this.controlAudio("inactive")}
-              >
-                Stop
-              </button>
-            </div>
-          </AudioAnalyser>
-        </div>
+              </div>
+            );
+          }
+        })()}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+AudioRecorder.propTypes = {
+  enableAfterLoad: PropTypes.bool,
+  showOnlyListen: PropTypes.bool,
+  recordedAudio: PropTypes.string,
+  originalText: PropTypes.string,
+};
+
+export default AudioRecorder;
