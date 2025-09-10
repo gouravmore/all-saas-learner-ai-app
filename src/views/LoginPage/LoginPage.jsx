@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Container, Typography, TextField, Button, Grid } from "@mui/material";
 import config from "../../utils/urlConstants.json";
 import "./LoginPage.css"; // Import the CSS file
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(""); // Initialize with empty string
+  const [password, setPassword] = useState(""); // Initialize with empty string
+  const [searchParams] = useSearchParams();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!username || !password) {
-      alert("Please fill in all fields");
+    if (e) {
+      e.preventDefault();
+    }
+
+    if (!searchParams.get("username")) {
+      alert("Add username in URL");
       return;
     }
+
     localStorage.clear();
 
     try {
@@ -39,6 +44,22 @@ const LoginPage = () => {
     }
   };
 
+  useEffect(() => {
+    const usernameFromURL = searchParams.get("username");
+    if (usernameFromURL) {
+      setUsername(usernameFromURL);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (username) {
+      handleSubmit(); // Automatically submit the form if username exists
+    }
+    if (!searchParams.get("username")) {
+      alert("Add username in URL");
+    }
+  }, [username]);
+
   return (
     <Container className="container">
       <div className="loginBox">
@@ -53,19 +74,27 @@ const LoginPage = () => {
                 label="Username"
                 variant="outlined"
                 fullWidth
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={username || ""} // Ensure it has a value
+                InputProps={{
+                  inputProps: {
+                    readOnly: true, // Ensures the field is read-only
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 className="textField"
-                label="Password"
+                label="*****"
                 variant="outlined"
-                type="password"
+                type="*****"
                 fullWidth
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={password || ""} // Ensure it has a value
+                InputProps={{
+                  inputProps: {
+                    readOnly: true, // Ensures the field is read-only
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={12}>

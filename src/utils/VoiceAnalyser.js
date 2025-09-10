@@ -356,9 +356,12 @@ function VoiceAnalyser(props) {
 
     try {
       const lang = getLocalData("lang");
-      const virtualId = getLocalData("virtualId");
+      const userId = getLocalData("userId");
       const sessionId = getLocalData("sessionId");
       const sub_session_id = getLocalData("sub_session_id");
+      const tenantId = getLocalData("tenantId");
+      const cohortId = getLocalData("cohortId");
+
       const { originalText, contentType, contentId, currentLine } = props;
       const responseStartTime = new Date().getTime();
       let responseText = "";
@@ -369,13 +372,15 @@ function VoiceAnalyser(props) {
       let requestBody = {
         original_text: originalText,
         audio: base64Data,
-        user_id: virtualId,
+        user_id: userId || virtualId,
         session_id: sessionId,
         language: lang,
         date: new Date(),
         sub_session_id,
         contentId,
         contentType,
+        tenantId,
+        cohortId,
         mechanics_id: localStorage.getItem("mechanism_id") || "",
       };
 
@@ -388,6 +393,16 @@ function VoiceAnalyser(props) {
       }
 
       if (callUpdateLearner) {
+        const { contentLoadStartTime, micStartTime, micStopTime } = JSON.parse(
+          localStorage.getItem("duration")
+        );
+        const loadStart = parseInt(contentLoadStartTime);
+        const micStart = parseInt(micStartTime);
+        const micStop = parseInt(micStopTime);
+
+        const loadToMicStartDuration = (micStart - loadStart) / 1000; // in seconds
+        const micDuration = (micStop - micStart) / 1000; // in seconds
+
         const { data: updateLearnerData } = await axios.post(
           `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.UPDATE_LEARNER_PROFILE}/${lang}`,
           requestBody

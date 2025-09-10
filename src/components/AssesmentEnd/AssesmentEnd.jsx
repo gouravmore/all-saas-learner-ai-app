@@ -34,11 +34,12 @@ const AssesmentEnd = () => {
         audio.play();
       }
       const virtualId = getLocalData("virtualId");
+      const userId = getLocalData("userId");
       const lang = getLocalData("lang");
       const previous_level = getLocalData("previous_level");
       setPreviousLevel(previous_level?.replace("m", ""));
       const getMilestoneDetails = await axios.get(
-        `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}/${virtualId}?language=${lang}`
+        `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}/${userId}?language=${lang}`
       );
       const { data } = getMilestoneDetails;
       setLevel(data.data.milestone_level);
@@ -77,7 +78,7 @@ const AssesmentEnd = () => {
   };
 
   const handleRedirect = () => {
-    navigate("/practice");
+    navigate(`/practice?userId=${encodeURIComponent(localStorage.getItem("userId"))}`);
   };
   return true ? (
     <Box style={sectionStyle}>

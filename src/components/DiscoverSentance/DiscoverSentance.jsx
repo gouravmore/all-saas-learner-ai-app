@@ -70,10 +70,10 @@ const SpeakSentenceComponent = () => {
     if (!(localStorage.getItem("contentSessionId") !== null)) {
       (async () => {
         const sessionId = getLocalData("sessionId");
-        const virtualId = getLocalData("virtualId");
+        const userId = getLocalData("userId");
         const lang = getLocalData("lang");
         const getPointersDetails = await axios.get(
-          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_POINTER}/${virtualId}/${sessionId}?language=${lang}`
+          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_POINTER}/${userId}/${sessionId}?language=${lang}`
         );
         setPoints(getPointersDetails?.data?.result?.totalLanguagePoints || 0);
       })();
@@ -132,6 +132,7 @@ const SpeakSentenceComponent = () => {
       //     progress: ((currentQuestion + 1) * 100) / questions.length,
       //     language: lang,
       //     milestoneLevel: "m0",
+      //     tenantId : localStorage.getItem("tenantId"),
       //   }
       // );
 
@@ -145,10 +146,12 @@ const SpeakSentenceComponent = () => {
             sub_session_id: sub_session_id,
             contentType: currentContentType,
             session_id: localStorage.getItem("sessionId"),
-            user_id: localStorage.getItem("virtualId"),
+            user_id: localStorage.getItem("userId"),
             collectionId: currentCollectionId,
             totalSyllableCount: totalSyllableCount,
             language: localStorage.getItem("lang"),
+            tenantId : localStorage.getItem("tenantId"),
+
           }
         );
 
@@ -173,6 +176,7 @@ const SpeakSentenceComponent = () => {
         const { data: getSetData } = getSetResultRes;
         const data = JSON.stringify(getSetData?.data);
         Log(data, "discovery", "ET");
+        
         if (process.env.REACT_APP_POST_LEARNER_PROGRESS === "true") {
           await axios.post(
             `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.CREATE_LEARNER_PROGRESS}`,
@@ -182,6 +186,7 @@ const SpeakSentenceComponent = () => {
               subSessionId: sub_session_id,
               milestoneLevel: getSetData?.data?.currentLevel,
               language: localStorage.getItem("lang"),
+              tenantId : localStorage.getItem("tenantId"),
             }
           );
         }
@@ -302,11 +307,6 @@ const SpeakSentenceComponent = () => {
     const destination =
       process.env.REACT_APP_IS_APP_IFRAME === "true" ? "/" : "/discover-start";
     navigate(destination);
-    // if (process.env.REACT_APP_IS_APP_IFRAME === 'true') {
-    //   navigate("/");
-    // } else {
-    //   navigate("/discover-start")
-    // }
   };
 
   useEffect(() => {

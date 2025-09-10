@@ -773,10 +773,8 @@ const Practice = () => {
     setEnableNext(false);
     try {
       const lang = getLocalData("lang");
-
-      const virtualId = getLocalData("virtualId");
+      const userId = getLocalData("userId");
       const sessionId = getLocalData("sessionId");
-
       let practiceProgress = getLocalData("practiceProgress");
 
       if (levelMapping[virtualId] !== undefined) {
@@ -825,8 +823,8 @@ const Practice = () => {
       let currentPracticeStep = "";
       let currentPracticeProgress = "";
 
-      if (practiceProgress?.[virtualId]) {
-        currentPracticeStep = practiceProgress[virtualId].currentPracticeStep;
+      if (practiceProgress?.[userId]) {
+        currentPracticeStep = practiceProgress[userId].currentPracticeStep;
         currentPracticeProgress = Math.round(
           ((currentQuestion + 1 + currentPracticeStep * limit) /
             (practiceSteps.length * limit)) *
@@ -858,7 +856,7 @@ const Practice = () => {
 
       if (currentQuestion === questions.length - 1 || isGameOver) {
         let currentPracticeStep =
-          practiceProgress[virtualId].currentPracticeStep;
+          practiceProgress[userId].currentPracticeStep;
         let isShowCase = currentPracticeStep === 4 || currentPracticeStep === 9; // P4 or P8
 
         if (localStorage.getItem("contentSessionId") !== null) {
@@ -889,7 +887,7 @@ const Practice = () => {
               sub_session_id: sub_session_id,
               contentType: currentContentType || "Paragraph",
               session_id: sessionId,
-              user_id: virtualId,
+              user_id: userId,
               totalSyllableCount: totalSyllableCount,
               language: localStorage.getItem("lang"),
               max_level: parseInt(
@@ -897,6 +895,7 @@ const Practice = () => {
                 10
               ),
               is_mechanics: mechanism && mechanism?.id ? true : false,
+              tenantId: tenantId,
             }
           );
           const { data: getSetData } = getSetResultRes;
@@ -904,16 +903,19 @@ const Practice = () => {
           Log(data, "practice", "ET");
           setPercentage(getSetData?.data?.percentage);
           checkFluency(currentContentType, getSetData?.data?.fluency);
+
           if (process.env.REACT_APP_POST_LEARNER_PROGRESS === "true") {
             await axios.post(
               `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.CREATE_LEARNER_PROGRESS}`,
               {
-                userId: virtualId,
+                userId: userId,
                 sessionId: sessionId,
                 subSessionId: sub_session_id,
                 milestoneLevel: getSetData?.data?.currentLevel,
                 totalSyllableCount: totalSyllableCount,
                 language: localStorage.getItem("lang"),
+                tenantId : localStorage.getItem("tenantId"),
+
               }
             );
           }
@@ -932,13 +934,14 @@ const Practice = () => {
               await axios.post(
                 `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_LESSON}`,
                 {
-                  userId: virtualId,
+                  userId: userId,
                   sessionId: sessionId,
                   milestone: `practice`,
                   lesson: "0",
                   progress: 0,
                   language: lang,
                   milestoneLevel: getSetData.data.currentLevel,
+                  tenantId : localStorage.getItem("tenantId"),
                 }
               );
               gameOver({ link: "/assesment-end" }, true);
@@ -968,13 +971,14 @@ const Practice = () => {
         await axios.post(
           `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_LESSON}`,
           {
-            userId: virtualId,
+            userId: userId,
             sessionId: sessionId,
             milestone: `practice`,
             lesson: newPracticeStep,
             progress: currentPracticeProgress,
             language: lang,
             milestoneLevel: `m${level}`,
+            tenantId : localStorage.getItem("tenantId"),
           }
         );
 
@@ -987,7 +991,7 @@ const Practice = () => {
 
         if (![10, 11, 12, 13, 14, 15].includes(level)) {
           const resGetContent = await axios.get(
-            `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${currentGetContent.criteria}/${virtualId}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}` +
+            `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${currentGetContent.criteria}/${userId}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}` +
               (currentGetContent?.mechanism?.id
                 ? `&mechanics_id=${currentGetContent?.mechanism?.id}`
                 : "") +
@@ -1001,8 +1005,6 @@ const Practice = () => {
                 ? `&story_mode=${currentGetContent?.storyMode}`
                 : "")
           );
-
-          //TODO: required only for S1 and S2
 
           setTotalSyllableCount(resGetContent?.data?.totalSyllableCount);
           setLivesData({
@@ -1118,14 +1120,13 @@ const Practice = () => {
         console.log("Assigned LEVEL:", level);
       } else if (currentQuestion < questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
-
-        practiceProgress[virtualId] = {
+        practiceProgress[userId] = {
           currentQuestion: newQuestionIndex,
           currentPracticeProgress,
           currentPracticeStep: newPracticeStep,
         };
         setLocalData("practiceProgress", JSON.stringify(practiceProgress));
-        setProgressData(practiceProgress[virtualId]);
+        setProgressData(practiceProgress[userId]);
       }
     } catch (error) {
       console.log(error);
@@ -1166,8 +1167,8 @@ const Practice = () => {
     try {
       setLoading(true);
       const lang = getLocalData("lang");
-      const virtualId = getLocalData("virtualId");
-      let sessionId = getLocalData("sessionId");
+      const userId = getLocalData("userId");
+      const sessionId = getLocalData("sessionId");
 
       if (!sessionId) {
         sessionId = uniqueId();
@@ -1175,7 +1176,7 @@ const Practice = () => {
       }
 
       const getMilestoneDetails = await axios.get(
-        `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}/${virtualId}?language=${lang}`
+        `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}/${userId}?language=${lang}`
       );
 
       // TODO: validate the getMilestoneDetails API return
@@ -1287,7 +1288,7 @@ const Practice = () => {
       setLevel(updatedLevel);
 
       const resLessons = await axios.get(
-        `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_LESSON_PROGRESS_BY_ID}/${virtualId}?language=${lang}`
+        `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_LESSON_PROGRESS_BY_ID}/${userId}?language=${lang}`
       );
 
       // TODO: Handle Error for lessons - no lesson progress - starting point should be P1
@@ -1298,7 +1299,7 @@ const Practice = () => {
           process.env.REACT_APP_IS_IN_APP_AUTHORISATION === "true")
       ) {
         const getPointersDetails = await axios.get(
-          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_POINTER}/${virtualId}/${sessionId}?language=${lang}`
+          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_POINTER}/${userId}/${sessionId}?language=${lang}`
         );
 
         // TODO: Just Opss icon - we are trying to fetch the score for you
@@ -1315,7 +1316,7 @@ const Practice = () => {
       let practiceProgress = getLocalData("practiceProgress");
       practiceProgress = practiceProgress ? JSON.parse(practiceProgress) : {};
 
-      practiceProgress[virtualId] = {
+      practiceProgress[userId] = {
         currentQuestion: 0,
         currentPracticeProgress: (userState / practiceSteps.length) * 100,
         currentPracticeStep: userState || 0,
@@ -1331,7 +1332,7 @@ const Practice = () => {
 
       if (![10, 11, 12, 13, 14, 15].includes(level)) {
         const resWord = await axios.get(
-          `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${currentGetContent.criteria}/${virtualId}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}` +
+          `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${currentGetContent.criteria}/${userId}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}` +
             (currentGetContent?.mechanism?.id
               ? `&mechanics_id=${currentGetContent?.mechanism?.id}`
               : "") +
@@ -1392,20 +1393,21 @@ const Practice = () => {
         await axios.post(
           `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_LESSON}`,
           {
-            userId: virtualId,
+            userId: userId,
             sessionId: sessionId,
             milestone: "showcase",
             lesson: userState,
             progress: 0,
             language: lang,
             milestoneLevel: `m${level}`,
+            tenantId : localStorage.getItem("tenantId"),
           }
         );
       }
 
-      setCurrentQuestion(practiceProgress[virtualId]?.currentQuestion || 0);
+      setCurrentQuestion(practiceProgress[userId]?.currentQuestion || 0);
       setLocalData("practiceProgress", JSON.stringify(practiceProgress));
-      setProgressData(practiceProgress[virtualId]);
+      setProgressData(practiceProgress[userId]);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -1423,7 +1425,7 @@ const Practice = () => {
 
   const handleBack = async () => {
     if (progressData.currentPracticeStep > 0) {
-      const virtualId = getLocalData("virtualId");
+      const userId = getLocalData("userId");
       const sessionId = getLocalData("sessionId");
       const lang = getLocalData("lang");
       let practiceProgress = {};
@@ -1431,7 +1433,7 @@ const Practice = () => {
         progressData.currentPracticeStep === 5
           ? 3
           : progressData.currentPracticeStep - 1;
-      practiceProgress[virtualId] = {
+      practiceProgress[userId] = {
         currentQuestion: 0,
         currentPracticeProgress:
           (newCurrentPracticeStep / practiceSteps.length) * 100,
@@ -1442,17 +1444,18 @@ const Practice = () => {
       await axios.post(
         `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_LESSON}`,
         {
-          userId: virtualId,
+          userId: userId,
           sessionId: sessionId,
           milestone: "practice",
           lesson: newCurrentPracticeStep,
           progress: (newCurrentPracticeStep / practiceSteps.length) * 100,
           language: lang,
           milestoneLevel: `m${level}`,
+          tenantId : localStorage.getItem("tenantId"),
         }
       );
 
-      setProgressData(practiceProgress[virtualId]);
+      setProgressData(practiceProgress[userId]);
 
       const currentGetContent = levelGetContent[
         localStorage.getItem("lang") || "en"
@@ -1463,7 +1466,7 @@ const Practice = () => {
 
       if (![10, 11, 12, 13, 14, 15].includes(level)) {
         const resWord = await axios.get(
-          `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${currentGetContent.criteria}/${virtualId}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}` +
+          `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${currentGetContent.criteria}/${userId}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}` +
             (currentGetContent?.mechanism?.id
               ? `&mechanics_id=${currentGetContent?.mechanism?.id}`
               : "") +
@@ -1516,7 +1519,7 @@ const Practice = () => {
       //   setMechanism({ id: "r3", name: "r3" });
       // }
 
-      setCurrentQuestion(practiceProgress[virtualId]?.currentQuestion || 0);
+      setCurrentQuestion(practiceProgress[userId]?.currentQuestion || 0);
       setLocalData("practiceProgress", JSON.stringify(practiceProgress));
     } else {
       if (process.env.REACT_APP_IS_APP_IFRAME === "true") {
@@ -1664,6 +1667,12 @@ const Practice = () => {
         window.parent.postMessage({ type: "stringLengths", length }, "*");
       }
     }
+    const contentLoadStartTime = new Date().getTime();
+    const duration = {
+      ...JSON.parse(localStorage.getItem("duration")),
+      contentLoadStartTime: contentLoadStartTime,
+    };
+    localStorage.setItem("duration", JSON.stringify(duration));
   }, [questions[currentQuestion]]);
 
   console.log("mec", mechanism, level, rFlow);
