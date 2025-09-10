@@ -358,7 +358,8 @@ export const ProfileHeader = ({
   handleBack,
 }) => {
   const language = lang || getLocalData("lang");
-  const username = profileName || getLocalData("name").toUpperCase();
+  const username =
+    (getLocalData("name") && getLocalData("name").toUpperCase()) || "Anonymous";
   const navigate = useNavigate();
   const [openMessageDialog, setOpenMessageDialog] = useState("");
 
@@ -627,9 +628,7 @@ const Assesment = ({ discoverStart }) => {
         //   setLevel(7);
         // }
 
-        if (
-          levelMapping[localStorage.getItem("userId")] !== undefined
-        ) {
+        if (levelMapping[localStorage.getItem("userId")] !== undefined) {
           setLevel(levelMapping[localStorage.getItem("userId")]);
         } else {
           const token = getLocalData("token");
@@ -649,10 +648,7 @@ const Assesment = ({ discoverStart }) => {
 
         console.log("Assigned LEVEL:", level);
 
-        localStorage.setItem(
-          "virtualId",
-          localStorage.getItem("userId")
-        );
+        localStorage.setItem("virtualId", localStorage.getItem("userId"));
 
         let session_id = localStorage.getItem("sessionId");
 
@@ -669,11 +665,11 @@ const Assesment = ({ discoverStart }) => {
             process.env.REACT_APP_IS_IN_APP_AUTHORISATION === "true")
         ) {
           const getPointersDetails = await axios.get(
-          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${
-            config.URLS.GET_POINTER
-          }/${localStorage.getItem("userId")}/${session_id}?language=${lang}`
-        );
-        setPoints(getPointersDetails?.data?.result?.totalLanguagePoints || 0);
+            `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${
+              config.URLS.GET_POINTER
+            }/${localStorage.getItem("userId")}/${session_id}?language=${lang}`
+          );
+          setPoints(getPointersDetails?.data?.result?.totalLanguagePoints || 0);
         }
 
         dispatch(setUserId(localStorage.getItem("userId")));
@@ -681,6 +677,7 @@ const Assesment = ({ discoverStart }) => {
     } else {
       (async () => {
         const userId = getLocalData("userId");
+        const virtualId = getLocalData("userId");
         const language = lang;
         const getMilestoneDetails = await axios.get(
           `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}/${userId}?language=${language}`

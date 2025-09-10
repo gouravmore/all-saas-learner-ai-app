@@ -855,8 +855,7 @@ const Practice = () => {
       // }else{
 
       if (currentQuestion === questions.length - 1 || isGameOver) {
-        let currentPracticeStep =
-          practiceProgress[userId].currentPracticeStep;
+        let currentPracticeStep = practiceProgress[userId].currentPracticeStep;
         let isShowCase = currentPracticeStep === 4 || currentPracticeStep === 9; // P4 or P8
 
         if (localStorage.getItem("contentSessionId") !== null) {
@@ -895,7 +894,7 @@ const Practice = () => {
                 10
               ),
               is_mechanics: mechanism && mechanism?.id ? true : false,
-              tenantId: tenantId,
+              tenantId: localStorage.getItem("tenantId"),
             }
           );
           const { data: getSetData } = getSetResultRes;
@@ -914,8 +913,7 @@ const Practice = () => {
                 milestoneLevel: getSetData?.data?.currentLevel,
                 totalSyllableCount: totalSyllableCount,
                 language: localStorage.getItem("lang"),
-                tenantId : localStorage.getItem("tenantId"),
-
+                tenantId: localStorage.getItem("tenantId"),
               }
             );
           }
@@ -941,7 +939,7 @@ const Practice = () => {
                   progress: 0,
                   language: lang,
                   milestoneLevel: getSetData.data.currentLevel,
-                  tenantId : localStorage.getItem("tenantId"),
+                  tenantId: localStorage.getItem("tenantId"),
                 }
               );
               gameOver({ link: "/assesment-end" }, true);
@@ -978,7 +976,7 @@ const Practice = () => {
             progress: currentPracticeProgress,
             language: lang,
             milestoneLevel: `m${level}`,
-            tenantId : localStorage.getItem("tenantId"),
+            tenantId: localStorage.getItem("tenantId"),
           }
         );
 
@@ -1400,7 +1398,7 @@ const Practice = () => {
             progress: 0,
             language: lang,
             milestoneLevel: `m${level}`,
-            tenantId : localStorage.getItem("tenantId"),
+            tenantId: localStorage.getItem("tenantId"),
           }
         );
       }
@@ -1451,7 +1449,7 @@ const Practice = () => {
           progress: (newCurrentPracticeStep / practiceSteps.length) * 100,
           language: lang,
           milestoneLevel: `m${level}`,
-          tenantId : localStorage.getItem("tenantId"),
+          tenantId: localStorage.getItem("tenantId"),
         }
       );
 
