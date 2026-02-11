@@ -70,6 +70,7 @@ jobs:
           REACT_APP_LANGUAGES: ${{ vars.REACT_APP_LANGUAGES }}
           REACT_APP_AWS_ACCESS_KEY_ID: ${{ secrets.REACT_APP_AWS_ACCESS_KEY_ID }}
           REACT_APP_AWS_SECRET_ACCESS_KEY: ${{ secrets.REACT_APP_AWS_SECRET_ACCESS_KEY }}
+          REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR: ${{ vars.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR }}
           CI: false # Disabling CI to not treat warnings as errors
         run: npm run build
 
