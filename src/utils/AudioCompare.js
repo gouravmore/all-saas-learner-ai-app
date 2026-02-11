@@ -14,6 +14,13 @@ const AudioRecorder = (props) => {
   const recorderRef = useRef(null);
   const mediaStreamRef = useRef(null);
   const [showLoader, setShowLoader] = useState(false);
+  const [audioSource, setAudioSource] = useState(
+    localStorage.getItem("audioSource") || "mic"
+  ); // "mic" | "system"
+
+  // Enable this selector only when explicitly turned on (e.g. for teacher/demo mode)
+  const enableSourceSelector =
+    process.env.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR === "true";
 
   console.log("pageName", props.pageName);
 
@@ -29,9 +36,67 @@ const AudioRecorder = (props) => {
     };
   }, []);
 
+  const getMicStream = async () => {
+    return await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true,
+      },
+    });
+  };
+
+  const getSystemAudioStream = async () => {
+    if (!navigator.mediaDevices?.getDisplayMedia) {
+      throw new Error(
+        "System/Tab audio capture not supported in this browser. Please use a desktop Chrome/Edge browser."
+      );
+    }
+
+    const raw = await navigator.mediaDevices.getDisplayMedia({
+      video: true,
+      audio: true,
+    });
+
+    // We only need audio; stop video tracks immediately.
+    raw.getVideoTracks().forEach((t) => t.stop());
+
+    const audioTracks = raw.getAudioTracks();
+    if (!audioTracks.length) {
+      raw.getTracks().forEach((t) => t.stop());
+      throw new Error(
+        "No system audio captured. When selecting the tab/window, please enable 'Share audio'."
+      );
+    }
+
+    return new MediaStream(audioTracks);
+  };
+
+  const handleSourceChange = (value) => {
+    setAudioSource(value);
+    try {
+      localStorage.setItem("audioSource", value);
+    } catch (e) {
+      // fail silently if localStorage is unavailable
+      console.error("Unable to persist audioSource:", e);
+    }
+  };
+
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (!navigator.mediaDevices) {
+        throw new Error(
+          "navigator.mediaDevices is not available. Use HTTPS or localhost."
+        );
+      }
+
+      const selectedSource = enableSourceSelector ? audioSource : "mic";
+
+      const stream =
+        selectedSource === "system"
+          ? await getSystemAudioStream()
+          : await getMicStream();
+
       if (props.setEnableNext) {
         props.setEnableNext(false);
       }
@@ -55,6 +120,14 @@ const AudioRecorder = (props) => {
       props.handleStartRecording?.();
     } catch (err) {
       console.error("Failed to start recording:", err);
+      if (props.setOpenMessageDialog) {
+        props.setOpenMessageDialog({
+          message:
+            err?.message ||
+            "Unable to start recording. Please check microphone or system audio permissions.",
+          isError: true,
+        });
+      }
     }
   };
 
@@ -192,6 +265,65 @@ const AudioRecorder = (props) => {
                 }}
                 className="game-action-button"
               >
+                {enableSourceSelector && (
+                  <Box
+                    sx={{
+                      mr: 2,
+                      display: "flex",
+                      gap: 1,
+                      backgroundColor: "#FFFFFF",
+                      borderRadius: "999px",
+                      padding: "4px",
+                      boxShadow: "0 0 0 1px rgba(0,0,0,0.06)",
+                    }}
+                  >
+                    <Box
+                      onClick={() => handleSourceChange("mic")}
+                      sx={{
+                        cursor: "pointer",
+                        px: 2,
+                        py: 0.5,
+                        borderRadius: "999px",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        fontFamily: "Quicksand, sans-serif",
+                        backgroundColor:
+                          audioSource === "mic" ? "#22c55e" : "transparent",
+                        color: audioSource === "mic" ? "#FFFFFF" : "#333333",
+                        transition: "all 0.15s ease-out",
+                        "&:hover": {
+                          backgroundColor:
+                            audioSource === "mic" ? "#16a34a" : "#f3f4f6",
+                        },
+                      }}
+                    >
+                      Mic
+                    </Box>
+                    <Box
+                      onClick={() => handleSourceChange("system")}
+                      sx={{
+                        cursor: "pointer",
+                        px: 2,
+                        py: 0.5,
+                        borderRadius: "999px",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        fontFamily: "Quicksand, sans-serif",
+                        backgroundColor:
+                          audioSource === "system" ? "#22c55e" : "transparent",
+                        color: audioSource === "system" ? "#FFFFFF" : "#333333",
+                        whiteSpace: "nowrap",
+                        transition: "all 0.15s ease-out",
+                        "&:hover": {
+                          backgroundColor:
+                            audioSource === "system" ? "#16a34a" : "#f3f4f6",
+                        },
+                      }}
+                    >
+                      System audio
+                    </Box>
+                  </Box>
+                )}
                 {props.enableAfterLoad &&
                   props?.originalText &&
                   (!props.dontShowListen ||
