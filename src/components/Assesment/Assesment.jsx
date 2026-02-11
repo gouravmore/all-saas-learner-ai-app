@@ -26,6 +26,9 @@ import axios from "../../../node_modules/axios/index";
 import { setUserId } from "../../store/slices/user.slice";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
+import MicIcon from "@mui/icons-material/Mic";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import CloseIcon from "@mui/icons-material/Close";
 import desktopLevel1 from "../../assets/images/desktopLevel1.png";
 import desktopLevel2 from "../../assets/images/desktopLevel2.png";
 import desktopLevel3 from "../../assets/images/desktopLevel3.jpg";
@@ -340,6 +343,12 @@ export const ProfileHeader = ({
   const username = profileName || getLocalData("name").toUpperCase();
   const navigate = useNavigate();
   const [openMessageDialog, setOpenMessageDialog] = useState("");
+  const [audioSource, setAudioSource] = useState(
+    localStorage.getItem("audioSource") || "mic"
+  );
+  const [openAudioSourceDialog, setOpenAudioSourceDialog] = useState(false);
+  const enableAudioSourceSelector =
+    process.env.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR === "true";
 
   const handleProfileBack = () => {
     try {
@@ -377,6 +386,15 @@ export const ProfileHeader = ({
       filter: "invert(1)",
     },
   });
+
+  const handleAudioSourceChange = (value) => {
+    setAudioSource(value);
+    try {
+      localStorage.setItem("audioSource", value);
+    } catch (e) {
+      console.error("Unable to persist audioSource:", e);
+    }
+  };
 
   const CustomTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -490,6 +508,63 @@ export const ProfileHeader = ({
             </Box>
           </Box> */}
 
+          {enableAudioSourceSelector && (
+            <Box
+              sx={{
+                mr: { xs: "6px", sm: "20px" },
+                display: "flex",
+                alignItems: "center",
+                background: "linear-gradient(90deg, #00D5D5 0%, #00B4C8 100%)",
+                borderRadius: "999px",
+                padding: "1px 10px",
+                boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.12)",
+                cursor: "pointer",
+              }}
+              onClick={() => setOpenAudioSourceDialog(true)}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.5,
+                  px: 1.5,
+                  py: 0.5,
+                  borderRadius: "999px",
+                }}
+              >
+                <MicIcon
+                  sx={{
+                    fontSize: 16,
+                    color: "#FFFFFF",
+                  }}
+                />
+                <span
+                  style={{
+                    color: "black",
+                    fontWeight: 500,
+                    fontSize: 15,
+                    fontFamily: "Quicksand",
+                    marginRight: 4,
+                    opacity: 0.9,
+                  }}
+                >
+                  Audio source:
+                </span>
+                <span
+                  style={{
+                    color: "black",
+                    fontWeight: 700,
+                    fontSize: 15,
+                    fontFamily: "Quicksand",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {audioSource === "system" ? "System audio" : "Mic"}
+                </span>
+              </Box>
+            </Box>
+          )}
+
           <Box
             mr={{ xs: "10px", sm: "90px" }}
             onClick={() =>
@@ -535,6 +610,197 @@ export const ProfileHeader = ({
           )}
         </Box>
       </Box>
+      {enableAudioSourceSelector && openAudioSourceDialog && (
+        <Box
+          sx={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "rgba(0, 0, 0, 0.4)",
+            zIndex: 9999,
+          }}
+        >
+          <Box
+            sx={{
+              width: { xs: "90%", sm: "420px" },
+              borderRadius: "20px",
+              backgroundImage: `url(${textureImage})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "round",
+              boxShadow: "0px 4px 20px -1px rgba(0, 0, 0, 0.2)",
+              backdropFilter: "blur(25px)",
+              padding: "24px 24px 20px",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 2,
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Quicksand",
+                  fontWeight: 700,
+                  fontSize: 20,
+                  color: "#322020",
+                }}
+              >
+                Choose audio source
+              </Typography>
+              <IconButton
+                size="small"
+                onClick={() => setOpenAudioSourceDialog(false)}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box
+                onClick={() => {
+                  handleAudioSourceChange("mic");
+                  setOpenAudioSourceDialog(false);
+                }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  padding: "10px 12px",
+                  borderRadius: "14px",
+                  cursor: "pointer",
+                  backgroundColor:
+                    audioSource === "mic"
+                      ? "rgba(0, 212, 213, 0.12)"
+                      : "#FFFFFF",
+                  border:
+                    audioSource === "mic"
+                      ? "1.5px solid #00B4C8"
+                      : "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "999px",
+                    background:
+                      "linear-gradient(90deg, #00D5D5 0%, #00B4C8 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <MicIcon sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                </Box>
+                <Box>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 700,
+                      fontSize: 16,
+                      color: "#322020",
+                    }}
+                  >
+                    Microphone
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 500,
+                      fontSize: 13,
+                      color: "#555",
+                    }}
+                  >
+                    Use this computer&apos;s mic to capture the voice.
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box
+                onClick={() => {
+                  handleAudioSourceChange("system");
+                  setOpenAudioSourceDialog(false);
+                }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  padding: "10px 12px",
+                  borderRadius: "14px",
+                  cursor: "pointer",
+                  backgroundColor:
+                    audioSource === "system"
+                      ? "rgba(0, 212, 213, 0.12)"
+                      : "#FFFFFF",
+                  border:
+                    audioSource === "system"
+                      ? "1.5px solid #00B4C8"
+                      : "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "999px",
+                    background:
+                      "linear-gradient(90deg, #00D5D5 0%, #00B4C8 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <VolumeUpIcon sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                </Box>
+                <Box>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 700,
+                      fontSize: 16,
+                      color: "#322020",
+                    }}
+                  >
+                    System / tab audio
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 500,
+                      fontSize: 13,
+                      color: "#555",
+                    }}
+                  >
+                    Capture audio from a shared tab or window (e.g. Google
+                    Meet).
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Typography
+                sx={{
+                  mt: 1,
+                  fontFamily: "Quicksand",
+                  fontWeight: 500,
+                  fontSize: 12,
+                  color: "#666",
+                }}
+              >
+                Tip: For online classes, choose <b>System / tab audio</b> and
+                enable <b>&quot;Share tab audio&quot;</b> in the browser popup.
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      )}
     </>
   );
 };

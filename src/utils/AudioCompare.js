@@ -12,9 +12,8 @@ const AudioRecorder = (props) => {
   const mediaStreamRef = useRef(null);
   const systemStreamRef = useRef(null);
   const currentSourceRef = useRef("mic");
-  const [audioSource, setAudioSource] = useState(
-    localStorage.getItem("audioSource") || "mic"
-  ); // "mic" | "system"
+  // Local default; active source is always read from localStorage at record time.
+  const [audioSource] = useState(localStorage.getItem("audioSource") || "mic"); // "mic" | "system"
 
   // Enable this selector only when explicitly turned on (e.g. for teacher/demo mode)
   const enableSourceSelector =
@@ -71,16 +70,6 @@ const AudioRecorder = (props) => {
     return new MediaStream(audioTracks);
   };
 
-  const handleSourceChange = (value) => {
-    setAudioSource(value);
-    try {
-      localStorage.setItem("audioSource", value);
-    } catch (e) {
-      // fail silently if localStorage is unavailable
-      console.error("Unable to persist audioSource:", e);
-    }
-  };
-
   const startRecording = async () => {
     const micStartTime = new Date().getTime();
     const duration = {
@@ -95,7 +84,9 @@ const AudioRecorder = (props) => {
         );
       }
 
-      const selectedSource = enableSourceSelector ? audioSource : "mic";
+      const selectedSource = enableSourceSelector
+        ? localStorage.getItem("audioSource") || audioSource || "mic"
+        : "mic";
       currentSourceRef.current = selectedSource;
 
       let stream;
@@ -218,71 +209,11 @@ const AudioRecorder = (props) => {
               <div
                 style={{
                   display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  justifyContent: "space-between",
                   margin: "0 auto",
                 }}
                 className="game-action-button"
               >
-                {enableSourceSelector && (
-                  <Box
-                    sx={{
-                      mr: 2,
-                      display: "flex",
-                      gap: 1,
-                      backgroundColor: "#FFFFFF",
-                      borderRadius: "999px",
-                      padding: "4px",
-                      boxShadow: "0 0 0 1px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <Box
-                      onClick={() => handleSourceChange("mic")}
-                      sx={{
-                        cursor: "pointer",
-                        px: 2,
-                        py: 0.5,
-                        borderRadius: "999px",
-                        fontSize: 14,
-                        fontWeight: 600,
-                        fontFamily: "Quicksand, sans-serif",
-                        backgroundColor:
-                          audioSource === "mic" ? "#22c55e" : "transparent",
-                        color: audioSource === "mic" ? "#FFFFFF" : "#333333",
-                        transition: "all 0.15s ease-out",
-                        "&:hover": {
-                          backgroundColor:
-                            audioSource === "mic" ? "#16a34a" : "#f3f4f6",
-                        },
-                      }}
-                    >
-                      Mic
-                    </Box>
-                    <Box
-                      onClick={() => handleSourceChange("system")}
-                      sx={{
-                        cursor: "pointer",
-                        px: 2,
-                        py: 0.5,
-                        borderRadius: "999px",
-                        fontSize: 14,
-                        fontWeight: 600,
-                        fontFamily: "Quicksand, sans-serif",
-                        backgroundColor:
-                          audioSource === "system" ? "#22c55e" : "transparent",
-                        color: audioSource === "system" ? "#FFFFFF" : "#333333",
-                        whiteSpace: "nowrap",
-                        transition: "all 0.15s ease-out",
-                        "&:hover": {
-                          backgroundColor:
-                            audioSource === "system" ? "#16a34a" : "#f3f4f6",
-                        },
-                      }}
-                    >
-                      System audio
-                    </Box>
-                  </Box>
-                )}
                 {props?.originalText &&
                   (!props.dontShowListen || props.recordedAudio) && (
                     <>
