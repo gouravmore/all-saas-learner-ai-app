@@ -340,7 +340,9 @@ export const ProfileHeader = ({
   handleBack,
 }) => {
   const language = lang || getLocalData("lang");
-  const username = profileName || getLocalData("name").toUpperCase();
+  const nameData = getLocalData("name");
+  const username =
+    profileName || (nameData ? nameData.toUpperCase() : "Anonymous");
   const navigate = useNavigate();
   const [openMessageDialog, setOpenMessageDialog] = useState("");
   const [audioSource, setAudioSource] = useState(

@@ -4,13 +4,15 @@ import { Box } from "@mui/material";
 import { ListenButton, RetryIcon, SpeakButton, StopButton } from "./constants";
 import RecordVoiceVisualizer from "./RecordVoiceVisualizer";
 
+// Module-level variable to persist system stream across component remounts
+let globalSystemStream = null;
+
 const AudioRecorder = (props) => {
   const [isRecording, setIsRecording] = useState(false);
   const [status, setStatus] = useState("");
   const [audioBlob, setAudioBlob] = useState(null);
   const recorderRef = useRef(null);
   const mediaStreamRef = useRef(null);
-  const systemStreamRef = useRef(null);
   const currentSourceRef = useRef("mic");
   // Local default; active source is always read from localStorage at record time.
   const [audioSource] = useState(localStorage.getItem("audioSource") || "mic"); // "mic" | "system"
@@ -20,17 +22,79 @@ const AudioRecorder = (props) => {
     process.env.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR === "true";
 
   useEffect(() => {
+    // Listen for when user stops sharing from browser UI
+    const handleTrackEnd = () => {
+      if (globalSystemStream) {
+        const hasLiveTrack = globalSystemStream
+          .getAudioTracks()
+          .some((t) => t.readyState === "live");
+        if (!hasLiveTrack) {
+          globalSystemStream = null;
+        }
+      }
+    };
+
+    if (globalSystemStream) {
+      globalSystemStream.getAudioTracks().forEach((track) => {
+        track.addEventListener("ended", handleTrackEnd);
+      });
+    }
+
     // Cleanup when component unmounts
     return () => {
       if (recorderRef.current) {
         recorderRef.current.destroy();
       }
-      if (mediaStreamRef.current) {
+      // Only stop mic streams on unmount; keep system stream alive
+      if (mediaStreamRef.current && currentSourceRef.current === "mic") {
         mediaStreamRef.current.getTracks().forEach((track) => track.stop());
       }
-      if (systemStreamRef.current) {
-        systemStreamRef.current.getTracks().forEach((track) => track.stop());
+      // Don't stop globalSystemStream here - let it persist across component remounts
+      // It will be cleaned up when source changes or page unloads
+    };
+  }, []);
+
+  // Cleanup system stream when audio source changes away from system
+  useEffect(() => {
+    const checkSourceChange = () => {
+      const currentSource = localStorage.getItem("audioSource") || "mic";
+      if (currentSource !== "system" && globalSystemStream) {
+        globalSystemStream.getTracks().forEach((track) => track.stop());
+        globalSystemStream = null;
       }
+    };
+
+    // Check on mount
+    checkSourceChange();
+
+    // Listen for storage changes (when user changes source in header)
+    const handleStorageChange = (e) => {
+      if (e.key === "audioSource") {
+        checkSourceChange();
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    // Also poll localStorage in case storage event doesn't fire (same-origin)
+    const intervalId = setInterval(checkSourceChange, 500);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      clearInterval(intervalId);
+    };
+  }, [audioSource]);
+
+  // Cleanup on page unload
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (globalSystemStream) {
+        globalSystemStream.getTracks().forEach((track) => track.stop());
+        globalSystemStream = null;
+      }
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
 
@@ -91,7 +155,7 @@ const AudioRecorder = (props) => {
 
       let stream;
       if (selectedSource === "system") {
-        const existing = systemStreamRef.current;
+        const existing = globalSystemStream;
         const hasLiveTrack =
           existing &&
           existing.getAudioTracks().some((t) => t.readyState === "live");
@@ -100,7 +164,7 @@ const AudioRecorder = (props) => {
           stream = existing;
         } else {
           const newStream = await getSystemAudioStream();
-          systemStreamRef.current = newStream;
+          globalSystemStream = newStream;
           stream = newStream;
         }
       } else {
