@@ -513,57 +513,42 @@ export const ProfileHeader = ({
           {enableAudioSourceSelector && (
             <Box
               sx={{
-                mr: { xs: "6px", sm: "20px" },
+                mr: { xs: "6px", sm: "12px" },
                 display: "flex",
                 alignItems: "center",
-                background: "linear-gradient(90deg, #00D5D5 0%, #00B4C8 100%)",
-                borderRadius: "999px",
-                padding: "1px 10px",
-                boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.12)",
+                justifyContent: "center",
+                width: "32px",
+                height: "32px",
+                borderRadius: "50%",
+                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                border: "1px solid rgba(0, 0, 0, 0.1)",
                 cursor: "pointer",
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 1)",
+                  boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                },
               }}
               onClick={() => setOpenAudioSourceDialog(true)}
+              title={`Audio source: ${
+                audioSource === "system" ? "System audio" : "Mic"
+              }`}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 0.5,
-                  px: 1.5,
-                  py: 0.5,
-                  borderRadius: "999px",
-                }}
-              >
-                <MicIcon
+              {audioSource === "system" ? (
+                <VolumeUpIcon
                   sx={{
-                    fontSize: 16,
-                    color: "#FFFFFF",
+                    fontSize: 18,
+                    color: "#00B4C8",
                   }}
                 />
-                <span
-                  style={{
-                    color: "black",
-                    fontWeight: 500,
-                    fontSize: 15,
-                    fontFamily: "Quicksand",
-                    marginRight: 4,
-                    opacity: 0.9,
+              ) : (
+                <MicIcon
+                  sx={{
+                    fontSize: 18,
+                    color: "#00B4C8",
                   }}
-                >
-                  Audio source:
-                </span>
-                <span
-                  style={{
-                    color: "black",
-                    fontWeight: 700,
-                    fontSize: 15,
-                    fontFamily: "Quicksand",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {audioSource === "system" ? "System audio" : "Mic"}
-                </span>
-              </Box>
+                />
+              )}
             </Box>
           )}
 
