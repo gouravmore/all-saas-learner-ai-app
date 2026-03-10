@@ -1,0 +1,3435 @@
+{
+  "metadata": {
+    "version": "3.0.0",
+    "description": "Sound Match Game Data - Child-friendly images and vocabulary for ages 3-8",
+    "languages": [
+      "en",
+      "te",
+      "mr",
+      "kn"
+    ],
+    "complexityLevels": [
+      "basic",
+      "intermediate",
+      "advanced",
+      "expert",
+      "master"
+    ],
+    "lastUpdated": "2024-01-15",
+    "validation": {
+      "rules": [
+        "All images must be child-friendly and recognizable",
+        "Images must clearly represent the word",
+        "Progressive difficulty from concrete to abstract concepts",
+        "No geometric shapes or complex symbols",
+        "All words are age-appropriate for 3-8 year olds",
+        "Images should be colorful and engaging for children"
+      ]
+    }
+  },
+  "questionTracking": {
+    "en": {
+      "usedQuestions": [],
+      "levelQuestions": {
+        "basic": [],
+        "intermediate": [],
+        "advanced": [],
+        "expert": [],
+        "master": []
+      }
+    },
+    "te": {
+      "usedQuestions": [],
+      "levelQuestions": {
+        "basic": [],
+        "intermediate": [],
+        "advanced": [],
+        "expert": [],
+        "master": []
+      }
+    },
+    "kn": {
+      "usedQuestions": [],
+      "levelQuestions": {
+        "basic": [],
+        "intermediate": [],
+        "advanced": [],
+        "expert": [],
+        "master": []
+      }
+    },
+    "mr": {
+      "usedQuestions": [],
+      "levelQuestions": {
+        "basic": [],
+        "intermediate": [],
+        "advanced": [],
+        "expert": [],
+        "master": []
+      }
+    }
+  },
+  "languages": {
+    "en": {
+      "name": "English",
+      "nativeName": "English",
+      "flag": "🇺🇸",
+      "complexityLevels": {
+        "basic": {
+          "description": "Level 1-3: First words - Simple animals and basic food (Ages 3-4)",
+          "maxLevel": 3,
+          "items": [
+            {
+              "image": "🐱",
+              "word": "cat",
+              "phoneme": "/k/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐕",
+              "word": "dog",
+              "phoneme": "/d/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐭",
+              "word": "mouse",
+              "phoneme": "/m/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐰",
+              "word": "rabbit",
+              "phoneme": "/r/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐸",
+              "word": "frog",
+              "phoneme": "/f/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐻",
+              "word": "bear",
+              "phoneme": "/b/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐷",
+              "word": "pig",
+              "phoneme": "/p/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐮",
+              "word": "cow",
+              "phoneme": "/k/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐴",
+              "word": "horse",
+              "phoneme": "/h/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐑",
+              "word": "sheep",
+              "phoneme": "/ʃ/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🍎",
+              "word": "apple",
+              "phoneme": "/æ/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍌",
+              "word": "banana",
+              "phoneme": "/b/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍊",
+              "word": "fresh fruit",
+              "phoneme": "/r/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🥕",
+              "word": "carrot",
+              "phoneme": "/k/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍞",
+              "word": "bread",
+              "phoneme": "/b/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🐘",
+              "word": "elephant",
+              "phoneme": "/e/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🦒",
+              "word": "giraffe",
+              "phoneme": "/dʒ/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐧",
+              "word": "penguin",
+              "phoneme": "/p/",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🍓",
+              "word": "strawberry",
+              "phoneme": "/s/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍇",
+              "word": "grapes",
+              "phoneme": "/g/",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🥝",
+              "word": "kiwi",
+              "phoneme": "/k/",
+              "category": "food",
+              "difficulty": 1
+            }
+          ]
+        },
+        "intermediate": {
+          "description": "Level 4-6: Everyday objects and concepts (Ages 4-5)",
+          "maxLevel": 6,
+          "items": [
+            {
+              "image": "🏠",
+              "word": "house",
+              "phoneme": "/h/",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🏫",
+              "word": "school",
+              "phoneme": "/s/",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🏥",
+              "word": "hospital",
+              "phoneme": "/h/",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🚗",
+              "word": "car",
+              "phoneme": "/k/",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚌",
+              "word": "bus",
+              "phoneme": "/b/",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "✈️",
+              "word": "plane",
+              "phoneme": "/p/",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚢",
+              "word": "ship",
+              "phoneme": "/ʃ/",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🌳",
+              "word": "tree",
+              "phoneme": "/t/",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌸",
+              "word": "flower",
+              "phoneme": "/f/",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "☀️",
+              "word": "sun",
+              "phoneme": "/s/",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌙",
+              "word": "moon",
+              "phoneme": "/m/",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌟",
+              "word": "star",
+              "phoneme": "/s/",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "📚",
+              "word": "book",
+              "phoneme": "/b/",
+              "category": "object",
+              "difficulty": 2
+            },
+            {
+              "image": "🎈",
+              "word": "ball",
+              "phoneme": "/b/",
+              "category": "toy",
+              "difficulty": 2
+            },
+            {
+              "image": "🧸",
+              "word": "teddy",
+              "phoneme": "/t/",
+              "category": "toy",
+              "difficulty": 2
+            },
+            {
+              "image": "🚲",
+              "word": "bicycle",
+              "phoneme": "/b/",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🏍️",
+              "word": "motorcycle",
+              "phoneme": "/m/",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚁",
+              "word": "helicopter",
+              "phoneme": "/h/",
+              "category": "vehicle",
+              "difficulty": 2
+            }
+          ]
+        },
+        "advanced": {
+          "description": "Level 7-9: Body parts and family relationships (Ages 5-6)",
+          "maxLevel": 9,
+          "items": [
+            {
+              "image": "👀",
+              "word": "eyes",
+              "phoneme": "/aɪ/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👂",
+              "word": "ears",
+              "phoneme": "/ɪ/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👃",
+              "word": "nose",
+              "phoneme": "/n/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👄",
+              "word": "mouth",
+              "phoneme": "/m/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "✋",
+              "word": "hand",
+              "phoneme": "/h/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦶",
+              "word": "foot",
+              "phoneme": "/f/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👶",
+              "word": "baby",
+              "phoneme": "/b/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👨",
+              "word": "dad",
+              "phoneme": "/d/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👩",
+              "word": "mom",
+              "phoneme": "/m/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👧",
+              "word": "girl",
+              "phoneme": "/g/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👦",
+              "word": "boy",
+              "phoneme": "/b/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👴",
+              "word": "grandpa",
+              "phoneme": "/g/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👵",
+              "word": "grandma",
+              "phoneme": "/g/",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🐶",
+              "word": "puppy",
+              "phoneme": "/p/",
+              "category": "animal",
+              "difficulty": 3
+            },
+            {
+              "image": "🐈",
+              "word": "kitten",
+              "phoneme": "/k/",
+              "category": "animal",
+              "difficulty": 3
+            },
+            {
+              "image": "🦷",
+              "word": "tooth",
+              "phoneme": "/t/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👅",
+              "word": "tongue",
+              "phoneme": "/t/",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦵",
+              "word": "leg",
+              "phoneme": "/l/",
+              "category": "body",
+              "difficulty": 3
+            }
+          ]
+        },
+        "expert": {
+          "description": "Level 10: Colors and descriptive concepts (Ages 6-7)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "🍎",
+              "word": "red",
+              "phoneme": "/r/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🫐",
+              "word": "blue",
+              "phoneme": "/b/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍋",
+              "word": "yellow",
+              "phoneme": "/j/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🥬",
+              "word": "green",
+              "phoneme": "/g/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍊",
+              "word": "orange",
+              "phoneme": "/ɔ/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍇",
+              "word": "purple",
+              "phoneme": "/p/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍫",
+              "word": "black",
+              "phoneme": "/b/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🥛",
+              "word": "white",
+              "phoneme": "/w/",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍕",
+              "word": "pizza",
+              "phoneme": "/p/",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍰",
+              "word": "cake",
+              "phoneme": "/k/",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍪",
+              "word": "cookie",
+              "phoneme": "/k/",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍦",
+              "word": "ice cream",
+              "phoneme": "/aɪ/",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🧁",
+              "word": "cupcake",
+              "phoneme": "/k/",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍭",
+              "word": "lollipop",
+              "phoneme": "/l/",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "❤️",
+              "word": "heart",
+              "phoneme": "/h/",
+              "category": "shape",
+              "difficulty": 4
+            }
+          ]
+        },
+        "master": {
+          "description": "Level 10: Numbers, time, and weather concepts (Ages 7-8)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "1️⃣",
+              "word": "one",
+              "phoneme": "/w/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "2️⃣",
+              "word": "two",
+              "phoneme": "/t/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "3️⃣",
+              "word": "three",
+              "phoneme": "/θ/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "4️⃣",
+              "word": "four",
+              "phoneme": "/f/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "5️⃣",
+              "word": "five",
+              "phoneme": "/f/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "6️⃣",
+              "word": "six",
+              "phoneme": "/s/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "7️⃣",
+              "word": "seven",
+              "phoneme": "/s/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "8️⃣",
+              "word": "eight",
+              "phoneme": "/eɪ/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "9️⃣",
+              "word": "nine",
+              "phoneme": "/n/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "🔟",
+              "word": "ten",
+              "phoneme": "/t/",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "☀️",
+              "word": "day",
+              "phoneme": "/d/",
+              "category": "time",
+              "difficulty": 5
+            },
+            {
+              "image": "🌙",
+              "word": "night",
+              "phoneme": "/n/",
+              "category": "time",
+              "difficulty": 5
+            },
+            {
+              "image": "🌧️",
+              "word": "rain",
+              "phoneme": "/r/",
+              "category": "weather",
+              "difficulty": 5
+            },
+            {
+              "image": "❄️",
+              "word": "snow",
+              "phoneme": "/s/",
+              "category": "weather",
+              "difficulty": 5
+            },
+            {
+              "image": "🌈",
+              "word": "rainbow",
+              "phoneme": "/r/",
+              "category": "weather",
+              "difficulty": 5
+            }
+          ]
+        }
+      },
+      "audioSettings": {
+        "lang": "en-US",
+        "rate": 0.8,
+        "pitch": 1,
+        "volume": 0.9
+      }
+    },
+    "te": {
+      "name": "Telugu",
+      "nativeName": "తెలుగు",
+      "flag": "🇮🇳",
+      "complexityLevels": {
+        "basic": {
+          "description": "Level 1-3: First words - Simple animals and basic food (Ages 3-4)",
+          "maxLevel": 3,
+          "items": [
+            {
+              "image": "🐱",
+              "word": "పిల్లి",
+              "phoneme": "ప",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐕",
+              "word": "కుక్క",
+              "phoneme": "క",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐭",
+              "word": "ఎలుక",
+              "phoneme": "ఎ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐰",
+              "word": "కుందేలు",
+              "phoneme": "క",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐸",
+              "word": "కప్ప",
+              "phoneme": "క",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐻",
+              "word": "ఎలుగుబంటి",
+              "phoneme": "ఎ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐷",
+              "word": "పంది",
+              "phoneme": "ప",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐮",
+              "word": "ఆవు",
+              "phoneme": "ఆ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐴",
+              "word": "గుర్రం",
+              "phoneme": "గ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐑",
+              "word": "గొర్రె",
+              "phoneme": "గ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🍎",
+              "word": "ఆపిల్",
+              "phoneme": "ఆ",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍌",
+              "word": "అరటి",
+              "phoneme": "అ",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍊",
+              "word": "కమల",
+              "phoneme": "క",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🥕",
+              "word": "క్యారెట్",
+              "phoneme": "క",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍞",
+              "word": "బ్రెడ్",
+              "phoneme": "బ",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🐘",
+              "word": "ఏనుగు",
+              "phoneme": "ఏ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🦒",
+              "word": "జిరాఫీ",
+              "phoneme": "జ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐧",
+              "word": "పెంగ్విన్",
+              "phoneme": "ప",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🍓",
+              "word": "స్ట్రాబెర్రీ",
+              "phoneme": "స",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍇",
+              "word": "ద్రాక్ష",
+              "phoneme": "ద",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🥝",
+              "word": "కివి",
+              "phoneme": "క",
+              "category": "food",
+              "difficulty": 1
+            }
+          ]
+        },
+        "intermediate": {
+          "description": "Level 4-6: Everyday objects and concepts (Ages 4-5)",
+          "maxLevel": 6,
+          "items": [
+            {
+              "image": "🏠",
+              "word": "ఇల్లు",
+              "phoneme": "ఇ",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🏫",
+              "word": "పాఠశాల",
+              "phoneme": "ప",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🏥",
+              "word": "ఆసుపత్రి",
+              "phoneme": "ఆ",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🚗",
+              "word": "కారు",
+              "phoneme": "క",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚌",
+              "word": "బస్సు",
+              "phoneme": "బ",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "✈️",
+              "word": "విమానం",
+              "phoneme": "వ",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚢",
+              "word": "ఓడ",
+              "phoneme": "ఓ",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🌳",
+              "word": "చెట్టు",
+              "phoneme": "చ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌸",
+              "word": "పూలు",
+              "phoneme": "ప",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "☀️",
+              "word": "సూర్యుడు",
+              "phoneme": "స",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌙",
+              "word": "చంద్రుడు",
+              "phoneme": "చ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌟",
+              "word": "నక్షత్రం",
+              "phoneme": "న",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "📚",
+              "word": "పుస్తకం",
+              "phoneme": "ప",
+              "category": "object",
+              "difficulty": 2
+            },
+            {
+              "image": "🎈",
+              "word": "బంతి",
+              "phoneme": "బ",
+              "category": "toy",
+              "difficulty": 2
+            },
+            {
+              "image": "🧸",
+              "word": "బొమ్మ",
+              "phoneme": "బ",
+              "category": "toy",
+              "difficulty": 2
+            },
+            {
+              "image": "🚲",
+              "word": "సైకిల్",
+              "phoneme": "స",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🏍️",
+              "word": "మోటార్ సైకిల్",
+              "phoneme": "మ",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚁",
+              "word": "హెలికాప్టర్",
+              "phoneme": "హ",
+              "category": "vehicle",
+              "difficulty": 2
+            }
+          ]
+        },
+        "advanced": {
+          "description": "Level 7-9: Body parts and family relationships (Ages 5-6)",
+          "maxLevel": 9,
+          "items": [
+            {
+              "image": "👀",
+              "word": "కళ్లు",
+              "phoneme": "క",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👂",
+              "word": "చెవులు",
+              "phoneme": "చ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👃",
+              "word": "ముక్కు",
+              "phoneme": "మ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👄",
+              "word": "నోరు",
+              "phoneme": "న",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "✋",
+              "word": "చేతులు",
+              "phoneme": "చ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦶",
+              "word": "కాళ్లు",
+              "phoneme": "క",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👶",
+              "word": "పిల్లవాడు",
+              "phoneme": "ప",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👨",
+              "word": "నాన్న",
+              "phoneme": "న",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👩",
+              "word": "అమ్మ",
+              "phoneme": "అ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👧",
+              "word": "అమ్మాయి",
+              "phoneme": "అ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👦",
+              "word": "అబ్బాయి",
+              "phoneme": "అ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👴",
+              "word": "తాత",
+              "phoneme": "త",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👵",
+              "word": "అవ్వ",
+              "phoneme": "అ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🐶",
+              "word": "కుక్కపిల్ల",
+              "phoneme": "క",
+              "category": "animal",
+              "difficulty": 3
+            },
+            {
+              "image": "🐈",
+              "word": "పిల్లిపిల్ల",
+              "phoneme": "ప",
+              "category": "animal",
+              "difficulty": 3
+            },
+            {
+              "image": "🦷",
+              "word": "దంతం",
+              "phoneme": "ద",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👅",
+              "word": "నాలుక",
+              "phoneme": "న",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦵",
+              "word": "కాలు",
+              "phoneme": "క",
+              "category": "body",
+              "difficulty": 3
+            }
+          ]
+        },
+        "expert": {
+          "description": "Level 10: Colors and descriptive concepts (Ages 6-7)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "🍎",
+              "word": "ఎరుపు",
+              "phoneme": "ఎ",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🫐",
+              "word": "నీలం",
+              "phoneme": "న",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍋",
+              "word": "పసుపు",
+              "phoneme": "ప",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🥬",
+              "word": "పచ్చ",
+              "phoneme": "ప",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍊",
+              "word": "నారింజ",
+              "phoneme": "న",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍇",
+              "word": "ఊదా",
+              "phoneme": "ఊ",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍫",
+              "word": "నలుపు",
+              "phoneme": "న",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🥛",
+              "word": "తెలుపు",
+              "phoneme": "త",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍕",
+              "word": "పిజ్జా",
+              "phoneme": "ప",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍰",
+              "word": "కేక్",
+              "phoneme": "క",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍪",
+              "word": "కుకీ",
+              "phoneme": "క",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍦",
+              "word": "ఐస్ క్రీమ్",
+              "phoneme": "ఐ",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🧁",
+              "word": "కప్ కేక్",
+              "phoneme": "క",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍭",
+              "word": "లాలిపాప్",
+              "phoneme": "ల",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "❤️",
+              "word": "గుండె",
+              "phoneme": "గ",
+              "category": "shape",
+              "difficulty": 4
+            }
+          ]
+        },
+        "master": {
+          "description": "Level 10: Numbers, time, and weather concepts (Ages 7-8)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "1️⃣",
+              "word": "ఒక్కటి",
+              "phoneme": "ఒ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "2️⃣",
+              "word": "రెండు",
+              "phoneme": "ర",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "3️⃣",
+              "word": "మూడు",
+              "phoneme": "మ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "4️⃣",
+              "word": "నాలుగు",
+              "phoneme": "న",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "5️⃣",
+              "word": "అయిదు",
+              "phoneme": "అ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "6️⃣",
+              "word": "ఆరు",
+              "phoneme": "ఆ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "7️⃣",
+              "word": "ఏడు",
+              "phoneme": "ఏ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "8️⃣",
+              "word": "ఎనిమిది",
+              "phoneme": "ఎ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "9️⃣",
+              "word": "తొమ్మిది",
+              "phoneme": "త",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "🔟",
+              "word": "పది",
+              "phoneme": "ప",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "☀️",
+              "word": "రోజు",
+              "phoneme": "ర",
+              "category": "time",
+              "difficulty": 5
+            },
+            {
+              "image": "🌙",
+              "word": "రాత్రి",
+              "phoneme": "ర",
+              "category": "time",
+              "difficulty": 5
+            },
+            {
+              "image": "🌧️",
+              "word": "వర్షం",
+              "phoneme": "వ",
+              "category": "weather",
+              "difficulty": 5
+            },
+            {
+              "image": "❄️",
+              "word": "మంచు",
+              "phoneme": "మ",
+              "category": "weather",
+              "difficulty": 5
+            },
+            {
+              "image": "🌈",
+              "word": "ఇంద్రధనుస్సు",
+              "phoneme": "ఇ",
+              "category": "weather",
+              "difficulty": 5
+            }
+          ]
+        }
+      },
+      "audioSettings": {
+        "lang": "te-IN",
+        "rate": 0.7,
+        "pitch": 0.9,
+        "volume": 1
+      }
+    },
+    "kn": {
+      "name": "Kannada",
+      "nativeName": "ಕನ್ನಡ",
+      "flag": "🇮🇳",
+      "complexityLevels": {
+        "basic": {
+          "description": "Level 1-3: First words - Simple animals and basic food (Ages 3-4)",
+          "maxLevel": 3,
+          "items": [
+            {
+              "image": "🐸",
+              "word": "ಕಪ್ಪೆ",
+              "phoneme": "ಕ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐻",
+              "word": "ಕರಡಿ",
+              "phoneme": "ಕ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🔑",
+              "word": "ಕೀಲಿ",
+              "phoneme": "ಕ",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "📖",
+              "word": "ಕಥೆ",
+              "phoneme": "ಕ",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "🐷",
+              "word": "ಹಂದಿ",
+              "phoneme": "ಹ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐮",
+              "word": "ಹಸು",
+              "phoneme": "ಹ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🍯",
+              "word": "ಹುಣ್ಣಿಮೆ",
+              "phoneme": "ಹ",
+              "category": "nature",
+              "difficulty": 1
+            },
+            {
+              "image": "🌕",
+              "word": "ಹೂವು",
+              "phoneme": "ಹ",
+              "category": "nature",
+              "difficulty": 1
+            },
+            {
+              "image": "🐴",
+              "word": "ಕುದುರೆ",
+              "phoneme": "ಕು",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐑",
+              "word": "ಕುರಿ",
+              "phoneme": "ಕು",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🪑",
+              "word": "ಕುರ್ಚಿ",
+              "phoneme": "ಕು",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "⛲",
+              "word": "ಕುಂಡ",
+              "phoneme": "ಕು",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "🍌",
+              "word": "ಬಾಳೆಹಣ್ಣು",
+              "phoneme": "ಬಾ",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🚪",
+              "word": "ಬಾಗಿಲು",
+              "phoneme": "ಬಾ",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "🏹",
+              "word": "ಬಾಣ",
+              "phoneme": "ಬಾ",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "📚",
+              "word": "ಬಾಯಿ",
+              "phoneme": "ಬಾ",
+              "category": "body",
+              "difficulty": 1
+            },
+            {
+              "image": "🐶",
+              "word": "ನಾಯಿ",
+              "phoneme": "ನಾ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🚢",
+              "word": "ನಾವೆ",
+              "phoneme": "ನಾ",
+              "category": "transport",
+              "difficulty": 1
+            },
+            {
+              "image": "👅",
+              "word": "ನಾಲಿಗೆ",
+              "phoneme": "ನಾ",
+              "category": "body",
+              "difficulty": 1
+            },
+            {
+              "image": "🎭",
+              "word": "ನಾಟಕ",
+              "phoneme": "ನಾ",
+              "category": "entertainment",
+              "difficulty": 1
+            },
+            {
+              "image": "🏠",
+              "word": "ಮನೆ",
+              "phoneme": "ಮ",
+              "category": "places",
+              "difficulty": 1
+            },
+            {
+              "image": "🐟",
+              "word": "ಮೀನು",
+              "phoneme": "ಮ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "☁️",
+              "word": "ಮೋಡ",
+              "phoneme": "ಮ",
+              "category": "nature",
+              "difficulty": 1
+            },
+            {
+              "image": "👤",
+              "word": "ಮನುಷ್ಯ",
+              "phoneme": "ಮ",
+              "category": "people",
+              "difficulty": 1
+            },
+            {
+              "image": "🥕",
+              "word": "ಗಜ್ಜರಿ",
+              "phoneme": "ಗ",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🐄",
+              "word": "ಗೋವು",
+              "phoneme": "ಗ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🔔",
+              "word": "ಗಂಟೆ",
+              "phoneme": "ಗ",
+              "category": "objects",
+              "difficulty": 1
+            },
+            {
+              "image": "🌕",
+              "word": "ಗೋಳ",
+              "phoneme": "ಗ",
+              "category": "shapes",
+              "difficulty": 1
+            },
+            {
+              "image": "🦁",
+              "word": "ಸಿಂಹ",
+              "phoneme": "ಸಿ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🌞",
+              "word": "ಸೂರ್ಯ",
+              "phoneme": "ಸೂ",
+              "category": "nature",
+              "difficulty": 1
+            },
+            {
+              "image": "🍎",
+              "word": "ಸೇಬು",
+              "phoneme": "ಸೇ",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "📖",
+              "word": "ಸುತ್ತು",
+              "phoneme": "ಸು",
+              "category": "actions",
+              "difficulty": 1
+            },
+            {
+              "image": "🐱",
+              "word": "ಬೆಕ್ಕು",
+              "phoneme": "ಬೆ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐭",
+              "word": "ಇಲಿ",
+              "phoneme": "ಇ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐰",
+              "word": "ಮೊಲ",
+              "phoneme": "ಮೊ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐘",
+              "word": "ಆನೆ",
+              "phoneme": "ಆ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🦒",
+              "word": "ಜಿರಾಫೆ",
+              "phoneme": "ಜಿ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐧",
+              "word": "ಪೆಂಗ್ವಿನ್",
+              "phoneme": "ಪೆ",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🐯",
+              "word": "ಹುಲಿ",
+              "phoneme": "ಹು",
+              "category": "animals",
+              "difficulty": 1
+            },
+            {
+              "image": "🚗",
+              "word": "ಕಾರು",
+              "phoneme": "ಕಾ",
+              "category": "transport",
+              "difficulty": 1
+            },
+            {
+              "image": "🌙",
+              "word": "ಚಂದ್ರ",
+              "phoneme": "ಚಂ",
+              "category": "nature",
+              "difficulty": 1
+            }
+          ]
+        },
+        "intermediate": {
+          "description": "Level 4-6: Common objects and activities (Ages 4-5)",
+          "maxLevel": 6,
+          "items": [
+            {
+              "image": "🏫",
+              "word": "ಶಾಲೆ",
+              "phoneme": "ಶಾ",
+              "category": "places",
+              "difficulty": 2
+            },
+            {
+              "image": "📚",
+              "word": "ಶಿಕ್ಷಕ",
+              "phoneme": "ಶಾ",
+              "category": "people",
+              "difficulty": 2
+            },
+            {
+              "image": "🎓",
+              "word": "ಶಿಕ್ಷಣ",
+              "phoneme": "ಶಾ",
+              "category": "education",
+              "difficulty": 2
+            },
+            {
+              "image": "🚌",
+              "word": "ಬಸ್",
+              "phoneme": "ಬ",
+              "category": "transport",
+              "difficulty": 2
+            },
+            {
+              "image": "🎨",
+              "word": "ಬಣ್ಣ",
+              "phoneme": "ಬ",
+              "category": "art",
+              "difficulty": 2
+            },
+            {
+              "image": "🎈",
+              "word": "ಬಲೂನ್",
+              "phoneme": "ಬ",
+              "category": "toys",
+              "difficulty": 2
+            },
+            {
+              "image": "📖",
+              "word": "ಬರಹ",
+              "phoneme": "ಬ",
+              "category": "education",
+              "difficulty": 2
+            },
+            {
+              "image": "🏠",
+              "word": "ಮನೆ",
+              "phoneme": "ಮ",
+              "category": "places",
+              "difficulty": 2
+            },
+            {
+              "image": "🌳",
+              "word": "ಮರ",
+              "phoneme": "ಮ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌧️",
+              "word": "ಮಳೆ",
+              "phoneme": "ಮ",
+              "category": "weather",
+              "difficulty": 2
+            },
+            {
+              "image": "👤",
+              "word": "ಮನುಷ್ಯ",
+              "phoneme": "ಮ",
+              "category": "people",
+              "difficulty": 2
+            },
+            {
+              "image": "🏥",
+              "word": "ಆಸ್ಪತ್ರೆ",
+              "phoneme": "ಆ",
+              "category": "places",
+              "difficulty": 2
+            },
+            {
+              "image": "🍎",
+              "word": "ಆಹಾರ",
+              "phoneme": "ಆ",
+              "category": "food",
+              "difficulty": 2
+            },
+            {
+              "image": "🌞",
+              "word": "ಆಕಾಶ",
+              "phoneme": "ಆ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "✈️",
+              "word": "ವಿಮಾನ",
+              "phoneme": "ವಿ",
+              "category": "transport",
+              "difficulty": 2
+            },
+            {
+              "image": "🔬",
+              "word": "ವಿಜ್ಞಾನ",
+              "phoneme": "ವಿ",
+              "category": "science",
+              "difficulty": 2
+            },
+            {
+              "image": "📺",
+              "word": "ವಿನೋದ",
+              "phoneme": "ವಿ",
+              "category": "entertainment",
+              "difficulty": 2
+            },
+            {
+              "image": "🚲",
+              "word": "ಸೈಕಲ್",
+              "phoneme": "ಸೈ",
+              "category": "transport",
+              "difficulty": 2
+            },
+            {
+              "image": "🎵",
+              "word": "ಸಂಗೀತ",
+              "phoneme": "ಸಂ",
+              "category": "music",
+              "difficulty": 2
+            },
+            {
+              "image": "🌞",
+              "word": "ಸೂರ್ಯ",
+              "phoneme": "ಸೂ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "📝",
+              "word": "ಸಲಹೆ",
+              "phoneme": "ಸ",
+              "category": "advice",
+              "difficulty": 2
+            },
+            {
+              "image": "🚢",
+              "word": "ಹಡಗು",
+              "phoneme": "ಹ",
+              "category": "transport",
+              "difficulty": 2
+            },
+            {
+              "image": "❄️",
+              "word": "ಹಿಮ",
+              "phoneme": "ಹಿ",
+              "category": "weather",
+              "difficulty": 2
+            },
+            {
+              "image": "🌸",
+              "word": "ಹೂವು",
+              "phoneme": "ಹೂ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🎉",
+              "word": "ಹಬ್ಬ",
+              "phoneme": "ಹ",
+              "category": "celebration",
+              "difficulty": 2
+            },
+            {
+              "image": "🛒",
+              "word": "ಅಂಗಡಿ",
+              "phoneme": "ಅಂ",
+              "category": "places",
+              "difficulty": 2
+            },
+            {
+              "image": "✏️",
+              "word": "ಪೆನ್ಸಿಲ್",
+              "phoneme": "ಪೆ",
+              "category": "tools",
+              "difficulty": 2
+            },
+            {
+              "image": "📚",
+              "word": "ಪುಸ್ತಕ",
+              "phoneme": "ಪು",
+              "category": "education",
+              "difficulty": 2
+            },
+            {
+              "image": "⚽",
+              "word": "ಫುಟ್‌ಬಾಲ್",
+              "phoneme": "ಫು",
+              "category": "sports",
+              "difficulty": 2
+            },
+            {
+              "image": "🚗",
+              "word": "ಕಾರು",
+              "phoneme": "ಕಾ",
+              "category": "transport",
+              "difficulty": 2
+            },
+            {
+              "image": "⭐",
+              "word": "ನಕ್ಷತ್ರ",
+              "phoneme": "ನ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌙",
+              "word": "ಚಂದ್ರ",
+              "phoneme": "ಚಂ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌈",
+              "word": "ಇಂದ್ರಧನುಸ್ಸು",
+              "phoneme": "ಇಂ",
+              "category": "nature",
+              "difficulty": 2
+            }
+          ]
+        },
+        "advanced": {
+          "description": "Level 7-8: Complex concepts and activities (Ages 5-6)",
+          "maxLevel": 8,
+          "items": [
+            {
+              "image": "👁️",
+              "word": "ಕಣ್ಣು",
+              "phoneme": "ಕ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👂",
+              "word": "ಕಿವಿ",
+              "phoneme": "ಕ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👄",
+              "word": "ಕೆನ್ನೆ",
+              "phoneme": "ಕ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦷",
+              "word": "ಕಚ್ಚು",
+              "phoneme": "ಕ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👃",
+              "word": "ಮೂಗು",
+              "phoneme": "ಮೂ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👶",
+              "word": "ಮಗು",
+              "phoneme": "ಮ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👩",
+              "word": "ಮಹಿಳೆ",
+              "phoneme": "ಮ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🤱",
+              "word": "ಮಾತೃ",
+              "phoneme": "ಮ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "✋",
+              "word": "ಕೈ",
+              "phoneme": "ಕೈ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦵",
+              "word": "ಕಾಲು",
+              "phoneme": "ಕಾ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🚶",
+              "word": "ಕಾಲುಡಿ",
+              "phoneme": "ಕಾ",
+              "category": "actions",
+              "difficulty": 3
+            },
+            {
+              "image": "👨",
+              "word": "ತಂದೆ",
+              "phoneme": "ತಂ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👩",
+              "word": "ತಾಯಿ",
+              "phoneme": "ತಾ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🧓",
+              "word": "ತಾತ",
+              "phoneme": "ತಾ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👧",
+              "word": "ಹುಡುಗಿ",
+              "phoneme": "ಹು",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👦",
+              "word": "ಹುಡುಗ",
+              "phoneme": "ಹು",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "💝",
+              "word": "ಹೃದಯ",
+              "phoneme": "ಹೃ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👴",
+              "word": "ಅಜ್ಜ",
+              "phoneme": "ಅ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👵",
+              "word": "ಅಜ್ಜಿ",
+              "phoneme": "ಅ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🚶‍♀️",
+              "word": "ಅಮ್ಮ",
+              "phoneme": "ಅ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🦷",
+              "word": "ಹಲ್ಲು",
+              "phoneme": "ಹ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👅",
+              "word": "ನಾಲಿಗೆ",
+              "phoneme": "ನಾ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦴",
+              "word": "ನರ",
+              "phoneme": "ನ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🫁",
+              "word": "ನಿಶ್ವಾಸ",
+              "phoneme": "ನಿ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦵",
+              "word": "ತೊಡೆ",
+              "phoneme": "ತೊ",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👶",
+              "word": "ಬಾಲ",
+              "phoneme": "ಬಾ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "��‍👩‍👧‍👦",
+              "word": "ಕುಟುಂಬ",
+              "phoneme": "ಕು",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👤",
+              "word": "ವ್ಯಕ್ತಿ",
+              "phoneme": "ವ್ಯ",
+              "category": "people",
+              "difficulty": 3
+            }
+          ]
+        },
+        "expert": {
+          "description": "Level 9: Advanced vocabulary and concepts (Ages 6-7)",
+          "maxLevel": 9,
+          "items": [
+            {
+              "image": "⚫",
+              "word": "ಕಪ್ಪು",
+              "phoneme": "ಕ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🔑",
+              "word": "ಕೀಲಿ",
+              "phoneme": "ಕ",
+              "category": "objects",
+              "difficulty": 4
+            },
+            {
+              "image": "📖",
+              "word": "ಕಥೆ",
+              "phoneme": "ಕ",
+              "category": "literature",
+              "difficulty": 4
+            },
+            {
+              "image": "⚔️",
+              "word": "ಕತ್ತಿ",
+              "phoneme": "ಕ",
+              "category": "weapons",
+              "difficulty": 4
+            },
+            {
+              "image": "🏠",
+              "word": "ಕೋಣ",
+              "phoneme": "ಕ",
+              "category": "places",
+              "difficulty": 4
+            },
+            {
+              "image": "🎯",
+              "word": "ಕೋಟೆ",
+              "phoneme": "ಕ",
+              "category": "places",
+              "difficulty": 4
+            },
+            {
+              "image": "🟡",
+              "word": "ಹಳದಿ",
+              "phoneme": "ಹ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🟢",
+              "word": "ಹಸಿರು",
+              "phoneme": "ಹ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🌸",
+              "word": "ಹೂವು",
+              "phoneme": "ಹ",
+              "category": "nature",
+              "difficulty": 4
+            },
+            {
+              "image": "🎉",
+              "word": "ಹಬ್ಬ",
+              "phoneme": "ಹ",
+              "category": "celebration",
+              "difficulty": 4
+            },
+            {
+              "image": "❤️",
+              "word": "ಹೃದಯ",
+              "phoneme": "ಹ",
+              "category": "body",
+              "difficulty": 4
+            },
+            {
+              "image": "🏠",
+              "word": "ಹಳ್ಳಿ",
+              "phoneme": "ಹ",
+              "category": "places",
+              "difficulty": 4
+            },
+            {
+              "image": "🎨",
+              "word": "ರಂಗ",
+              "phoneme": "ರ",
+              "category": "art",
+              "difficulty": 4
+            },
+            {
+              "image": "🖼️",
+              "word": "ರೂಪ",
+              "phoneme": "ರ",
+              "category": "art",
+              "difficulty": 4
+            },
+            {
+              "image": "✏️",
+              "word": "ರೇಖೆ",
+              "phoneme": "ರ",
+              "category": "art",
+              "difficulty": 4
+            },
+            {
+              "image": "🌙",
+              "word": "ರಾತ್ರಿ",
+              "phoneme": "ರ",
+              "category": "time",
+              "difficulty": 4
+            },
+            {
+              "image": "👑",
+              "word": "ರಾಜ",
+              "phoneme": "ರ",
+              "category": "people",
+              "difficulty": 4
+            },
+            {
+              "image": "��",
+              "word": "ರಸ್ತೆ",
+              "phoneme": "ರ",
+              "category": "places",
+              "difficulty": 4
+            },
+            {
+              "image": "🍲",
+              "word": "ಸಾಂಬಾರ್",
+              "phoneme": "ಸಾ",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍛",
+              "word": "ಸಾದ",
+              "phoneme": "ಸಾ",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "📚",
+              "word": "ಸಾಹಿತ್ಯ",
+              "phoneme": "ಸಾ",
+              "category": "literature",
+              "difficulty": 4
+            },
+            {
+              "image": "🏖️",
+              "word": "ಸಮುದ್ರ",
+              "phoneme": "ಸ",
+              "category": "nature",
+              "difficulty": 4
+            },
+            {
+              "image": "📝",
+              "word": "ಸಲಹೆ",
+              "phoneme": "ಸ",
+              "category": "advice",
+              "difficulty": 4
+            },
+            {
+              "image": "🎵",
+              "word": "ಸಂಗೀತ",
+              "phoneme": "ಸಂ",
+              "category": "music",
+              "difficulty": 4
+            },
+            {
+              "image": "🔮",
+              "word": "ಗೋಳ",
+              "phoneme": "ಗೋ",
+              "category": "shapes",
+              "difficulty": 4
+            },
+            {
+              "image": "📐",
+              "word": "ಗೆರೆ",
+              "phoneme": "ಗೆ",
+              "category": "shapes",
+              "difficulty": 4
+            },
+            {
+              "image": "🔔",
+              "word": "ಗಂಟೆ",
+              "phoneme": "ಗ",
+              "category": "objects",
+              "difficulty": 4
+            },
+            {
+              "image": "🎵",
+              "word": "ಗೀತೆ",
+              "phoneme": "ಗ",
+              "category": "music",
+              "difficulty": 4
+            },
+            {
+              "image": "🏠",
+              "word": "ಗೃಹ",
+              "phoneme": "ಗೃ",
+              "category": "home",
+              "difficulty": 4
+            },
+            {
+              "image": "📚",
+              "word": "ಗ್ರಂಥ",
+              "phoneme": "ಗ್ರ",
+              "category": "literature",
+              "difficulty": 4
+            },
+            {
+              "image": "🎪",
+              "word": "ಮೇಳ",
+              "phoneme": "ಮೇ",
+              "category": "entertainment",
+              "difficulty": 4
+            },
+            {
+              "image": "🎭",
+              "word": "ಮೇಕಪ್",
+              "phoneme": "ಮೇ",
+              "category": "art",
+              "difficulty": 4
+            },
+            {
+              "image": "☁️",
+              "word": "ಮೋಡ",
+              "phoneme": "ಮೋ",
+              "category": "weather",
+              "difficulty": 4
+            },
+            {
+              "image": "💰",
+              "word": "ಮೌಲ್ಯ",
+              "phoneme": "ಮೌ",
+              "category": "value",
+              "difficulty": 4
+            },
+            {
+              "image": "👤",
+              "word": "ಮನುಷ್ಯ",
+              "phoneme": "ಮ",
+              "category": "people",
+              "difficulty": 4
+            },
+            {
+              "image": "🏠",
+              "word": "ಮನೆ",
+              "phoneme": "ಮ",
+              "category": "places",
+              "difficulty": 4
+            },
+            {
+              "image": "🟠",
+              "word": "ಕಿತ್ತಳೆ",
+              "phoneme": "ಕಿ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🔴",
+              "word": "ಕೆಂಪು",
+              "phoneme": "ಕೆ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🔵",
+              "word": "ನೀಲಿ",
+              "phoneme": "ನೀ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🟣",
+              "word": "ನೇರಳೆ",
+              "phoneme": "ನೇ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "⚪",
+              "word": "ಬಿಳಿ",
+              "phoneme": "ಬಿ",
+              "category": "colors",
+              "difficulty": 4
+            },
+            {
+              "image": "🍕",
+              "word": "ಪಿಜ್ಜಾ",
+              "phoneme": "ಪಿ",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "📄",
+              "word": "ಪತ್ರ",
+              "phoneme": "ಪ",
+              "category": "communication",
+              "difficulty": 4
+            },
+            {
+              "image": "💰",
+              "word": "ಪೈಸೆ",
+              "phoneme": "ಪೈ",
+              "category": "money",
+              "difficulty": 4
+            },
+            {
+              "image": "🎂",
+              "word": "ಪುಟ್ಟು",
+              "phoneme": "ಪು",
+              "category": "food",
+              "difficulty": 4
+            }
+          ]
+        },
+        "master": {
+          "description": "Level 10: Master level vocabulary (Ages 7-8)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "1️⃣",
+              "word": "ಒಂದು",
+              "phoneme": "ಒಂ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "9️⃣",
+              "word": "ಒಂಬತ್ತು",
+              "phoneme": "ಒಂ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "🎯",
+              "word": "ಒಪ್ಪಿಗೆ",
+              "phoneme": "ಒ",
+              "category": "agreement",
+              "difficulty": 5
+            },
+            {
+              "image": "2️⃣",
+              "word": "ಎರಡು",
+              "phoneme": "ಎ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "8️⃣",
+              "word": "ಎಂಟು",
+              "phoneme": "ಎಂ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "⚡",
+              "word": "ಎಲೆಕ್ಟ್ರಿಕ್",
+              "phoneme": "ಎ",
+              "category": "technology",
+              "difficulty": 5
+            },
+            {
+              "image": "6️⃣",
+              "word": "ಆರು",
+              "phoneme": "ಆ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "🍎",
+              "word": "ಆಹಾರ",
+              "phoneme": "ಆ",
+              "category": "food",
+              "difficulty": 5
+            },
+            {
+              "image": "🌞",
+              "word": "ಆಕಾಶ",
+              "phoneme": "ಆ",
+              "category": "nature",
+              "difficulty": 5
+            },
+            {
+              "image": "🙏",
+              "word": "ಆಶೀರ್ವಾದ",
+              "phoneme": "ಆ",
+              "category": "blessing",
+              "difficulty": 5
+            },
+            {
+              "image": "4️⃣",
+              "word": "ನಾಲ್ಕು",
+              "phoneme": "ನಾ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "🎪",
+              "word": "ನಾಟಕ",
+              "phoneme": "ನಾ",
+              "category": "arts",
+              "difficulty": 5
+            },
+            {
+              "image": "👅",
+              "word": "ನಾಲಿಗೆ",
+              "phoneme": "ನಾ",
+              "category": "body",
+              "difficulty": 5
+            },
+            {
+              "image": "🚢",
+              "word": "ನಾವೆ",
+              "phoneme": "ನಾ",
+              "category": "transport",
+              "difficulty": 5
+            },
+            {
+              "image": "🔬",
+              "word": "ವಿಜ್ಞಾನ",
+              "phoneme": "ವಿ",
+              "category": "science",
+              "difficulty": 5
+            },
+            {
+              "image": "📚",
+              "word": "ವಿದ್ಯೆ",
+              "phoneme": "ವಿ",
+              "category": "education",
+              "difficulty": 5
+            },
+            {
+              "image": "🎭",
+              "word": "ವಿನೋದ",
+              "phoneme": "ವಿ",
+              "category": "entertainment",
+              "difficulty": 5
+            },
+            {
+              "image": "🌍",
+              "word": "ವಿಶ್ವ",
+              "phoneme": "ವಿ",
+              "category": "world",
+              "difficulty": 5
+            },
+            {
+              "image": "🏆",
+              "word": "ಪ್ರಶಸ್ತಿ",
+              "phoneme": "ಪ್ರ",
+              "category": "achievement",
+              "difficulty": 5
+            },
+            {
+              "image": "❤️",
+              "word": "ಪ್ರೀತಿ",
+              "phoneme": "ಪ್ರ",
+              "category": "emotion",
+              "difficulty": 5
+            },
+            {
+              "image": "🌟",
+              "word": "ಪ್ರಕಾಶ",
+              "phoneme": "ಪ್ರ",
+              "category": "light",
+              "difficulty": 5
+            },
+            {
+              "image": "🎓",
+              "word": "ಪದವಿ",
+              "phoneme": "ಪ",
+              "category": "education",
+              "difficulty": 5
+            },
+            {
+              "image": "📖",
+              "word": "ಪುಸ್ತಕ",
+              "phoneme": "ಪು",
+              "category": "education",
+              "difficulty": 5
+            },
+            {
+              "image": "🌸",
+              "word": "ಪುಷ್ಪ",
+              "phoneme": "ಪು",
+              "category": "nature",
+              "difficulty": 5
+            },
+            {
+              "image": "🔟",
+              "word": "ಹತ್ತು",
+              "phoneme": "ಹ",
+              "category": "numbers",
+              "difficulty": 5
+            },
+            {
+              "image": "💚",
+              "word": "ಹೃದಯ",
+              "phoneme": "ಹ",
+              "category": "body",
+              "difficulty": 5
+            },
+            {
+              "image": "🎉",
+              "word": "ಹರ್ಷ",
+              "phoneme": "ಹ",
+              "category": "emotion",
+              "difficulty": 5
+            },
+            {
+              "image": "📚",
+              "word": "ಗ್ರಂಥ",
+              "phoneme": "ಗ್ರ",
+              "category": "literature",
+              "difficulty": 5
+            },
+            {
+              "image": "🏠",
+              "word": "ಗೃಹ",
+              "phoneme": "ಗೃ",
+              "category": "home",
+              "difficulty": 5
+            },
+            {
+              "image": "🔍",
+              "word": "ಶೋಧನೆ",
+              "phoneme": "ಶೋ",
+              "category": "research",
+              "difficulty": 5
+            },
+            {
+              "image": "📊",
+              "word": "ಶಾಸ್ತ್ರ",
+              "phoneme": "ಶಾ",
+              "category": "science",
+              "difficulty": 5
+            },
+            {
+              "image": "🎯",
+              "word": "ಲಕ್ಷ್ಯ",
+              "phoneme": "ಲ",
+              "category": "goals",
+              "difficulty": 5
+            },
+            {
+              "image": "📝",
+              "word": "ಲೇಖನ",
+              "phoneme": "ಲೇ",
+              "category": "writing",
+              "difficulty": 5
+            },
+            {
+              "image": "✍️",
+              "word": "ಲಿಪಿ",
+              "phoneme": "ಲಿ",
+              "category": "writing",
+              "difficulty": 5
+            },
+            {
+              "image": "🧠",
+              "word": "ಬುದ್ಧಿ",
+              "phoneme": "ಬು",
+              "category": "mind",
+              "difficulty": 5
+            },
+            {
+              "image": "💡",
+              "word": "ಬೆಳಕು",
+              "phoneme": "ಬೆ",
+              "category": "light",
+              "difficulty": 5
+            },
+            {
+              "image": "📚",
+              "word": "ಬೋಧನೆ",
+              "phoneme": "ಬೋ",
+              "category": "teaching",
+              "difficulty": 5
+            }
+          ]
+        }
+      },
+      "audioSettings": {
+        "lang": "kn-IN",
+        "rate": 0.7,
+        "pitch": 0.9,
+        "volume": 1
+      }
+    },
+    "mr": {
+      "name": "Marathi",
+      "nativeName": "मराठी",
+      "flag": "🇮🇳",
+      "complexityLevels": {
+        "basic": {
+          "description": "Level 1-3: First words - Simple animals and basic food (Ages 3-4)",
+          "maxLevel": 3,
+          "items": [
+            {
+              "image": "🐱",
+              "word": "मांजर",
+              "phoneme": "म",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐕",
+              "word": "कुत्रा",
+              "phoneme": "क",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐭",
+              "word": "उंदीर",
+              "phoneme": "उ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐰",
+              "word": "ससा",
+              "phoneme": "स",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐸",
+              "word": "बेडूक",
+              "phoneme": "ब",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐻",
+              "word": "अस्वल",
+              "phoneme": "अ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐷",
+              "word": "डुकर",
+              "phoneme": "ड",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐮",
+              "word": "गाय",
+              "phoneme": "ग",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐴",
+              "word": "घोडा",
+              "phoneme": "घ",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐑",
+              "word": "मेंढी",
+              "phoneme": "म",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🍎",
+              "word": "सफरचंद",
+              "phoneme": "स",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍌",
+              "word": "केळी",
+              "phoneme": "क",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍊",
+              "word": "संत्रा",
+              "phoneme": "स",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🥕",
+              "word": "गाजर",
+              "phoneme": "ग",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍞",
+              "word": "पाव",
+              "phoneme": "प",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🐘",
+              "word": "हत्ती",
+              "phoneme": "ह",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🦒",
+              "word": "जिराफ",
+              "phoneme": "ज",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🐧",
+              "word": "पेंगुइन",
+              "phoneme": "प",
+              "category": "animal",
+              "difficulty": 1
+            },
+            {
+              "image": "🍓",
+              "word": "स्ट्रॉबेरी",
+              "phoneme": "स",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🍇",
+              "word": "द्राक्ष",
+              "phoneme": "द",
+              "category": "food",
+              "difficulty": 1
+            },
+            {
+              "image": "🥝",
+              "word": "किवी",
+              "phoneme": "क",
+              "category": "food",
+              "difficulty": 1
+            }
+          ]
+        },
+        "intermediate": {
+          "description": "Level 4-6: Everyday objects and concepts (Ages 4-5)",
+          "maxLevel": 6,
+          "items": [
+            {
+              "image": "🏠",
+              "word": "घर",
+              "phoneme": "घ",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🏫",
+              "word": "शाळा",
+              "phoneme": "श",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🏥",
+              "word": "दवाखाना",
+              "phoneme": "द",
+              "category": "building",
+              "difficulty": 2
+            },
+            {
+              "image": "🚗",
+              "word": "कार",
+              "phoneme": "क",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚌",
+              "word": "बस",
+              "phoneme": "ब",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "✈️",
+              "word": "विमान",
+              "phoneme": "व",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚢",
+              "word": "जहाज",
+              "phoneme": "ज",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🌳",
+              "word": "झाड",
+              "phoneme": "झ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌸",
+              "word": "फूल",
+              "phoneme": "फ",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "☀️",
+              "word": "सूर्य",
+              "phoneme": "स",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌙",
+              "word": "चंद्र",
+              "phoneme": "च",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "🌟",
+              "word": "तारा",
+              "phoneme": "त",
+              "category": "nature",
+              "difficulty": 2
+            },
+            {
+              "image": "📚",
+              "word": "पुस्तक",
+              "phoneme": "प",
+              "category": "object",
+              "difficulty": 2
+            },
+            {
+              "image": "🎈",
+              "word": "बॉल",
+              "phoneme": "ब",
+              "category": "toy",
+              "difficulty": 2
+            },
+            {
+              "image": "🧸",
+              "word": "बाहुली",
+              "phoneme": "ब",
+              "category": "toy",
+              "difficulty": 2
+            },
+            {
+              "image": "🚲",
+              "word": "सायकल",
+              "phoneme": "स",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🏍️",
+              "word": "मोटारसायकल",
+              "phoneme": "म",
+              "category": "vehicle",
+              "difficulty": 2
+            },
+            {
+              "image": "🚁",
+              "word": "हेलिकॉप्टर",
+              "phoneme": "ह",
+              "category": "vehicle",
+              "difficulty": 2
+            }
+          ]
+        },
+        "advanced": {
+          "description": "Level 7-9: Body parts and family relationships (Ages 5-6)",
+          "maxLevel": 9,
+          "items": [
+            {
+              "image": "👀",
+              "word": "डोळे",
+              "phoneme": "ड",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👂",
+              "word": "कान",
+              "phoneme": "क",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👃",
+              "word": "नाक",
+              "phoneme": "न",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👄",
+              "word": "तोंड",
+              "phoneme": "त",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "✋",
+              "word": "हात",
+              "phoneme": "ह",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦴",
+              "word": "मान",
+              "phoneme": "म",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👶",
+              "word": "बाळ",
+              "phoneme": "ब",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👨",
+              "word": "बाबा",
+              "phoneme": "ब",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👩",
+              "word": "आई",
+              "phoneme": "आ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👧",
+              "word": "मुलगी",
+              "phoneme": "म",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👦",
+              "word": "मुलगा",
+              "phoneme": "म",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👴",
+              "word": "आजोबा",
+              "phoneme": "आ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "👵",
+              "word": "आजी",
+              "phoneme": "आ",
+              "category": "family",
+              "difficulty": 3
+            },
+            {
+              "image": "🐶",
+              "word": "कुत्र्याचे पिल्लू",
+              "phoneme": "क",
+              "category": "animal",
+              "difficulty": 3
+            },
+            {
+              "image": "🐈",
+              "word": "मांजरीचे पिल्लू",
+              "phoneme": "म",
+              "category": "animal",
+              "difficulty": 3
+            },
+            {
+              "image": "🦷",
+              "word": "दात",
+              "phoneme": "द",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "👅",
+              "word": "जीभ",
+              "phoneme": "ज",
+              "category": "body",
+              "difficulty": 3
+            },
+            {
+              "image": "🦴",
+              "word": "डोके",
+              "phoneme": "ड",
+              "category": "body",
+              "difficulty": 3
+            }
+          ]
+        },
+        "expert": {
+          "description": "Level 10: Colors and descriptive concepts (Ages 6-7)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "🍎",
+              "word": "लाल",
+              "phoneme": "ल",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🫐",
+              "word": "निळा",
+              "phoneme": "न",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍋",
+              "word": "पिवळा",
+              "phoneme": "प",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🥬",
+              "word": "हिरवा",
+              "phoneme": "ह",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍊",
+              "word": "नारंगी",
+              "phoneme": "न",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍇",
+              "word": "जांभळा",
+              "phoneme": "ज",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍫",
+              "word": "काळा",
+              "phoneme": "क",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🥛",
+              "word": "पांढरा",
+              "phoneme": "प",
+              "category": "color",
+              "difficulty": 4
+            },
+            {
+              "image": "🍕",
+              "word": "पिझ्झा",
+              "phoneme": "प",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍰",
+              "word": "केक",
+              "phoneme": "क",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍪",
+              "word": "कुकी",
+              "phoneme": "क",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍦",
+              "word": "आइस्क्रीम",
+              "phoneme": "आ",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🧁",
+              "word": "कपकेक",
+              "phoneme": "क",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "🍭",
+              "word": "लॉलीपॉप",
+              "phoneme": "ल",
+              "category": "food",
+              "difficulty": 4
+            },
+            {
+              "image": "❤️",
+              "word": "हृदय",
+              "phoneme": "ह",
+              "category": "shape",
+              "difficulty": 4
+            }
+          ]
+        },
+        "master": {
+          "description": "Level 10: Numbers, time, and weather concepts (Ages 7-8)",
+          "maxLevel": 10,
+          "items": [
+            {
+              "image": "1️⃣",
+              "word": "एक",
+              "phoneme": "ए",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "2️⃣",
+              "word": "दोन",
+              "phoneme": "द",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "3️⃣",
+              "word": "तीन",
+              "phoneme": "त",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "4️⃣",
+              "word": "चार",
+              "phoneme": "च",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "5️⃣",
+              "word": "पाच",
+              "phoneme": "प",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "6️⃣",
+              "word": "सहा",
+              "phoneme": "स",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "7️⃣",
+              "word": "सात",
+              "phoneme": "स",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "8️⃣",
+              "word": "आठ",
+              "phoneme": "आ",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "9️⃣",
+              "word": "नऊ",
+              "phoneme": "न",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "🔟",
+              "word": "दहा",
+              "phoneme": "द",
+              "category": "number",
+              "difficulty": 5
+            },
+            {
+              "image": "☀️",
+              "word": "दिवस",
+              "phoneme": "द",
+              "category": "time",
+              "difficulty": 5
+            },
+            {
+              "image": "🌙",
+              "word": "रात्र",
+              "phoneme": "र",
+              "category": "time",
+              "difficulty": 5
+            },
+            {
+              "image": "🌧️",
+              "word": "पाऊस",
+              "phoneme": "प",
+              "category": "weather",
+              "difficulty": 5
+            },
+            {
+              "image": "❄️",
+              "word": "बर्फ",
+              "phoneme": "ब",
+              "category": "weather",
+              "difficulty": 5
+            },
+            {
+              "image": "🌈",
+              "word": "इंद्रधनुष्य",
+              "phoneme": "इ",
+              "category": "weather",
+              "difficulty": 5
+            }
+          ]
+        }
+      },
+      "audioSettings": {
+        "lang": "mr-IN",
+        "rate": 0.7,
+        "pitch": 0.9,
+        "volume": 1
+      }
+    }
+  },
+  "gameSettings": {
+    "questionsPerGame": 10,
+    "optionsPerQuestion": 4,
+    "correctAnswersPerQuestion": 1,
+    "maxAttemptsPerQuestion": 3,
+    "timeLimitPerQuestion": 30,
+    "audioSettings": {
+      "en": {
+        "lang": "en-US",
+        "rate": 0.8,
+        "pitch": 1,
+        "volume": 0.9
+      },
+      "te": {
+        "lang": "te-IN",
+        "rate": 0.7,
+        "pitch": 0.9,
+        "volume": 1
+      },
+      "kn": {
+        "lang": "kn-IN",
+        "rate": 0.7,
+        "pitch": 0.9,
+        "volume": 1
+      },
+      "mr": {
+        "lang": "mr-IN",
+        "rate": 0.7,
+        "pitch": 0.9,
+        "volume": 1
+      }
+    }
+  },
+  "validation": {
+    "rules": [
+      "All words must be child-appropriate and commonly used",
+      "Phonemes must accurately represent the first sound of the word",
+      "No duplicate words or images within the same language",
+      "Images must clearly represent the word",
+      "Each complexity level has appropriate difficulty",
+      "All words are age-appropriate for 3-8 year olds"
+    ],
+    "checks": {
+      "phonemeAccuracy": true,
+      "noDuplicates": true,
+      "imageWordMatching": true,
+      "questionGeneration": true,
+      "childAppropriate": true
+    }
+  },
+  "testCases": {
+    "validation": [
+      {
+        "test": "Child-appropriate images",
+        "description": "All images should be recognizable and engaging for children",
+        "expected": "Colorful, simple, concrete objects"
+      },
+      {
+        "test": "Progressive difficulty",
+        "description": "Images should progress from concrete to abstract concepts",
+        "expected": "Animals → Objects → Body parts → Colors → Numbers"
+      },
+      {
+        "test": "No geometric shapes",
+        "description": "Avoid abstract geometric shapes and symbols",
+        "expected": "Real objects children can relate to"
+      },
+      {
+        "test": "Cultural appropriateness",
+        "description": "Images should be culturally appropriate for all languages",
+        "expected": "Universal objects children know"
+      }
+    ]
+  }
+}

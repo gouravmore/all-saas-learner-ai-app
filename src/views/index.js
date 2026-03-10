@@ -9,3 +9,12 @@ export { AssesmentEnd } from "./AssesmentEnd";
 export { DiscoverStart } from "./DiscoverStart";
 export { PracticeRedirectPage } from "./PracticeRedirectPage";
 export { LoginPage } from "./LoginPage";
+export { LetterHunt } from "./LetterHunt";
+export { TowreFlowPage } from "./TowreFlow";
+// DEMO ROUTES - Remove after demo
+export { LetterHuntDemo } from "./LetterHuntDemo";
+export { LetterLauncherDemo } from "./LetterLauncherDemo";
+export { MemoryDemo } from "./MemoryDemo";
+
+export { DiscoverDemo } from "./DiscoverDemo";
+export { MilestoneFormPage } from "./MilestoneForm";

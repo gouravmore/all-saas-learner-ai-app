@@ -1,0 +1,1525 @@
+{
+  "en": {
+    "basic": [
+      {
+        "statement": "Children should go to school",
+        "isTrue": true,
+        "explanation": "Children need education and should attend school"
+      },
+      {
+        "statement": "Reading books is a good habit",
+        "isTrue": true,
+        "explanation": "Reading books increases knowledge"
+      },
+      {
+        "statement": "Learning letters is important",
+        "isTrue": true,
+        "explanation": "Learning letters is important for reading"
+      },
+      {
+        "statement": "All children are the same age",
+        "isTrue": false,
+        "explanation": "Children are of different ages"
+      },
+      {
+        "statement": "We should make good friends at school",
+        "isTrue": true,
+        "explanation": "Making good friends is important"
+      },
+      {
+        "statement": "The sky is blue",
+        "isTrue": true,
+        "explanation": "The sky typically appears blue during the day"
+      },
+      {
+        "statement": "Trees give us oxygen",
+        "isTrue": true,
+        "explanation": "Trees produce oxygen through photosynthesis"
+      },
+      {
+        "statement": "The sun is a star",
+        "isTrue": true,
+        "explanation": "The sun is indeed a star"
+      },
+      {
+        "statement": "The moon appears at night",
+        "isTrue": true,
+        "explanation": "The moon appears in the sky at night"
+      },
+      {
+        "statement": "All trees are always green",
+        "isTrue": false,
+        "explanation": "Some trees lose their leaves in winter"
+      },
+      {
+        "statement": "All birds build nests",
+        "isTrue": true,
+        "explanation": "Birds build nests to lay eggs"
+      },
+      {
+        "statement": "All fish live only in water",
+        "isTrue": true,
+        "explanation": "Fish can only survive in water"
+      },
+      {
+        "statement": "All animals can fly",
+        "isTrue": false,
+        "explanation": "Not all animals can fly"
+      },
+      {
+        "statement": "All birds can fly",
+        "isTrue": false,
+        "explanation": "Some birds cannot fly"
+      },
+      {
+        "statement": "All animals have tongues",
+        "isTrue": false,
+        "explanation": "Not all animals have tongues"
+      },
+      {
+        "statement": "We cannot live without water",
+        "isTrue": true,
+        "explanation": "Water is essential for all living things"
+      },
+      {
+        "statement": "We should always exercise",
+        "isTrue": true,
+        "explanation": "Exercise is important for good health"
+      },
+      {
+        "statement": "We should always wash our hands",
+        "isTrue": true,
+        "explanation": "Washing hands is important for good health"
+      },
+      {
+        "statement": "Children should sleep 12 hours at night",
+        "isTrue": false,
+        "explanation": "Children typically need 8-10 hours of sleep"
+      },
+      {
+        "statement": "We need to drink water",
+        "isTrue": true,
+        "explanation": "Water is essential for our health"
+      }
+    ],
+    "intermediate": [
+      {
+        "statement": "India is the largest country in the world",
+        "isTrue": false,
+        "explanation": "India is the second most populous country"
+      },
+      {
+        "statement": "All planets orbit around the sun",
+        "isTrue": true,
+        "explanation": "In our solar system, all planets orbit the sun"
+      },
+      {
+        "statement": "Earth is round",
+        "isTrue": true,
+        "explanation": "Earth is round"
+      },
+      {
+        "statement": "All countries speak the same language",
+        "isTrue": false,
+        "explanation": "Different countries speak different languages"
+      },
+      {
+        "statement": "All rivers flow into the ocean",
+        "isTrue": true,
+        "explanation": "Rivers eventually flow into the ocean"
+      },
+      {
+        "statement": "All fruits are sweet",
+        "isTrue": false,
+        "explanation": "Not all fruits are sweet"
+      },
+      {
+        "statement": "All fruits are healthy",
+        "isTrue": true,
+        "explanation": "Fruits contain vitamins and minerals"
+      },
+      {
+        "statement": "We should always eat healthy food",
+        "isTrue": true,
+        "explanation": "Healthy food is important for our health"
+      },
+      {
+        "statement": "All vegetables are green",
+        "isTrue": false,
+        "explanation": "Vegetables come in different colors"
+      },
+      {
+        "statement": "Milk is good for bones",
+        "isTrue": true,
+        "explanation": "Milk contains calcium"
+      },
+      {
+        "statement": "All plants have flowers",
+        "isTrue": false,
+        "explanation": "Not all plants produce flowers"
+      },
+      {
+        "statement": "All trees bear fruits",
+        "isTrue": false,
+        "explanation": "Not all trees bear fruits"
+      },
+      {
+        "statement": "All birds lay eggs",
+        "isTrue": true,
+        "explanation": "Birds lay eggs"
+      },
+      {
+        "statement": "All animals eat the same type of food",
+        "isTrue": false,
+        "explanation": "Animals eat different types of food"
+      },
+      {
+        "statement": "All trees are the same height",
+        "isTrue": false,
+        "explanation": "Trees are of different heights"
+      },
+      {
+        "statement": "The sun rises in the east",
+        "isTrue": true,
+        "explanation": "The sun always rises in the east"
+      },
+      {
+        "statement": "All cars have four wheels",
+        "isTrue": false,
+        "explanation": "Some cars have different numbers of wheels"
+      },
+      {
+        "statement": "All books have pages",
+        "isTrue": true,
+        "explanation": "Books are made of pages"
+      },
+      {
+        "statement": "All computers need electricity",
+        "isTrue": true,
+        "explanation": "Computers require power to function"
+      },
+      {
+        "statement": "All phones can make calls",
+        "isTrue": true,
+        "explanation": "Phones are designed for communication"
+      }
+    ],
+    "advanced": [
+      {
+        "statement": "All planets have moons",
+        "isTrue": false,
+        "explanation": "Not all planets have moons"
+      },
+      {
+        "statement": "All stars are bigger than the sun",
+        "isTrue": false,
+        "explanation": "Some stars are smaller than the sun"
+      },
+      {
+        "statement": "All animals walk at the same speed",
+        "isTrue": false,
+        "explanation": "Animals walk at different speeds"
+      },
+      {
+        "statement": "All birds build the same type of nests",
+        "isTrue": false,
+        "explanation": "Birds build different types of nests"
+      },
+      {
+        "statement": "All fish live in the same type of water",
+        "isTrue": false,
+        "explanation": "Fish live in different types of water"
+      },
+      {
+        "statement": "All trees grow at the same rate",
+        "isTrue": false,
+        "explanation": "Trees grow at different rates"
+      },
+      {
+        "statement": "All plants grow in the same type of soil",
+        "isTrue": false,
+        "explanation": "Plants grow in different types of soil"
+      },
+      {
+        "statement": "All animals live in the same season",
+        "isTrue": false,
+        "explanation": "Animals live in different seasons"
+      },
+      {
+        "statement": "All birds fly at the same time",
+        "isTrue": false,
+        "explanation": "Birds fly at different times"
+      },
+      {
+        "statement": "All trees have the same type of leaves",
+        "isTrue": false,
+        "explanation": "Trees have different types of leaves"
+      },
+      {
+        "statement": "We should always tell the truth",
+        "isTrue": true,
+        "explanation": "Telling the truth is a good virtue"
+      },
+      {
+        "statement": "We should always speak kind words",
+        "isTrue": true,
+        "explanation": "Speaking kind words is a good virtue"
+      },
+      {
+        "statement": "All children think the same way",
+        "isTrue": false,
+        "explanation": "Children think in different ways"
+      },
+      {
+        "statement": "We should always help others",
+        "isTrue": true,
+        "explanation": "Helping others is a good virtue"
+      },
+      {
+        "statement": "All people are the same color",
+        "isTrue": false,
+        "explanation": "People are of different colors"
+      },
+      {
+        "statement": "All languages have the same alphabet",
+        "isTrue": false,
+        "explanation": "Different languages have different writing systems"
+      },
+      {
+        "statement": "All countries have the same currency",
+        "isTrue": false,
+        "explanation": "Different countries use different currencies"
+      },
+      {
+        "statement": "All computers work the same way",
+        "isTrue": false,
+        "explanation": "Computers can have different operating systems"
+      },
+      {
+        "statement": "All books are written in English",
+        "isTrue": false,
+        "explanation": "Books are written in many different languages"
+      },
+      {
+        "statement": "All music sounds the same",
+        "isTrue": false,
+        "explanation": "Music comes in many different styles and genres"
+      }
+    ],
+    "expert": [
+      {
+        "statement": "All children learn at the same speed",
+        "isTrue": false,
+        "explanation": "Every child learns at their own pace"
+      },
+      {
+        "statement": "All teachers use the same teaching methods",
+        "isTrue": false,
+        "explanation": "Teachers use different methods to help students learn"
+      },
+      {
+        "statement": "All schools have the same subjects",
+        "isTrue": false,
+        "explanation": "Different schools may offer different subjects"
+      },
+      {
+        "statement": "All children have the same hobbies",
+        "isTrue": false,
+        "explanation": "Children have different interests and hobbies"
+      },
+      {
+        "statement": "All families celebrate birthdays the same way",
+        "isTrue": false,
+        "explanation": "Different families have different birthday traditions"
+      },
+      {
+        "statement": "All playgrounds have the same equipment",
+        "isTrue": false,
+        "explanation": "Playgrounds can have different types of equipment"
+      },
+      {
+        "statement": "All children like the same foods",
+        "isTrue": false,
+        "explanation": "Children have different food preferences"
+      },
+      {
+        "statement": "All pets need the same amount of care",
+        "isTrue": false,
+        "explanation": "Different pets need different types of care"
+      },
+      {
+        "statement": "All seasons feel the same everywhere",
+        "isTrue": false,
+        "explanation": "Seasons can feel different in different places"
+      },
+      {
+        "statement": "All children have the same bedtime",
+        "isTrue": false,
+        "explanation": "Different families have different bedtime rules"
+      },
+      {
+        "statement": "All sports use the same ball",
+        "isTrue": false,
+        "explanation": "Different sports use different types of balls"
+      },
+      {
+        "statement": "All books have the same number of pages",
+        "isTrue": false,
+        "explanation": "Books can have different lengths"
+      },
+      {
+        "statement": "All toys work the same way",
+        "isTrue": false,
+        "explanation": "Different toys have different ways of working"
+      },
+      {
+        "statement": "All games have the same rules",
+        "isTrue": false,
+        "explanation": "Different games have different rules"
+      },
+      {
+        "statement": "All cartoons are made the same way",
+        "isTrue": false,
+        "explanation": "Different cartoons use different animation styles"
+      }
+    ],
+    "master": [
+      {
+        "statement": "All children have the same favorite color",
+        "isTrue": false,
+        "explanation": "Children have different favorite colors"
+      },
+      {
+        "statement": "All families eat dinner at the same time",
+        "isTrue": false,
+        "explanation": "Different families have different dinner times"
+      },
+      {
+        "statement": "All children wear the same size clothes",
+        "isTrue": false,
+        "explanation": "Children wear different sizes based on their age and growth"
+      },
+      {
+        "statement": "All classrooms look exactly the same",
+        "isTrue": false,
+        "explanation": "Different classrooms can have different decorations and layouts"
+      },
+      {
+        "statement": "All children have the same number of siblings",
+        "isTrue": false,
+        "explanation": "Some children have no siblings, some have one, some have many"
+      },
+      {
+        "statement": "All birthday parties have the same activities",
+        "isTrue": false,
+        "explanation": "Different birthday parties can have different games and activities"
+      },
+      {
+        "statement": "All children live in the same type of house",
+        "isTrue": false,
+        "explanation": "Children live in different types of houses and apartments"
+      },
+      {
+        "statement": "All children have the same bedtime story",
+        "isTrue": false,
+        "explanation": "Different families read different bedtime stories"
+      },
+      {
+        "statement": "All children play with the same toys",
+        "isTrue": false,
+        "explanation": "Children have different toys based on their interests"
+      },
+      {
+        "statement": "All children have the same favorite subject in school",
+        "isTrue": false,
+        "explanation": "Different children enjoy different subjects"
+      }
+    ]
+  },
+  "te": {
+    "basic": [
+      {
+        "statement": "పిల్లలు పాఠశాలకు వెళ్లాలి",
+        "isTrue": true,
+        "explanation": "పిల్లలు విద్య కోసం పాఠశాలకు వెళ్లాలి"
+      },
+      {
+        "statement": "పుస్తకాలు చదవడం మంచి అలవాటు",
+        "isTrue": true,
+        "explanation": "పుస్తకాలు చదవడం జ్ఞానాన్ని పెంచుతుంది"
+      },
+      {
+        "statement": "అక్షరాలు నేర్చుకోవడం ముఖ్యం",
+        "isTrue": true,
+        "explanation": "అక్షరాలు నేర్చుకోవడం చదవడానికి ముఖ్యం"
+      },
+      {
+        "statement": "అన్ని పిల్లలు ఒకే వయస్సులో ఉంటారు",
+        "isTrue": false,
+        "explanation": "పిల్లలు వేర్వేరు వయస్సులలో ఉంటారు"
+      },
+      {
+        "statement": "పాఠశాలలో మంచి మిత్రులు చేయాలి",
+        "isTrue": true,
+        "explanation": "మంచి మిత్రులు చేయడం ముఖ్యం"
+      },
+      {
+        "statement": "ఆకాశం నీలం రంగులో ఉంటుంది",
+        "isTrue": true,
+        "explanation": "ఆకాశం సాధారణంగా నీలం రంగులో కనిపిస్తుంది"
+      },
+      {
+        "statement": "చెట్లు ఆక్సిజన్ ఇస్తాయి",
+        "isTrue": true,
+        "explanation": "చెట్లు ఫోటోసింథసిస్ ద్వారా ఆక్సిజన్ ఇస్తాయి"
+      },
+      {
+        "statement": "సూర్యుడు ఒక నక్షత్రం",
+        "isTrue": true,
+        "explanation": "సూర్యుడు ఒక నక్షత్రం"
+      },
+      {
+        "statement": "చంద్రుడు రాత్రి కనిపిస్తాడు",
+        "isTrue": true,
+        "explanation": "చంద్రుడు రాత్రి ఆకాశంలో కనిపిస్తాడు"
+      },
+      {
+        "statement": "అన్ని చెట్లు ఎల్లప్పుడూ ఆకుపచ్చగా ఉంటాయి",
+        "isTrue": false,
+        "explanation": "కొన్ని చెట్లు ఎండలో ఆకులు రాల్చుతాయి"
+      },
+      {
+        "statement": "అన్ని పక్షులు గూడు కట్టుతాయి",
+        "isTrue": true,
+        "explanation": "పక్షులు గూడు కట్టి గుడ్లు పెడతాయి"
+      },
+      {
+        "statement": "అన్ని చేపలు నీటిలో మాత్రమే జీవిస్తాయి",
+        "isTrue": true,
+        "explanation": "చేపలు నీటిలో మాత్రమే జీవిస్తాయి"
+      },
+      {
+        "statement": "అన్ని జంతువులు ఎగురుతాయి",
+        "isTrue": false,
+        "explanation": "అన్ని జంతువులు ఎగురలేవు"
+      },
+      {
+        "statement": "అన్ని పక్షులు ఎగురుతాయి",
+        "isTrue": false,
+        "explanation": "కొన్ని పక్షులు ఎగురలేవు"
+      },
+      {
+        "statement": "అన్ని జంతువులు నాలుక కలిగి ఉంటాయి",
+        "isTrue": false,
+        "explanation": "అన్ని జంతువులు నాలుక కలిగి ఉండవు"
+      },
+      {
+        "statement": "మనం నీటి లేకుండా జీవించలేము",
+        "isTrue": true,
+        "explanation": "నీరు జీవితానికి చాలా ముఖ్యమైనది"
+      },
+      {
+        "statement": "మనం ఎప్పుడూ వ్యాయామం చేయాలి",
+        "isTrue": true,
+        "explanation": "మంచి ఆరోగ్యం కోసం వ్యాయామం చేయాలి"
+      },
+      {
+        "statement": "మనం ఎప్పుడూ చేతులు కడుక్కోవాలి",
+        "isTrue": true,
+        "explanation": "మంచి ఆరోగ్యం కోసం చేతులు కడుక్కోవాలి"
+      },
+      {
+        "statement": "పిల్లలు రాత్రి 12 గంటలు నిద్రపోవాలి",
+        "isTrue": false,
+        "explanation": "పిల్లలు సాధారణంగా 8-10 గంటలు నిద్రపోవాలి"
+      },
+      {
+        "statement": "మనం నీటిని తాగాలి",
+        "isTrue": true,
+        "explanation": "నీరు మన ఆరోగ్యానికి చాలా ముఖ్యమైనది"
+      }
+    ],
+    "intermediate": [
+      {
+        "statement": "భారతదేశం ప్రపంచంలో అతిపెద్ద దేశం",
+        "isTrue": false,
+        "explanation": "భారతదేశం జనాభాలో రెండవ స్థానంలో ఉంది"
+      },
+      {
+        "statement": "అన్ని గ్రహాలు సూర్యుని చుట్టూ తిరుగుతాయి",
+        "isTrue": true,
+        "explanation": "సౌర వ్యవస్థలో అన్ని గ్రహాలు సూర్యుని చుట్టూ తిరుగుతాయి"
+      },
+      {
+        "statement": "భూమి గుండ్రంగా ఉంటుంది",
+        "isTrue": true,
+        "explanation": "భూమి గుండ్రంగా ఉంటుంది"
+      },
+      {
+        "statement": "అన్ని దేశాలలో ఒకే భాష మాట్లాడతారు",
+        "isTrue": false,
+        "explanation": "వేర్వేరు దేశాలలో వేర్వేరు భాషలు మాట్లాడతారు"
+      },
+      {
+        "statement": "అన్ని నదులు సముద్రంలోకి పడతాయి",
+        "isTrue": true,
+        "explanation": "నదులు చివరికి సముద్రంలోకి పడతాయి"
+      },
+      {
+        "statement": "అన్ని పండ్లు తీపిగా ఉంటాయి",
+        "isTrue": false,
+        "explanation": "అన్ని పండ్లు తీపిగా ఉండవు"
+      },
+      {
+        "statement": "అన్ని పండ్లు ఆరోగ్యకరమైనవి",
+        "isTrue": true,
+        "explanation": "పండ్లు విటమిన్లు మరియు ఖనిజాలను కలిగి ఉంటాయి"
+      },
+      {
+        "statement": "మనం ఎప్పుడూ మంచి ఆహారం తినాలి",
+        "isTrue": true,
+        "explanation": "మంచి ఆహారం ఆరోగ్యానికి ముఖ్యమైనది"
+      },
+      {
+        "statement": "అన్ని కూరగాయలు ఆకుపచ్చగా ఉంటాయి",
+        "isTrue": false,
+        "explanation": "కూరగాయలు వివిధ రంగులలో ఉంటాయి"
+      },
+      {
+        "statement": "పాలు ఎముకలకు మంచివి",
+        "isTrue": true,
+        "explanation": "పాలు కాల్షియం కలిగి ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని మొక్కలు పూలు పూయుతాయి",
+        "isTrue": false,
+        "explanation": "అన్ని మొక్కలు పూలు పూయవు"
+      },
+      {
+        "statement": "అన్ని చెట్లు పండ్లు ఇస్తాయి",
+        "isTrue": false,
+        "explanation": "అన్ని చెట్లు పండ్లు ఇవ్వవు"
+      },
+      {
+        "statement": "అన్ని పక్షులు గుడ్లు పెడతాయి",
+        "isTrue": true,
+        "explanation": "పక్షులు గుడ్లు పెడతాయి"
+      },
+      {
+        "statement": "అన్ని జంతువులు ఒకే రకమైన ఆహారం తింటాయి",
+        "isTrue": false,
+        "explanation": "జంతువులు వేర్వేరు రకమైన ఆహారం తింటాయి"
+      },
+      {
+        "statement": "అన్ని చెట్లు ఒకే పొడవులో ఉంటాయి",
+        "isTrue": false,
+        "explanation": "చెట్లు వేర్వేరు పొడవులలో ఉంటాయి"
+      },
+      {
+        "statement": "సూర్యుడు తూర్పున ఉదయిస్తాడు",
+        "isTrue": true,
+        "explanation": "సూర్యుడు ఎల్లప్పుడూ తూర్పున ఉదయిస్తాడు"
+      },
+      {
+        "statement": "అన్ని కార్లకు నాలుగు చక్రాలు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "కొన్ని కార్లకు వేర్వేరు సంఖ్యలో చక్రాలు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని పుస్తకాలకు పేజీలు ఉంటాయి",
+        "isTrue": true,
+        "explanation": "పుస్తకాలు పేజీలతో తయారవుతాయి"
+      },
+      {
+        "statement": "అన్ని కంప్యూటర్లకు విద్యుత్తు కావాలి",
+        "isTrue": true,
+        "explanation": "కంప్యూటర్లు పనిచేయడానికి విద్యుత్తు అవసరం"
+      },
+      {
+        "statement": "అన్ని ఫోన్లు కాల్ చేయగలవు",
+        "isTrue": true,
+        "explanation": "ఫోన్లు సమాచారం కోసం రూపొందించబడ్డాయి"
+      }
+    ],
+    "advanced": [
+      {
+        "statement": "అన్ని గ్రహాలకు చంద్రుడు ఉంటాడు",
+        "isTrue": false,
+        "explanation": "అన్ని గ్రహాలకు చంద్రుడు ఉండదు"
+      },
+      {
+        "statement": "అన్ని నక్షత్రాలు సూర్యుని కంటే పెద్దవి",
+        "isTrue": false,
+        "explanation": "కొన్ని నక్షత్రాలు సూర్యుని కంటే చిన్నవి"
+      },
+      {
+        "statement": "అన్ని జంతువులు ఒకే వేగంతో నడుస్తాయి",
+        "isTrue": false,
+        "explanation": "జంతువులు వేర్వేరు వేగాలతో నడుస్తాయి"
+      },
+      {
+        "statement": "అన్ని పక్షులు ఒకే రకమైన గూడు కట్టుతాయి",
+        "isTrue": false,
+        "explanation": "పక్షులు వేర్వేరు రకమైన గూళ్లు కట్టుతాయి"
+      },
+      {
+        "statement": "అన్ని చేపలు ఒకే రకమైన నీటిలో జీవిస్తాయి",
+        "isTrue": false,
+        "explanation": "చేపలు వేర్వేరు రకమైన నీటిలో జీవిస్తాయి"
+      },
+      {
+        "statement": "అన్ని చెట్లు ఒకే వయస్సులో పెరుగుతాయి",
+        "isTrue": false,
+        "explanation": "చెట్లు వేర్వేరు వేగాలతో పెరుగుతాయి"
+      },
+      {
+        "statement": "అన్ని మొక్కలు ఒకే రకమైన నేలలో పెరుగుతాయి",
+        "isTrue": false,
+        "explanation": "మొక్కలు వేర్వేరు రకమైన నేలలో పెరుగుతాయి"
+      },
+      {
+        "statement": "అన్ని జంతువులు ఒకే ఋతువులో జీవిస్తాయి",
+        "isTrue": false,
+        "explanation": "జంతువులు వేర్వేరు ఋతువులలో జీవిస్తాయి"
+      },
+      {
+        "statement": "అన్ని పక్షులు ఒకే సమయంలో ఎగురుతాయి",
+        "isTrue": false,
+        "explanation": "పక్షులు వేర్వేరు సమయాలలో ఎగురుతాయి"
+      },
+      {
+        "statement": "అన్ని చెట్లు ఒకే రకమైన ఆకులు కలిగి ఉంటాయి",
+        "isTrue": false,
+        "explanation": "చెట్లు వేర్వేరు రకమైన ఆకులు కలిగి ఉంటాయి"
+      },
+      {
+        "statement": "మనం ఎప్పుడూ సత్యం చెప్పాలి",
+        "isTrue": true,
+        "explanation": "సత్యం చెప్పడం మంచి గుణం"
+      },
+      {
+        "statement": "మనం ఎప్పుడూ మంచి మాటలు మాట్లాడాలి",
+        "isTrue": true,
+        "explanation": "మంచి మాటలు మాట్లాడడం మంచి గుణం"
+      },
+      {
+        "statement": "అన్ని పిల్లలు ఒకే విధంగా ఆలోచిస్తారు",
+        "isTrue": false,
+        "explanation": "పిల్లలు వేర్వేరు విధాలుగా ఆలోచిస్తారు"
+      },
+      {
+        "statement": "మనం ఎప్పుడూ ఇతరులకు సహాయం చేయాలి",
+        "isTrue": true,
+        "explanation": "ఇతరులకు సహాయం చేయడం మంచి గుణం"
+      },
+      {
+        "statement": "అన్ని మనుష్యులు ఒకే రంగులో ఉంటారు",
+        "isTrue": false,
+        "explanation": "మనుష్యులు వేర్వేరు రంగులలో ఉంటారు"
+      },
+      {
+        "statement": "అన్ని భాషలకు ఒకే వర్ణమాల ఉంటుంది",
+        "isTrue": false,
+        "explanation": "వేర్వేరు భాషలకు వేర్వేరు వ్రాత పద్ధతులు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని దేశాలకు ఒకే కరెన్సీ ఉంటుంది",
+        "isTrue": false,
+        "explanation": "వేర్వేరు దేశాలు వేర్వేరు కరెన్సీలను ఉపయోగిస్తాయి"
+      },
+      {
+        "statement": "అన్ని కంప్యూటర్లు ఒకే విధంగా పనిచేస్తాయి",
+        "isTrue": false,
+        "explanation": "కంప్యూటర్లు వేర్వేరు ఆపరేటింగ్ సిస్టమ్లను కలిగి ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని పుస్తకాలు ఇంగ్లీషులో వ్రాయబడ్డాయి",
+        "isTrue": false,
+        "explanation": "పుస్తకాలు అనేక వేర్వేరు భాషలలో వ్రాయబడ్డాయి"
+      },
+      {
+        "statement": "అన్ని సంగీతం ఒకే విధంగా ధ్వనిస్తుంది",
+        "isTrue": false,
+        "explanation": "సంగీతం అనేక వేర్వేరు శైలులు మరియు రకాలలో వస్తుంది"
+      }
+    ],
+    "expert": [
+      {
+        "statement": "అన్ని పిల్లలు ఒకే వేగంతో నేర్చుకుంటారు",
+        "isTrue": false,
+        "explanation": "ప్రతి పిల్లవాడు తన సొంత వేగంతో నేర్చుకుంటాడు"
+      },
+      {
+        "statement": "అన్ని ఉపాధ్యాయులు ఒకే బోధనా పద్ధతులను ఉపయోగిస్తారు",
+        "isTrue": false,
+        "explanation": "ఉపాధ్యాయులు విద్యార్థులకు సహాయం చేయడానికి వేర్వేరు పద్ధతులను ఉపయోగిస్తారు"
+      },
+      {
+        "statement": "అన్ని పాఠశాలలలో ఒకే విషయాలు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు పాఠశాలలు వేర్వేరు విషయాలను అందించవచ్చు"
+      },
+      {
+        "statement": "అన్ని పిల్లలకు ఒకే అభిరుచులు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "పిల్లలకు వేర్వేరు ఆసక్తులు మరియు అభిరుచులు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని కుటుంబాలు పుట్టినరోజులను ఒకే విధంగా జరుపుకుంటాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు కుటుంబాలకు వేర్వేరు పుట్టినరోజు సంప్రదాయాలు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని ఆటస్థలాలలో ఒకే పరికరాలు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "ఆటస్థలాలలో వేర్వేరు రకాల పరికరాలు ఉండవచ్చు"
+      },
+      {
+        "statement": "అన్ని పిల్లలు ఒకే ఆహారాన్ని ఇష్టపడతారు",
+        "isTrue": false,
+        "explanation": "పిల్లలకు వేర్వేరు ఆహార ప్రాధాన్యతలు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని పెంపుడు జంతువులకు ఒకే మొత్తంలో సంరక్షణ కావాలి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు పెంపుడు జంతువులకు వేర్వేరు రకాల సంరక్షణ కావాలి"
+      },
+      {
+        "statement": "అన్ని ఋతువులు ప్రతిచోటా ఒకేలా అనిపిస్తాయి",
+        "isTrue": false,
+        "explanation": "ఋతువులు వేర్వేరు ప్రదేశాలలో వేర్వేరుగా అనిపించవచ్చు"
+      },
+      {
+        "statement": "అన్ని పిల్లలకు ఒకే నిద్ర సమయం ఉంటుంది",
+        "isTrue": false,
+        "explanation": "వేర్వేరు కుటుంబాలకు వేర్వేరు నిద్ర నియమాలు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని క్రీడలు ఒకే బంతిని ఉపయోగిస్తాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు క్రీడలు వేర్వేరు రకాల బంతులను ఉపయోగిస్తాయి"
+      },
+      {
+        "statement": "అన్ని పుస్తకాలకు ఒకే సంఖ్యలో పేజీలు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "పుస్తకాలు వేర్వేరు పొడవులలో ఉండవచ్చు"
+      },
+      {
+        "statement": "అన్ని బొమ్మలు ఒకే విధంగా పనిచేస్తాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు బొమ్మలు వేర్వేరు విధాలుగా పనిచేస్తాయి"
+      },
+      {
+        "statement": "అన్ని ఆటలకు ఒకే నియమాలు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు ఆటలకు వేర్వేరు నియమాలు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని కార్టూన్లు ఒకే విధంగా తయారు చేయబడతాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు కార్టూన్లు వేర్వేరు యానిమేషన్ శైలులను ఉపయోగిస్తాయి"
+      }
+    ],
+    "master": [
+      {
+        "statement": "అన్ని పిల్లలకు ఒకే అభిమాన రంగు ఉంటుంది",
+        "isTrue": false,
+        "explanation": "పిల్లలకు వేర్వేరు అభిమాన రంగులు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని కుటుంబాలు ఒకే సమయంలో విందు తింటాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు కుటుంబాలకు వేర్వేరు విందు సమయాలు ఉంటాయి"
+      },
+      {
+        "statement": "అన్ని పిల్లలు ఒకే సైజు బట్టలు ధరిస్తారు",
+        "isTrue": false,
+        "explanation": "పిల్లలు వారి వయస్సు మరియు పెరుగుదల ఆధారంగా వేర్వేరు సైజులు ధరిస్తారు"
+      },
+      {
+        "statement": "అన్ని తరగతి గదులు ఒకేలా కనిపిస్తాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు తరగతి గదులు వేర్వేరు అలంకరణలు మరియు లేఅవుట్లను కలిగి ఉండవచ్చు"
+      },
+      {
+        "statement": "అన్ని పిల్లలకు ఒకే సంఖ్యలో సోదరులు ఉంటారు",
+        "isTrue": false,
+        "explanation": "కొన్ని పిల్లలకు సోదరులు లేరు, కొన్నికి ఒకరు, కొన్నికి చాలా మంది ఉంటారు"
+      },
+      {
+        "statement": "అన్ని పుట్టినరోజు వేడుకలలో ఒకే కార్యకలాపాలు ఉంటాయి",
+        "isTrue": false,
+        "explanation": "వేర్వేరు పుట్టినరోజు వేడుకలలో వేర్వేరు ఆటలు మరియు కార్యకలాపాలు ఉండవచ్చు"
+      },
+      {
+        "statement": "అన్ని పిల్లలు ఒకే రకమైన ఇంటిలో నివసిస్తారు",
+        "isTrue": false,
+        "explanation": "పిల్లలు వేర్వేరు రకాల ఇళ్లు మరియు అపార్ట్‌మెంట్లలో నివసిస్తారు"
+      },
+      {
+        "statement": "అన్ని పిల్లలకు ఒకే నిద్ర కథ ఉంటుంది",
+        "isTrue": false,
+        "explanation": "వేర్వేరు కుటుంబాలు వేర్వేరు నిద్ర కథలను చదువుతాయి"
+      },
+      {
+        "statement": "అన్ని పిల్లలు ఒకే బొమ్మలతో ఆడుతారు",
+        "isTrue": false,
+        "explanation": "పిల్లలు వారి ఆసక్తుల ఆధారంగా వేర్వేరు బొమ్మలను కలిగి ఉంటారు"
+      },
+      {
+        "statement": "అన్ని పిల్లలకు పాఠశాలలో ఒకే అభిమాన విషయం ఉంటుంది",
+        "isTrue": false,
+        "explanation": "వేర్వేరు పిల్లలు వేర్వేరు విషయాలను ఆస్వాదిస్తారు"
+      }
+    ]
+  },
+  "kn": {
+    "basic": [
+      {
+        "statement": "ಮಕ್ಕಳು ಶಾಲೆಗೆ ಹೋಗಬೇಕು",
+        "isTrue": true,
+        "explanation": "ಮಕ್ಕಳು ವಿದ್ಯೆಗಾಗಿ ಶಾಲೆಗೆ ಹೋಗಬೇಕು"
+      },
+      {
+        "statement": "ಪುಸ್ತಕಗಳನ್ನು ಓದುವುದು ಒಳ್ಳೆಯ ಅಭ್ಯಾಸ",
+        "isTrue": true,
+        "explanation": "ಪುಸ್ತಕಗಳನ್ನು ಓದುವುದು ಜ್ಞಾನವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ"
+      },
+      {
+        "statement": "ಅಕ್ಷರಗಳನ್ನು ಕಲಿಯುವುದು ಮುಖ್ಯ",
+        "isTrue": true,
+        "explanation": "ಓದುವುದಕ್ಕಾಗಿ ಅಕ್ಷರಗಳನ್ನು ಕಲಿಯುವುದು ಮುಖ್ಯ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ವಯಸ್ಸಿನವರು",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ವಿಭಿನ್ನ ವಯಸ್ಸಿನವರು"
+      },
+      {
+        "statement": "ನಾವು ಶಾಲೆಯಲ್ಲಿ ಒಳ್ಳೆಯ ಸ್ನೇಹಿತರನ್ನು ಮಾಡಿಕೊಳ್ಳಬೇಕು",
+        "isTrue": true,
+        "explanation": "ಒಳ್ಳೆಯ ಸ್ನೇಹಿತರನ್ನು ಮಾಡಿಕೊಳ್ಳುವುದು ಮುಖ್ಯ"
+      },
+      {
+        "statement": "ಆಕಾಶ ನೀಲಿ ಬಣ್ಣದ್ದು",
+        "isTrue": true,
+        "explanation": "ಆಕಾಶ ಸಾಮಾನ್ಯವಾಗಿ ಹಗಲು ಸಮಯದಲ್ಲಿ ನೀಲಿ ಬಣ್ಣದಲ್ಲಿ ಕಾಣುತ್ತದೆ"
+      },
+      {
+        "statement": "ಮರಗಳು ನಮಗೆ ಆಮ್ಲಜನಕವನ್ನು ನೀಡುತ್ತವೆ",
+        "isTrue": true,
+        "explanation": "ಮರಗಳು ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆಯ ಮೂಲಕ ಆಮ್ಲಜನಕವನ್ನು ಉತ್ಪಾದಿಸುತ್ತವೆ"
+      },
+      {
+        "statement": "ಸೂರ್ಯ ನಕ್ಷತ್ರ",
+        "isTrue": true,
+        "explanation": "ಸೂರ್ಯ ನಿಜವಾಗಿಯೂ ನಕ್ಷತ್ರ"
+      },
+      {
+        "statement": "ಚಂದ್ರ ರಾತ್ರಿಯಲ್ಲಿ ಕಾಣುತ್ತದೆ",
+        "isTrue": true,
+        "explanation": "ಚಂದ್ರ ರಾತ್ರಿಯಲ್ಲಿ ಆಕಾಶದಲ್ಲಿ ಕಾಣುತ್ತದೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮರಗಳೂ ಯಾವಾಗಲೂ ಹಸಿರು",
+        "isTrue": false,
+        "explanation": "ಕೆಲವು ಮರಗಳು ಋತುಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಬಣ್ಣ ಬದಲಾಯಿಸುತ್ತವೆ"
+      }
+    ],
+    "intermediate": [
+      {
+        "statement": "ವ್ಯಾಯಾಮ ಮಾಡುವುದು ಆರೋಗ್ಯಕ್ಕೆ ಒಳ್ಳೆಯದು",
+        "isTrue": true,
+        "explanation": "ವ್ಯಾಯಾಮ ಮಾಡುವುದು ಆರೋಗ್ಯವನ್ನು ಸುಧಾರಿಸುತ್ತದೆ"
+      },
+      {
+        "statement": "ನೀರು ಬದುಕಿಗೆ ಅತ್ಯಗತ್ಯ",
+        "isTrue": true,
+        "explanation": "ನೀರು ಎಲ್ಲ ಜೀವಿಗಳ ಬದುಕಿಗೆ ಅತ್ಯಗತ್ಯ"
+      },
+      {
+        "statement": "ಸಂಗೀತ ಕೇಳುವುದು ಮನಸ್ಸಿಗೆ ಶಾಂತಿ ತರುತ್ತದೆ",
+        "isTrue": true,
+        "explanation": "ಸಂಗೀತ ಮನಸ್ಸಿಗೆ ಶಾಂತಿ ಮತ್ತು ಸಂತೋಷ ತರುತ್ತದೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಪ್ರಾಣಿಗಳೂ ಒಂದೇ ರೀತಿ ನಡೆದುಕೊಳ್ಳುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ಪ್ರಾಣಿಗಳು ವಿಭಿನ್ನ ರೀತಿಯಲ್ಲಿ ನಡೆದುಕೊಳ್ಳುತ್ತವೆ"
+      },
+      {
+        "statement": "ಸ್ನೇಹ ಮುಖ್ಯವಾದುದು",
+        "isTrue": true,
+        "explanation": "ಸ್ನೇಹ ಜೀವನದಲ್ಲಿ ಮುಖ್ಯವಾದುದು"
+      },
+      {
+        "statement": "ಪ್ರಕೃತಿಯನ್ನು ರಕ್ಷಿಸಬೇಕು",
+        "isTrue": true,
+        "explanation": "ಪ್ರಕೃತಿಯನ್ನು ರಕ್ಷಿಸುವುದು ನಮ್ಮ ಕರ್ತವ್ಯ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ರೀತಿ ಕಲಿಯುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ವಿಭಿನ್ನ ರೀತಿಯಲ್ಲಿ ಕಲಿಯುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಸಹಾಯ ಮಾಡುವುದು ಒಳ್ಳೆಯ ಗುಣ",
+        "isTrue": true,
+        "explanation": "ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡುವುದು ಒಳ್ಳೆಯ ಗುಣ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ವಿಷಯಗಳೂ ಸುಲಭ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ವಿಷಯಗಳು ವಿಭಿನ್ನ ಮಟ್ಟದ ಕಷ್ಟತೆಯನ್ನು ಹೊಂದಿವೆ"
+      },
+      {
+        "statement": "ಕಲಿಕೆ ಜೀವನದಲ್ಲಿ ಮುಖ್ಯ",
+        "isTrue": true,
+        "explanation": "ಕಲಿಕೆ ಜೀವನದಲ್ಲಿ ನಿರಂತರ ಪ್ರಕ್ರಿಯೆ"
+      }
+    ],
+    "advanced": [
+      {
+        "statement": "ಸಹಕಾರದಿಂದ ಕೆಲಸ ಮಾಡುವುದು ಉತ್ತಮ",
+        "isTrue": true,
+        "explanation": "ಸಹಕಾರದಿಂದ ಕೆಲಸ ಮಾಡುವುದು ಉತ್ತಮ ಫಲಿತಾಂಶಗಳನ್ನು ನೀಡುತ್ತದೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ವಿಷಯಗಳನ್ನು ಇಷ್ಟಪಡುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಮಕ್ಕಳು ವಿಭಿನ್ನ ವಿಷಯಗಳನ್ನು ಇಷ್ಟಪಡುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಪ್ರಕೃತಿಯನ್ನು ರಕ್ಷಿಸಬೇಕು",
+        "isTrue": true,
+        "explanation": "ಪ್ರಕೃತಿಯನ್ನು ರಕ್ಷಿಸುವುದು ನಮ್ಮ ಕರ್ತವ್ಯ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ರೀತಿ ಕಲಿಯುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ವಿಭಿನ್ನ ರೀತಿಯಲ್ಲಿ ಕಲಿಯುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಸಹಾಯ ಮಾಡುವುದು ಒಳ್ಳೆಯ ಗುಣ",
+        "isTrue": true,
+        "explanation": "ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡುವುದು ಒಳ್ಳೆಯ ಗುಣ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ವಿಷಯಗಳೂ ಸುಲಭ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ವಿಷಯಗಳು ವಿಭಿನ್ನ ಮಟ್ಟದ ಕಷ್ಟತೆಯನ್ನು ಹೊಂದಿವೆ"
+      },
+      {
+        "statement": "ಕಲಿಕೆ ಜೀವನದಲ್ಲಿ ಮುಖ್ಯ",
+        "isTrue": true,
+        "explanation": "ಕಲಿಕೆ ಜೀವನದಲ್ಲಿ ನಿರಂತರ ಪ್ರಕ್ರಿಯೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ವಯಸ್ಸಿನವರು",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ವಿಭಿನ್ನ ವಯಸ್ಸಿನವರು"
+      },
+      {
+        "statement": "ಸ್ನೇಹ ಮುಖ್ಯವಾದುದು",
+        "isTrue": true,
+        "explanation": "ಸ್ನೇಹ ಜೀವನದಲ್ಲಿ ಮುಖ್ಯವಾದುದು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಪ್ರಾಣಿಗಳೂ ಒಂದೇ ರೀತಿ ನಡೆದುಕೊಳ್ಳುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ಪ್ರಾಣಿಗಳು ವಿಭಿನ್ನ ರೀತಿಯಲ್ಲಿ ನಡೆದುಕೊಳ್ಳುತ್ತವೆ"
+      }
+    ],
+    "expert": [
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ವೇಗದಲ್ಲಿ ಕಲಿಯುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಪ್ರತಿ ಮಗು ತನ್ನ ಸ್ವಂತ ವೇಗದಲ್ಲಿ ಕಲಿಯುತ್ತದೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಶಿಕ್ಷಕರೂ ಒಂದೇ ಬೋಧನಾ ವಿಧಾನಗಳನ್ನು ಬಳಸುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಶಿಕ್ಷಕರು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಹಾಯ ಮಾಡಲು ವಿಭಿನ್ನ ವಿಧಾನಗಳನ್ನು ಬಳಸುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಶಾಲೆಗಳಲ್ಲೂ ಒಂದೇ ವಿಷಯಗಳು ಇರುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಶಾಲೆಗಳು ವಿಭಿನ್ನ ವಿಷಯಗಳನ್ನು ನೀಡಬಹುದು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳಿಗೂ ಒಂದೇ ಆಸಕ್ತಿಗಳು ಇರುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳಿಗೆ ವಿಭಿನ್ನ ಆಸಕ್ತಿಗಳು ಮತ್ತು ಹವ್ಯಾಸಗಳು ಇರುತ್ತವೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಕುಟುಂಬಗಳೂ ಒಂದೇ ರೀತಿಯಲ್ಲಿ ಹುಟ್ಟಿದಿನಗಳನ್ನು ಆಚರಿಸುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಕುಟುಂಬಗಳಿಗೆ ವಿಭಿನ್ನ ಹುಟ್ಟಿದಿನ ಸಂಪ್ರದಾಯಗಳು ಇರುತ್ತವೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಆಟದ ಮೈದಾನಗಳಲ್ಲೂ ಒಂದೇ ಸಾಧನಗಳು ಇರುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ಆಟದ ಮೈದಾನಗಳಲ್ಲಿ ವಿಭಿನ್ನ ರೀತಿಯ ಸಾಧನಗಳು ಇರಬಹುದು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ಆಹಾರವನ್ನು ಇಷ್ಟಪಡುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳಿಗೆ ವಿಭಿನ್ನ ಆಹಾರದ ಆದ್ಯತೆಗಳು ಇರುತ್ತವೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಸಾಕುಪ್ರಾಣಿಗಳಿಗೂ ಒಂದೇ ಮೊತ್ತದ ಕಾಳಜಿ ಬೇಕು",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಸಾಕುಪ್ರಾಣಿಗಳಿಗೆ ವಿಭಿನ್ನ ರೀತಿಯ ಕಾಳಜಿ ಬೇಕು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಋತುಗಳು ಎಲ್ಲೆಡೆಯೂ ಒಂದೇ ರೀತಿಯಲ್ಲಿ ಅನಿಸುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ಋತುಗಳು ವಿಭಿನ್ನ ಸ್ಥಳಗಳಲ್ಲಿ ವಿಭಿನ್ನವಾಗಿ ಅನಿಸಬಹುದು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳಿಗೂ ಒಂದೇ ನಿದ್ರೆಯ ಸಮಯ ಇರುತ್ತದೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಕುಟುಂಬಗಳಿಗೆ ವಿಭಿನ್ನ ನಿದ್ರೆಯ ನಿಯಮಗಳು ಇರುತ್ತವೆ"
+      }
+    ],
+    "master": [
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳಿಗೂ ಒಂದೇ ಅಚ್ಚುಮೆಚ್ಚಿನ ಬಣ್ಣ ಇರುತ್ತದೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳಿಗೆ ವಿಭಿನ್ನ ಅಚ್ಚುಮೆಚ್ಚಿನ ಬಣ್ಣಗಳು ಇರುತ್ತವೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಕುಟುಂಬಗಳೂ ಒಂದೇ ಸಮಯದಲ್ಲಿ ರಾತ್ರಿ ಊಟ ಮಾಡುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಕುಟುಂಬಗಳಿಗೆ ವಿಭಿನ್ನ ರಾತ್ರಿ ಊಟದ ಸಮಯಗಳು ಇರುತ್ತವೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ಗಾತ್ರದ ಬಟ್ಟೆಗಳನ್ನು ಧರಿಸುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ಅವರ ವಯಸ್ಸು ಮತ್ತು ಬೆಳವಣಿಗೆಯ ಆಧಾರದ ಮೇಲೆ ವಿಭಿನ್ನ ಗಾತ್ರಗಳನ್ನು ಧರಿಸುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ತರಗತಿ ಕೋಣೆಗಳೂ ನಿಖರವಾಗಿ ಒಂದೇ ರೀತಿಯಲ್ಲಿ ಕಾಣುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ತರಗತಿ ಕೋಣೆಗಳು ವಿಭಿನ್ನ ಅಲಂಕಾರಗಳು ಮತ್ತು ವಿನ್ಯಾಸಗಳನ್ನು ಹೊಂದಿರಬಹುದು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳಿಗೂ ಒಂದೇ ಸಂಖ್ಯೆಯ ಸಹೋದರರು ಇರುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಕೆಲವು ಮಕ್ಕಳಿಗೆ ಸಹೋದರರು ಇರುವುದಿಲ್ಲ, ಕೆಲವರಿಗೆ ಒಬ್ಬರು, ಕೆಲವರಿಗೆ ಅನೇಕರು ಇರುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಹುಟ್ಟಿದಿನ ಪಾರ್ಟಿಗಳಲ್ಲೂ ಒಂದೇ ಚಟುವಟಿಕೆಗಳು ಇರುತ್ತವೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಹುಟ್ಟಿದಿನ ಪಾರ್ಟಿಗಳಲ್ಲಿ ವಿಭಿನ್ನ ಆಟಗಳು ಮತ್ತು ಚಟುವಟಿಕೆಗಳು ಇರಬಹುದು"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ರೀತಿಯ ಮನೆಯಲ್ಲಿ ವಾಸಿಸುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ವಿಭಿನ್ನ ರೀತಿಯ ಮನೆಗಳು ಮತ್ತು ಅಪಾರ್ಟ್ಮೆಂಟ್ಗಳಲ್ಲಿ ವಾಸಿಸುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳಿಗೂ ಒಂದೇ ನಿದ್ರೆಯ ಕಥೆ ಇರುತ್ತದೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಕುಟುಂಬಗಳು ವಿಭಿನ್ನ ನಿದ್ರೆಯ ಕಥೆಗಳನ್ನು ಓದುತ್ತವೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳೂ ಒಂದೇ ಆಟಿಕೆಗಳೊಂದಿಗೆ ಆಡುತ್ತಾರೆ",
+        "isTrue": false,
+        "explanation": "ಮಕ್ಕಳು ಅವರ ಆಸಕ್ತಿಗಳ ಆಧಾರದ ಮೇಲೆ ವಿಭಿನ್ನ ಆಟಿಕೆಗಳನ್ನು ಹೊಂದಿರುತ್ತಾರೆ"
+      },
+      {
+        "statement": "ಎಲ್ಲ ಮಕ್ಕಳಿಗೂ ಶಾಲೆಯಲ್ಲಿ ಒಂದೇ ಅಚ್ಚುಮೆಚ್ಚಿನ ವಿಷಯ ಇರುತ್ತದೆ",
+        "isTrue": false,
+        "explanation": "ವಿಭಿನ್ನ ಮಕ್ಕಳು ವಿಭಿನ್ನ ವಿಷಯಗಳನ್ನು ಆಸ್ವಾದಿಸುತ್ತಾರೆ"
+      }
+    ]
+  },
+  "mr": {
+    "basic": [
+      {
+        "statement": "मुले शाळेत जातात",
+        "isTrue": true,
+        "explanation": "मुले शिक्षणासाठी शाळेत जातात"
+      },
+      {
+        "statement": "पुस्तके वाचणे चांगली सवय आहे",
+        "isTrue": true,
+        "explanation": "पुस्तके वाचणे ज्ञान वाढवते"
+      },
+      {
+        "statement": "अक्षरे शिकणे महत्वाचे आहे",
+        "isTrue": true,
+        "explanation": "अक्षरे शिकणे वाचण्यासाठी महत्वाचे आहे"
+      },
+      {
+        "statement": "सर्व मुले एकाच वयाची असतात",
+        "isTrue": false,
+        "explanation": "मुले वेगवेगळ्या वयाची असतात"
+      },
+      {
+        "statement": "शाळेत चांगले मित्र करावेत",
+        "isTrue": true,
+        "explanation": "चांगले मित्र करणे महत्वाचे आहे"
+      },
+      {
+        "statement": "आकाश निळे आहे",
+        "isTrue": true,
+        "explanation": "आकाश सहसा निळे दिसते"
+      },
+      {
+        "statement": "झाडे ऑक्सिजन देतात",
+        "isTrue": true,
+        "explanation": "झाडे प्रकाशसंश्लेषणाद्वारे ऑक्सिजन देतात"
+      },
+      {
+        "statement": "सूर्य एक तारा आहे",
+        "isTrue": true,
+        "explanation": "सूर्य एक तारा आहे"
+      },
+      {
+        "statement": "चंद्र रात्री दिसतो",
+        "isTrue": true,
+        "explanation": "चंद्र रात्री आकाशात दिसतो"
+      },
+      {
+        "statement": "सर्व झाडे नेहमी हिरवीगार असतात",
+        "isTrue": false,
+        "explanation": "काही झाडे उन्हाळ्यात पाने गळतात"
+      },
+      {
+        "statement": "सर्व पक्षी घरटे बांधतात",
+        "isTrue": true,
+        "explanation": "पक्षी घरटे बांधून अंडी घालतात"
+      },
+      {
+        "statement": "सर्व मासे फक्त पाण्यात जगतात",
+        "isTrue": true,
+        "explanation": "मासे फक्त पाण्यात जगतात"
+      },
+      {
+        "statement": "सर्व प्राणी उडतात",
+        "isTrue": false,
+        "explanation": "सर्व प्राणी उडत नाहीत"
+      },
+      {
+        "statement": "सर्व पक्षी उडतात",
+        "isTrue": false,
+        "explanation": "काही पक्षी उडत नाहीत"
+      },
+      {
+        "statement": "सर्व प्राण्यांना जीभ असते",
+        "isTrue": false,
+        "explanation": "सर्व प्राण्यांना जीभ नसते"
+      },
+      {
+        "statement": "आपण पाणी न घेता जगू शकत नाही",
+        "isTrue": true,
+        "explanation": "पाणी जीवनासाठी खूप महत्वाचे आहे"
+      },
+      {
+        "statement": "आपण नेहमी व्यायाम करावा",
+        "isTrue": true,
+        "explanation": "चांगल्या आरोग्यासाठी व्यायाम करावा"
+      },
+      {
+        "statement": "आपण नेहमी हात धुवावेत",
+        "isTrue": true,
+        "explanation": "चांगल्या आरोग्यासाठी हात धुवावेत"
+      },
+      {
+        "statement": "मुले रात्री 12 तास झोपतात",
+        "isTrue": false,
+        "explanation": "मुले सहसा 8-10 तास झोपतात"
+      },
+      {
+        "statement": "आपण पाणी प्यायले पाहिजे",
+        "isTrue": true,
+        "explanation": "पाणी आपल्या आरोग्यासाठी खूप महत्वाचे आहे"
+      }
+    ],
+    "intermediate": [
+      {
+        "statement": "भारत जगातील सर्वात मोठा देश आहे",
+        "isTrue": false,
+        "explanation": "भारत लोकसंख्येने दुसऱ्या क्रमांकावर आहे"
+      },
+      {
+        "statement": "सर्व ग्रह सूर्याभोवती फिरतात",
+        "isTrue": true,
+        "explanation": "सौरमंडळात सर्व ग्रह सूर्याभोवती फिरतात"
+      },
+      {
+        "statement": "पृथ्वी गोल आहे",
+        "isTrue": true,
+        "explanation": "पृथ्वी गोल आहे"
+      },
+      {
+        "statement": "सर्व देशांमध्ये एकच भाषा बोलतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या देशांमध्ये वेगवेगळ्या भाषा बोलतात"
+      },
+      {
+        "statement": "सर्व नद्या समुद्रात मिळतात",
+        "isTrue": true,
+        "explanation": "नद्या शेवटी समुद्रात मिळतात"
+      },
+      {
+        "statement": "सर्व फळे गोड असतात",
+        "isTrue": false,
+        "explanation": "सर्व फळे गोड नसतात"
+      },
+      {
+        "statement": "सर्व फळे आरोग्यासाठी चांगली असतात",
+        "isTrue": true,
+        "explanation": "फळे विटामिन्स आणि खनिजे असतात"
+      },
+      {
+        "statement": "आपण नेहमी चांगले अन्न खावे",
+        "isTrue": true,
+        "explanation": "चांगले अन्न आरोग्यासाठी महत्वाचे आहे"
+      },
+      {
+        "statement": "सर्व भाज्या हिरव्या असतात",
+        "isTrue": false,
+        "explanation": "भाज्या वेगवेगळ्या रंगांच्या असतात"
+      },
+      {
+        "statement": "दूध हाडांसाठी चांगले आहे",
+        "isTrue": true,
+        "explanation": "दूध कॅल्शियम असते"
+      },
+      {
+        "statement": "सर्व वनस्पतींना फुले येतात",
+        "isTrue": false,
+        "explanation": "सर्व वनस्पतींना फुले येत नाहीत"
+      },
+      {
+        "statement": "सर्व झाडांना फळे येतात",
+        "isTrue": false,
+        "explanation": "सर्व झाडांना फळे येत नाहीत"
+      },
+      {
+        "statement": "सर्व पक्षी अंडी घालतात",
+        "isTrue": true,
+        "explanation": "पक्षी अंडी घालतात"
+      },
+      {
+        "statement": "सर्व प्राणी एकच प्रकारचे अन्न खातात",
+        "isTrue": false,
+        "explanation": "प्राणी वेगवेगळे प्रकारचे अन्न खातात"
+      },
+      {
+        "statement": "सर्व झाडे एकाच उंचीची असतात",
+        "isTrue": false,
+        "explanation": "झाडे वेगवेगळ्या उंचीची असतात"
+      }
+    ],
+    "advanced": [
+      {
+        "statement": "सर्व ग्रहांना चंद्र आहे",
+        "isTrue": false,
+        "explanation": "सर्व ग्रहांना चंद्र नाही"
+      },
+      {
+        "statement": "सर्व ताऱे सूर्यापेक्षा मोठे आहेत",
+        "isTrue": false,
+        "explanation": "काही ताऱे सूर्यापेक्षा लहान आहेत"
+      },
+      {
+        "statement": "सर्व प्राणी एकाच वेगाने चालतात",
+        "isTrue": false,
+        "explanation": "प्राणी वेगवेगळ्या वेगाने चालतात"
+      },
+      {
+        "statement": "सर्व पक्षी एकच प्रकारचे घरटे बांधतात",
+        "isTrue": false,
+        "explanation": "पक्षी वेगवेगळे प्रकारचे घरटे बांधतात"
+      },
+      {
+        "statement": "सर्व मासे एकच प्रकारच्या पाण्यात जगतात",
+        "isTrue": false,
+        "explanation": "मासे वेगवेगळ्या प्रकारच्या पाण्यात जगतात"
+      },
+      {
+        "statement": "सर्व झाडे एकाच वेगाने वाढतात",
+        "isTrue": false,
+        "explanation": "झाडे वेगवेगळ्या वेगाने वाढतात"
+      },
+      {
+        "statement": "सर्व वनस्पती एकच प्रकारच्या मातीत वाढतात",
+        "isTrue": false,
+        "explanation": "वनस्पती वेगवेगळ्या प्रकारच्या मातीत वाढतात"
+      },
+      {
+        "statement": "सर्व प्राणी एकाच ऋतूत जगतात",
+        "isTrue": false,
+        "explanation": "प्राणी वेगवेगळ्या ऋतूत जगतात"
+      },
+      {
+        "statement": "सर्व पक्षी एकाच वेळी उडतात",
+        "isTrue": false,
+        "explanation": "पक्षी वेगवेगळ्या वेळी उडतात"
+      },
+      {
+        "statement": "सर्व झाडांना एकच प्रकारची पाने असतात",
+        "isTrue": false,
+        "explanation": "झाडांना वेगवेगळ्या प्रकारची पाने असतात"
+      },
+      {
+        "statement": "आपण नेहमी सत्य बोलावे",
+        "isTrue": true,
+        "explanation": "सत्य बोलणे चांगले गुण आहे"
+      },
+      {
+        "statement": "आपण नेहमी चांगले शब्द बोलावेत",
+        "isTrue": true,
+        "explanation": "चांगले शब्द बोलणे चांगले गुण आहे"
+      },
+      {
+        "statement": "सर्व मुले एकाच प्रकारे विचार करतात",
+        "isTrue": false,
+        "explanation": "मुले वेगवेगळ्या प्रकारे विचार करतात"
+      },
+      {
+        "statement": "आपण नेहमी इतरांना मदत करावी",
+        "isTrue": true,
+        "explanation": "इतरांना मदत करणे चांगले गुण आहे"
+      },
+      {
+        "statement": "सर्व माणसे एकाच रंगाची असतात",
+        "isTrue": false,
+        "explanation": "माणसे वेगवेगळ्या रंगांची असतात"
+      }
+    ],
+    "expert": [
+      {
+        "statement": "सर्व मुले एकाच वेगाने शिकतात",
+        "isTrue": false,
+        "explanation": "प्रत्येक मूल आपल्या वेगाने शिकते"
+      },
+      {
+        "statement": "सर्व शिक्षक एकाच शिकवण्याच्या पद्धती वापरतात",
+        "isTrue": false,
+        "explanation": "शिक्षक विद्यार्थ्यांना मदत करण्यासाठी वेगवेगळ्या पद्धती वापरतात"
+      },
+      {
+        "statement": "सर्व शाळांमध्ये एकच विषय असतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या शाळा वेगवेगळे विषय देऊ शकतात"
+      },
+      {
+        "statement": "सर्व मुलांना एकच आवडी असतात",
+        "isTrue": false,
+        "explanation": "मुलांना वेगवेगळ्या आवडी आणि रुची असतात"
+      },
+      {
+        "statement": "सर्व कुटुंबे वाढदिवस एकाच प्रकारे साजरे करतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या कुटुंबांना वेगवेगळ्या वाढदिवसाच्या परंपरा असतात"
+      },
+      {
+        "statement": "सर्व खेळाच्या मैदानांमध्ये एकच उपकरणे असतात",
+        "isTrue": false,
+        "explanation": "खेळाच्या मैदानांमध्ये वेगवेगळ्या प्रकारची उपकरणे असू शकतात"
+      },
+      {
+        "statement": "सर्व मुले एकच अन्न आवडते",
+        "isTrue": false,
+        "explanation": "मुलांना वेगवेगळ्या अन्नाच्या प्राधान्यता असतात"
+      },
+      {
+        "statement": "सर्व पाळीव प्राण्यांना एकच प्रकारची काळजी लागते",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या पाळीव प्राण्यांना वेगवेगळ्या प्रकारची काळजी लागते"
+      },
+      {
+        "statement": "सर्व ऋतू प्रत्येक ठिकाणी एकसारखे वाटतात",
+        "isTrue": false,
+        "explanation": "ऋतू वेगवेगळ्या ठिकाणी वेगवेगळे वाटू शकतात"
+      },
+      {
+        "statement": "सर्व मुलांना एकच झोपण्याची वेळ असते",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या कुटुंबांना वेगवेगळे झोपण्याचे नियम असतात"
+      },
+      {
+        "statement": "सर्व खेळ एकच चेंडू वापरतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळे खेळ वेगवेगळ्या प्रकारचे चेंडू वापरतात"
+      },
+      {
+        "statement": "सर्व पुस्तकांमध्ये एकच पाने असतात",
+        "isTrue": false,
+        "explanation": "पुस्तके वेगवेगळ्या लांबीची असू शकतात"
+      },
+      {
+        "statement": "सर्व खेळणी एकाच प्रकारे काम करतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या खेळण्या वेगवेगळ्या प्रकारे काम करतात"
+      },
+      {
+        "statement": "सर्व खेळांमध्ये एकच नियम असतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या खेळांमध्ये वेगवेगळे नियम असतात"
+      },
+      {
+        "statement": "सर्व कार्टून एकाच प्रकारे बनवले जातात",
+        "isTrue": false,
+        "explanation": "वेगवेगळे कार्टून वेगवेगळ्या अॅनिमेशन शैली वापरतात"
+      }
+    ],
+    "master": [
+      {
+        "statement": "सर्व मुलांना एकच आवडता रंग असतो",
+        "isTrue": false,
+        "explanation": "मुलांना वेगवेगळे आवडते रंग असतात"
+      },
+      {
+        "statement": "सर्व कुटुंबे एकाच वेळी रात्रीचे जेवण करतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या कुटुंबांना वेगवेगळ्या रात्रीच्या जेवणाच्या वेळा असतात"
+      },
+      {
+        "statement": "सर्व मुले एकच आकाराचे कपडे घालतात",
+        "isTrue": false,
+        "explanation": "मुले त्यांच्या वय आणि वाढीच्या आधारावर वेगवेगळे आकार घालतात"
+      },
+      {
+        "statement": "सर्व वर्गखोल्या अगदी एकसारख्या दिसतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या वर्गखोल्या वेगवेगळ्या सजावट आणि लेआउट असू शकतात"
+      },
+      {
+        "statement": "सर्व मुलांना एकच संख्येचे भाऊ-बहिणी असतात",
+        "isTrue": false,
+        "explanation": "काही मुलांना भाऊ-बहिणी नसतात, काहींना एक असतो, काहींना अनेक असतात"
+      },
+      {
+        "statement": "सर्व वाढदिवसाच्या पार्ट्यांमध्ये एकच क्रियाकलाप असतात",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या वाढदिवसाच्या पार्ट्यांमध्ये वेगवेगळे खेळ आणि क्रियाकलाप असू शकतात"
+      },
+      {
+        "statement": "सर्व मुले एकच प्रकारच्या घरात राहतात",
+        "isTrue": false,
+        "explanation": "मुले वेगवेगळ्या प्रकारच्या घरांमध्ये आणि अपार्टमेंटमध्ये राहतात"
+      },
+      {
+        "statement": "सर्व मुलांना एकच झोपण्याची कथा असते",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या कुटुंबांना वेगवेगळ्या झोपण्याच्या कथा वाचतात"
+      },
+      {
+        "statement": "सर्व मुले एकच खेळण्यांसोबत खेळतात",
+        "isTrue": false,
+        "explanation": "मुलांना त्यांच्या आवडींच्या आधारावर वेगवेगळी खेळणी असतात"
+      },
+      {
+        "statement": "सर्व मुलांना शाळेत एकच आवडता विषय असतो",
+        "isTrue": false,
+        "explanation": "वेगवेगळ्या मुलांना वेगवेगळे विषय आवडतात"
+      }
+    ]
+  }
+}

@@ -1,7 +1,8 @@
 {
     "URLS": {
         "GET_VIRTUAL_ID": "api/virtualId/generateVirtualID",
-        "GET_MILESTONE": "scores/getMilestone/user",
+        "GET_LOGOUT": "api/virtualId/logout",
+        "GET_MILESTONE": "scores/getMilestone",
         "GET_POINTER": "api/pointer/getPoints",
         "GET_ASSESSMENT": "v1/content/getAssessment",
         "ADD_POINTER": "api/pointer/addPoints",
@@ -10,6 +11,8 @@
         "GET_PAGINATION": "v1/content/pagination",
         "UPDATE_LEARNER_PROFILE": "scores/updateLearnerProfile",
         "GET_CONTENT": "scores/GetContent",
+        "GET_CONTENT_NEW": "scores/getRecommendation",
+        "SET_MILESTONE_SCORE": "scores/milestone/set",
         "GET_LESSON_PROGRESS_BY_ID": "api/lesson/getLessonProgressByUserId",
         "CREATE_LEARNER_PROGRESS": "api/learnerProgress/createLearnerProgress"
     }

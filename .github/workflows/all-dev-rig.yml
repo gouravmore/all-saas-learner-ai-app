@@ -1,9 +1,10 @@
-name: ALL rig dev Deployment
+name: ALL rig (UAT) dev Deployment
 
 on:
   push:
     branches:
       - test-rig-1.1
+      - all-3.1.0
 
 jobs:
   deploy:
@@ -17,13 +18,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-
-      - name: Install AWS CLI
-        run: |
-          sudo DEBIAN_FRONTEND=noninteractive apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y awscli
-
+          node-version: "18"
+          
       - name: Configure AWS credentials
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -43,6 +39,7 @@ jobs:
 
       - name: Build and Package Application
         env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
           SKIP_PREFLIGHT_CHECK: ${{ vars.SKIP_PREFLIGHT_CHECK }}
           REACT_APP_MODE: ${{ vars.REACT_APP_MODE }}
           REACT_APP_authToken: ${{ vars.REACT_APP_authToken }}
@@ -75,7 +72,15 @@ jobs:
           REACT_APP_IS_APP_IFRAME: ${{ vars.REACT_APP_IS_APP_IFRAME }}
           REACT_APP_IS_IN_APP_AUTHORISATION: ${{ vars.REACT_APP_IS_IN_APP_AUTHORISATION }}
           REACT_APP_LANGUAGES: ${{ vars.REACT_APP_LANGUAGES }}
-          CI: false  # Disabling CI to not treat warnings as errors
+          REACT_APP_AWS_ACCESS_KEY_ID: ${{ secrets.REACT_APP_AWS_ACCESS_KEY_ID }}
+          REACT_APP_AWS_SECRET_ACCESS_KEY: ${{ secrets.REACT_APP_AWS_SECRET_ACCESS_KEY }}
+          REACT_APP_SHOW_HELP_VIDEO: ${{ vars.REACT_APP_SHOW_HELP_VIDEO }}
+          REACT_APP_PARENT_ORIGIN_URL: ${{ vars.REACT_APP_PARENT_ORIGIN_URL }}
+          REACT_APP_SHOW_HELP_VIDEO_LINK: ${{ vars.REACT_APP_SHOW_HELP_VIDEO_LINK }}
+          REACT_APP_MAX_LEVEL: ${{ vars.REACT_APP_MAX_LEVEL }}
+          REACT_APP_LEARNER_AI_BASE_URL: ${{ vars.REACT_APP_LEARNER_AI_BASE_URL }}
+          REACT_APP_USE_RECOMMENDATION_API: ${{ vars.REACT_APP_USE_RECOMMENDATION_API }}
+          CI: false # Disabling CI to not treat warnings as errors
         run: npm run build
 
       - name: Deploy to S3 Bucket
@@ -91,7 +96,7 @@ jobs:
         uses: chetan/invalidate-cloudfront-action@master
         env:
           DISTRIBUTION: ${{ secrets.AWS_DISTRIBUTION }}
-          PATHS: '/*'
+          PATHS: "/*"
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

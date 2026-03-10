@@ -15,9 +15,11 @@ export const initialize = ({ did }) => {
         channel: process.env.REACT_APP_CHANNEL,
         did: did,
         authtoken: "",
-        uid: localStorage.getItem("userId")
-          ? localStorage.getItem("userId")
-          : "anonymous",
+        uid:
+          localStorage.getItem("userId") ||
+          localStorage.getItem("virtualId") ||
+          localStorage.getItem("apiToken") ||
+          "anonymous",
         sid: "",
         batchsize: 1,
         mode: "",
@@ -65,9 +67,11 @@ export const getEventOptions = () => {
         pid: "",
       },
       env: process.env.ENV,
-      uid: localStorage.getItem("userId")
-        ? localStorage.getItem("userId")
-        : "anonymous",
+      uid:
+        localStorage.getItem("userId") ||
+        localStorage.getItem("virtualId") ||
+        localStorage.getItem("apiToken") ||
+        "anonymous",
       cdata: [],
       rollup: {},
     },
