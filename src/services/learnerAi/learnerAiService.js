@@ -7,9 +7,16 @@ const API_LEARNER_AI_APP_HOST = process.env.REACT_APP_LEARNER_AI_APP_HOST;
 
 const getHeaders = () => {
   const token = localStorage.getItem("apiToken");
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+
+  // When embedded, use parent token if apiToken not available
+  // This allows the app to work when embedded without requiring JOSE token
+  const authToken = token || (isEmbedded ? parentToken : null);
+
   return {
     headers: {
-      Authorization: `Bearer ${token}`,
+      ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
       "Content-Type": "application/json",
     },
   };

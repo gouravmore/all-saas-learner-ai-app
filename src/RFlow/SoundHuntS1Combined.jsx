@@ -5033,6 +5033,8 @@ const SoundHuntS1Combined = ({
         // Community edition: tenantId and cohortId support
         tenantId: localStorage.getItem("tenantId") || "",
         cohortId: localStorage.getItem("cohortId") || "",
+        // Embedded mode: userId from parent app (all-saas-app)
+        user_id: localStorage.getItem("userId") || "",
       };
 
       console.log("Calling updateLearnerProfile API on S1 completion:", {

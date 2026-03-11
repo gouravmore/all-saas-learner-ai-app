@@ -11,12 +11,42 @@ const PrivateRoute = (props) => {
   //   virtualId = JSON.stringify(tokenDetails?.virtual_id);
   // }
 
+  // Check if embedded in iframe
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+
+  // Check for parent app's authentication (from all-saas-app)
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
+  // When embedded, check for parent app's authentication
+  const hasAuth = isEmbedded
+    ? parentToken && userId && tenantId // Parent app auth
+    : TOKEN; // Standalone app auth
+
   const navigate = useNavigate();
   useEffect(() => {
-    if (!TOKEN && props.requiresAuth) {
-      navigate("/login");
+    if (!hasAuth && props.requiresAuth) {
+      if (isEmbedded) {
+        // When embedded, don't show login - parent should handle auth
+        console.warn("No authentication found in embedded mode");
+        // Optionally send message to parent
+        if (window.parent) {
+          try {
+            window.parent.postMessage(
+              { message: "Authentication required" },
+              window?.location?.ancestorOrigins?.[0] ||
+                window.parent.location.origin
+            );
+          } catch (error) {
+            console.error("Error sending postMessage:", error);
+          }
+        }
+      } else {
+        navigate("/login");
+      }
     }
-  }, [TOKEN]);
+  }, [hasAuth, props.requiresAuth, isEmbedded, navigate]);
 
   return <>{props.children}</>;
 };

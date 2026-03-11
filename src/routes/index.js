@@ -149,8 +149,19 @@ const TOKEN = localStorage.getItem("apiToken");
 //   virtualId = null;
 // }
 const isLogin = process.env.REACT_APP_IS_IN_APP_AUTHORISATION === "true";
+const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
 
-if (isLogin && !TOKEN) {
+// Check for parent app's authentication when embedded
+const parentToken =
+  typeof window !== "undefined" ? localStorage.getItem("token") : null;
+const userId =
+  typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+const tenantId =
+  typeof window !== "undefined" ? localStorage.getItem("tenantId") : null;
+const hasParentAuth = isEmbedded && parentToken && userId && tenantId;
+
+// When embedded, skip login if parent app is authenticated
+if (isLogin && !TOKEN && !hasParentAuth) {
   routData.push({
     id: "route-000",
     path: "*",
