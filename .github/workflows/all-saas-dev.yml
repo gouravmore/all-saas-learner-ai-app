@@ -3,7 +3,7 @@ name: ALL SAAS LEARNING JOURNEY Deployment
 on:
   push:
     branches:
-      - all-saas-dev
+      - all-saas-3.0.1
 
 jobs:
   deploy:
@@ -71,6 +71,15 @@ jobs:
           REACT_APP_AWS_ACCESS_KEY_ID: ${{ secrets.REACT_APP_AWS_ACCESS_KEY_ID }}
           REACT_APP_AWS_SECRET_ACCESS_KEY: ${{ secrets.REACT_APP_AWS_SECRET_ACCESS_KEY }}
           REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR: ${{ vars.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR }}
+          REACT_APP_ASR_OFFLINE_LANGUAGUAGES: ${{ vars.REACT_APP_ASR_OFFLINE_LANGUAGUAGES }}
+          TRACKING_API_BASE_URL: ${{ vars.TRACKING_API_BASE_URL }}
+          REACT_APP_LEARNER_AI_BASE_URL: ${{ vars.REACT_APP_LEARNER_AI_BASE_URL }}
+          REACT_APP_NATIVE_LANGUAGES: ${{ vars.REACT_APP_NATIVE_LANGUAGES }}
+          REACT_APP_DEFAULT_NATIVE_LANGUAGE: ${{ vars.REACT_APP_DEFAULT_NATIVE_LANGUAGE }}
+          REACT_APP_MAX_LEVEL: ${{ vars.REACT_APP_MAX_LEVEL }}
+          REACT_APP_USE_RECOMMENDATION_API: ${{ vars.REACT_APP_USE_RECOMMENDATION_API }}
+          REACT_APP_TELEMETRY_HOST: ${{ vars.REACT_APP_TELEMETRY_HOST }}
+
           CI: false # Disabling CI to not treat warnings as errors
         run: npm run build
 
