@@ -10,9 +10,16 @@ const API_LEARNER_AI_APP_HOST = process.env.REACT_APP_LEARNER_AI_APP_HOST;
 
 const getHeaders = () => {
   const token = localStorage.getItem("apiToken");
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+
+  // When embedded, use parent token if apiToken not available
+  // This allows the app to work when embedded without requiring JOSE token
+  const authToken = token || (isEmbedded ? parentToken : null);
+
   return {
     headers: {
-      Authorization: `Bearer ${token}`,
+      ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
       "Content-Type": "application/json",
     },
   };
@@ -20,10 +27,17 @@ const getHeaders = () => {
 
 export const getLessonProgressByID = async (lang) => {
   try {
-    const response = await axios.get(
-      `${API_BASE_URL_ORCHESTRATION}/${config.URLS.GET_LESSON_PROGRESS_BY_ID}?language=${lang}`,
-      getHeaders()
-    );
+    const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+    const userId = localStorage.getItem("userId"); // From all-saas-app
+    const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
+    // When embedded, include userId and tenantId in query params
+    let url = `${API_BASE_URL_ORCHESTRATION}/${config.URLS.GET_LESSON_PROGRESS_BY_ID}?language=${lang}`;
+    if (isEmbedded && userId && tenantId) {
+      url += `&userId=${userId}&tenantId=${tenantId}`;
+    }
+
+    const response = await axios.get(url, getHeaders());
     return response.data;
   } catch (error) {
     console.error("Error fetching lesson progress by ID:", error);
@@ -35,11 +49,17 @@ export const fetchUserPoints = async () => {
   try {
     const sessionId = getLocalData("sessionId");
     const lang = getLocalData("lang");
+    const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+    const userId = localStorage.getItem("userId"); // From all-saas-app
+    const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
-    const response = await axios.get(
-      `${API_BASE_URL_ORCHESTRATION}/${config.URLS.GET_POINTER}/${sessionId}?language=${lang}`,
-      getHeaders()
-    );
+    // When embedded, include userId and tenantId in query params
+    let url = `${API_BASE_URL_ORCHESTRATION}/${config.URLS.GET_POINTER}/${sessionId}?language=${lang}`;
+    if (isEmbedded && userId && tenantId) {
+      url += `&userId=${userId}&tenantId=${tenantId}`;
+    }
+
+    const response = await axios.get(url, getHeaders());
     return response?.data?.result?.totalLanguagePoints || 0;
   } catch (error) {
     console.error("Error fetching user points:", error);
@@ -50,16 +70,25 @@ export const fetchUserPoints = async () => {
 export const addPointer = async (points, milestone) => {
   const sessionId = getLocalData("sessionId");
   const lang = getLocalData("lang");
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
   try {
+    const requestBody = {
+      sessionId: sessionId,
+      points: points,
+      language: lang,
+      milestone: milestone,
+    };
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
     const response = await axios.post(
       `${API_BASE_URL_ORCHESTRATION}/${config.URLS.ADD_POINTER}`,
-      {
-        sessionId: sessionId,
-        points: points,
-        language: lang,
-        milestone: milestone,
-      },
+      requestBody,
       getHeaders()
     );
     return response.data;
@@ -153,6 +182,9 @@ export const createLearnerProgress = async (
 ) => {
   const sessionId = getLocalData("sessionId");
   const language = getLocalData("lang");
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
   try {
     const requestBody = {
@@ -164,6 +196,11 @@ export const createLearnerProgress = async (
     };
     if (totalSyllableCount !== undefined) {
       requestBody.totalSyllableCount = totalSyllableCount;
+    }
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
     }
     const response = await axios.post(
       `${API_BASE_URL_ORCHESTRATION}/${config.URLS.CREATE_LEARNER_PROGRESS}`,
@@ -208,18 +245,28 @@ export const addLesson = async ({
     );
   }
 
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
   try {
+    const requestBody = {
+      sessionId: sessionId,
+      milestone: milestone,
+      lesson: lesson,
+      progress: cappedProgress,
+      language: language,
+      milestoneLevel: milestoneLevel,
+      subMilestoneLevel: subMilestoneLevel,
+    };
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
     const response = await axios.post(
       `${API_BASE_URL_ORCHESTRATION}/${config.URLS.ADD_LESSON}`,
-      {
-        sessionId: sessionId,
-        milestone: milestone,
-        lesson: lesson,
-        progress: cappedProgress,
-        language: language,
-        milestoneLevel: milestoneLevel,
-        subMilestoneLevel: subMilestoneLevel,
-      },
+      requestBody,
       getHeaders()
     );
     return response.data;
