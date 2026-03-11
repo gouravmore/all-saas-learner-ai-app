@@ -5,6 +5,7 @@ import elephant from "../../assets/images/elephant.svg";
 import {
   callConfetti,
   getLocalData,
+  sendTestRigScore,
   setLocalData,
 } from "../../utils/constants";
 import WordsOrImage from "../Mechanism/WordsOrImage";
@@ -14,10 +15,24 @@ import LevelCompleteAudio from "../../assets/audio/levelComplete.wav";
 import config from "../../utils/urlConstants.json";
 import { MessageDialog } from "../Assesment/Assesment";
 import { Log } from "../../services/telementryService";
+import usePreloadAudio from "../../hooks/usePreloadAudio";
+import {
+  addLesson,
+  addPointer,
+  fetchUserPoints,
+  createLearnerProgress,
+} from "../../services/orchestration/orchestrationService";
+import { fetchGetSetResult } from "../../services/learnerAi/learnerAiService";
+import {
+  fetchAssessmentData,
+  fetchPaginatedContent,
+} from "../../services/content/contentService";
+import DiscoverSentencePreview from "./DiscoverSentencePreview";
 
 const SpeakSentenceComponent = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const navigate = useNavigate();
+  const [showDemo, setShowDemo] = useState(false);
   const [recordedAudio, setRecordedAudio] = useState("");
   const [voiceText, setVoiceText] = useState("");
   const [storyLine, setStoryLine] = useState(0);
@@ -32,16 +47,22 @@ const SpeakSentenceComponent = () => {
   const [assesmentCount, setAssesmentcount] = useState(0);
   const [initialAssesment, setInitialAssesment] = useState(true);
   const [disableScreen, setDisableScreen] = useState(false);
-  const [play] = useSound(LevelCompleteAudio);
+  // const [play] = useSound(LevelCompleteAudio);
   const [openMessageDialog, setOpenMessageDialog] = useState("");
-  const [totalSyllableCount, setTotalSyllableCount] = useState('');
+  const [totalSyllableCount, setTotalSyllableCount] = useState("");
   const [isNextButtonCalled, setIsNextButtonCalled] = useState(false);
 
+  const levelCompleteAudioSrc = usePreloadAudio(LevelCompleteAudio);
+  const sessionId = getLocalData("sessionId");
 
   const callConfettiAndPlay = () => {
-    play();
+    let audio = new Audio(levelCompleteAudioSrc);
+    audio.play();
     callConfetti();
+    window.telemetry?.syncEvents && window.telemetry.syncEvents();
   };
+
+  console.log("questions", questions);
 
   useEffect(() => {
     if (questions?.length) setAssesmentcount(assesmentCount + 1);
@@ -63,16 +84,15 @@ const SpeakSentenceComponent = () => {
   }, [currentQuestion]);
 
   useEffect(() => {
-    if (!(localStorage.getItem("contentSessionId") !== null)) {
-      (async () => {
-        const sessionId = getLocalData("sessionId");
-        const userId = getLocalData("userId");
-        const lang = getLocalData("lang");
-        const getPointersDetails = await axios.get(
-          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.GET_POINTER}/${userId}/${sessionId}?language=${lang}`
-        );
-        setPoints(getPointersDetails?.data?.result?.totalLanguagePoints || 0);
-      })();
+    if (!localStorage.getItem("contentSessionId")) {
+      fetchUserPoints()
+        .then((points) => {
+          setPoints(points);
+        })
+        .catch((error) => {
+          console.error("Error fetching user points:", error);
+          setPoints(0);
+        });
     }
   }, []);
 
@@ -92,6 +112,15 @@ const SpeakSentenceComponent = () => {
       setVoiceText("");
       setEnableNext(false);
     }
+    if (voiceText === "profanity") {
+      setOpenMessageDialog({
+        message: `Please speak appropriately.`,
+        severity: "warning",
+        isError: true,
+      });
+      setVoiceText("");
+      setEnableNext(false);
+    }
     if (voiceText == "success") {
       // go_to_result(voiceText);
       setVoiceText("");
@@ -99,157 +128,162 @@ const SpeakSentenceComponent = () => {
     //eslint-disable-next-line
   }, [voiceText]);
 
-  const send = (score) => {
-    if (process.env.REACT_APP_IS_APP_IFRAME === 'true') {
-      window.parent.postMessage({
-        score: score,
-        message: "all-test-rig-score",
-      });
-    }
-  };
-
   const handleNext = async () => {
-    setIsNextButtonCalled(true)
+    setIsNextButtonCalled(true);
     setEnableNext(false);
 
     try {
       const lang = getLocalData("lang");
 
-      if (!(localStorage.getItem("contentSessionId") !== null)) {
-        const pointsRes = await axios.post(
-          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_POINTER}`,
-          {
-            userId: localStorage.getItem("userId"),
-            sessionId: localStorage.getItem("sessionId"),
-            points: 1,
-            language: lang,
-            milestone: "m0",
-            tenantId : localStorage.getItem("tenantId"),
-          }
-        );
-        setPoints(pointsRes?.data?.result?.totalLanguagePoints || 0);
-      } else {
-        send(1);
-        // setPoints(localStorage.getItem("currentLessonScoreCount"));
-      }
-
-      await axios.post(
-        `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_LESSON}`,
-        {
-          userId: localStorage.getItem("userId"),
-          sessionId: localStorage.getItem("sessionId"),
-          milestone: `discoveryList/discovery/${currentCollectionId}`,
-          lesson: localStorage.getItem("storyTitle"),
-          progress: ((currentQuestion + 1) * 100) / questions.length,
-          language: lang,
-          milestoneLevel: "m0",
-          tenantId : localStorage.getItem("tenantId"),
-        }
-      );
+      // await axios.post(
+      //   `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.ADD_LESSON}`,
+      //   {
+      //     userId: localStorage.getItem("virtualId"),
+      //     sessionId: localStorage.getItem("sessionId"),
+      //     milestone: `discoveryList/discovery/${currentCollectionId}`,
+      //     lesson: localStorage.getItem("storyTitle"),
+      //     progress: ((currentQuestion + 1) * 100) / questions.length,
+      //     language: lang,
+      //     milestoneLevel: "m0",
+      //   }
+      // );
 
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
       } else if (currentQuestion === questions.length - 1) {
         const sub_session_id = getLocalData("sub_session_id");
-        const getSetResultRes = await axios.post(
-          `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/${config.URLS.GET_SET_RESULT}`,
-          {
-            sub_session_id: sub_session_id,
-            contentType: currentContentType,
-            session_id: localStorage.getItem("sessionId"),
-            user_id: localStorage.getItem("userId"),
-            collectionId: currentCollectionId,
-            totalSyllableCount: totalSyllableCount,
-            language: localStorage.getItem("lang"),
-            tenantId : localStorage.getItem("tenantId"),
-
-          }
+        const getSetResultRes = await fetchGetSetResult(
+          sub_session_id,
+          currentContentType,
+          currentCollectionId,
+          totalSyllableCount
         );
+        if (!(localStorage.getItem("contentSessionId") !== null)) {
+          let point = 1;
+          let milestone = "m0";
+
+          if (point !== 1) {
+            if (process.env.REACT_APP_IS_APP_IFRAME === "true") {
+              navigate("/");
+            } else {
+              navigate("/discover-start");
+            }
+            return;
+          }
+
+          try {
+            const result = await addPointer(point, milestone);
+            const awardedPoints = result?.result?.points;
+            if (awardedPoints !== 1) {
+              if (process.env.REACT_APP_IS_APP_IFRAME === "true") {
+                navigate("/");
+              } else {
+                navigate("/discover-start");
+              }
+              return;
+            }
+            setPoints(result?.result?.totalLanguagePoints || 0);
+          } catch (error) {
+            setPoints(0);
+            console.error("Error adding points:", error);
+          }
+        } else {
+          sendTestRigScore(5);
+          // setPoints(localStorage.getItem("currentLessonScoreCount"));
+        }
+
         setInitialAssesment(false);
         const { data: getSetData } = getSetResultRes;
-        const data = JSON.stringify(getSetData?.data);
+        const data = JSON.stringify(getSetData);
         Log(data, "discovery", "ET");
-        if(process.env.REACT_APP_POST_LEARNER_PROGRESS === "true"){
-        await axios.post(
-          `${process.env.REACT_APP_LEARNER_AI_ORCHESTRATION_HOST}/${config.URLS.CREATE_LEARNER_PROGRESS}`,
-          {
-            userId: localStorage.getItem("userId"),
-            sessionId: localStorage.getItem("sessionId"),
-            subSessionId: sub_session_id,
-            milestoneLevel: getSetData?.data?.currentLevel,
-            language: localStorage.getItem("lang"),
-            tenantId : localStorage.getItem("tenantId"),
+        if (process.env.REACT_APP_POST_LEARNER_PROGRESS === "true") {
+          try {
+            const milestoneLevel = getSetData?.currentLevel;
+            const result = await createLearnerProgress(
+              sub_session_id,
+              milestoneLevel
+            );
+          } catch (error) {
+            console.error("Error creating learner progress:", error);
           }
-        );
         }
         if (
-          getSetData.data.sessionResult === "pass" &&
+          getSetData.sessionResult === "pass" &&
           currentContentType === "Sentence" &&
           sentencePassedCounter < 2
         ) {
-          if (getSetData.data.currentLevel !== "m0") {
+          if (getSetData.currentLevel !== "m0") {
             navigate("/discover-end");
+            //setLocalData("tFlow", true);
           }
           const newSentencePassedCounter = sentencePassedCounter + 1;
-          const sentences = assessmentResponse?.data?.data?.filter(
+          const sentences = assessmentResponse?.data?.filter(
             (elem) => elem.category === "Sentence"
           );
-          const resSentencesPagination = await axios.get(
-            `${process.env.REACT_APP_CONTENT_SERVICE_APP_HOST}/${config.URLS.GET_PAGINATION}?page=1&limit=5&collectionId=${sentences?.[newSentencePassedCounter]?.collectionId}`
+          const resSentencesPagination = await fetchPaginatedContent(
+            sentences?.[newSentencePassedCounter]?.collectionId,
+            5
           );
           setCurrentContentType("Sentence");
-          setTotalSyllableCount(resSentencesPagination?.data?.totalSyllableCount);
+          setTotalSyllableCount(resSentencesPagination?.totalSyllableCount);
           setCurrentCollectionId(
             sentences?.[newSentencePassedCounter]?.collectionId
           );
-          let quesArr = [...(resSentencesPagination?.data?.data || [])];
+          let quesArr = [...(resSentencesPagination?.data || [])];
           setCurrentQuestion(0);
           setSentencePassedCounter(newSentencePassedCounter);
           setQuestions(quesArr);
-        } else if (getSetData.data.sessionResult === "pass") {
-          navigate("/discover-end");
         } else if (
-          getSetData.data.sessionResult === "fail" &&
+          getSetData.sessionResult === "pass" &&
           currentContentType === "Sentence"
         ) {
-          if (getSetData.data.currentLevel !== "m0") {
+          //navigate("/discover-end");
+          lang === "te" || lang == "en"
+            ? navigate("/towre-flow")
+            : navigate("/discover-end"); // all 3 passed mean sentence all are
+        } else if (
+          getSetData.sessionResult === "fail" &&
+          currentContentType === "Sentence"
+        ) {
+          if (getSetData.currentLevel !== "m0") {
             navigate("/discover-end");
           }
-          const words = assessmentResponse?.data?.data?.find(
+          const words = assessmentResponse?.data?.find(
             (elem) => elem.category === "Word"
           );
-          const resWordsPagination = await axios.get(
-            `${process.env.REACT_APP_CONTENT_SERVICE_APP_HOST}/${config.URLS.GET_PAGINATION}?page=1&limit=5&collectionId=${words?.collectionId}`
+          const resWordsPagination = await fetchPaginatedContent(
+            words?.collectionId,
+            5
           );
           setCurrentContentType("Word");
-          setTotalSyllableCount(resWordsPagination?.data?.totalSyllableCount);
+          setTotalSyllableCount(resWordsPagination?.totalSyllableCount);
           setCurrentCollectionId(words?.collectionId);
-          let quesArr = [...(resWordsPagination?.data?.data || [])];
+          let quesArr = [...(resWordsPagination?.data || [])];
           setCurrentQuestion(0);
           setQuestions(quesArr);
         } else if (
-          getSetData.data.sessionResult === "fail" &&
+          getSetData.sessionResult === "fail" &&
           currentContentType === "Word"
         ) {
-          navigate("/discover-end");
-
-          // const char = assessmentResponse?.data?.data?.find(
-          //   (elem) => elem.category === "Char"
-          // );
-          // const resCharPagination = await axios.get(
-          //   `${process.env.REACT_APP_LEARNER_AI_APP_HOST}/content-service/v1/content/pagination?page=1&limit=5&collectionId=${char?.content?.[0]?.collectionId}`
-          // );
-          // setCurrentContentType("Char");
-          // setCurrentCollectionId(char?.content?.[0]?.collectionId);
-          // setCurrentQuestion(0);
-          // let quesArr = [...(resCharPagination?.data?.data || [])];
-          // setQuestions(quesArr);
+          getSetData.currentLevel === "B"
+            ? navigate("/letter-hunt")
+            : navigate("/discover-end");
+          console.log("fail 2");
         } else {
           navigate("/discover-end");
+          console.log("fail 3");
         }
+        await addLesson({
+          sessionId,
+          milestone: `showcase`,
+          lesson: "0",
+          progress: 50,
+          language: lang,
+          milestoneLevel: "m0",
+        });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -257,46 +291,85 @@ const SpeakSentenceComponent = () => {
     (async () => {
       let quesArr = [];
       try {
-        // const resSentence = await axios.get(`${process.env.REACT_APP_LEARNER_AI_APP_HOST}/scores/GetContent/sentence/${UserID}`);
-        // quesArr = [...quesArr, ...(resSentence?.data?.content?.splice(0, 5) || [])];
-        // const resWord = await axios.get(`${process.env.REACT_APP_LEARNER_AI_APP_HOST}/scores/GetContent/word/${UserID}`);
-        // quesArr = [...quesArr, ...(resWord?.data?.content?.splice(0, 5) || [])];
-        // const resPara = await axios.get(`${process.env.REACT_APP_LEARNER_AI_APP_HOST}/scores/GetContent/paragraph/${UserID}`);
-        // quesArr = [...quesArr, ...(resPara?.data?.content || [])];
         const lang = getLocalData("lang");
-        const resAssessment = await axios.post(
-          `${process.env.REACT_APP_CONTENT_SERVICE_APP_HOST}/${config.URLS.GET_ASSESSMENT}`,
-          {
-            ...{ tags: ["ASER"], language: lang },
-          }
-        );
-
-        const sentences = resAssessment?.data?.data?.find(
+        // Fetch assessment data
+        const resAssessment = await fetchAssessmentData(lang);
+        const sentences = resAssessment?.data?.find(
           (elem) => elem.category === "Sentence"
         );
 
-        const resPagination = await axios.get(
-          `${process.env.REACT_APP_CONTENT_SERVICE_APP_HOST}/${config.URLS.GET_PAGINATION}?page=1&limit=5&collectionId=${sentences?.collectionId}`
+        if (!sentences?.collectionId) {
+          console.error("No collection ID found for sentences.");
+          return;
+        }
+        // Fetch paginated content
+        const resPagination = await fetchPaginatedContent(
+          sentences.collectionId,
+          5
         );
+
+        // await addLesson({
+        //   sessionId,
+        //   milestone: `showcase`,
+        //   lesson: "0",
+        //   progress: 0,
+        //   language: lang,
+        //   milestoneLevel: "m1",
+        // });
+
+        // Update state
         setCurrentContentType("Sentence");
-        setTotalSyllableCount(resPagination?.data?.totalSyllableCount)
+        setTotalSyllableCount(resPagination?.totalSyllableCount);
         setCurrentCollectionId(sentences?.collectionId);
         setAssessmentResponse(resAssessment);
-        localStorage.setItem("storyTitle", sentences?.name);
-        quesArr = [...quesArr, ...(resPagination?.data?.data || [])];
-        // quesArr[1].contentType = 'image';
-        // quesArr[0].contentType = 'phonics';
-        console.log("quesArr", quesArr);
+        setLocalData("storyTitle", sentences?.name);
+        quesArr = [...quesArr, ...(resPagination?.data || [])];
         setQuestions(quesArr);
       } catch (error) {
-        console.log("err", error);
+        console.error("Error fetching data:", error);
       }
     })();
   }, []);
+
   const handleBack = () => {
-    const destination = process.env.REACT_APP_IS_APP_IFRAME === 'true' ? "/" : "/discover-start";
+    const destination =
+      process.env.REACT_APP_IS_APP_IFRAME === "true" ? "/" : "/discover-start";
+    navigate(destination);
+    // if (process.env.REACT_APP_IS_APP_IFRAME === 'true') {
+    //   navigate("/");
+    // } else {
+    //   navigate("/discover-start")
+    // }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("mechanism_id", "");
+
+    // Always show demo when entering discovery page
+    setShowDemo(true);
+  }, []);
+
+  const handleDemoComplete = () => {
+    // Demo completed, now show the actual game
+    setShowDemo(false);
+  };
+
+  const handleDemoBack = () => {
+    const destination =
+      process.env.REACT_APP_IS_APP_IFRAME === "true" ? "/" : "/discover-start";
     navigate(destination);
   };
+
+  // Show demo if first time
+  if (showDemo) {
+    return (
+      <DiscoverSentencePreview
+        onStartGame={handleDemoComplete}
+        onBack={handleDemoBack}
+      />
+    );
+  }
+
   return (
     <>
       {!!openMessageDialog && (
@@ -326,7 +399,7 @@ const SpeakSentenceComponent = () => {
           storyLine,
           handleNext,
           type: questions[currentQuestion]?.contentType,
-          image: elephant,
+          // image: elephant,
           enableNext,
           showTimer: false,
           points,

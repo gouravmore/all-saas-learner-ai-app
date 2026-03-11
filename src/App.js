@@ -1,85 +1,81 @@
-import React, { useEffect, useRef } from 'react';
-import { ThemeProvider } from '@mui/material';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { StyledEngineProvider } from '@mui/material/styles';
-import FingerprintJS from '@fingerprintjs/fingerprintjs';
-import routes from './routes';
-import { AppContent } from './views';
-import theme from './assets/styles/theme';
-import { initialize } from './services/telementryService';
-import { startEvent } from './services/callTelemetryIntract';
-import '@project-sunbird/telemetry-sdk/index.js';
+import React, { useEffect, useRef } from "react";
+import { ThemeProvider } from "@mui/material";
+import { useNavigate } from "../node_modules/react-router-dom/dist/index";
+import { StyledEngineProvider } from "@mui/material/styles";
+import routes from "./routes";
+import { AppContent } from "./views";
+import theme from "./assets/styles/theme";
+import "@tekdi/all-telemetry-sdk/index.js";
+import axios from "axios";
 
 const App = () => {
-    const ranonce = useRef(false); 
-    useEffect(() => {
-        const initService = async () => {
-            var did;
-            if (localStorage.getItem('fpDetails_v2') !== null) {
-                let fpDetails_v2 = localStorage.getItem('fpDetails_v2');
-                 did = fpDetails_v2.result;
-            } else {
-                 did = localStorage.getItem('did');
-            }
+  const navigate = useNavigate();
+  const ranonce = useRef(false);
 
-            await initialize({
-                context: {
-                    mode: process.env.REACT_APP_MODE, // To identify preview used by the user to play/edit/preview
-                    authToken: '', // Auth key to make  api calls
-                    did: did, // Unique id to identify the device or browser
-                    uid: 'anonymous',
-                    channel: process.env.REACT_APP_CHANNEL, // Unique id of the channel(Channel ID)
-                    env: process.env.REACT_APP_ENV,
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      window.telemetry &&
+        window.telemetry.syncEvents &&
+        window.telemetry.syncEvents();
+    };
 
-                    pdata: {
-                        // optional
-                        id: process.env.REACT_APP_ID, // Producer ID. For ex: For sunbird it would be "portal" or "genie"
-                        ver: process.env.REACT_APP_VER, // Version of the App
-                        pid: process.env.REACT_APP_PID, // Optional. In case the component is distributed, then which instance of that component
-                    },
-                    tags: [
-                        // Defines the tags data
-                        '',
-                    ],
-                    timeDiff: 0, // Defines the time difference// Defines the object roll up data
-                    host: process.env.REACT_APP_HOST, // Defines the from which domain content should be load
-                    endpoint: process.env.REACT_APP_ENDPOINT,
-                    apislug: process.env.REACT_APP_APISLUG,
-                },
-                config: {},
-                // tslint:disable-next-line:max-line-length
-                metadata: {},
-            });
-            if (!ranonce.current) {
-                if (localStorage.getItem('contentSessionId') === null) {
-                    startEvent();
-                }
-                ranonce.current = true;
-            }
-        };
+    // Add the event listener
+    window.addEventListener("beforeunload", handleBeforeUnload);
 
-        const setFp = async () => {
-            const fp = await FingerprintJS.load();
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
 
-            const { visitorId } = await fp.get();
-            if (!localStorage.getItem('did')) {
-                localStorage.setItem('did', visitorId);
-            }
-            initService();
-        };
+  axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (
+        error.response &&
+        (error.response.status === 401 || error.response.status === 400)
+      ) {
+        const errorMessage = error?.response?.data?.message
+          ?.trim()
+          ?.toLowerCase();
+        if (
+          errorMessage?.includes("unauthorized") ||
+          errorMessage?.includes("token") ||
+          errorMessage?.includes("logged")
+        ) {
+          if (
+            localStorage.getItem("contentSessionId") &&
+            process.env.REACT_APP_IS_APP_IFRAME === "true"
+          ) {
+            window.parent.postMessage(
+              {
+                message: "Logged out!",
+              },
+              window?.location?.ancestorOrigins?.[0] ||
+                window.parent.location.origin
+            );
+            console.log("if logout!");
+            localStorage.clear();
+            sessionStorage.clear();
+          } else {
+            console.log("else logout!");
+            localStorage.clear();
+            sessionStorage.clear();
+            navigate("/login");
+          }
+        }
+      }
+      return Promise.reject(error);
+    }
+  );
 
-        setFp();
-     }, []);
-
-    return (
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={theme}>
-                <Router>
-                    <AppContent routes={routes} />
-                </Router>
-            </ThemeProvider>
-        </StyledEngineProvider>
-    );
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <AppContent routes={routes} />
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 };
 
 export default App;

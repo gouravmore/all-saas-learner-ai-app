@@ -1,0 +1,958 @@
+{
+  "en": {
+    "basic": [
+      {
+        "sentence": "I can _____ the bird sing",
+        "missingWord": "hear",
+        "correctAnswer": "hear",
+        "options": ["hear", "here", "hair", "hare"]
+      },
+      {
+        "sentence": "The _____ is shining bright",
+        "missingWord": "sun",
+        "correctAnswer": "sun",
+        "options": ["sun", "son", "some", "sum"]
+      },
+      {
+        "sentence": "I _____ my book yesterday",
+        "missingWord": "read",
+        "correctAnswer": "read",
+        "options": ["read", "red", "reed", "rid"]
+      },
+      {
+        "sentence": "The _____ is very tall",
+        "missingWord": "tree",
+        "correctAnswer": "tree",
+        "options": ["tree", "three", "free", "tea"]
+      },
+      {
+        "sentence": "I _____ a new toy",
+        "missingWord": "buy",
+        "correctAnswer": "buy",
+        "options": ["buy", "by", "bye", "bay"]
+      },
+      {
+        "sentence": "The _____ is flying high",
+        "missingWord": "bee",
+        "correctAnswer": "bee",
+        "options": ["bee", "be", "bea", "beat"]
+      },
+      {
+        "sentence": "I _____ my hands",
+        "missingWord": "wash",
+        "correctAnswer": "wash",
+        "options": ["wash", "wish", "watch", "waste"]
+      },
+      {
+        "sentence": "The _____ is very big",
+        "missingWord": "bear",
+        "correctAnswer": "bear",
+        "options": ["bear", "bare", "beer", "beard"]
+      },
+      {
+        "sentence": "I _____ to the store",
+        "missingWord": "went",
+        "correctAnswer": "went",
+        "options": ["went", "want", "wont", "wind"]
+      },
+      {
+        "sentence": "The _____ is blue",
+        "missingWord": "sea",
+        "correctAnswer": "sea",
+        "options": ["sea", "see", "she", "say"]
+      },
+      {
+        "sentence": "I _____ my mom",
+        "missingWord": "love",
+        "correctAnswer": "love",
+        "options": ["love", "live", "laugh", "leave"]
+      },
+      {
+        "sentence": "The _____ is very soft",
+        "missingWord": "cat",
+        "correctAnswer": "cat",
+        "options": ["cat", "cut", "cap", "car"]
+      },
+      {
+        "sentence": "I _____ my breakfast",
+        "missingWord": "ate",
+        "correctAnswer": "ate",
+        "options": ["ate", "eight", "art", "act"]
+      },
+      {
+        "sentence": "The _____ is very hot",
+        "missingWord": "fire",
+        "correctAnswer": "fire",
+        "options": ["fire", "fair", "fear", "firm"]
+      },
+      {
+        "sentence": "I _____ my shoes",
+        "missingWord": "tie",
+        "correctAnswer": "tie",
+        "options": ["tie", "try", "toy", "tea"]
+      }
+    ],
+    "intermediate": [
+      {
+        "sentence": "I _____ my homework",
+        "missingWord": "write",
+        "correctAnswer": "write",
+        "options": ["write", "right", "rite", "wright"]
+      },
+      {
+        "sentence": "The _____ is very cold",
+        "missingWord": "night",
+        "correctAnswer": "night",
+        "options": ["night", "knight", "nite", "light"]
+      },
+      {
+        "sentence": "I _____ a beautiful flower",
+        "missingWord": "saw",
+        "correctAnswer": "saw",
+        "options": ["saw", "so", "sew", "sore"]
+      },
+      {
+        "sentence": "The _____ is running fast",
+        "missingWord": "deer",
+        "correctAnswer": "deer",
+        "options": ["deer", "dear", "dare", "door"]
+      },
+      {
+        "sentence": "I _____ my friend",
+        "missingWord": "meet",
+        "correctAnswer": "meet",
+        "options": ["meet", "meat", "met", "mite"]
+      },
+      {
+        "sentence": "The _____ is very heavy",
+        "missingWord": "weight",
+        "correctAnswer": "weight",
+        "options": ["weight", "wait", "wheat", "wet"]
+      },
+      {
+        "sentence": "I _____ my bike",
+        "missingWord": "rode",
+        "correctAnswer": "rode",
+        "options": ["rode", "road", "rowed", "read"]
+      },
+      {
+        "sentence": "The _____ is very sweet",
+        "missingWord": "pear",
+        "correctAnswer": "pear",
+        "options": ["pear", "pair", "pare", "peer"]
+      },
+      {
+        "sentence": "I _____ my shoes",
+        "missingWord": "tied",
+        "correctAnswer": "tied",
+        "options": ["tied", "tide", "tired", "tried"]
+      },
+      {
+        "sentence": "The _____ is very loud",
+        "missingWord": "bell",
+        "correctAnswer": "bell",
+        "options": ["bell", "belle", "ball", "bill"]
+      },
+      {
+        "sentence": "I _____ the answer",
+        "missingWord": "know",
+        "correctAnswer": "know",
+        "options": ["know", "no", "now", "knew"]
+      },
+      {
+        "sentence": "The _____ is very strong",
+        "missingWord": "wind",
+        "correctAnswer": "wind",
+        "options": ["wind", "wined", "wound", "wand"]
+      },
+      {
+        "sentence": "I _____ my mistake",
+        "missingWord": "accept",
+        "correctAnswer": "accept",
+        "options": ["accept", "except", "expect", "aspect"]
+      },
+      {
+        "sentence": "The _____ is very bright",
+        "missingWord": "light",
+        "correctAnswer": "light",
+        "options": ["light", "lite", "lit", "late"]
+      },
+      {
+        "sentence": "I _____ my time",
+        "missingWord": "waste",
+        "correctAnswer": "waste",
+        "options": ["waste", "waist", "west", "wist"]
+      }
+    ],
+    "advanced": [
+      {
+        "sentence": "The _____ is very sharp",
+        "missingWord": "steel",
+        "correctAnswer": "steel",
+        "options": ["steel", "steal", "still", "stale"]
+      },
+      {
+        "sentence": "I _____ my way",
+        "missingWord": "lose",
+        "correctAnswer": "lose",
+        "options": ["lose", "loose", "loss", "louse"]
+      },
+      {
+        "sentence": "The _____ is very deep",
+        "missingWord": "well",
+        "correctAnswer": "well",
+        "options": ["well", "will", "wall", "wheel"]
+      },
+      {
+        "sentence": "I _____ my friend",
+        "missingWord": "miss",
+        "correctAnswer": "miss",
+        "options": ["miss", "mist", "mice", "mine"]
+      },
+      {
+        "sentence": "The _____ is very long",
+        "missingWord": "tail",
+        "correctAnswer": "tail",
+        "options": ["tail", "tale", "tall", "tell"]
+      },
+      {
+        "sentence": "I _____ the question",
+        "missingWord": "answer",
+        "correctAnswer": "answer",
+        "options": ["answer", "anchor", "anger", "angel"]
+      },
+      {
+        "sentence": "The _____ is very smooth",
+        "missingWord": "stone",
+        "correctAnswer": "stone",
+        "options": ["stone", "stun", "stain", "stare"]
+      },
+      {
+        "sentence": "I _____ my homework",
+        "missingWord": "finish",
+        "correctAnswer": "finish",
+        "options": ["finish", "furnish", "furnace", "furniture"]
+      },
+      {
+        "sentence": "The _____ is very old",
+        "missingWord": "house",
+        "correctAnswer": "house",
+        "options": ["house", "horse", "hose", "host"]
+      },
+      {
+        "sentence": "I _____ my breakfast",
+        "missingWord": "enjoy",
+        "correctAnswer": "enjoy",
+        "options": ["enjoy", "employ", "enroll", "engage"]
+      }
+    ]
+  },
+  "te": {
+    "basic": [
+      {
+        "sentence": "నేను _____ ఉన్నాను",
+        "missingWord": "సంతోషంగా",
+        "correctAnswer": "సంతోషంగా",
+        "options": ["సంతోషంగా", "సంతోషం", "సంతోష", "సంతోషా"]
+      },
+      {
+        "sentence": "అమ్మ _____ చేస్తుంది",
+        "missingWord": "వంట",
+        "correctAnswer": "వంట",
+        "options": ["వంట", "వంటా", "వంటే", "వంటి"]
+      },
+      {
+        "sentence": "పిల్లి _____ త్రాగుతుంది",
+        "missingWord": "పాలు",
+        "correctAnswer": "పాలు",
+        "options": ["పాలు", "పాల", "పాలా", "పాలే"]
+      },
+      {
+        "sentence": "కుక్క _____ మొరుగుతుంది",
+        "missingWord": "జోరుగా",
+        "correctAnswer": "జోరుగా",
+        "options": ["జోరుగా", "జోరు", "జోర", "జోరా"]
+      },
+      {
+        "sentence": "నేను _____ చదువుతాను",
+        "missingWord": "పుస్తకం",
+        "correctAnswer": "పుస్తకం",
+        "options": ["పుస్తకం", "పుస్తక", "పుస్తకా", "పుస్తకే"]
+      },
+      {
+        "sentence": "చెట్టు _____ పెద్దది",
+        "missingWord": "చాలా",
+        "correctAnswer": "చాలా",
+        "options": ["చాలా", "చాల", "చాలే", "చాలి"]
+      },
+      {
+        "sentence": "పూలు _____ ఉన్నాయి",
+        "missingWord": "అందంగా",
+        "correctAnswer": "అందంగా",
+        "options": ["అందంగా", "అందం", "అంద", "అందా"]
+      },
+      {
+        "sentence": "సూర్యుడు _____ ప్రకాశిస్తున్నాడు",
+        "missingWord": "తేజస్సుతో",
+        "correctAnswer": "తేజస్సుతో",
+        "options": ["తేజస్సుతో", "తేజస్సు", "తేజ", "తేజా"]
+      },
+      {
+        "sentence": "నేను _____ ఉన్నాను",
+        "missingWord": "ఆకలిగా",
+        "correctAnswer": "ఆకలిగా",
+        "options": ["ఆకలిగా", "ఆకలి", "ఆకల", "ఆకలా"]
+      },
+      {
+        "sentence": "మేము _____ ఉన్నాము",
+        "missingWord": "ఇంట్లో",
+        "correctAnswer": "ఇంట్లో",
+        "options": ["ఇంట్లో", "ఇంటి", "ఇంట", "ఇంటా"]
+      },
+      {
+        "sentence": "నేను _____ ఆడుతాను",
+        "missingWord": "ఆనందంగా",
+        "correctAnswer": "ఆనందంగా",
+        "options": ["ఆనందంగా", "ఆనందం", "ఆనంద", "ఆనందా"]
+      },
+      {
+        "sentence": "అమ్మ _____ చేస్తుంది",
+        "missingWord": "ప్రేమతో",
+        "correctAnswer": "ప్రేమతో",
+        "options": ["ప్రేమతో", "ప్రేమ", "ప్రేమా", "ప్రేము"]
+      },
+      {
+        "sentence": "నేను _____ వెళ్తాను",
+        "missingWord": "పాఠశాలకు",
+        "correctAnswer": "పాఠశాలకు",
+        "options": ["పాఠశాలకు", "పాఠశాల", "పాఠశాలా", "పాఠశాలు"]
+      },
+      {
+        "sentence": "పిల్లలు _____ ఆడుతున్నారు",
+        "missingWord": "ఆనందంగా",
+        "correctAnswer": "ఆనందంగా",
+        "options": ["ఆనందంగా", "ఆనందం", "ఆనంద", "ఆనందా"]
+      },
+      {
+        "sentence": "మేము _____ తినుతాము",
+        "missingWord": "ఆహారం",
+        "correctAnswer": "ఆహారం",
+        "options": ["ఆహారం", "ఆహార", "ఆహారా", "ఆహారు"]
+      }
+    ],
+    "intermediate": [
+      {
+        "sentence": "నేను _____ వెళ్తాను",
+        "missingWord": "పాఠశాలకు",
+        "correctAnswer": "పాఠశాలకు",
+        "options": ["పాఠశాలకు", "పాఠశాల", "పాఠశాలా", "పాఠశాలు"]
+      },
+      {
+        "sentence": "అవ్వ _____ చెబుతుంది",
+        "missingWord": "కథలు",
+        "correctAnswer": "కథలు",
+        "options": ["కథలు", "కథల", "కథలా", "కథను"]
+      },
+      {
+        "sentence": "గురువు _____ చెప్పుతున్నారు",
+        "missingWord": "పాఠం",
+        "correctAnswer": "పాఠం",
+        "options": ["పాఠం", "పాఠ", "పాఠా", "పాఠు"]
+      },
+      {
+        "sentence": "మేము _____ ఆడాము",
+        "missingWord": "పార్కులో",
+        "correctAnswer": "పార్కులో",
+        "options": ["పార్కులో", "పార్కు", "పార్కా", "పార్కుల"]
+      },
+      {
+        "sentence": "చేపలు _____ ఈదుతున్నాయి",
+        "missingWord": "నీటిలో",
+        "correctAnswer": "నీటిలో",
+        "options": ["నీటిలో", "నీటి", "నీటా", "నీటు"]
+      },
+      {
+        "sentence": "నేను _____ చదువుతాను",
+        "missingWord": "పుస్తకాలు",
+        "correctAnswer": "పుస్తకాలు",
+        "options": ["పుస్తకాలు", "పుస్తకలు", "పుస్తకల", "పుస్తకలా"]
+      },
+      {
+        "sentence": "అమ్మ _____ చేస్తుంది",
+        "missingWord": "ఆహారం",
+        "correctAnswer": "ఆహారం",
+        "options": ["ఆహారం", "ఆహార", "ఆహారా", "ఆహారు"]
+      },
+      {
+        "sentence": "పిల్లలు _____ ఆడుతున్నారు",
+        "missingWord": "ఆనందంగా",
+        "correctAnswer": "ఆనందంగా",
+        "options": ["ఆనందంగా", "ఆనందం", "ఆనంద", "ఆనందా"]
+      },
+      {
+        "sentence": "మేము _____ వెళ్తాము",
+        "missingWord": "పాఠశాలకు",
+        "correctAnswer": "పాఠశాలకు",
+        "options": ["పాఠశాలకు", "పాఠశాల", "పాఠశాలా", "పాఠశాలు"]
+      },
+      {
+        "sentence": "గురువు _____ చెప్పుతున్నారు",
+        "missingWord": "పాఠాలు",
+        "correctAnswer": "పాఠాలు",
+        "options": ["పాఠాలు", "పాఠలు", "పాఠల", "పాఠలా"]
+      },
+      {
+        "sentence": "నేను _____ చదువుతాను",
+        "missingWord": "పుస్తకం",
+        "correctAnswer": "పుస్తకం",
+        "options": ["పుస్తకం", "పుస్తక", "పుస్తకా", "పుస్తకే"]
+      },
+      {
+        "sentence": "అమ్మ _____ చేస్తుంది",
+        "missingWord": "వంట",
+        "correctAnswer": "వంట",
+        "options": ["వంట", "వంటా", "వంటే", "వంటి"]
+      },
+      {
+        "sentence": "పిల్లలు _____ ఆడుతున్నారు",
+        "missingWord": "ఆనందంగా",
+        "correctAnswer": "ఆనందంగా",
+        "options": ["ఆనందంగా", "ఆనందం", "ఆనంద", "ఆనందా"]
+      },
+      {
+        "sentence": "మేము _____ తినుతాము",
+        "missingWord": "ఆహారం",
+        "correctAnswer": "ఆహారం",
+        "options": ["ఆహారం", "ఆహార", "ఆహారా", "ఆహారు"]
+      },
+      {
+        "sentence": "గురువు _____ చెప్పుతున్నారు",
+        "missingWord": "పాఠం",
+        "correctAnswer": "పాఠం",
+        "options": ["పాఠం", "పాఠ", "పాఠా", "పాఠు"]
+      }
+    ],
+    "advanced": [
+      {
+        "sentence": "మేము _____ పని చేస్తాము",
+        "missingWord": "సహకారంతో",
+        "correctAnswer": "సహకారంతో",
+        "options": ["సహకారంతో", "సహకారం", "సహకారా", "సహకారు"]
+      },
+      {
+        "sentence": "పిల్లలు _____ ప్రవర్తించాలి",
+        "missingWord": "మర్యాదగా",
+        "correctAnswer": "మర్యాదగా",
+        "options": ["మర్యాదగా", "మర్యాద", "మర్యాదా", "మర్యాదు"]
+      },
+      {
+        "sentence": "అమ్మ _____ చూసుకుంటుంది",
+        "missingWord": "ప్రేమతో",
+        "correctAnswer": "ప్రేమతో",
+        "options": ["ప్రేమతో", "ప్రేమ", "ప్రేమా", "ప్రేము"]
+      },
+      {
+        "sentence": "మేము _____ సహాయం చేస్తాము",
+        "missingWord": "ఒకరికొకరు",
+        "correctAnswer": "ఒకరికొకరు",
+        "options": ["ఒకరికొకరు", "ఒకరికొకర", "ఒకరికొకరా", "ఒకరినొకరు"]
+      },
+      {
+        "sentence": "గురువు _____ వివరించారు",
+        "missingWord": "వివరంగా",
+        "correctAnswer": "వివరంగా",
+        "options": ["వివరంగా", "వివరం", "వివరా", "వివరు"]
+      },
+      {
+        "sentence": "మేము _____ పని చేస్తాము",
+        "missingWord": "సహకారంతో",
+        "correctAnswer": "సహకారంతో",
+        "options": ["సహకారంతో", "సహకారం", "సహకారా", "సహకారు"]
+      },
+      {
+        "sentence": "పిల్లలు _____ ప్రవర్తించాలి",
+        "missingWord": "మర్యాదగా",
+        "correctAnswer": "మర్యాదగా",
+        "options": ["మర్యాదగా", "మర్యాద", "మర్యాదా", "మర్యాదు"]
+      },
+      {
+        "sentence": "అమ్మ _____ చూసుకుంటుంది",
+        "missingWord": "ప్రేమతో",
+        "correctAnswer": "ప్రేమతో",
+        "options": ["ప్రేమతో", "ప్రేమ", "ప్రేమా", "ప్రేము"]
+      },
+      {
+        "sentence": "మేము _____ సహాయం చేస్తాము",
+        "missingWord": "ఒకరికొకరు",
+        "correctAnswer": "ఒకరికొకరు",
+        "options": ["ఒకరికొకరు", "ఒకరికొకర", "ఒకరికొకరా", "ఒకరినొకరు"]
+      },
+      {
+        "sentence": "గురువు _____ వివరించారు",
+        "missingWord": "వివరంగా",
+        "correctAnswer": "వివరంగా",
+        "options": ["వివరంగా", "వివరం", "వివరా", "వివరు"]
+      }
+    ]
+  },
+  "kn": {
+    "basic": [
+      {
+        "sentence": "ನಾನು _____ ಇದ್ದೇನೆ",
+        "missingWord": "ಸಂತೋಷದಿಂದ",
+        "correctAnswer": "ಸಂತೋಷದಿಂದ",
+        "options": ["ಸಂತೋಷದಿಂದ", "ಸಂತೋಷ", "ಸಂತೋಷಾ", "ಸಂತೋಷವಾಗಿ"]
+      },
+      {
+        "sentence": "ಅಮ್ಮ _____ ಮಾಡುತ್ತಾಳೆ",
+        "missingWord": "ಅಡುಗೆ",
+        "correctAnswer": "ಅಡುಗೆ",
+        "options": ["ಅಡುಗೆ", "ಅಡುಗಾ", "ಅಡುಗಿ", "ಅಡುಗು"]
+      },
+      {
+        "sentence": "ನಾನು _____ ಓದುತ್ತೇನೆ",
+        "missingWord": "ಪುಸ್ತಕ",
+        "correctAnswer": "ಪುಸ್ತಕ",
+        "options": ["ಪುಸ್ತಕ", "ಪುಸ್ತಕಾ", "ಪುಸ್ತಕಿ", "ಪುಸ್ತಕು"]
+      },
+      {
+        "sentence": "ಮರ _____ ದೊಡ್ಡದು",
+        "missingWord": "ತುಂಬಾ",
+        "correctAnswer": "ತುಂಬಾ",
+        "options": ["ತುಂಬಾ", "ತುಂಬ", "ತುಂಬಿ", "ತುಂಬು"]
+      },
+      {
+        "sentence": "ನಾಯಿ _____ ಬೊಗಳುತ್ತದೆ",
+        "missingWord": "ಜೋರಾಗಿ",
+        "correctAnswer": "ಜೋರಾಗಿ",
+        "options": ["ಜೋರಾಗಿ", "ಜೋರ", "ಜೋರಾ", "ಜೋರು"]
+      },
+      {
+        "sentence": "ಸೂರ್ಯ _____ ಬೆಳಗುತ್ತಿದೆ",
+        "missingWord": "ಪ್ರಕಾಶವಾಗಿ",
+        "correctAnswer": "ಪ್ರಕಾಶವಾಗಿ",
+        "options": ["ಪ್ರಕಾಶವಾಗಿ", "ಪ್ರಕಾಶ", "ಪ್ರಕಾಶಾ", "ಪ್ರಕಾಶಿ"]
+      },
+      {
+        "sentence": "ನಾನು _____ ಹೋಗುತ್ತೇನೆ",
+        "missingWord": "ಶಾಲೆಗೆ",
+        "correctAnswer": "ಶಾಲೆಗೆ",
+        "options": ["ಶಾಲೆಗೆ", "ಶಾಲೆ", "ಶಾಲೆಗ", "ಶಾಲೆಗಾ"]
+      },
+      {
+        "sentence": "ಹೂವುಗಳು _____ ಇವೆ",
+        "missingWord": "ಸುಂದರವಾಗಿ",
+        "correctAnswer": "ಸುಂದರವಾಗಿ",
+        "options": ["ಸುಂದರವಾಗಿ", "ಸುಂದರ", "ಸುಂದರಾ", "ಸುಂದರಿ"]
+      },
+      {
+        "sentence": "ಮಳೆ _____ ಬೀಳುತ್ತಿದೆ",
+        "missingWord": "ಬಲವಾಗಿ",
+        "correctAnswer": "ಬಲವಾಗಿ",
+        "options": ["ಬಲವಾಗಿ", "ಬಲ", "ಬಲಾ", "ಬಲಿ"]
+      },
+      {
+        "sentence": "ರೈಲು _____ ಹೋಗುತ್ತಿದೆ",
+        "missingWord": "ವೇಗವಾಗಿ",
+        "correctAnswer": "ವೇಗವಾಗಿ",
+        "options": ["ವೇಗವಾಗಿ", "ವೇಗ", "ವೇಗಾ", "ವೇಗಿ"]
+      }
+    ],
+    "intermediate": [
+      {
+        "sentence": "ನಾವು _____ ಆಡಿದೆವು",
+        "missingWord": "ಪಾರ್ಕಿನಲ್ಲಿ",
+        "correctAnswer": "ಪಾರ್ಕಿನಲ್ಲಿ",
+        "options": ["ಪಾರ್ಕಿನಲ್ಲಿ", "ಪಾರ್ಕ್", "ಪಾರ್ಕಾ", "ಪಾರ್ಕಿ"]
+      },
+      {
+        "sentence": "ರೈಲು _____ ಹೋಗುತ್ತಿದೆ",
+        "missingWord": "ವೇಗವಾಗಿ",
+        "correctAnswer": "ವೇಗವಾಗಿ",
+        "options": ["ವೇಗವಾಗಿ", "ವೇಗ", "ವೇಗಾ", "ವೇಗಿ"]
+      },
+      {
+        "sentence": "ಮಳೆ _____ ಬೀಳುತ್ತಿದೆ",
+        "missingWord": "ಬಲವಾಗಿ",
+        "correctAnswer": "ಬಲವಾಗಿ",
+        "options": ["ಬಲವಾಗಿ", "ಬಲ", "ಬಲಾ", "ಬಲಿ"]
+      },
+      {
+        "sentence": "ನಾನು _____ ಮಾತನಾಡುತ್ತೇನೆ",
+        "missingWord": "ಸ್ನೇಹಿತನೊಂದಿಗೆ",
+        "correctAnswer": "ಸ್ನೇಹಿತನೊಂದಿಗೆ",
+        "options": ["ಸ್ನೇಹಿತನೊಂದಿಗೆ", "ಸ್ನೇಹಿತ", "ಸ್ನೇಹಿತಾ", "ಸ್ನೇಹಿತಿ"]
+      },
+      {
+        "sentence": "ಶಿಕ್ಷಕ _____ ಹೇಳುತ್ತಿದ್ದಾರೆ",
+        "missingWord": "ಪಾಠ",
+        "correctAnswer": "ಪಾಠ",
+        "options": ["ಪಾಠ", "ಪಾಠಾ", "ಪಾಠಿ", "ಪಾಠು"]
+      },
+      {
+        "sentence": "ನಾನು _____ ಮಾತನಾಡುತ್ತೇನೆ",
+        "missingWord": "ಸ್ನೇಹಿತನೊಂದಿಗೆ",
+        "correctAnswer": "ಸ್ನೇಹಿತನೊಂದಿಗೆ",
+        "options": ["ಸ್ನೇಹಿತನೊಂದಿಗೆ", "ಸ್ನೇಹಿತ", "ಸ್ನೇಹಿತಾ", "ಸ್ನೇಹಿತಿ"]
+      },
+      {
+        "sentence": "ಶಿಕ್ಷಕ _____ ಹೇಳುತ್ತಿದ್ದಾರೆ",
+        "missingWord": "ಪಾಠ",
+        "correctAnswer": "ಪಾಠ",
+        "options": ["ಪಾಠ", "ಪಾಠಾ", "ಪಾಠಿ", "ಪಾಠು"]
+      },
+      {
+        "sentence": "ಮೀನುಗಳು _____ ಈಜುತ್ತಿವೆ",
+        "missingWord": "ನೀರಿನಲ್ಲಿ",
+        "correctAnswer": "ನೀರಿನಲ್ಲಿ",
+        "options": ["ನೀರಿನಲ್ಲಿ", "ನೀರು", "ನೀರಾ", "ನೀರಿ"]
+      },
+      {
+        "sentence": "ನಾನು _____ ಹೋಗುತ್ತೇನೆ",
+        "missingWord": "ಶಾಲೆಗೆ",
+        "correctAnswer": "ಶಾಲೆಗೆ",
+        "options": ["ಶಾಲೆಗೆ", "ಶಾಲೆ", "ಶಾಲೆಗ", "ಶಾಲೆಗಾ"]
+      },
+      {
+        "sentence": "ಹೂವುಗಳು _____ ಇವೆ",
+        "missingWord": "ಸುಂದರವಾಗಿ",
+        "correctAnswer": "ಸುಂದರವಾಗಿ",
+        "options": ["ಸುಂದರವಾಗಿ", "ಸುಂದರ", "ಸುಂದರಾ", "ಸುಂದರಿ"]
+      },
+      {
+        "sentence": "ನಾಯಿ _____ ಬೊಗಳುತ್ತದೆ",
+        "missingWord": "ಜೋರಾಗಿ",
+        "correctAnswer": "ಜೋರಾಗಿ",
+        "options": ["ಜೋರಾಗಿ", "ಜೋರ", "ಜೋರಾ", "ಜೋರು"]
+      },
+      {
+        "sentence": "ಸೂರ್ಯ _____ ಬೆಳಗುತ್ತಿದೆ",
+        "missingWord": "ಪ್ರಕಾಶವಾಗಿ",
+        "correctAnswer": "ಪ್ರಕಾಶವಾಗಿ",
+        "options": ["ಪ್ರಕಾಶವಾಗಿ", "ಪ್ರಕಾಶ", "ಪ್ರಕಾಶಾ", "ಪ್ರಕಾಶಿ"]
+      },
+      {
+        "sentence": "ಮರ _____ ದೊಡ್ಡದು",
+        "missingWord": "ತುಂಬಾ",
+        "correctAnswer": "ತುಂಬಾ",
+        "options": ["ತುಂಬಾ", "ತುಂಬ", "ತುಂಬಿ", "ತುಂಬು"]
+      },
+      {
+        "sentence": "ನಾನು _____ ಓದುತ್ತೇನೆ",
+        "missingWord": "ಪುಸ್ತಕ",
+        "correctAnswer": "ಪುಸ್ತಕ",
+        "options": ["ಪುಸ್ತಕ", "ಪುಸ್ತಕಾ", "ಪುಸ್ತಕಿ", "ಪುಸ್ತಕು"]
+      }
+    ],
+    "advanced": [
+      {
+        "sentence": "ನಾವು _____ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ",
+        "missingWord": "ಸಹಕಾರದಿಂದ",
+        "correctAnswer": "ಸಹಕಾರದಿಂದ",
+        "options": ["ಸಹಕಾರದಿಂದ", "ಸಹಕಾರ", "ಸಹಕಾರಾ", "ಸಹಕಾರಿ"]
+      },
+      {
+        "sentence": "ವಿದ್ಯಾರ್ಥಿಗಳು _____ ಅಧ್ಯಯನ ಮಾಡುತ್ತಾರೆ",
+        "missingWord": "ಕಷ್ಟಪಟ್ಟು",
+        "correctAnswer": "ಕಷ್ಟಪಟ್ಟು",
+        "options": ["ಕಷ್ಟಪಟ್ಟು", "ಸುಲಭವಾಗಿ", "ಅಲಕ್ಷಿಸಿ", "ನಿರ್ಲಕ್ಷಿಸಿ"]
+      },
+      {
+        "sentence": "ನಾವು _____ ರಕ್ಷಿಸಬೇಕು",
+        "missingWord": "ಪರಿಸರವನ್ನು",
+        "correctAnswer": "ಪರಿಸರವನ್ನು",
+        "options": ["ಪರಿಸರವನ್ನು", "ಮನೆಯನ್ನು", "ಶಾಲೆಯನ್ನು", "ಕಾರನ್ನು"]
+      },
+      {
+        "sentence": "_____ ತುಂಬಾ ಮುಖ್ಯ",
+        "missingWord": "ನಿಜವಾದಿ",
+        "correctAnswer": "ನಿಜವಾದಿ",
+        "options": ["ನಿಜವಾದಿ", "ಸುಳ್ಳು", "ಅಲಕ್ಷಿಸುವುದು", "ನಿರ್ಲಕ್ಷಿಸುವುದು"]
+      },
+      {
+        "sentence": "_____ ಸಮಾನತೆ ಇರಬೇಕು",
+        "missingWord": "ಎಲ್ಲರಿಗೂ",
+        "correctAnswer": "ಎಲ್ಲರಿಗೂ",
+        "options": ["ಎಲ್ಲರಿಗೂ", "ಕೆಲವರಿಗೆ", "ಯಾರಿಗೂ", "ಒಬ್ಬರಿಗೆ"]
+      },
+      {
+        "sentence": "ಶಾಲೆ _____ ಮಂದಿರ",
+        "missingWord": "ಜ್ಞಾನದ",
+        "correctAnswer": "ಜ್ಞಾನದ",
+        "options": ["ಜ್ಞಾನದ", "ಜ್ಞಾನ", "ಜ್ಞಾನಾ", "ಜ್ಞಾನಿ"]
+      },
+      {
+        "sentence": "ಪ್ರಕೃತಿ ನಮಗೆ _____ ಉಪಕಾರಗಳನ್ನು ಮಾಡಿದೆ",
+        "missingWord": "ಅನೇಕ",
+        "correctAnswer": "ಅನೇಕ",
+        "options": ["ಅನೇಕ", "ಅನೇಕಾ", "ಅನೇಕಿ", "ಅನೇಕು"]
+      },
+      {
+        "sentence": "ಸ್ನೇಹ _____ ಅಂಶ",
+        "missingWord": "ಜೀವನದ",
+        "correctAnswer": "ಜೀವನದ",
+        "options": ["ಜೀವನದ", "ಜೀವನ", "ಜೀವನಾ", "ಜೀವನಿ"]
+      },
+      {
+        "sentence": "ಶಾಂತಿ ಮತ್ತು ಸುಖ _____ ಬೇಕು",
+        "missingWord": "ಎಲ್ಲರಿಗೂ",
+        "correctAnswer": "ಎಲ್ಲರಿಗೂ",
+        "options": ["ಎಲ್ಲರಿಗೂ", "ಎಲ್ಲರಿಗೆ", "ಎಲ್ಲರಿಗ", "ಎಲ್ಲರಿಗಾ"]
+      },
+      {
+        "sentence": "ವಿದ್ಯೆ _____ ಶಕ್ತಿ",
+        "missingWord": "ಅದೇ",
+        "correctAnswer": "ಅದೇ",
+        "options": ["ಅದೇ", "ಅದ", "ಅದಾ", "ಅದಿ"]
+      }
+    ]
+  },
+  "mr": {
+    "basic": [
+      {
+        "sentence": "मी _____ आहे",
+        "missingWord": "आनंदी",
+        "correctAnswer": "आनंदी",
+        "options": ["आनंदी", "आनंद", "आनंदा", "आनंदे"]
+      },
+      {
+        "sentence": "आई _____ बनवते",
+        "missingWord": "जेवण",
+        "correctAnswer": "जेवण",
+        "options": ["जेवण", "जेवणा", "जेवणे", "जेवणी"]
+      },
+      {
+        "sentence": "मांजर _____ पिते",
+        "missingWord": "दूध",
+        "correctAnswer": "दूध",
+        "options": ["दूध", "दूधा", "दूधे", "दूधी"]
+      },
+      {
+        "sentence": "कुत्रा _____ भुंकतो",
+        "missingWord": "जोरात",
+        "correctAnswer": "जोरात",
+        "options": ["जोरात", "जोर", "जोरा", "जोरु"]
+      },
+      {
+        "sentence": "मी _____ वाचतो",
+        "missingWord": "पुस्तक",
+        "correctAnswer": "पुस्तक",
+        "options": ["पुस्तक", "पुस्तका", "पुस्तके", "पुस्तकी"]
+      },
+      {
+        "sentence": "झाड _____ मोठे आहे",
+        "missingWord": "खूप",
+        "correctAnswer": "खूप",
+        "options": ["खूप", "खुप", "खुपा", "खुपे"]
+      },
+      {
+        "sentence": "फुले _____ आहेत",
+        "missingWord": "सुंदर",
+        "correctAnswer": "सुंदर",
+        "options": ["सुंदर", "सुंदरा", "सुंदरे", "सुंदरी"]
+      },
+      {
+        "sentence": "सूर्य _____ चमकतो",
+        "missingWord": "तेजस्वी",
+        "correctAnswer": "तेजस्वी",
+        "options": ["तेजस्वी", "तेज", "तेजा", "तेजे"]
+      },
+      {
+        "sentence": "मला _____ लागली",
+        "missingWord": "भूक",
+        "correctAnswer": "भूक",
+        "options": ["भूक", "भुका", "भुके", "भुकी"]
+      },
+      {
+        "sentence": "आम्ही _____ आहोत",
+        "missingWord": "घरात",
+        "correctAnswer": "घरात",
+        "options": ["घरात", "घरा", "घरे", "घरी"]
+      },
+      {
+        "sentence": "मी _____ खेळतो",
+        "missingWord": "आनंदाने",
+        "correctAnswer": "आनंदाने",
+        "options": ["आनंदाने", "आनंद", "आनंदा", "आनंदी"]
+      },
+      {
+        "sentence": "आई _____ करते",
+        "missingWord": "प्रेमाने",
+        "correctAnswer": "प्रेमाने",
+        "options": ["प्रेमाने", "प्रेम", "प्रेमा", "प्रेमी"]
+      },
+      {
+        "sentence": "मी _____ जातो",
+        "missingWord": "शाळेत",
+        "correctAnswer": "शाळेत",
+        "options": ["शाळेत", "शाळा", "शाळे", "शाळी"]
+      },
+      {
+        "sentence": "मुले _____ खेळतात",
+        "missingWord": "आनंदाने",
+        "correctAnswer": "आनंदाने",
+        "options": ["आनंदाने", "आनंद", "आनंदा", "आनंदी"]
+      },
+      {
+        "sentence": "आम्ही _____ खातो",
+        "missingWord": "जेवण",
+        "correctAnswer": "जेवण",
+        "options": ["जेवण", "जेवणा", "जेवणे", "जेवणी"]
+      }
+    ],
+    "intermediate": [
+      {
+        "sentence": "मी _____ जातो",
+        "missingWord": "शाळेत",
+        "correctAnswer": "शाळेत",
+        "options": ["शाळेत", "शाळा", "शाळे", "शाळी"]
+      },
+      {
+        "sentence": "आजी _____ सांगते",
+        "missingWord": "कथा",
+        "correctAnswer": "कथा",
+        "options": ["कथा", "कथे", "कथी", "कथु"]
+      },
+      {
+        "sentence": "शिक्षक _____ शिकवतात",
+        "missingWord": "धडा",
+        "correctAnswer": "धडा",
+        "options": ["धडा", "धडे", "धडी", "धडु"]
+      },
+      {
+        "sentence": "आम्ही _____ खेळलो",
+        "missingWord": "बागेत",
+        "correctAnswer": "बागेत",
+        "options": ["बागेत", "बागा", "बागे", "बागी"]
+      },
+      {
+        "sentence": "मासे _____ पोहतात",
+        "missingWord": "पाण्यात",
+        "correctAnswer": "पाण्यात",
+        "options": ["पाण्यात", "पाणी", "पाण्या", "पाण्यु"]
+      },
+      {
+        "sentence": "मी _____ वाचतो",
+        "missingWord": "पुस्तके",
+        "correctAnswer": "पुस्तके",
+        "options": ["पुस्तके", "पुस्तक", "पुस्तका", "पुस्तकी"]
+      },
+      {
+        "sentence": "आई _____ बनवते",
+        "missingWord": "जेवण",
+        "correctAnswer": "जेवण",
+        "options": ["जेवण", "जेवणा", "जेवणे", "जेवणी"]
+      },
+      {
+        "sentence": "मुले _____ खेळतात",
+        "missingWord": "आनंदाने",
+        "correctAnswer": "आनंदाने",
+        "options": ["आनंदाने", "आनंद", "आनंदा", "आनंदी"]
+      },
+      {
+        "sentence": "आम्ही _____ जातो",
+        "missingWord": "शाळेत",
+        "correctAnswer": "शाळेत",
+        "options": ["शाळेत", "शाळा", "शाळे", "शाळी"]
+      },
+      {
+        "sentence": "शिक्षक _____ शिकवतात",
+        "missingWord": "धडे",
+        "correctAnswer": "धडे",
+        "options": ["धडे", "धडा", "धडी", "धडु"]
+      },
+      {
+        "sentence": "मी _____ वाचतो",
+        "missingWord": "पुस्तक",
+        "correctAnswer": "पुस्तक",
+        "options": ["पुस्तक", "पुस्तका", "पुस्तके", "पुस्तकी"]
+      },
+      {
+        "sentence": "आई _____ करते",
+        "missingWord": "प्रेमाने",
+        "correctAnswer": "प्रेमाने",
+        "options": ["प्रेमाने", "प्रेम", "प्रेमा", "प्रेमी"]
+      },
+      {
+        "sentence": "मुले _____ खेळतात",
+        "missingWord": "आनंदाने",
+        "correctAnswer": "आनंदाने",
+        "options": ["आनंदाने", "आनंद", "आनंदा", "आनंदी"]
+      },
+      {
+        "sentence": "आम्ही _____ खातो",
+        "missingWord": "जेवण",
+        "correctAnswer": "जेवण",
+        "options": ["जेवण", "जेवणा", "जेवणे", "जेवणी"]
+      },
+      {
+        "sentence": "शिक्षक _____ शिकवतात",
+        "missingWord": "धडा",
+        "correctAnswer": "धडा",
+        "options": ["धडा", "धडे", "धडी", "धडु"]
+      }
+    ],
+    "advanced": [
+      {
+        "sentence": "आम्ही _____ काम करतो",
+        "missingWord": "एकत्र",
+        "correctAnswer": "एकत्र",
+        "options": ["एकत्र", "एकत्रा", "एकत्रे", "एकत्री"]
+      },
+      {
+        "sentence": "मुलांनी _____ वागावे",
+        "missingWord": "चांगले",
+        "correctAnswer": "चांगले",
+        "options": ["चांगले", "चांगल", "चांगला", "चांगली"]
+      },
+      {
+        "sentence": "आई _____ सांभाळते",
+        "missingWord": "प्रेमाने",
+        "correctAnswer": "प्रेमाने",
+        "options": ["प्रेमाने", "प्रेम", "प्रेमा", "प्रेमी"]
+      },
+      {
+        "sentence": "आम्ही _____ मदत करतो",
+        "missingWord": "एकमेकांना",
+        "correctAnswer": "एकमेकांना",
+        "options": ["एकमेकांना", "एकमेक", "एकमेका", "एकमेकी"]
+      },
+      {
+        "sentence": "शिक्षकांनी _____ समजावले",
+        "missingWord": "तपशीलवार",
+        "correctAnswer": "तपशीलवार",
+        "options": ["तपशीलवार", "तपशील", "तपशीला", "तपशीली"]
+      },
+      {
+        "sentence": "आम्ही _____ काम करतो",
+        "missingWord": "एकत्र",
+        "correctAnswer": "एकत्र",
+        "options": ["एकत्र", "एकत्रा", "एकत्रे", "एकत्री"]
+      },
+      {
+        "sentence": "मुलांनी _____ वागावे",
+        "missingWord": "चांगले",
+        "correctAnswer": "चांगले",
+        "options": ["चांगले", "चांगल", "चांगला", "चांगली"]
+      },
+      {
+        "sentence": "आई _____ सांभाळते",
+        "missingWord": "प्रेमाने",
+        "correctAnswer": "प्रेमाने",
+        "options": ["प्रेमाने", "प्रेम", "प्रेमा", "प्रेमी"]
+      },
+      {
+        "sentence": "आम्ही _____ मदत करतो",
+        "missingWord": "एकमेकांना",
+        "correctAnswer": "एकमेकांना",
+        "options": ["एकमेकांना", "एकमेक", "एकमेका", "एकमेकी"]
+      },
+      {
+        "sentence": "शिक्षकांनी _____ समजावले",
+        "missingWord": "तपशीलवार",
+        "correctAnswer": "तपशीलवार",
+        "options": ["तपशीलवार", "तपशील", "तपशीला", "तपशीली"]
+      }
+    ]
+  }
+}

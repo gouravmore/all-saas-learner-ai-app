@@ -1,16 +1,22 @@
 import React, { useEffect, Fragment } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import CustomizedSnackbars from "../../views/Snackbar/CustomSnackbar";
-import { useSelector } from "react-redux";
+import { jwtDecode } from "jwt-decode";
 
 const PrivateRoute = (props) => {
-  const { userId } = useSelector((state) => state.user);
+  let virtualId;
+  const TOKEN = localStorage.getItem("apiToken");
+  // if (TOKEN) {
+  //   const tokenDetails = jwtDecode(TOKEN);
+  //   virtualId = JSON.stringify(tokenDetails?.virtual_id);
+  // }
+
   const navigate = useNavigate();
   useEffect(() => {
-    if (!userId && props.requiresAuth) {
-      // navigate("/");
+    if (!TOKEN && props.requiresAuth) {
+      navigate("/login");
     }
-  }, [userId]);
+  }, [TOKEN]);
 
   return <>{props.children}</>;
 };
