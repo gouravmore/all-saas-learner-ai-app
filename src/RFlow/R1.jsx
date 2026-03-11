@@ -981,6 +981,9 @@ const R1 = ({
         mechanics_id: getLocalData("mechanism_id") || "",
         milestone: milestoneLevel,
         ansSelectionStatus: langWiseAnswers[lang],
+        // Community edition: tenantId and cohortId support
+        tenantId: localStorage.getItem("tenantId") || "",
+        cohortId: localStorage.getItem("cohortId") || "",
       };
 
       const result = await updateLearnerProfile(lang, requestBody);

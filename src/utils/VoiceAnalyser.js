@@ -381,6 +381,9 @@ function VoiceAnalyser(props) {
         contentType,
         mechanics_id: getLocalData("mechanism_id") || "",
         milestone: milestone?.data?.milestone_level || "",
+        // Community edition: tenantId and cohortId support
+        tenantId: localStorage.getItem("tenantId") || "",
+        cohortId: localStorage.getItem("cohortId") || "",
       };
 
       if (props.selectedOption) {

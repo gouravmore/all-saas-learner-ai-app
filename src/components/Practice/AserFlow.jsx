@@ -312,6 +312,9 @@ const AserFlow = ({
         mechanics_id: getLocalData("mechanism_id") || "",
         milestone: milestoneLevel,
         ansSelectionStatus: ansSelectionStatus,
+        // Community edition: tenantId and cohortId support
+        tenantId: localStorage.getItem("tenantId") || "",
+        cohortId: localStorage.getItem("cohortId") || "",
       };
 
       const result = await updateLearnerProfile(lang, requestBody);

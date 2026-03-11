@@ -15,7 +15,7 @@ export const getCSP = (envVariables) => {
       font-src 'self' https://fonts.gstatic.com https://fonts.cdnfonts.com;
       img-src 'self' data: https://raw.githubusercontent.com https://cdn.jsdelivr.net https://github.com https://images.squarespace-cdn.com ${REACT_APP_AWS_S3_BUCKET_CONTENT_URL} ${REACT_APP_AWS_S3_BUCKET_URL};
       media-src 'self' blob: ${REACT_APP_AWS_S3_BUCKET_URL} ${REACT_APP_AWS_S3_BUCKET_CONTENT_URL} https://raw.githubusercontent.com https://github.com ;
-      connect-src 'self' *.theall.ai ${REACT_APP_HOST} ${REACT_APP_LEARNER_AI_BASE_URL} ${REACT_APP_AWS_S3_BUCKET_URL} ${REACT_APP_AWS_S3_BUCKET_CONTENT_URL} blob: https://huggingface.co https://cas-bridge.xethub.hf.co https://cdn.jsdelivr.net ;
+      connect-src 'self' *.theall.ai ${REACT_APP_HOST} ${REACT_APP_LEARNER_AI_BASE_URL} ${REACT_APP_AWS_S3_BUCKET_URL} ${REACT_APP_AWS_S3_BUCKET_CONTENT_URL} blob: https://huggingface.co https://cas-bridge.xethub.hf.co https://cdn.jsdelivr.net https://all-saas-keycloak.tekdinext.com https://all-saas-keycloak.tekdinext.com/all-orchestration-services https://all-saas-keycloak.tekdinext.com/telemetry-service https://all-saas-keycloak.tekdinext.com/lais ;
       form-action 'self';
       frame-src 'self' https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.youtube-nocookie.com;
       object-src 'none';

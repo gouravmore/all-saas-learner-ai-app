@@ -22,9 +22,17 @@ const AudioRecorder = (props) => {
   const [audioBlob, setAudioBlob] = useState(null);
   const recorderRef = useRef(null);
   const mediaStreamRef = useRef(null);
+  const systemStreamRef = useRef(null);
+  const currentSourceRef = useRef("mic");
+  // Local default; active source is always read from localStorage at record time.
+  const [audioSource] = useState(localStorage.getItem("audioSource") || "mic"); // "mic" | "system"
   const [showLoader, setShowLoader] = useState(false);
   const [language, setLanguage] = useState(getLocalData("lang") || "en");
   const transcriptRef = useRef("");
+
+  // Enable this selector only when explicitly turned on (e.g. for teacher/demo mode)
+  const enableSourceSelector =
+    process.env.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR === "true";
 
   // Map language codes to browser speech recognition format
   const getBrowserLanguage = (langCode) => {
@@ -97,12 +105,79 @@ const AudioRecorder = (props) => {
       if (mediaStreamRef.current) {
         mediaStreamRef.current.getTracks().forEach((track) => track.stop());
       }
+      if (systemStreamRef.current) {
+        systemStreamRef.current.getTracks().forEach((track) => track.stop());
+      }
     };
   }, []);
 
+  const getMicStream = async () => {
+    return await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true,
+      },
+    });
+  };
+
+  const getSystemAudioStream = async () => {
+    if (!navigator.mediaDevices?.getDisplayMedia) {
+      throw new Error(
+        "System/Tab audio capture not supported in this browser. Please use a desktop Chrome/Edge browser."
+      );
+    }
+
+    const raw = await navigator.mediaDevices.getDisplayMedia({
+      video: true,
+      audio: true,
+    });
+
+    // We only need audio; stop video tracks immediately.
+    raw.getVideoTracks().forEach((t) => t.stop());
+
+    const audioTracks = raw.getAudioTracks();
+    if (!audioTracks.length) {
+      raw.getTracks().forEach((t) => t.stop());
+      throw new Error(
+        "No system audio captured. When selecting the tab/window, please enable 'Share audio'."
+      );
+    }
+
+    return new MediaStream(audioTracks);
+  };
+
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (!navigator.mediaDevices) {
+        throw new Error(
+          "navigator.mediaDevices is not available. Use HTTPS or localhost."
+        );
+      }
+
+      const selectedSource = enableSourceSelector
+        ? localStorage.getItem("audioSource") || audioSource || "mic"
+        : "mic";
+      currentSourceRef.current = selectedSource;
+
+      let stream;
+      if (selectedSource === "system") {
+        const existing = systemStreamRef.current;
+        const hasLiveTrack =
+          existing &&
+          existing.getAudioTracks().some((t) => t.readyState === "live");
+
+        if (hasLiveTrack) {
+          stream = existing;
+        } else {
+          const newStream = await getSystemAudioStream();
+          systemStreamRef.current = newStream;
+          stream = newStream;
+        }
+      } else {
+        stream = await getMicStream();
+      }
+
       if (props.setEnableNext) {
         props.setEnableNext(false);
       }
@@ -239,7 +314,9 @@ const AudioRecorder = (props) => {
             setStatus("inactive");
             props.setIsCorrect?.(false);
           }
-          if (mediaStreamRef.current) {
+          // Stop the media stream for mic recordings.
+          // For system audio we keep the stream alive to avoid repeated browser prompts.
+          if (mediaStreamRef.current && currentSourceRef.current === "mic") {
             mediaStreamRef.current.getTracks().forEach((track) => track.stop());
           }
           setIsRecording(false);

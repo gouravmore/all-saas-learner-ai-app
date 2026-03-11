@@ -22,6 +22,9 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import TranslateIcon from "@mui/icons-material/Translate";
 import MicIcon from "@mui/icons-material/Mic";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import SettingsIcon from "@mui/icons-material/Settings";
+import HeadsetIcon from "@mui/icons-material/Headset";
 import { useMediaQuery, useTheme } from "@mui/material";
 import LogoutImg from "../../assets/images/logout.svg";
 import { styled } from "@mui/material/styles";
@@ -490,7 +493,23 @@ export const ProfileHeader = ({
 
   const navigate = useNavigate();
   const [openMessageDialog, setOpenMessageDialog] = useState("");
+  // Community edition: Audio source selector
+  const [audioSource, setAudioSource] = useState(
+    localStorage.getItem("audioSource") || "mic"
+  );
+  const [openAudioSourceDialog, setOpenAudioSourceDialog] = useState(false);
+  const enableAudioSourceSelector =
+    process.env.REACT_APP_ENABLE_AUDIO_SOURCE_SELECTOR === "true";
   const theme = useTheme();
+
+  const handleAudioSourceChange = (value) => {
+    setAudioSource(value);
+    try {
+      localStorage.setItem("audioSource", value);
+    } catch (e) {
+      console.error("Unable to persist audioSource:", e);
+    }
+  };
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
@@ -1039,7 +1058,7 @@ export const ProfileHeader = ({
                       setMenuOpen(false);
                     }}
                   >
-                    <MicIcon sx={{ mr: 1, color: "#6DAF19" }} />
+                    <HeadsetIcon sx={{ mr: 1, color: "#6DAF19" }} />
                     <ListItemText
                       primary="Audio Test"
                       primaryTypographyProps={{
@@ -1318,7 +1337,7 @@ export const ProfileHeader = ({
                   },
                 }}
               >
-                <MicIcon
+                <HeadsetIcon
                   sx={{
                     color: "#6DAF19",
                     fontSize: isMobile ? "18px" : "20px",
@@ -1326,6 +1345,41 @@ export const ProfileHeader = ({
                 />
               </IconButton>
             </CustomTooltip>
+            {enableAudioSourceSelector && (
+              <CustomTooltip
+                title={`Audio source: ${
+                  audioSource === "system" ? "System audio" : "Microphone"
+                }`}
+              >
+                <IconButton
+                  onClick={() => setOpenAudioSourceDialog(true)}
+                  sx={{
+                    mr: { xs: "5px", sm: "10px" },
+                    padding: isMobile ? "6px" : "8px",
+                    backgroundColor: "rgba(255, 255, 255, 0.7)",
+                    "&:hover": {
+                      backgroundColor: "rgba(255, 255, 255, 0.9)",
+                    },
+                  }}
+                >
+                  {audioSource === "system" ? (
+                    <VolumeUpIcon
+                      sx={{
+                        color: "#00B4C8",
+                        fontSize: isMobile ? "18px" : "20px",
+                      }}
+                    />
+                  ) : (
+                    <MicIcon
+                      sx={{
+                        color: "#00B4C8",
+                        fontSize: isMobile ? "18px" : "20px",
+                      }}
+                    />
+                  )}
+                </IconButton>
+              </CustomTooltip>
+            )}
             {process.env.REACT_APP_IS_IN_APP_AUTHORISATION === "true" && (
               <CustomTooltip title="Logout">
                 <IconButton
@@ -1351,6 +1405,199 @@ export const ProfileHeader = ({
           </Box>
         )}
       </Box>
+      {enableAudioSourceSelector && openAudioSourceDialog && (
+        <Box
+          sx={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "rgba(0, 0, 0, 0.4)",
+            zIndex: 9999,
+          }}
+          onClick={() => setOpenAudioSourceDialog(false)}
+        >
+          <Box
+            sx={{
+              width: { xs: "90%", sm: "420px" },
+              borderRadius: "20px",
+              backgroundImage: `url(${textureImage})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "round",
+              boxShadow: "0px 4px 20px -1px rgba(0, 0, 0, 0.2)",
+              backdropFilter: "blur(25px)",
+              padding: "24px 24px 20px",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 2,
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Quicksand",
+                  fontWeight: 700,
+                  fontSize: 20,
+                  color: "#322020",
+                }}
+              >
+                Choose audio source
+              </Typography>
+              <IconButton
+                size="small"
+                onClick={() => setOpenAudioSourceDialog(false)}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box
+                onClick={() => {
+                  handleAudioSourceChange("mic");
+                  setOpenAudioSourceDialog(false);
+                }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  padding: "10px 12px",
+                  borderRadius: "14px",
+                  cursor: "pointer",
+                  backgroundColor:
+                    audioSource === "mic"
+                      ? "rgba(0, 212, 213, 0.12)"
+                      : "#FFFFFF",
+                  border:
+                    audioSource === "mic"
+                      ? "1.5px solid #00B4C8"
+                      : "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "999px",
+                    background:
+                      "linear-gradient(90deg, #00D5D5 0%, #00B4C8 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <MicIcon sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                </Box>
+                <Box>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 700,
+                      fontSize: 16,
+                      color: "#322020",
+                    }}
+                  >
+                    Microphone
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 500,
+                      fontSize: 13,
+                      color: "#555",
+                    }}
+                  >
+                    Use this computer&apos;s mic to capture the voice.
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box
+                onClick={() => {
+                  handleAudioSourceChange("system");
+                  setOpenAudioSourceDialog(false);
+                }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  padding: "10px 12px",
+                  borderRadius: "14px",
+                  cursor: "pointer",
+                  backgroundColor:
+                    audioSource === "system"
+                      ? "rgba(0, 212, 213, 0.12)"
+                      : "#FFFFFF",
+                  border:
+                    audioSource === "system"
+                      ? "1.5px solid #00B4C8"
+                      : "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "999px",
+                    background:
+                      "linear-gradient(90deg, #00D5D5 0%, #00B4C8 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <VolumeUpIcon sx={{ fontSize: 18, color: "#FFFFFF" }} />
+                </Box>
+                <Box>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 700,
+                      fontSize: 16,
+                      color: "#322020",
+                    }}
+                  >
+                    System / tab audio
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: "Quicksand",
+                      fontWeight: 500,
+                      fontSize: 13,
+                      color: "#555",
+                    }}
+                  >
+                    Capture audio from a shared tab or window (e.g. Google
+                    Meet).
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Typography
+                sx={{
+                  mt: 1,
+                  fontFamily: "Quicksand",
+                  fontWeight: 500,
+                  fontSize: 12,
+                  color: "#666",
+                }}
+              >
+                Tip: For online classes, choose <b>System / tab audio</b> and
+                enable <b>&quot;Share tab audio&quot;</b> in the browser popup.
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      )}
       <AlphabetChartPreview
         open={openAlphabetPreview}
         onClose={() => setOpenAlphabetPreview(false)}

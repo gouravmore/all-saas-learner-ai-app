@@ -5030,6 +5030,9 @@ const SoundHuntS1Combined = ({
         milestone: "B",
         is_nonAsr: true,
         ansSelectionStatus: ansSelectionStatusObj,
+        // Community edition: tenantId and cohortId support
+        tenantId: localStorage.getItem("tenantId") || "",
+        cohortId: localStorage.getItem("cohortId") || "",
       };
 
       console.log("Calling updateLearnerProfile API on S1 completion:", {
