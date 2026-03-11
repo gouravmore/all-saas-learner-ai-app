@@ -3,13 +3,27 @@ import * as React from "react";
 import CryptoJS from "crypto-js";
 
 export const getLocalData = (item) => {
-  const decryptValue = localStorage.getItem(item);
-  if (!decryptValue) return null;
-  return handleDecrypt(decryptValue);
+  const storedValue = localStorage.getItem(item);
+  if (!storedValue) return null;
+
+  // Try to decrypt first (for backward compatibility with encrypted values)
+  const decryptedValue = handleDecrypt(storedValue);
+
+  // If decryption fails or returns null, return the raw value
+  // This handles both encrypted (when apiToken exists) and unencrypted (when embedded) values
+  if (decryptedValue === null) {
+    return storedValue;
+  }
+  return decryptedValue;
 };
 
 export const setLocalData = (item, value) => {
   const encryptValue = handleEncrypt(value);
+  // If encryption fails (returns null), store the value directly
+  // This is needed when embedded and apiToken is not available
+  if (encryptValue === null) {
+    return localStorage.setItem(item, value);
+  }
   return localStorage.setItem(item, encryptValue);
 };
 
@@ -15749,6 +15763,10 @@ export const randomizeArray = (arr) => {
 
 export function handleEncrypt(value) {
   const API_SECRET_KEY = localStorage.getItem("apiToken");
+  // If apiToken is not available (embedded mode), return null to store unencrypted
+  if (!API_SECRET_KEY) {
+    return null;
+  }
   try {
     var ciphertext = CryptoJS.AES.encrypt(
       JSON.stringify(value),
@@ -15763,12 +15781,17 @@ export function handleEncrypt(value) {
 
 export function handleDecrypt(value) {
   const API_SECRET_KEY = localStorage.getItem("apiToken");
+  // If apiToken is not available (embedded mode), return null to indicate unencrypted value
+  if (!API_SECRET_KEY) {
+    return null;
+  }
   try {
     var bytes = CryptoJS.AES.decrypt(value, API_SECRET_KEY);
     var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     return decryptedData;
   } catch (error) {
-    console.error("Crypto operation failed:", error.message);
+    // If decryption fails, the value might be unencrypted (from embedded mode)
+    // Return null to let getLocalData return the raw value
     return null;
   }
 }

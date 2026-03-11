@@ -1642,10 +1642,21 @@ const Assesment = ({ discoverStart }) => {
   const nativeLang = getLocalData("nativeLang");
   const rStepNo = getLocalData("rStepZero");
   const rFlows = String(getLocalData("rFlow"));
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
 
   const handleWordClick = () => {
     setShowModal(true);
   };
+
+  // Ensure language is set when embedded (even if not selected yet)
+  useEffect(() => {
+    const currentLang = getLocalData("lang");
+    if (!currentLang) {
+      const defaultLang = getLanguageOrDefault();
+      setLocalData("lang", defaultLang);
+      setLang(defaultLang);
+    }
+  }, []);
 
   useEffect(() => {
     if (nativeLangEnable !== true) {
