@@ -30,6 +30,10 @@ export const getContent = async (
   level = {}
 ) => {
   try {
+    const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+    const userId = localStorage.getItem("userId"); // From all-saas-app
+    const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
     let url = `${API_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT}/${criteria}?language=${lang}&contentlimit=${limit}&gettargetlimit=${limit}`;
 
     if (
@@ -45,6 +49,11 @@ export const getContent = async (
     if (options.storyMode) url += `&story_mode=${options.storyMode}`;
     if (options.CEFR_level) url += `&CEFR_level=${options.CEFR_level}`;
     if (options.multilingual) url += `&multilingual=${options.multilingual}`;
+
+    // When embedded, include userId and tenantId in query params
+    if (isEmbedded && userId && tenantId) {
+      url += `&userId=${userId}&tenantId=${tenantId}`;
+    }
 
     const response = await axios.get(url, getHeaders());
 
@@ -69,11 +78,20 @@ export const getContentNew = async (
       // getContentNew (recommendation API) called for M3 - this should not happen
     }
 
+    const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+    const userId = localStorage.getItem("userId"); // From all-saas-app
+    const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
     let url = `${API_LEARNER_AI_APP_HOST}/${config.URLS.GET_CONTENT_NEW}`;
     const data = {
       language: lang,
       content_type: criteria,
     };
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      data.userId = userId;
+      data.tenantId = tenantId;
+    }
     const response = await axios.post(url, data, getHeaders());
     return response.data;
   } catch (error) {
@@ -83,17 +101,32 @@ export const getContentNew = async (
 };
 
 export const getFetchMilestoneDetails = async (lang) => {
-  if (localStorage.getItem("apiToken")) {
+  const apiToken = localStorage.getItem("apiToken");
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
+  // Allow API call if apiToken exists (standalone) or if embedded with parent token
+  if (apiToken || (isEmbedded && parentToken)) {
     try {
-      const response = await axios.get(
-        `${API_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}?language=${lang}`,
-        getHeaders()
-      );
+      // When embedded, include userId and tenantId in query params
+      let url = `${API_LEARNER_AI_APP_HOST}/${config.URLS.GET_MILESTONE}?language=${lang}`;
+      if (isEmbedded && userId && tenantId) {
+        url += `&userId=${userId}&tenantId=${tenantId}`;
+      }
+
+      const response = await axios.get(url, getHeaders());
       return response.data;
     } catch (error) {
       console.error("Error fetching milestone details:", error);
       throw error;
     }
+  } else {
+    console.warn(
+      "getFetchMilestoneDetails: No token available (neither apiToken nor parent token)"
+    );
+    return null;
   }
 };
 
@@ -105,19 +138,29 @@ export const fetchGetSetResult = async (
 ) => {
   const session_id = getLocalData("sessionId");
   const lang = getLocalData("lang");
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
   try {
+    const requestBody = {
+      sub_session_id: subSessionId,
+      contentType: currentContentType,
+      session_id: session_id,
+      collectionId: currentCollectionId,
+      totalSyllableCount: totalSyllableCount,
+      language: lang,
+      is_B_enable: true,
+    };
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
+
     const response = await axios.post(
       `${API_LEARNER_AI_APP_HOST}/${config.URLS.GET_SET_RESULT}`,
-      {
-        sub_session_id: subSessionId,
-        contentType: currentContentType,
-        session_id: session_id,
-        collectionId: currentCollectionId,
-        totalSyllableCount: totalSyllableCount,
-        language: lang,
-        is_B_enable: true,
-      },
+      requestBody,
       getHeaders()
     );
     return response.data;

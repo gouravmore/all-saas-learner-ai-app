@@ -101,19 +101,37 @@ export const addPointer = async (points, milestone) => {
 export const addCorrectPracticeWords = async () => {
   const correctPracticeWords = getLocalData("correctPracticeWords");
   const token = localStorage.getItem("apiToken");
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
   if (!correctPracticeWords || correctPracticeWords.length === 0) {
     console.warn("No correct practice words to send.");
     return;
   }
 
+  // When embedded, use parent token if apiToken not available
+  const authToken = token || (isEmbedded ? parentToken : null);
+  if (!authToken) {
+    console.warn("addCorrectPracticeWords: No token available");
+    return;
+  }
+
   try {
+    const requestBody = { correctPracticeWords };
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
+
     const response = await axios.post(
       `${API_LEARNER_AI_APP_HOST}/api/towre/addCorrectWord`,
-      { correctPracticeWords },
+      requestBody,
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${authToken}`,
           "Content-Type": "application/json",
         },
       }
@@ -128,19 +146,37 @@ export const addCorrectPracticeWords = async () => {
 
 export const updateCorrectPracticeWords = async (updates) => {
   const token = localStorage.getItem("apiToken");
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
   if (!updates || updates.length === 0) {
     console.warn("No correct practice words to send.");
     return;
   }
 
+  // When embedded, use parent token if apiToken not available
+  const authToken = token || (isEmbedded ? parentToken : null);
+  if (!authToken) {
+    console.warn("updateCorrectPracticeWords: No token available");
+    return;
+  }
+
   try {
+    const requestBody = { updates };
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
+
     const response = await axios.put(
       `${API_LEARNER_AI_APP_HOST}/api/towre/updateCorrectWords`,
-      { updates },
+      requestBody,
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${authToken}`,
           "Content-Type": "application/json",
         },
       }
@@ -155,14 +191,25 @@ export const updateCorrectPracticeWords = async (updates) => {
 
 export const getCorrectPracticeWords = async (understood) => {
   const token = localStorage.getItem("apiToken");
+  const parentToken = localStorage.getItem("token"); // From all-saas-app
+  const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+  const userId = localStorage.getItem("userId"); // From all-saas-app
+  const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
   const lang = getLocalData("lang");
 
-  const apiUrl = `${API_LEARNER_AI_APP_HOST}/api/towre/getCorrectWords?practiced=true&learned=true&understood=${understood}&language=${lang}`;
+  // When embedded, use parent token if apiToken not available
+  const authToken = token || (isEmbedded ? parentToken : null);
+
+  // When embedded, include userId and tenantId in query params
+  let apiUrl = `${API_LEARNER_AI_APP_HOST}/api/towre/getCorrectWords?practiced=true&learned=true&understood=${understood}&language=${lang}`;
+  if (isEmbedded && userId && tenantId) {
+    apiUrl += `&userId=${userId}&tenantId=${tenantId}`;
+  }
 
   try {
     const response = await axios.get(apiUrl, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
         "Content-Type": "application/json",
       },
     });
