@@ -3,7 +3,7 @@ name: ALL SAAS LEARNING JOURNEY Deployment
 on:
   push:
     branches:
-      - all-saas-dev
+      - all-saas-3.0.1
 
 jobs:
   deploy:
