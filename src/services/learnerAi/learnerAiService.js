@@ -178,19 +178,30 @@ export const getSetResultPractice = async ({
   mechanism,
 }) => {
   try {
+    const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+    const userId = localStorage.getItem("userId"); // From all-saas-app
+    const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
     const maxLevel = getLocalData("max_level");
+
+    const requestBody = {
+      sub_session_id: subSessionId,
+      contentType: currentContentType || "Paragraph",
+      session_id: sessionId,
+      totalSyllableCount: totalSyllableCount,
+      language: getLocalData("lang"),
+      max_level: parseInt(maxLevel || process.env.REACT_APP_MAX_LEVEL, 10),
+      is_mechanics: mechanism && mechanism?.id ? true : false,
+    };
+
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
 
     const response = await axios.post(
       `${API_LEARNER_AI_APP_HOST}/${config.URLS.GET_SET_RESULT}`,
-      {
-        sub_session_id: subSessionId,
-        contentType: currentContentType || "Paragraph",
-        session_id: sessionId,
-        totalSyllableCount: totalSyllableCount,
-        language: getLocalData("lang"),
-        max_level: parseInt(maxLevel || process.env.REACT_APP_MAX_LEVEL, 10),
-        is_mechanics: mechanism && mechanism?.id ? true : false,
-      },
+      requestBody,
       getHeaders()
     );
     return response.data;
@@ -265,21 +276,29 @@ export const setMilestoneScore = async (
   subSessionId
 ) => {
   try {
+    const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+    const userId = localStorage.getItem("userId"); // From all-saas-app
+    const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
+
     // Construct URL - ensure no double slashes
     const baseUrl = API_LEARNER_AI_APP_HOST?.replace(/\/$/, "") || "";
     const path = config.URLS.SET_MILESTONE_SCORE?.replace(/^\//, "") || "";
     const url = `${baseUrl}/${path}`;
 
-    const response = await axios.post(
-      url,
-      {
-        language: language,
-        milestone_level: milestoneLevel,
-        session_id: sessionId,
-        sub_session_id: subSessionId,
-      },
-      getHeaders()
-    );
+    const requestBody = {
+      language: language,
+      milestone_level: milestoneLevel,
+      session_id: sessionId,
+      sub_session_id: subSessionId,
+    };
+
+    // Embedded mode: Include userId and tenantId in request body
+    if (isEmbedded && userId && tenantId) {
+      requestBody.userId = userId;
+      requestBody.tenantId = tenantId;
+    }
+
+    const response = await axios.post(url, requestBody, getHeaders());
     return response.data;
   } catch (error) {
     console.error("Error setting milestone score:", error);
