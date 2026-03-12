@@ -447,7 +447,8 @@ export const ProfileHeader = ({
   wordCount = 0,
 }) => {
   const language = lang || getLocalData("lang");
-  let username = profileName || getLocalData("profileName");
+  let username =
+    profileName || getLocalData("profileName") || getLocalData("name");
 
   // Check if F2 flow is active and update username display
   const getMilestoneData = () => {
