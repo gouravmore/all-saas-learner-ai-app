@@ -112,10 +112,16 @@ class TrackingAssessmentService {
       const sub_apply_level = data.sub_apply_level !== undefined && data.sub_apply_level !== null ? data.sub_apply_level : 0;
       
       const tenantIdForBody = typeof window !== 'undefined' ? (localStorage.getItem('tenantId') || 'default-tenant') : 'default-tenant';
+      // Use shell userId when in embedded/saas (sessionManager currentUser may not be set)
+      const userId =
+        data.userId ||
+        (typeof window !== 'undefined' ? localStorage.getItem('userId') : null) ||
+        (typeof window !== 'undefined' ? localStorage.getItem('virtualId') : null) ||
+        null;
 
       const payload: any = {
         assessmentTrackingId: assessmentTrackingId, // Required by database
-        userId: data.userId,
+        userId: userId || data.userId, // Resolved: game user, or shell userId (embedded), or virtualId
         tenantId: tenantIdForBody, // In body so backend JwtAuthGuard can use embedded path (userId + tenantId); also sent in header
         courseId: gameName, // Just game name without language (e.g., "combinedLetter")
         contentId: `level${data.level}`, // Format: level1, level2, level10
