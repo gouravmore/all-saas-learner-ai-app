@@ -4384,11 +4384,16 @@ const Practice = () => {
   useEffect(() => {
     const checkF1FlowIndex = () => {
       const savedIndex = getLocalData("f1FlowIndex");
-      if (savedIndex !== null) {
-        const index = Number(savedIndex);
-        if (index !== f1FlowIndexState) {
-          setF1FlowIndexState(index);
-        }
+      if (
+        savedIndex === null ||
+        savedIndex === "null" ||
+        savedIndex === undefined
+      )
+        return;
+      const index = Number(savedIndex);
+      if (!Number.isFinite(index) || index < 0) return;
+      if (index !== f1FlowIndexState) {
+        setF1FlowIndexState(index);
       }
     };
 
@@ -4415,11 +4420,16 @@ const Practice = () => {
   useEffect(() => {
     const checkF2FlowIndex = () => {
       const savedIndex = getLocalData("f2FlowIndex");
-      if (savedIndex !== null) {
-        const index = Number(savedIndex);
-        if (index !== f2FlowIndexState) {
-          setF2FlowIndexState(index);
-        }
+      if (
+        savedIndex === null ||
+        savedIndex === "null" ||
+        savedIndex === undefined
+      )
+        return;
+      const index = Number(savedIndex);
+      if (!Number.isFinite(index) || index < 0) return;
+      if (index !== f2FlowIndexState) {
+        setF2FlowIndexState(index);
       }
     };
 
@@ -4447,11 +4457,16 @@ const Practice = () => {
   useEffect(() => {
     const checkF3FlowIndex = () => {
       const savedIndex = getLocalData("f3FlowIndex");
-      if (savedIndex !== null) {
-        const index = Number(savedIndex);
-        if (index !== f3FlowIndexState) {
-          setF3FlowIndexState(index);
-        }
+      if (
+        savedIndex === null ||
+        savedIndex === "null" ||
+        savedIndex === undefined
+      )
+        return;
+      const index = Number(savedIndex);
+      if (!Number.isFinite(index) || index < 0) return;
+      if (index !== f3FlowIndexState) {
+        setF3FlowIndexState(index);
       }
     };
 
