@@ -111,9 +111,12 @@ class TrackingAssessmentService {
       const apply_level = data.apply_level && data.apply_level.trim() !== "" ? data.apply_level : "N/A";
       const sub_apply_level = data.sub_apply_level !== undefined && data.sub_apply_level !== null ? data.sub_apply_level : 0;
       
+      const tenantIdForBody = typeof window !== 'undefined' ? (localStorage.getItem('tenantId') || 'default-tenant') : 'default-tenant';
+
       const payload: any = {
         assessmentTrackingId: assessmentTrackingId, // Required by database
         userId: data.userId,
+        tenantId: tenantIdForBody, // In body so backend JwtAuthGuard can use embedded path (userId + tenantId); also sent in header
         courseId: gameName, // Just game name without language (e.g., "combinedLetter")
         contentId: `level${data.level}`, // Format: level1, level2, level10
         attemptId: attemptId,
@@ -153,18 +156,19 @@ class TrackingAssessmentService {
       // For F1 flow: "F1", For F2 flow: "F2", For other flows: use provided value or "N/A"
       payload.sub_milestone_level = data.sub_milestone_level || "N/A";
 
-      // Get API token from localStorage
+      // Use apiToken (standalone) or parent token (embedded all-saas)
       const apiToken = typeof window !== 'undefined' ? localStorage.getItem('apiToken') : null;
+      const parentToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+      const authToken = apiToken || parentToken;
 
       // Send POST request to backend
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
-        'tenantId': 'default-tenant', // You may want to make this configurable
+        'tenantId': tenantIdForBody,
       };
-      
-      // Add Authorization header if apiToken is available
-      if (apiToken) {
-        headers['Authorization'] = `Bearer ${apiToken}`;
+
+      if (authToken) {
+        headers['Authorization'] = `Bearer ${authToken}`;
       }
       
       const response = await fetch(TRACKING_API_ENDPOINT, {
@@ -264,17 +268,19 @@ class TrackingAssessmentService {
     try {
       const detailsEndpoint = `${TRACKING_API_BASE_URL}/assessment/read/${assessmentTrackingId}`;
 
-      // Get API token from localStorage
+      // Use apiToken (standalone) or parent token (embedded all-saas)
       const apiToken = typeof window !== 'undefined' ? localStorage.getItem('apiToken') : null;
-      
+      const parentToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+      const authToken = apiToken || parentToken;
+      const tenantId = typeof window !== 'undefined' ? (localStorage.getItem('tenantId') || 'default-tenant') : 'default-tenant';
+
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
-        'tenantId': 'default-tenant',
+        'tenantId': tenantId,
       };
-      
-      // Add Authorization header if apiToken is available
-      if (apiToken) {
-        headers['Authorization'] = `Bearer ${apiToken}`;
+
+      if (authToken) {
+        headers['Authorization'] = `Bearer ${authToken}`;
       }
 
       const response = await fetch(detailsEndpoint, {
