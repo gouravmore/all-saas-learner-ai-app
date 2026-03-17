@@ -54,7 +54,9 @@ export const fetchUserPoints = async () => {
     const tenantId = localStorage.getItem("tenantId"); // From all-saas-app
 
     // When embedded, include userId and tenantId in query params
-    let url = `${API_BASE_URL_ORCHESTRATION}/${config.URLS.GET_POINTER}/${sessionId}?language=${lang}`;
+    let url = `${API_BASE_URL_ORCHESTRATION}/${
+      config.URLS.GET_POINTER
+    }/${encodeURIComponent(sessionId)}?language=${lang}`;
     if (isEmbedded && userId && tenantId) {
       url += `&userId=${userId}&tenantId=${tenantId}`;
     }
