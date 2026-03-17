@@ -1051,10 +1051,12 @@ const LetterLauncherMechanicsContent = ({
 
       // Check if all questions have been answered
       // When we answer question at index N, we've answered N+1 questions total
-      // IMPORTANT: Use contentCount to determine completion, not questions.length
-      // This ensures we complete after answering all contentCount questions
+      // Complete when we've answered contentCount questions OR all available questions
+      // (prevents stuck screen if contentCount and questions.length ever differ)
       const questionsAnswered = currentQuestionIndex + 1; // +1 because we just answered this question
-      const allQuestionsAnswered = questionsAnswered >= contentCount;
+      const allQuestionsAnswered =
+        questionsAnswered >= contentCount ||
+        questionsAnswered >= questions.length;
 
       // Debug: Verify question count matches contentCount
       if (questions.length !== contentCount) {
@@ -1213,14 +1215,22 @@ const LetterLauncherMechanicsContent = ({
         }
       } else if (currentQuestionIndex < contentCount - 1 && !timerExpired) {
         // Move to next question - game is still in progress and timer hasn't expired
-        // IMPORTANT: Use contentCount to ensure we show all questions
+        // Cap next index to questions.length - 1 so we never show undefined (avoids stuck screen)
+        const nextIndex = Math.min(
+          currentQuestionIndex + 1,
+          questions.length - 1
+        );
+        if (nextIndex <= currentQuestionIndex) {
+          // Already at last question; treat as all answered (safety)
+          return;
+        }
         console.log("Letter Launcher - Moving to next question:", {
           currentIndex: currentQuestionIndex,
-          nextIndex: currentQuestionIndex + 1,
+          nextIndex,
           totalQuestions: contentCount,
           questionsLength: questions.length,
         });
-        setCurrentQuestionIndex((prev) => prev + 1);
+        setCurrentQuestionIndex(nextIndex);
         setShowFeedback(false);
         setSelectedAnswer(null);
         setShowLetter(false);

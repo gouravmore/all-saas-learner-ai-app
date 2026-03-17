@@ -10427,19 +10427,9 @@ const Practice = () => {
         const f3Config = levelGetContent[lang]?.["F3"];
         const f3IndexToUse = currentF3Step.index;
 
-        // Ensure f3FlowIndexState is in sync with currentF3Step.index
-        // This fixes the issue where removing f3FlowIndex causes mismatch
-        if (f3FlowIndexState !== currentF3Step.index) {
-          console.log(
-            "LetterLauncher render - Syncing f3FlowIndexState:",
-            f3FlowIndexState,
-            "->",
-            currentF3Step.index
-          );
-          setF3FlowIndexState(currentF3Step.index);
-        }
-
-        // Note: localStorage sync already handled above (line 10360-10363)
+        // Note: f3FlowIndexState sync with currentF3Step.index is handled in useEffect
+        // (F3 flow sync effect). Do NOT set state here during render - it causes
+        // repeated re-renders and can leave F3 A2 Letter Launcher stuck after "Correct!"
 
         let currentGetContentForF3;
         if (f3Config && Array.isArray(f3Config) && f3Config[f3IndexToUse]) {
