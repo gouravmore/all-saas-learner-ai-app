@@ -290,12 +290,12 @@ export const setMilestoneScore = async (
       milestone_level: milestoneLevel,
       session_id: sessionId,
       sub_session_id: subSessionId,
+      tenantId: tenantId || "default-tenant", // Required by backend Score schema
     };
 
-    // Embedded mode: Include userId and tenantId in request body
-    if (isEmbedded && userId && tenantId) {
+    // Embedded mode: Include userId in request body (for auth guard)
+    if (isEmbedded && userId) {
       requestBody.userId = userId;
-      requestBody.tenantId = tenantId;
     }
 
     const response = await axios.post(url, requestBody, getHeaders());

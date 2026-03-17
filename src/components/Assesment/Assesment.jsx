@@ -1660,7 +1660,9 @@ const Assesment = ({ discoverStart }) => {
   }, []);
 
   useEffect(() => {
-    if (nativeLangEnable !== true) {
+    const isLangEnabled =
+      nativeLangEnable === true || nativeLangEnable === "true";
+    if (!isLangEnabled) {
       handleWordClick();
     }
   }, []);
