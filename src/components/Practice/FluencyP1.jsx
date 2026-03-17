@@ -686,7 +686,7 @@ const FluencyP1 = ({
             style={{
               width: "90%",
               maxWidth: "1500px",
-              height: "400px",
+              height: "460px",
               background: "#fff",
               borderRadius: "12px",
               boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
@@ -695,6 +695,7 @@ const FluencyP1 = ({
               alignItems: "center",
               justifyContent: "space-between",
               padding: "10px",
+              paddingBottom: "40px",
               position: "relative",
             }}
           >

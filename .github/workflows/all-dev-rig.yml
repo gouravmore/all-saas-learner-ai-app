@@ -5,6 +5,7 @@ on:
     branches:
       - test-rig-1.1
       - all-3.1.0
+      - all-3.0.2
 
 jobs:
   deploy:
@@ -80,6 +81,7 @@ jobs:
           REACT_APP_MAX_LEVEL: ${{ vars.REACT_APP_MAX_LEVEL }}
           REACT_APP_LEARNER_AI_BASE_URL: ${{ vars.REACT_APP_LEARNER_AI_BASE_URL }}
           REACT_APP_USE_RECOMMENDATION_API: ${{ vars.REACT_APP_USE_RECOMMENDATION_API }}
+          REACT_APP_ENGAGEMENT_PREDICT_URL: ${{ vars.REACT_APP_ENGAGEMENT_PREDICT_URL }}
           CI: false # Disabling CI to not treat warnings as errors
         run: npm run build
 

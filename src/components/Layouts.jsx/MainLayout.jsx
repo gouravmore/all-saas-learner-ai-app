@@ -519,9 +519,23 @@ const MainLayout = (props) => {
 
     const userDidNotWin = gameOverData.userWon !== true;
     const isValidLevel = [1, 2, 3].includes(LEVEL);
-    const isStepNine = props?.progressData?.currentPracticeStep === 9;
 
-    if (userDidNotWin && isValidLevel && isStepNine) {
+    // Determine if demo should trigger based on flow type:
+    // - F1 flow active: only trigger for L1 (index 0) — the only IMMEDIATE milestone
+    //   A1/A2/A3 are DEFERRED and only trigger from Start Game button click
+    // - Non-F1 flow (regular): trigger when user fails at S2 (step 9)
+    let shouldTrigger = false;
+    if (isF1FlowActive) {
+      const immediateMilestones = [0]; // Only L1
+      const currentF1Index = Number(getLocalData("f1FlowIndex") || -1);
+      shouldTrigger = immediateMilestones.includes(currentF1Index);
+    } else {
+      // Regular flow: S2 fail scenario (step 9)
+      const isStepNine = props?.progressData?.currentPracticeStep === 9;
+      shouldTrigger = isStepNine;
+    }
+
+    if (userDidNotWin && isValidLevel && shouldTrigger) {
       hasTriggeredDemoRef.current = true;
 
       setLocalData("showAlphabetDemo", "true");
@@ -529,7 +543,12 @@ const MainLayout = (props) => {
 
       window.dispatchEvent(new Event("alphabetDemoComplete"));
     }
-  }, [gameOverData, LEVEL, props?.progressData?.currentPracticeStep]);
+  }, [
+    gameOverData,
+    LEVEL,
+    props?.progressData?.currentPracticeStep,
+    isF1FlowActive,
+  ]);
 
   let currentPracticeStep = progressData?.currentPracticeStep;
   // For F1/F2/F3 flow, use the flow index instead of currentPracticeStep
@@ -1023,6 +1042,7 @@ const MainLayout = (props) => {
                   {props.children}
                 </CardContent>
                 {steps > 0 &&
+                  tFlow !== "true" &&
                   !isF1FlowActive &&
                   !isF2FlowActive &&
                   !isF3FlowActive && (
@@ -2099,11 +2119,25 @@ const MainLayout = (props) => {
                         }
                         if (isShowCase && !startShowCase && !gameOverData) {
                           setStartShowCase(true);
-                          // 🎬 Trigger alphabet demo for F1 flow milestones (A1, A2, A3)
-                          // Practice.jsx will listen for this event and check if it's a valid milestone
-                          window.dispatchEvent(
-                            new Event("alphabetDemoTriggerRequest")
-                          );
+                          // 🎬 Trigger alphabet demo ONLY for F1 flow deferred milestones (A-step indices)
+                          // Derive from F1_FLOW so it stays in sync with Practice.jsx
+                          if (isF1FlowActive) {
+                            const deferredMilestones = F1_FLOW.reduce(
+                              (acc, step, idx) => {
+                                if (step.type === "A") acc.push(idx);
+                                return acc;
+                              },
+                              []
+                            );
+                            const currentF1Index = Number(
+                              getLocalData("f1FlowIndex") || -1
+                            );
+                            if (deferredMilestones.includes(currentF1Index)) {
+                              window.dispatchEvent(
+                                new Event("alphabetDemoTriggerRequest")
+                              );
+                            }
+                          }
                         }
                         if (gameOverData) {
                           gameOverData.link

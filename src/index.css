@@ -294,3 +294,11 @@ body.letter-hunt-active {
 .assesmentCompleteLevelText {
   transform: rotate(-12deg);
 }
+
+/* Override font for Kannada text in Letter Train */
+.kannada-font-override,
+.kannada-font-override *,
+span.kannada-font-override,
+div.kannada-font-override {
+  font-family: 'Baloo Tamma 2', Quicksand, sans-serif !important;
+}

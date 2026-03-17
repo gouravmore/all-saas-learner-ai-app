@@ -58,12 +58,12 @@ export function calculateFuel(responseTime: number, isCorrect: boolean, gameType
   }
 
   // Default thresholds for Letter Launcher and Word Detective
-  if (responseTime <= 1000) {
+  if (responseTime <= 1500) {
     return {
       fuelEarned: 5,
       speedTier: 'fast'
     };
-  } else if (responseTime <= 2500) {
+  } else if (responseTime <= 3000) {
     return {
       fuelEarned: 3,
       speedTier: 'medium'

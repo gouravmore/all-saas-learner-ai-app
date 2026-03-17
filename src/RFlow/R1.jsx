@@ -41,7 +41,10 @@ import {
   fetchUserPoints,
   createLearnerProgress,
 } from "../services/orchestration/orchestrationService";
-import { fetchGetSetResult } from "../services/learnerAi/learnerAiService";
+import {
+  fetchGetSetResult,
+  callEngagementPredictor,
+} from "../services/learnerAi/learnerAiService";
 import {
   fetchAssessmentData,
   fetchPaginatedContent,
@@ -1002,6 +1005,10 @@ const R1 = ({
         totalSyllableCount
       );
       console.log("GetSet result:", getSetResultRes);
+
+      // Call engagement predictor after getsetresult
+      // Interactions and lesson are automatically retrieved
+      callEngagementPredictor(sub_session_id);
     } catch (error) {
       console.error("Error fetching set result:", error);
     }

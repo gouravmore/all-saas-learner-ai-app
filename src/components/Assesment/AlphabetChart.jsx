@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import {
   Box,
   Typography,
@@ -20,8 +21,13 @@ import {
   dataKn as letterDataKn,
 } from "../../RFlow/LetterTrain";
 
-import { wordData, TeluguGunithas } from "../../RFlow/Barakhadi";
+import {
+  wordData,
+  TeluguGunithas,
+  KannadaGunithas,
+} from "../../RFlow/Barakhadi";
 import { getAssetAudioUrl, getAssetUrl } from "../../utils/rFlowS3Links";
+import { interact } from "../../services/telementryService";
 import { motion, AnimatePresence } from "framer-motion";
 import { getFontFamily } from "../../utils/fontUtils";
 
@@ -281,6 +287,125 @@ const AlphabetCard = ({ item, playAudio, isActive, mode, lang }) => {
   );
 };
 
+const TELUGU_ORDER = [
+  "అ",
+  "ఆ",
+  "ఇ",
+  "ఈ",
+  "ఉ",
+  "ఊ",
+  "ఋ",
+  "ౠ",
+  "ఎ",
+  "ఏ",
+  "ఐ",
+  "ఒ",
+  "ఓ",
+  "ఔ",
+  "అం",
+  "అః",
+  "క",
+  "ఖ",
+  "గ",
+  "ఘ",
+  "ఙ",
+  "చ",
+  "ఛ",
+  "జ",
+  "ఝ",
+  "ఞ",
+  "ట",
+  "ఠ",
+  "డ",
+  "ఢ",
+  "ణ",
+  "త",
+  "థ",
+  "ద",
+  "ధ",
+  "న",
+  "ప",
+  "ఫ",
+  "బ",
+  "భ",
+  "మ",
+  "య",
+  "ర",
+  "ల",
+  "వ",
+  "శ",
+  "ష",
+  "స",
+  "హ",
+  "ళ",
+  "క్ష",
+  "ఱ",
+];
+
+const KANNADA_ORDER = [
+  "ಅ",
+  "ಆ",
+  "ಇ",
+  "ಈ",
+  "ಉ",
+  "ಊ",
+  "ಋ",
+  "ಎ",
+  "ಏ",
+  "ಐ",
+  "ಒ",
+  "ಓ",
+  "ಔ",
+  "ಅಂ",
+  "ಅಃ",
+  "ಕ",
+  "ಖ",
+  "ಗ",
+  "ಘ",
+  "ಙ",
+  "ಚ",
+  "ಛ",
+  "ಜ",
+  "ಝ",
+  "ಞ",
+  "ಟ",
+  "ಠ",
+  "ಡ",
+  "ಢ",
+  "ಣ",
+  "ತ",
+  "ಥ",
+  "ದ",
+  "ಧ",
+  "ನ",
+  "ಪ",
+  "ಫ",
+  "ಬ",
+  "ಭ",
+  "ಮ",
+  "ಯ",
+  "ರ",
+  "ಲ",
+  "ವ",
+  "ಶ",
+  "ಷ",
+  "ಸ",
+  "ಹ",
+  "ಳ",
+  "ಕ್ಷ",
+  "ಜ್ಞ",
+];
+
+export const TELUGU_ORDER_MAP = TELUGU_ORDER.reduce((acc, letter, index) => {
+  acc[letter] = index;
+  return acc;
+}, {});
+
+export const KANNADA_ORDER_MAP = KANNADA_ORDER.reduce((acc, letter, index) => {
+  acc[letter] = index;
+  return acc;
+}, {});
+
 const AlphabetChart = ({ open, onClose, lang }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [playingKey, setPlayingKey] = useState(null);
@@ -313,66 +438,6 @@ const AlphabetChart = ({ open, onClose, lang }) => {
     return []; // Return empty array for unsupported languages (like "ta")
   }, [lang]);
 
-  const TELUGU_ORDER = [
-    "అ",
-    "ఆ",
-    "ఇ",
-    "ఈ",
-    "ఉ",
-    "ఊ",
-    "ఋ",
-    "ౠ",
-    "ఎ",
-    "ఏ",
-    "ఐ",
-    "ఒ",
-    "ఓ",
-    "ఔ",
-    "అం",
-    "అః",
-    "క",
-    "ఖ",
-    "గ",
-    "ఘ",
-    "ఙ",
-    "చ",
-    "ఛ",
-    "జ",
-    "ఝ",
-    "ఞ",
-    "ట",
-    "ఠ",
-    "డ",
-    "ఢ",
-    "ణ",
-    "త",
-    "థ",
-    "ద",
-    "ధ",
-    "న",
-    "ప",
-    "ఫ",
-    "బ",
-    "భ",
-    "మ",
-    "య",
-    "ర",
-    "ల",
-    "వ",
-    "శ",
-    "ష",
-    "స",
-    "హ",
-    "ళ",
-    "క్ష",
-    "ఱ",
-  ];
-
-  const TELUGU_ORDER_MAP = TELUGU_ORDER.reduce((acc, letter, index) => {
-    acc[letter] = index;
-    return acc;
-  }, {});
-
   const alphabetItems = useMemo(() => {
     return rawData
       .filter((group) => "letter" in group && group.letter)
@@ -395,6 +460,13 @@ const AlphabetChart = ({ open, onClose, lang }) => {
           const bIndex = TELUGU_ORDER_MAP[b.display] ?? Number.MAX_SAFE_INTEGER;
           return aIndex - bIndex;
         }
+        if (activeLang === "kn") {
+          const aIndex =
+            KANNADA_ORDER_MAP[a.display] ?? Number.MAX_SAFE_INTEGER;
+          const bIndex =
+            KANNADA_ORDER_MAP[b.display] ?? Number.MAX_SAFE_INTEGER;
+          return aIndex - bIndex;
+        }
 
         // default for other languages
         return (a.display || "").localeCompare(b.display || "", activeLang);
@@ -402,18 +474,26 @@ const AlphabetChart = ({ open, onClose, lang }) => {
   }, [rawData, activeLang]);
 
   const wordItems = useMemo(() => {
-    const gunithaItems =
-      activeLang === "te"
-        ? TeluguGunithas.map((g, idx) => ({
-            key: `te-gunitha-${idx}`,
+    let gunithaSource = null;
+    if (activeLang === "te") {
+      gunithaSource = TeluguGunithas;
+    } else if (activeLang === "kn") {
+      gunithaSource = KannadaGunithas;
+    }
+
+    const gunithaItems = gunithaSource
+      ? gunithaSource
+          .map((g, idx) => ({
+            key: `${activeLang}-gunitha-${idx}`,
             display: "",
             word: "",
             label: g.audio ? g.audio.replace(/\.wav$/i, "") : "",
             image: getAssetUrl(g.image) || "",
             audio: g.audio ? getAssetAudioUrl(g.audio) : "",
             isGunitha: true,
-          })).filter((item) => item.image && item.audio)
-        : [];
+          }))
+          .filter((item) => item.image && item.audio)
+      : [];
 
     if (activeLang !== "en" && wordData[activeLang]) {
       const syllableItems = wordData[activeLang]
@@ -469,6 +549,11 @@ const AlphabetChart = ({ open, onClose, lang }) => {
 
   const handleNext = () => {
     if (currentPage < totalPages - 1) {
+      interact(
+        "ET",
+        `Page Navigate : Next (Page ${currentPage + 2})`,
+        "alphabet-chart"
+      );
       stopAudio();
       setCurrentPage((prev) => prev + 1);
     }
@@ -476,6 +561,11 @@ const AlphabetChart = ({ open, onClose, lang }) => {
 
   const handlePrev = () => {
     if (currentPage > 0) {
+      interact(
+        "ET",
+        `Page Navigate : Previous (Page ${currentPage})`,
+        "alphabet-chart"
+      );
       stopAudio();
       setCurrentPage((prev) => prev - 1);
     }
@@ -489,6 +579,14 @@ const AlphabetChart = ({ open, onClose, lang }) => {
     if (playingKey === item.key && currentSrcRef.current === audioSrc) {
       return;
     }
+
+    interact(
+      "ET",
+      `Card Click : ${viewMode === "alphabet" ? "Alphabet" : "Syllable"} - ${
+        item.display || item.label || ""
+      }`,
+      "alphabet-chart"
+    );
 
     // Stop previous audio
     if (audioRef.current) {
@@ -577,7 +675,18 @@ const AlphabetChart = ({ open, onClose, lang }) => {
         <ToggleButtonGroup
           value={viewMode}
           exclusive
-          onChange={(_, newMode) => newMode && setViewMode(newMode)}
+          onChange={(_, newMode) => {
+            if (newMode) {
+              interact(
+                "ET",
+                `View Toggle : ${
+                  newMode === "alphabet" ? "Alphabet" : "Syllable"
+                }`,
+                "alphabet-chart"
+              );
+              setViewMode(newMode);
+            }
+          }}
           aria-label="view mode"
           sx={{
             "& .MuiToggleButton-root": {
@@ -620,7 +729,10 @@ const AlphabetChart = ({ open, onClose, lang }) => {
         {/* RIGHT — Close */}
         <Box sx={{ position: "absolute", right: { xs: 16, sm: 24 } }}>
           <IconButton
-            onClick={onClose}
+            onClick={() => {
+              interact("ET", "Close Alphabet Chart", "alphabet-chart");
+              onClose();
+            }}
             size="medium"
             aria-label="Close"
             sx={{
@@ -786,6 +898,12 @@ const AlphabetChart = ({ open, onClose, lang }) => {
       </Box>
     </Dialog>
   );
+};
+
+AlphabetChart.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  lang: PropTypes.string.isRequired,
 };
 
 export default AlphabetChart;

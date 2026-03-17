@@ -106,7 +106,7 @@ export function MemoryGameCore({
       correct: {
         en: '🎉 Correct!',
         te: '🎉 సరైనది!',
-        kn: '🎉 ಸರಿ!',
+        kn: '🎉 ಸರಿಯಿದೆ!',
         mr: '🎉 बरोबर!'
       },
       wrong: {

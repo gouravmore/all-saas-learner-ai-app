@@ -23,6 +23,7 @@ import {
 } from "../../RFlow/LetterTrain";
 import { wordData } from "../../RFlow/Barakhadi";
 import { getAssetAudioUrl, getAssetUrl } from "../../utils/rFlowS3Links";
+import { TELUGU_ORDER_MAP, KANNADA_ORDER_MAP } from "./AlphabetChart";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   playTTS,
@@ -57,6 +58,7 @@ const demoInstructions = {
     syllableNarration2: "Great! Keep clicking on more syllable cards",
     syllableNarration3:
       "Excellent! You've learned how to use the Alphabet Chart!",
+    noCardsMessage: "No cards available for this section.",
     startButton: "Start Exploring",
     skipDemo: "Skip Demo",
     replayDemo: "Replay Demo",
@@ -90,6 +92,7 @@ const demoInstructions = {
     syllableNarration2: "బాగుంది! మరిన్ని గుణింత కార్డ్స్‌పై క్లిక్ చేయండి",
     syllableNarration3:
       "అద్భుతం! అక్షరమాల చార్ట్‌ను ఎలా ఉపయోగించాలో నేర్చుకున్నారు!",
+    noCardsMessage: "ఈ విభాగంలో కార్డ్‌లు అందుబాటులో లేవు.",
     startButton: "అన్వేషించడం ప్రారంభించండి",
     skipDemo: "డెమో స్కిప్ చేయండి",
     replayDemo: "డెమోను మళ్లీ ఆడండి",
@@ -99,7 +102,7 @@ const demoInstructions = {
     },
   },
   kn: {
-    title: "ಅಕ್ಷರಮಾಲೆ ಚಾರ್ಟ್",
+    title: "ವರ್ಣಮಾಲೆ ಚಾರ್ಟ್‌",
     description: "ಧ್ವನಿಗಳೊಂದಿಗೆ ಅಕ್ಷರಗಳು ಮತ್ತು ಪದಗಳನ್ನು ಕಲಿಯಿರಿ!",
     howToPlay: "ಹೇಗೆ ಬಳಸುವುದು",
     alphabetLabel: "ಅಕ್ಷರಮಾಲೆ",
@@ -126,6 +129,7 @@ const demoInstructions = {
       "ಅದ್ಭುತ! ಇನ್ನಷ್ಟು ಗುಣಿತಾಕ್ಷರ ಕಾರ್ಡ್‌ಗಳ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ",
     syllableNarration3:
       "ಅತ್ಯುತ್ತಮ! ಅಕ್ಷರಮಾಲೆ ಚಾರ್ಟ್ ಅನ್ನು ಹೇಗೆ ಬಳಸುವುದು ಎಂದು ಕಲಿತಿದ್ದೀರಿ!",
+    noCardsMessage: "ಈ ವಿಭಾಗದಲ್ಲಿ ಯಾವುದೇ ಕಾರ್ಡ್‌ಗಳು ಲಭ್ಯವಿಲ್ಲ.",
     startButton: "ಅನ್ವೇಷಿಸಲು ಪ್ರಾರಂಭಿಸಿ",
     skipDemo: "ಡೆಮೊ ಸ್ಕಿಪ್ ಮಾಡಿ",
     replayDemo: "ಡೆಮೊ ಮತ್ತೆ ಆಡಿ",
@@ -159,6 +163,7 @@ const demoInstructions = {
       "अब ध्वनि सुनने के लिए किसी भी मात्रा कार्ड पर क्लिक करें",
     syllableNarration2: "बहुत अच्छा! और मात्रा कार्ड्स पर क्लिक करें",
     syllableNarration3: "उत्कृष्ट! आपने वर्णमाला चार्ट का उपयोग करना सीख लिया!",
+    noCardsMessage: "इस अनुभाग में कोई कार्ड उपलब्ध नहीं है।",
     startButton: "खोजना शुरू करें",
     skipDemo: "डेमो छोड़ें",
     replayDemo: "डेमो फिर से चलाएं",
@@ -190,6 +195,7 @@ const demoInstructions = {
       "आता आवाज ऐकण्यासाठी कोणत्याही मात्रा कार्डवर क्लिक करा",
     syllableNarration2: "छान! आणखी मात्रा कार्डांवर क्लिक करा",
     syllableNarration3: "उत्कृष्ट! तुम्ही अक्षर चार्ट कसे वापरायचे ते शिकलात!",
+    noCardsMessage: "या विभागात कोणतेही कार्ड उपलब्ध नाहीत.",
     startButton: "शोधणे सुरू करा",
     skipDemo: "डेमो वगळा",
     replayDemo: "डेमो पुन्हा खेळा",
@@ -692,9 +698,21 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
           alaphabetChartAudio: first.alaphabetChartAudio || "",
         };
       })
-      .sort((a, b) =>
-        (a.display || "").localeCompare(b.display || "", activeLang)
-      );
+      .sort((a, b) => {
+        if (activeLang === "te") {
+          const aIndex = TELUGU_ORDER_MAP[a.display] ?? Number.MAX_SAFE_INTEGER;
+          const bIndex = TELUGU_ORDER_MAP[b.display] ?? Number.MAX_SAFE_INTEGER;
+          return aIndex - bIndex;
+        }
+        if (activeLang === "kn") {
+          const aIndex =
+            KANNADA_ORDER_MAP[a.display] ?? Number.MAX_SAFE_INTEGER;
+          const bIndex =
+            KANNADA_ORDER_MAP[b.display] ?? Number.MAX_SAFE_INTEGER;
+          return aIndex - bIndex;
+        }
+        return (a.display || "").localeCompare(b.display || "", activeLang);
+      });
   }, [rawData, activeLang]);
 
   const wordItems = useMemo(() => {
@@ -722,7 +740,24 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
       });
   }, [rawData, activeLang]);
 
-  const data = viewMode === "alphabet" ? alphabetItems : wordItems;
+  const filteredAlphabetItems = useMemo(
+    () =>
+      alphabetItems.filter(
+        (item) => item.display && item.word && item.audio && item.image
+      ),
+    [alphabetItems]
+  );
+
+  const filteredWordItems = useMemo(
+    () =>
+      wordItems.filter(
+        (item) => item.display && item.word && item.audio && item.image
+      ),
+    [wordItems]
+  );
+
+  const data =
+    viewMode === "alphabet" ? filteredAlphabetItems : filteredWordItems;
   const currentItems = data.slice(
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
@@ -793,6 +828,35 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
     }
   };
 
+  const handleAlphabetModeProgress = () => {
+    const newCount = alphabetClickCount + 1;
+    setAlphabetClickCount(newCount);
+    const an = currentItems.length;
+    if (an > 0) setHighlightedCardIndex((prev) => (prev + 1) % an);
+
+    if (newCount >= 3 && !alphabetPhaseComplete) {
+      // Alphabet phase complete, prompt to switch to syllable
+      setAlphabetPhaseComplete(true);
+      setWaitingForToggle(true);
+      setCurrentStepIndex(1);
+    }
+  };
+
+  const handleSyllableModeProgress = () => {
+    const newCount = syllableClickCount + 1;
+    setSyllableClickCount(newCount);
+    const wn = currentItems.length;
+    if (wn > 0) setHighlightedCardIndex((prev) => (prev + 1) % wn);
+
+    if (newCount >= 3) {
+      // Demo complete — transition to completion after narration
+      setCurrentStepIndex(2);
+      setTimeout(() => {
+        setPreviewPhase("completion");
+      }, 3000);
+    }
+  };
+
   // Play card audio
   const playAudio = (item, specificAudio = null) => {
     const audioSrc = specificAudio || item.audio;
@@ -826,32 +890,9 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
       // Handle demo progression
       if (previewPhase === "demo") {
         if (viewMode === "alphabet") {
-          const newCount = alphabetClickCount + 1;
-          setAlphabetClickCount(newCount);
-          setHighlightedCardIndex((prev) => (prev + 1) % 4);
-
-          if (newCount >= 3 && !alphabetPhaseComplete) {
-            // Alphabet phase complete, prompt to switch to syllable
-            setAlphabetPhaseComplete(true);
-            setWaitingForToggle(true);
-            setCurrentStepIndex(1);
-            // Narration is handled by useEffect when waitingForToggle changes
-          }
+          handleAlphabetModeProgress();
         } else {
-          // Syllable mode
-          const newCount = syllableClickCount + 1;
-          setSyllableClickCount(newCount);
-          setHighlightedCardIndex((prev) => (prev + 1) % 4);
-
-          if (newCount >= 3) {
-            // Demo complete!
-            setCurrentStepIndex(2);
-            // Narration is handled by useEffect when syllableClickCount changes
-            // Transition to completion after a delay to allow narration to play
-            setTimeout(() => {
-              setPreviewPhase("completion");
-            }, 3000);
-          }
+          handleSyllableModeProgress();
         }
       }
     };
@@ -893,21 +934,43 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
     speechSynthesis.cancel();
     setIsPlayingNarration(false);
 
+    if (
+      newMode === "word" &&
+      waitingForToggle &&
+      filteredWordItems.length === 0
+    ) {
+      setWaitingForToggle(false);
+      setCurrentStepIndex(2);
+      setPreviewPhase("completion");
+      return;
+    }
+
     setViewMode(newMode);
     setCurrentPage(0);
     setHighlightedCardIndex(0);
 
     if (newMode === "word" && waitingForToggle) {
-      // User switched to syllable mode as instructed
       setWaitingForToggle(false);
-      // Narration is handled by useEffect when viewMode changes
     }
   };
 
   // Handle countdown complete
   const handleCountdownComplete = () => {
+    // If no data at all, skip demo entirely
+    if (filteredAlphabetItems.length === 0 && filteredWordItems.length === 0) {
+      stopAllLocalAudio();
+      onStartExploring();
+      return;
+    }
+    // If no alphabet data, jump straight to syllable phase
+    if (filteredAlphabetItems.length === 0) {
+      setAlphabetPhaseComplete(true);
+      setViewMode("word");
+      setCurrentPage(0);
+      setHighlightedCardIndex(0);
+      setCurrentStepIndex(1);
+    }
     setPreviewPhase("demo");
-    // Narration is now handled by the useEffect that tracks instruction changes
   };
 
   const stopAllLocalAudio = () => {
@@ -1004,7 +1067,8 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
 
   // Auto-play TTS when instruction changes during demo phase
   useEffect(() => {
-    if (previewPhase !== "demo") {
+    if (!open || previewPhase !== "demo") {
+      stopAllLocalAudio();
       lastPlayedNarrationRef.current = null;
       return;
     }
@@ -1028,12 +1092,12 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
+    open,
     previewPhase,
     viewMode,
     alphabetClickCount,
     syllableClickCount,
     waitingForToggle,
-    instructions,
   ]);
 
   if (!open) return null;
@@ -1377,38 +1441,74 @@ const AlphabetChartPreview = ({ open, onClose, lang, onStartExploring }) => {
             </motion.div>
 
             {/* Demo Cards Grid */}
-            <Grid container spacing={2} sx={{ maxWidth: "800px", mx: "auto" }}>
-              <AnimatePresence mode="wait">
-                {currentItems.slice(0, 4).map((item, index) => (
-                  <Grid item xs={6} sm={3} key={item.key}>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                      transition={{ duration: 0.25, delay: index * 0.05 }}
-                    >
-                      <DemoAlphabetCard
-                        item={item}
-                        playAudio={playAudio}
-                        isActive={activeCardKey === item.key}
-                        mode={viewMode}
-                        isHighlighted={
-                          index === highlightedCardIndex && !waitingForToggle
-                        }
-                        showHandPointer={
-                          index === highlightedCardIndex &&
-                          !waitingForToggle &&
-                          !isPlayingNarration &&
-                          ((viewMode === "alphabet" &&
-                            alphabetClickCount < 3) ||
-                            (viewMode === "word" && syllableClickCount < 3))
-                        }
-                      />
-                    </motion.div>
-                  </Grid>
-                ))}
-              </AnimatePresence>
-            </Grid>
+            {currentItems.length === 0 ? (
+              <Box
+                sx={{
+                  textAlign: "center",
+                  py: 6,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <Typography sx={{ color: "#64748b", fontSize: "1rem" }}>
+                  {instructions.noCardsMessage}
+                </Typography>
+                <Button
+                  variant="contained"
+                  startIcon={<SportsEsportsIcon />}
+                  onClick={handleStartExploring}
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    borderRadius: "50px",
+                    background:
+                      "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
+                    fontWeight: 600,
+                  }}
+                >
+                  {instructions.startButton}
+                </Button>
+              </Box>
+            ) : (
+              <Grid
+                container
+                spacing={2}
+                sx={{ maxWidth: "800px", mx: "auto" }}
+              >
+                <AnimatePresence mode="wait">
+                  {currentItems.slice(0, 4).map((item, index) => (
+                    <Grid item xs={6} sm={3} key={item.key}>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                        transition={{ duration: 0.25, delay: index * 0.05 }}
+                      >
+                        <DemoAlphabetCard
+                          item={item}
+                          playAudio={playAudio}
+                          isActive={activeCardKey === item.key}
+                          mode={viewMode}
+                          isHighlighted={
+                            index === highlightedCardIndex && !waitingForToggle
+                          }
+                          showHandPointer={
+                            index === highlightedCardIndex &&
+                            !waitingForToggle &&
+                            !isPlayingNarration &&
+                            ((viewMode === "alphabet" &&
+                              alphabetClickCount < 3) ||
+                              (viewMode === "word" && syllableClickCount < 3))
+                          }
+                        />
+                      </motion.div>
+                    </Grid>
+                  ))}
+                </AnimatePresence>
+              </Grid>
+            )}
 
             {/* Click counters */}
             <Box

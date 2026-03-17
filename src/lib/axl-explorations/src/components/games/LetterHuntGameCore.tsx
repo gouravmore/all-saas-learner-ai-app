@@ -12,6 +12,7 @@ import { ContinueButton } from "./ContinueButton";
 import { englishAudioManager } from "../../utils/englishAudioManager";
 import { playSuccessSound, attachSlowLoadToast } from "../../utils/audioUtils";
 import { hindiAudioManager } from "../../utils/hindiAudioManager";
+import { getFontFamilyByLang } from "../../../../../utils/fontUtils";
 
 // Core question interface for Letter Hunt
 export interface LetterHuntQuestion {
@@ -108,6 +109,9 @@ export function LetterHuntGameCore({
   const effectiveLanguage = audioLanguageOverride || selectedLanguage;
   const currentQuestion = questions[currentQuestionIndex];
   const [isFeedbackAudioPlaying, setIsFeedbackAudioPlaying] = useState(false);
+  
+  // Get font family based on current language (for Telugu support)
+  const fontFamily = getFontFamilyByLang(effectiveLanguage || selectedLanguage);
   
   // Track active audio instances for stopping playback when needed
   // This allows us to stop all audio (including feedback audio) when user clicks "Next"
@@ -761,14 +765,14 @@ export function LetterHuntGameCore({
 
   const Container: any = useContainer === 'card' ? Card : 'div';
   const containerClass = useContainer === 'card'
-    ? `flex-1 p-3 sm:p-4 md:p-5 bg-white/95 backdrop-blur-sm shadow-floating overflow-hidden flex flex-col relative ${className}`
-    : `flex-1 p-3 sm:p-4 md:p-5 overflow-hidden flex flex-col relative ${className}`;
+    ? `flex-1 p-0 sm:p-0.5 md:p-1 lg:p-2 bg-white/95 backdrop-blur-sm shadow-floating overflow-y-auto flex flex-col relative ${className}`
+    : `flex-1 p-0 sm:p-0.5 md:p-1 lg:p-2 overflow-y-auto flex flex-col relative ${className}`;
 
   return (
     <Container className={containerClass}>
       {/* Progress Bar with Stars and Lives */}
       {showProgress && progress && (
-        <div className="flex-shrink-0 mb-2 sm:mb-3">
+        <div className="flex-shrink-0 mb-0">
           <ProgressBar 
             current={progress.current} 
             total={progress.total} 
@@ -780,13 +784,13 @@ export function LetterHuntGameCore({
       )}
 
       {/* Game Area */}
-      <div className="flex-1 flex flex-col justify-center px-1 sm:px-1 py-1">
+      <div className="flex-1 flex flex-col justify-center px-0 py-0 min-h-0">
         {/* Top Section - Audio */}
         {showSpeaker && (
-          <div className="text-center mb-3">
+          <div className="text-center mb-0 sm:mb-0.5 md:mb-1 flex-shrink-0">
             <div 
               ref={speakerButtonRef}
-              className={`inline-block p-2 rounded-lg transition-colors ${
+              className={`inline-block p-0.5 sm:p-1 md:p-1.5 rounded-lg transition-colors ${
                 mode === 'preview' && demoStep === 'waitForSpeaker' && !hasClickedSpeaker
                   ? 'bg-blue-100 cursor-pointer hover:bg-blue-200 hover:scale-110 ring-4 ring-blue-400 ring-opacity-50 animate-pulse'
                   : mode === 'preview' && demoStep === 'instruction1'
@@ -796,26 +800,26 @@ export function LetterHuntGameCore({
               onClick={handleSpeakerClick}
               tabIndex={mode === 'preview' && demoStep === 'waitForSpeaker' ? 0 : -1}
             >
-              <span className="text-xl">🔊</span>
+              <span className="text-sm sm:text-base md:text-lg lg:text-xl">🔊</span>
             </div>
             
             {/* Hand pointer for preview mode */}
             {mode === 'preview' && demoStep === 'waitForSpeaker' && !hasClickedSpeaker && (
-              <div className="text-center mt-1 text-blue-600 font-medium animate-bounce">
-                <span className="text-lg">👆</span>
+              <div className="text-center mt-0.5 sm:mt-1 text-blue-600 font-medium animate-bounce">
+                <span className="text-sm sm:text-base md:text-lg">👆</span>
               </div>
             )}
           </div>
         )}
 
         {/* Middle Section - Letter Options */}
-        <div className="flex-shrink-0 flex flex-col justify-center mb-2">
+        <div className="flex-shrink-0 flex flex-col justify-center mb-0">
           <div className={`relative flex items-center justify-center max-w-2xl mx-auto w-full ${mode === 'preview' && !showSpeaker ? 'invisible' : ''}`}>
             {/* Hand Icon - positioned to the left of options section */}
             {mode === 'preview' && showHandPointer && !showFeedback && (
               <div className="absolute left-0 top-1/2 transform -translate-x-16 -translate-y-1/2 rotate-90">
                 <div className="animate-bounce">
-                  <span className="text-4xl sm:text-5xl inline-block">👆</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl inline-block">👆</span>
                 </div>
               </div>
             )}
@@ -823,7 +827,7 @@ export function LetterHuntGameCore({
             {/* Options Grid */}
             <div 
               ref={optionsRef}
-              className="grid grid-cols-2 gap-3 flex-1"
+              className="grid grid-cols-2 gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2 xl:gap-3 w-full"
               tabIndex={0}
             >
               {currentQuestion.options.map((letter, index) => {
@@ -841,7 +845,7 @@ export function LetterHuntGameCore({
                         : isSelected ? "default" : "outline"
                     }
                     size="lg"
-                    className={`h-20 sm:h-24 text-4xl sm:text-5xl font-bold transition-all duration-200 shadow-sm ${
+                    className={`h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl ${effectiveLanguage !== 'te' ? 'font-bold' : 'font-normal'} transition-all duration-200 shadow-sm ${
                       isGreyedOut 
                         ? 'bg-gray-200 text-gray-400 opacity-60 cursor-not-allowed' 
                         : isSelected && !showFeedback
@@ -852,6 +856,7 @@ export function LetterHuntGameCore({
                     } ${
                       mode === 'preview' && !showFeedback && !disabled && !isGreyedOut ? 'hover:scale-105 cursor-pointer' : ''
                     }`}
+                   style={{ fontFamily }} 
                     onClick={() => handleOptionClick(letter)}
                     disabled={showFeedback || disabled || isGreyedOut}
                   >
@@ -864,25 +869,27 @@ export function LetterHuntGameCore({
         </div>
 
         {/* Bottom Section - Feedback */}
-        <div className="flex-shrink-0 flex flex-col justify-center min-h-[80px]">
+        <div className="flex-shrink-0 flex flex-col justify-center min-h-[20px] sm:min-h-[30px] md:min-h-[40px] lg:min-h-[60px] xl:min-h-[80px]">
           <div className="text-center">
             {showFeedback && (
               <div className="animate-fade-in">
                 {isCorrect ? (
                   <div className="text-success">
-                    <p className="text-lg sm:text-xl font-bold">
+                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl font-bold" style={{ fontFamily }}>
                       {selectedLanguage === 'te'
                         ? '🎉 సరైనది!'
                         : selectedLanguage === 'kn'
-                        ? '🎉 ಸರಿ!'
+                        ? '🎉 ಸರಿಯಿದೆ!'
                         : selectedLanguage === 'mr'
                         ? '🎉 बरोबर!'
+                        : selectedLanguage === 'hi'
+                        ? '🎉 सही है।'
                         : '🎉 Correct!'}
                     </p>
                   </div>
                 ) : (
                   <div className="text-error">
-                    <p className="text-lg sm:text-xl font-bold">
+                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl font-bold" style={{ fontFamily }}>
                       {(() => {
                         // Use heart break emoji if game uses hearts/lives system
                         const emoji = (maxLives && maxLives > 0) ? '💔' : '😢';
@@ -892,6 +899,8 @@ export function LetterHuntGameCore({
                           ? `${emoji} ಅಯ್ಯೋ! ತಪ್ಪು!`
                           : selectedLanguage === 'mr'
                           ? `${emoji} अरेच्या! चुकीचे!`
+                          : selectedLanguage === 'hi'
+                          ? `${emoji} ओह! गलत!`
                           : `${emoji} Oops! Wrong!`;
                       })()}
                     </p>

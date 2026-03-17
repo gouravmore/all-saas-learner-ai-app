@@ -8,9 +8,17 @@ import { getLocalData } from "./constants";
 export const getFontFamily = (lang = null) => {
   const currentLang = lang || getLocalData("lang") || "en";
 
+  // Normalize language code to handle both "kn" and "ka" for Kannada
+  const normalizedLang = currentLang ? currentLang.toLowerCase().trim() : "en";
+
   // Apply Sree Krushnadevaraya font for Telugu
-  if (currentLang === "te") {
+  if (normalizedLang === "te") {
     return "Sree Krushnadevaraya, Quicksand, sans-serif";
+  }
+
+  // Apply Baloo Tamma 2 font for Kannada
+  if (normalizedLang === "kn" || normalizedLang === "ka") {
+    return '"Baloo Tamma 2", Quicksand, sans-serif';
   }
 
   // Default font for all other languages
@@ -32,6 +40,11 @@ export const getFontFamilyByLang = (langCode) => {
   // Apply Sree Krushnadevaraya font for Telugu
   if (normalizedLang === "te") {
     return "Sree Krushnadevaraya, Quicksand, sans-serif";
+  }
+
+  // Apply Baloo Tamma 2 font for Kannada
+  if (normalizedLang === "kn" || normalizedLang === "ka") {
+    return '"Baloo Tamma 2", Quicksand, sans-serif';
   }
 
   // Default font for all other languages

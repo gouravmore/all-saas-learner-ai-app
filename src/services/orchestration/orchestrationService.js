@@ -271,6 +271,8 @@ export const addLesson = async ({
   language,
   milestoneLevel,
   subMilestoneLevel,
+  duration, // Optional: duration in seconds
+  applyLevel, // Optional: step title (e.g., "L1", "P1", "A1")
 }) => {
   // Validate required fields
   if (!sessionId) {
@@ -313,6 +315,14 @@ export const addLesson = async ({
       requestBody.userId = userId;
       requestBody.tenantId = tenantId;
     }
+    // Only add optional fields if they are provided (from upstream)
+    if (duration !== undefined && duration !== null) {
+      requestBody.duration = duration;
+    }
+    if (applyLevel !== undefined && applyLevel !== null) {
+      requestBody.applyLevel = applyLevel;
+    }
+
     const response = await axios.post(
       `${API_BASE_URL_ORCHESTRATION}/${config.URLS.ADD_LESSON}`,
       requestBody,

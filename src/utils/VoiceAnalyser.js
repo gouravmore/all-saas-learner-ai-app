@@ -26,6 +26,7 @@ import {
   SpeakButton,
   compareArrays,
   getLocalData,
+  setLocalData,
   replaceAll,
   NextButtonRound,
 } from "./constants";
@@ -505,6 +506,49 @@ function VoiceAnalyser(props) {
           ),
           ContentType: "audio/wav",
         });
+        // Update interaction with audio_path if available (for engagement tracking)
+        if (callUpdateLearner && originalText && audioFileName) {
+          try {
+            const sub_session_id = getLocalData("sub_session_id");
+            if (sub_session_id) {
+              // Get existing interactions and update the last one with audio_path
+              const storageKey = `interactions_${sub_session_id}`;
+              const existingInteractions = getLocalData(storageKey) || [];
+              if (
+                Array.isArray(existingInteractions) &&
+                existingInteractions.length > 0
+              ) {
+                // Update the last interaction with audio_path
+                const lastInteraction =
+                  existingInteractions[existingInteractions.length - 1];
+                if (
+                  lastInteraction.original_text === originalText &&
+                  !lastInteraction.audio_path
+                ) {
+                  lastInteraction.audio_path = audioFileName;
+                  setLocalData(storageKey, existingInteractions);
+                }
+              }
+            }
+          } catch (err) {
+            console.error("Error updating interaction with audio_path:", err);
+          }
+        }
+
+        // Call onInteractionComplete callback if provided (for discovery engagement tracking)
+        if (props.onInteractionComplete && callUpdateLearner && originalText) {
+          try {
+            const interactionData = {
+              original_text: originalText,
+              response_text: responseText || "",
+              audio_path: audioFileName,
+              created_at: new Date().toISOString(),
+            };
+            props.onInteractionComplete(interactionData);
+          } catch (err) {
+            console.error("Error calling onInteractionComplete:", err);
+          }
+        }
         try {
           await S3Client.send(command);
         } catch (err) {}
@@ -876,6 +920,7 @@ VoiceAnalyser.propTypes = {
   pageName: PropTypes.string,
   handleStartRecording: PropTypes.func,
   handleStopRecording: PropTypes.func,
+  onInteractionComplete: PropTypes.func,
 };
 
 export default VoiceAnalyser;

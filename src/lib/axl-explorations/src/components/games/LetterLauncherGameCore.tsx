@@ -123,7 +123,7 @@ export function LetterLauncherGameCore({
       correctMessage: {
         en: '🎉 Correct!',
         te: '🎉 సరైనది!',
-        kn: '🎉 ಸರಿ!',
+        kn: '🎉 ಸರಿಯಿದೆ!',
         mr: '🎉 बरोबर!'
       },
       wrongMessage: {
@@ -141,9 +141,9 @@ export function LetterLauncherGameCore({
     <div className={`flex-1 flex flex-col justify-center px-1 sm:px-2 ${className}`}>
       <div className="space-y-4 sm:space-y-6">
         {/* Letter Display - Only show after audio ends */}
-        <div className="text-center min-h-[120px] sm:min-h-[150px] flex items-center justify-center">
+        <div className="text-center min-h-[160px] sm:min-h-[180px] md:min-h-[200px] flex items-center justify-center">
           {currentQuestion.displayedLetter ? (
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-in ${
+            <h2 className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold animate-fade-in ${
               isPreview 
                 ? 'text-primary' 
                 : 'text-white drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] [text-shadow:_0_0_10px_rgba(255,255,255,0.3),_0_0_20px_rgba(59,130,246,0.2)]'
@@ -189,6 +189,10 @@ export function LetterLauncherGameCore({
                 isPreview 
                   ? 'hover:bg-green-500 hover:text-white hover:border-green-500 shadow-sm hover:shadow-md' 
                   : 'bg-white/95 hover:bg-green-500 hover:text-white border-2 border-white/50 hover:border-green-500 shadow-lg hover:shadow-xl'
+              } ${
+                showFeedback && selectedAnswer === true
+                  ? '!border-green-500 !border-[4px] ring-4 ring-green-500/30'
+                  : ''
               }`}
               onClick={() => !disabled && !showFeedback && onAnswerSelect(true)}
               disabled={disabled || showFeedback}
@@ -220,6 +224,10 @@ export function LetterLauncherGameCore({
                 isPreview 
                   ? 'hover:bg-red-500 hover:text-white hover:border-red-500 shadow-sm hover:shadow-md' 
                   : 'bg-white/95 hover:bg-red-500 hover:text-white border-2 border-white/50 hover:border-red-500 shadow-lg hover:shadow-xl'
+              } ${
+                showFeedback && selectedAnswer === false
+                  ? '!border-red-500 !border-[4px] ring-4 ring-red-500/30'
+                  : ''
               }`}
               onClick={() => !disabled && !showFeedback && onAnswerSelect(false)}
               disabled={disabled || showFeedback}
@@ -244,14 +252,13 @@ export function LetterLauncherGameCore({
         <div className="min-h-[200px] sm:min-h-[250px] flex items-start justify-center">
           {showFeedback && (
             <div className="animate-fade-in text-center mt-1 w-full">
-              <div className={`${
-                isCorrect ? 'text-success' : 'text-error'
+              <p className={`text-lg sm:text-xl font-bold ${
+                isCorrect 
+                  ?  'text-green-600'
+                  : 'text-red-600'
               }`}>
-                <p className={`text-lg sm:text-xl font-bold ${
-                  isPreview ? '' : 'drop-shadow-[0_0_6px_rgba(0,0,0,0.8)] [text-shadow:_0_0_8px_rgba(255,255,255,0.5)]'
-                }`}>
-                  {isCorrect ? getLocalizedText('correctMessage') : getLocalizedText('wrongMessage')}
-                </p>
+                {isCorrect ? getLocalizedText('correctMessage') : getLocalizedText('wrongMessage')}
+              </p>
               
               {/* Fuel earned display with filling animation */}
               {fuelEarned && isCorrect && (
@@ -340,7 +347,6 @@ export function LetterLauncherGameCore({
                 </div>
               )}
             </div>
-          </div>
           )}
         </div>
       </div>

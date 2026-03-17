@@ -28,6 +28,7 @@ import { useNavigate } from "react-router-dom";
 import {
   updateLearnerProfile,
   getSetResultPractice,
+  callEngagementPredictor,
 } from "../services/learnerAi/learnerAiService";
 import { addLesson } from "../services/orchestration/orchestrationService";
 
@@ -2350,6 +2351,1394 @@ const soundMatchContent = {
       },
     ],
   },
+  kn: {
+    1: [
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಔಡಲImg),
+            text: "ಔಡಲ",
+            audio: getAssetAudioUrl(s3Assets.ಔಡಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಫಲImg),
+            text: "ಫಲ",
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಝಳImg),
+            text: "ಝಳ",
+            audio: getAssetAudioUrl(s3Assets.ಝಳAudio),
+          },
+        ],
+        correctWord: "ಝಳ",
+        audio: getAssetAudioUrl(s3Assets.ಝಳAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ನಳImg),
+            text: "ನಳ",
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಝಳImg),
+            text: "ಝಳ",
+            audio: getAssetAudioUrl(s3Assets.ಝಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹಯImg),
+            text: "ಹಯ",
+            audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+          },
+        ],
+        correctWord: "ನಳ",
+        audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಫಲImg),
+            text: "ಫಲ",
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹಯImg),
+            text: "ಹಯ",
+            audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನಳImg),
+            text: "ನಳ",
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+          },
+        ],
+        correctWord: "ಫಲ",
+        audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಗರಗಸImg),
+            text: "ಗರಗಸ",
+            audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹಯImg),
+            text: "ಹಯ",
+            audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಆವರಣImg),
+            text: "ಆವರಣ",
+            audio: getAssetAudioUrl(s3Assets.ಆವರಣAudio),
+          },
+        ],
+        correctWord: "ಹಯ",
+        audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಸಮಯImg),
+            text: "ಸಮಯ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನಳImg),
+            text: "ನಳ",
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕದImg),
+            text: "ಕಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+          },
+        ],
+        correctWord: "ಸಮಯ",
+        audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಕದImg),
+            text: "ಕಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಫಲImg),
+            text: "ಫಲ",
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಮಯImg),
+            text: "ಸಮಯ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+          },
+        ],
+        correctWord: "ಕಂದ",
+        audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ನಳImg),
+            text: "ನಳ",
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕದImg),
+            text: "ಕಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತಬಲImg),
+            text: "ತಬಲ",
+            audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+          },
+        ],
+        correctWord: "ತಬಲ",
+        audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಔಡಲImg),
+            text: "ಔಡಲ",
+            audio: getAssetAudioUrl(s3Assets.ಔಡಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತಬಲImg),
+            text: "ತಬಲ",
+            audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಮಯImg),
+            text: "ಸಮಯ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+          },
+        ],
+        correctWord: "ಔಡಲ",
+        audio: getAssetAudioUrl(s3Assets.ಔಡಲAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ನಳImg),
+            text: "ನಳ",
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗರಗಸImg),
+            text: "ಗರಗಸ",
+            audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಫಲImg),
+            text: "ಫಲ",
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+          },
+        ],
+        correctWord: "ಗರಗಸ",
+        audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಆವರಣImg),
+            text: "ಆವರಣ",
+            audio: getAssetAudioUrl(s3Assets.ಆವರಣAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗರಗಸImg),
+            text: "ಗರಗಸ",
+            audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತಬಲImg),
+            text: "ತಬಲ",
+            audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+          },
+        ],
+        correctWord: "ಆವರಣ",
+        audio: getAssetAudioUrl(s3Assets.ಆವರಣAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮನImg),
+            text: "ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಯImg),
+            text: "ಬಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತರಣImg),
+            text: "ತೋರಣ",
+            audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+          },
+        ],
+        correctWord: "ಮನೆ",
+        audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ತಯImg),
+            text: "ತಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ತಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಯImg),
+            text: "ಬಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತರಣImg),
+            text: "ತೋರಣ",
+            audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+          },
+        ],
+        correctWord: "ಬಾಯಿ",
+        audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಕವರImg),
+            text: "ಕಾವೇರಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನರImg),
+            text: "ನೂರು",
+            audio: getAssetAudioUrl(s3Assets.ನರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಯImg),
+            text: "ಬಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+          },
+        ],
+        correctWord: "ನೂರು",
+        audio: getAssetAudioUrl(s3Assets.ನರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಬಯImg),
+            text: "ಬಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸದರImg),
+            text: "ಸುಂದರ",
+            audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತಯImg),
+            text: "ತಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ತಯAudio),
+          },
+        ],
+        correctWord: "ತಾಯಿ",
+        audio: getAssetAudioUrl(s3Assets.ತಯAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಕವರImg),
+            text: "ಕಾವೇರಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮನImg),
+            text: "ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕಳImg),
+            text: "ಕೋಳಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕಳAudio),
+          },
+        ],
+        correctWord: "ಕೋಳಿ",
+        audio: getAssetAudioUrl(s3Assets.ಕಳAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಎರಡImg),
+            text: "ಎರಡು",
+            audio: getAssetAudioUrl(s3Assets.ಎರಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮನImg),
+            text: "ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಯImg),
+            text: "ಬಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+          },
+        ],
+        correctWord: "ಎರಡು",
+        audio: getAssetAudioUrl(s3Assets.ಎರಡAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಸದರImg),
+            text: "ಸುಂದರ",
+            audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಸದImg),
+            text: "ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮನImg),
+            text: "ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+          },
+        ],
+        correctWord: "ಸುಂದರ",
+        audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮಸದImg),
+            text: "ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ತರಣImg),
+            text: "ತೋರಣ",
+            audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಯImg),
+            text: "ಬಾಯಿ",
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+          },
+        ],
+        correctWord: "ತೋರಣ",
+        audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮನImg),
+            text: "ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಎರಡImg),
+            text: "ಎರಡು",
+            audio: getAssetAudioUrl(s3Assets.ಎರಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಸದImg),
+            text: "ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+          },
+        ],
+        correctWord: "ಮಸೀದಿ",
+        audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮಸದImg),
+            text: "ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕವರImg),
+            text: "ಕಾವೇರಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸದರImg),
+            text: "ಸುಂದರ",
+            audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+          },
+        ],
+        correctWord: "ಕಾವೇರಿ",
+        audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+    ],
+    2: [
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಪರವಳImg),
+            text: "ಪಾರಿವಾಳ",
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹಲಲImg),
+            text: "ಹುಲ್ಲು",
+            audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕಟಕImg),
+            text: "ಕಿಟಕಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+          },
+        ],
+        correctWord: "ಕಿಟಕಿ",
+        audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಚಲಪಲImg),
+            text: "ಚಿಲಿಪಿಲಿ",
+            audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪರವಳImg),
+            text: "ಪಾರಿವಾಳ",
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅಧಕರImg),
+            text: "ಅಧಿಕಾರಿ",
+            audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+          },
+        ],
+        correctWord: "ಅಧಿಕಾರಿ",
+        audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮಸಬImg),
+            text: "ಮೂಸಂಬಿ",
+            audio: getAssetAudioUrl(s3Assets.ಮಸಬAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಡಲImg),
+            text: "ಸೊಂಡಿಲು",
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅಮಮImg),
+            text: "ಅಮ್ಮ",
+            audio: getAssetAudioUrl(s3Assets.ಅಮಮAudio),
+          },
+        ],
+        correctWord: "ಮೂಸಂಬಿ",
+        audio: getAssetAudioUrl(s3Assets.ಮಸಬAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಚಲಪಲImg),
+            text: "ಚಿಲಿಪಿಲಿ",
+            audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗಡಡImg),
+            text: "ಗಡ್ಡ",
+            audio: getAssetAudioUrl(s3Assets.ಗಡಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪರವಳImg),
+            text: "ಪಾರಿವಾಳ",
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+          },
+        ],
+        correctWord: "ಪಾರಿವಾಳ",
+        audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮಸಬImg),
+            text: "ಮೂಸಂಬಿ",
+            audio: getAssetAudioUrl(s3Assets.ಮಸಬAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಡಲImg),
+            text: "ಸೊಂಡಿಲು",
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅಮಮImg),
+            text: "ಅಮ್ಮ",
+            audio: getAssetAudioUrl(s3Assets.ಅಮಮAudio),
+          },
+        ],
+        correctWord: "ಅಮ್ಮ",
+        audio: getAssetAudioUrl(s3Assets.ಅಮಮAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಚಲಪಲImg),
+            text: "ಚಿಲಿಪಿಲಿ",
+            audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪದಯImg),
+            text: "ಪಂದ್ಯ",
+            audio: getAssetAudioUrl(s3Assets.ಪದಯAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕಟಕImg),
+            text: "ಕಿಟಕಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+          },
+        ],
+        correctWord: "ಚಿಲಿಪಿಲಿ",
+        audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಸಡಲImg),
+            text: "ಸೊಂಡಿಲು",
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹಲಲImg),
+            text: "ಹುಲ್ಲು",
+            audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅಧಕರImg),
+            text: "ಅಧಿಕಾರಿ",
+            audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+          },
+        ],
+        correctWord: "ಸೊಂಡಿಲು",
+        audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಕಟಕImg),
+            text: "ಕಿಟಕಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅಧಕರImg),
+            text: "ಅಧಿಕಾರಿ",
+            audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪದಯImg),
+            text: "ಪಂದ್ಯ",
+            audio: getAssetAudioUrl(s3Assets.ಪದಯAudio),
+          },
+        ],
+        correctWord: "ಪಂದ್ಯ",
+        audio: getAssetAudioUrl(s3Assets.ಪದಯAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಹಲಲImg),
+            text: "ಹುಲ್ಲು",
+            audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಡಲImg),
+            text: "ಸೊಂಡಿಲು",
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪರವಳImg),
+            text: "ಪಾರಿವಾಳ",
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+          },
+        ],
+        correctWord: "ಹುಲ್ಲು",
+        audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಕಟಕImg),
+            text: "ಕಿಟಕಿ",
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗಡಡImg),
+            text: "ಗಡ್ಡ",
+            audio: getAssetAudioUrl(s3Assets.ಗಡಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಡಲImg),
+            text: "ಸೊಂಡಿಲು",
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+          },
+        ],
+        correctWord: "ಗಡ್ಡ",
+        audio: getAssetAudioUrl(s3Assets.ಗಡಡAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಹತತImg),
+            text: "ಹತ್ತು",
+            audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಜತರImg),
+            text: "ಜಾತ್ರೆ",
+            audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಷಕರImg),
+            text: "ಮುಷ್ಕರ",
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+          },
+        ],
+        correctWord: "ಹತ್ತು",
+        audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಜತರImg),
+            text: "ಜಾತ್ರೆ",
+            audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಷಕರImg),
+            text: "ಮುಷ್ಕರ",
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಶಬದImg),
+            text: "ಶಬ್ದ",
+            audio: getAssetAudioUrl(s3Assets.ಶಬದAudio),
+          },
+        ],
+        correctWord: "ಜಾತ್ರೆ",
+        audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಸಮದರImg),
+            text: "ಸಮುದ್ರ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹತತImg),
+            text: "ಹತ್ತು",
+            audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಶಬದImg),
+            text: "ಶಬ್ದ",
+            audio: getAssetAudioUrl(s3Assets.ಶಬದAudio),
+          },
+        ],
+        correctWord: "ಶಬ್ದ",
+        audio: getAssetAudioUrl(s3Assets.ಶಬದAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮಗಗImg),
+            text: "ಮಗ್ಗ",
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಮದರImg),
+            text: "ಸಮುದ್ರ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪಕಷImg),
+            text: "ಪಕ್ಷಿ",
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+          },
+        ],
+        correctWord: "ಪಕ್ಷಿ",
+        audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮಗಗImg),
+            text: "ಮಗ್ಗ",
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸನಹತImg),
+            text: "ಸ್ನೇಹಿತ",
+            audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗದದಲImg),
+            text: "ಗುದ್ದಲಿ",
+            audio: getAssetAudioUrl(s3Assets.ಗದದಲAudio),
+          },
+        ],
+        correctWord: "ಗುದ್ದಲಿ",
+        audio: getAssetAudioUrl(s3Assets.ಗದದಲAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಹಳಳImg),
+            text: "ಹಳ್ಳಿ",
+            audio: getAssetAudioUrl(s3Assets.ಹಳಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಮದರImg),
+            text: "ಸಮುದ್ರ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಷಕರImg),
+            text: "ಮುಷ್ಕರ",
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+          },
+        ],
+        correctWord: "ಹಳ್ಳಿ",
+        audio: getAssetAudioUrl(s3Assets.ಹಳಳAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಜತರImg),
+            text: "ಜಾತ್ರೆ",
+            audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಗಗImg),
+            text: "ಮಗ್ಗ",
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಹತತImg),
+            text: "ಹತ್ತು",
+            audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+          },
+        ],
+        correctWord: "ಮಗ್ಗ",
+        audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಪಕಷImg),
+            text: "ಪಕ್ಷಿ",
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಷಕರImg),
+            text: "ಮುಷ್ಕರ",
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸನಹತImg),
+            text: "ಸ್ನೇಹಿತ",
+            audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+          },
+        ],
+        correctWord: "ಮುಷ್ಕರ",
+        audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಗದದಲImg),
+            text: "ಗುದ್ದಲಿ",
+            audio: getAssetAudioUrl(s3Assets.ಗದದಲAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪಕಷImg),
+            text: "ಪಕ್ಷಿ",
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಸಮದರImg),
+            text: "ಸಮುದ್ರ",
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+          },
+        ],
+        correctWord: "ಸಮುದ್ರ",
+        audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಸನಹತImg),
+            text: "ಸ್ನೇಹಿತ",
+            audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮಗಗImg),
+            text: "ಮಗ್ಗ",
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಪಕಷImg),
+            text: "ಪಕ್ಷಿ",
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+          },
+        ],
+        correctWord: "ಸ್ನೇಹಿತ",
+        audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+    ],
+    3: [
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಅದದಸರImg),
+            text: "ಅಂದದ ಸರ",
+            audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಚದರಬದImg),
+            text: "ಚಂದಿರ ಬಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮರಒಣಗದImg),
+            text: "ಮರ ಒಣಗಿದೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+          },
+        ],
+        correctWord: "ಅಂದದ ಸರ",
+        audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಅದಗಡImg),
+            text: "ಅದು ಗುಡಿ",
+            audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಚದರಬದImg),
+            text: "ಚಂದಿರ ಬಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಚಡಹImg),
+            text: "ಚೆಂಡು ಹೂ",
+            audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+          },
+        ],
+        correctWord: "ಚಂದಿರ ಬಂದ",
+        audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಮವನಮರImg),
+            text: "ಮಾವಿನ ಮರ",
+            audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗಳಯರಮತಕತImg),
+            text: "ಗೆಳೆಯರ ಮಾತುಕತೆ",
+            audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮರಒಣಗದImg),
+            text: "ಮರ ಒಣಗಿದೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+          },
+        ],
+        correctWord: "ಮರ ಒಣಗಿದೆ",
+        audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಅದಗಡImg),
+            text: "ಅದು ಗುಡಿ",
+            audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಇದಮಸದImg),
+            text: "ಇದು ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಉದಯನಮನImg),
+            text: "ಉದಯನ ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+          },
+        ],
+        correctWord: "ಅದು ಗುಡಿ",
+        audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಖಖಆಟImg),
+            text: "ಖೋ ಖೋ ಆಟ",
+            audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಚಡಹImg),
+            text: "ಚೆಂಡು ಹೂ",
+            audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಏಳಎಲಗಳImg),
+            text: "ಏಳು ಎಲೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+          },
+        ],
+        correctWord: "ಚೆಂಡು ಹೂ",
+        audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಚದರಬದImg),
+            text: "ಚಂದಿರ ಬಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಏಳಎಲಗಳImg),
+            text: "ಏಳು ಎಲೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮರಒಣಗದImg),
+            text: "ಮರ ಒಣಗಿದೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+          },
+        ],
+        correctWord: "ಏಳು ಎಲೆಗಳು",
+        audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಅದಗಡImg),
+            text: "ಅದು ಗುಡಿ",
+            audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಚಡಹImg),
+            text: "ಚೆಂಡು ಹೂ",
+            audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಗಲನತರಣImg),
+            text: "ಬಾಗಿಲಿನ ತೋರಣ",
+            audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+          },
+        ],
+        correctWord: "ಬಾಗಿಲಿನ ತೋರಣ",
+        audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಆಕಶದತರಗಳImg),
+            text: "ಆಕಾಶದ ತಾರೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮವನಮರImg),
+            text: "ಮಾವಿನ ಮರ",
+            audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಗಳಯರಮತಕತImg),
+            text: "ಗೆಳೆಯರ ಮಾತುಕತೆ",
+            audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+          },
+        ],
+        correctWord: "ಆಕಾಶದ ತಾರೆಗಳು",
+        audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಇದಮಸದImg),
+            text: "ಇದು ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕಡನಪರಣಗಳImg),
+            text: "ಕಾಡಿನ ಪ್ರಾಣಿಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಉದಯನಮನImg),
+            text: "ಉದಯನ ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+          },
+        ],
+        correctWord: "ಕಾಡಿನ ಪ್ರಾಣಿಗಳು",
+        audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಖಖಆಟImg),
+            text: "ಖೋ ಖೋ ಆಟ",
+            audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಏಳಎಲಗಳImg),
+            text: "ಏಳು ಎಲೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನವಲನನರತನImg),
+            text: "ನವಿಲಿನ ನರ್ತನ",
+            audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+          },
+        ],
+        correctWord: "ನವಿಲಿನ ನರ್ತನ",
+        audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+        flowName: "S1",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ರಚಯದಸರImg),
+            text: "ರುಚಿಯಾದ ಸಾರು",
+            audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಬಗಲನತರಣImg),
+            text: "ಬಾಗಿಲಿನ ತೋರಣ",
+            audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಆಕಶದತರಗಳImg),
+            text: "ಆಕಾಶದ ತಾರೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+          },
+        ],
+        correctWord: "ರುಚಿಯಾದ ಸಾರು",
+        audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಕಡನಪರಣಗಳImg),
+            text: "ಕಾಡಿನ ಪ್ರಾಣಿಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ದಸವಳಗಡಗಳImg),
+            text: "ದಾಸವಾಳ ಗಿಡಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನವಲನನರತನImg),
+            text: "ನವಿಲಿನ ನರ್ತನ",
+            audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+          },
+        ],
+        correctWord: "ದಾಸವಾಳ ಗಿಡಗಳು",
+        audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ರಚಯದಸರImg),
+            text: "ರುಚಿಯಾದ ಸಾರು",
+            audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ದಸವಳಗಡಗಳImg),
+            text: "ದಾಸವಾಳ ಗಿಡಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಆಗಸದಚದರImg),
+            text: "ಆಗಸದ ಚಂದಿರ",
+            audio: getAssetAudioUrl(s3Assets.ಆಗಸದಚದರAudio),
+          },
+        ],
+        correctWord: "ಆಗಸದ ಚಂದಿರ",
+        audio: getAssetAudioUrl(s3Assets.ಆಗಸದಚದರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಉಯಯಲಆಡವನImg),
+            text: "ಉಯ್ಯಾಲೆ ಆಡುವೆನು",
+            audio: getAssetAudioUrl(s3Assets.ಉಯಯಲಆಡವನAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನಲಕಎಲಗಳImg),
+            text: "ನಾಲ್ಕು ಎಲೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅದದಸರImg),
+            text: "ಅಂದದ ಸರ",
+            audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+          },
+        ],
+        correctWord: "ಉಯ್ಯಾಲೆ ಆಡುವೆನು",
+        audio: getAssetAudioUrl(s3Assets.ಉಯಯಲಆಡವನAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಚದರಬದImg),
+            text: "ಚಂದಿರ ಬಂದ",
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನಲಕಎಲಗಳImg),
+            text: "ನಾಲ್ಕು ಎಲೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮರಒಣಗದImg),
+            text: "ಮರ ಒಣಗಿದೆ",
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+          },
+        ],
+        correctWord: "ನಾಲ್ಕು ಎಲೆಗಳು",
+        audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಬಗಲನತರಣImg),
+            text: "ಬಾಗಿಲಿನ ತೋರಣ",
+            audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಆಕಶದತರಗಳImg),
+            text: "ಆಕಾಶದ ತಾರೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಮವನಮರImg),
+            text: "ಮಾವಿನ ಮರ",
+            audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+          },
+        ],
+        correctWord: "ಮಾವಿನ ಮರ",
+        audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಗಳಯರಮತಕತImg),
+            text: "ಗೆಳೆಯರ ಮಾತುಕತೆ",
+            audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಕಡನಪರಣಗಳImg),
+            text: "ಕಾಡಿನ ಪ್ರಾಣಿಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನವಲನನರತನImg),
+            text: "ನವಿಲಿನ ನರ್ತನ",
+            audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+          },
+        ],
+        correctWord: "ಗೆಳೆಯರ ಮಾತುಕತೆ",
+        audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ರಚಯದಸರImg),
+            text: "ರುಚಿಯಾದ ಸಾರು",
+            audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಇದಮಸದImg),
+            text: "ಇದು ಮಸೀದಿ",
+            audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ದಸವಳಗಡಗಳImg),
+            text: "ದಾಸವಾಳ ಗಿಡಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+          },
+        ],
+        correctWord: "ಇದು ಮಸೀದಿ",
+        audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಆಗಸದಚದರImg),
+            text: "ಆಗಸದ ಚಂದಿರ",
+            audio: getAssetAudioUrl(s3Assets.ಆಗಸದಚದರAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಉಯಯಲಆಡವನImg),
+            text: "ಉಯ್ಯಾಲೆ ಆಡುವೆನು",
+            audio: getAssetAudioUrl(s3Assets.ಉಯಯಲಆಡವನAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಉದಯನಮನImg),
+            text: "ಉದಯನ ಮನೆ",
+            audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+          },
+        ],
+        correctWord: "ಉದಯನ ಮನೆ",
+        audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+      {
+        allwords: [
+          {
+            img: getAssetUrl(s3Assets.ಖಖಆಟImg),
+            text: "ಖೋ ಖೋ ಆಟ",
+            audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ನಲಕಎಲಗಳImg),
+            text: "ನಾಲ್ಕು ಎಲೆಗಳು",
+            audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+          },
+          {
+            img: getAssetUrl(s3Assets.ಅದದಸರImg),
+            text: "ಅಂದದ ಸರ",
+            audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+          },
+        ],
+        correctWord: "ಖೋ ಖೋ ಆಟ",
+        audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+        flowName: "S2",
+        type: "soundMatch",
+      },
+    ],
+  },
 };
 
 // Sound Hunt (Picture words) - Read the word and choose the right sound
@@ -4270,6 +5659,1154 @@ const pictureWordsContent = {
       },
     ],
   },
+  kn: {
+    1: [
+      {
+        word: "ಝಳ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಔಡಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಝಳAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ನಳ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಝಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಫಲ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಹಯ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಯAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆವರಣAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಸಮಯ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಕಂದ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ತಬಲ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಔಡಲ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಔಡಲAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮಯAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಗರಗಸ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಫಲAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಆವರಣ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆವರಣAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗರಗಸAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತಬಲAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮನೆ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಬಾಯಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ತಯAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ನೂರು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ತಾಯಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತಯAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಕೋಳಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಳAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಎರಡು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಎರಡAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಸುಂದರ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ತೋರಣ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ತರಣAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಯAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮಸೀದಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮನAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಎರಡAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಕಾವೇರಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಸದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕವರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸದರAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+    ],
+    2: [
+      {
+        word: "ಕಿಟಕಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಅಧಿಕಾರಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮೂಸಂಬಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಸಬAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅಮಮAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಪಾರಿವಾಳ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗಡಡAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಅಮ್ಮ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಸಬAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅಮಮAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಚಿಲಿಪಿಲಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚಲಪಲAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪದಯAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಸೊಂಡಿಲು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಪಂದ್ಯ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅಧಕರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪದಯAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಹುಲ್ಲು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಲಲAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪರವಳAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಗಡ್ಡ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಟಕAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗಡಡAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಡಲAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಹತ್ತು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಜಾತ್ರೆ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಶಬದAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಶಬ್ದ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಶಬದAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಪಕ್ಷಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಗುದ್ದಲಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗದದಲAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಹಳ್ಳಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹಳಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮಗ್ಗ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಜತರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಹತತAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮುಷ್ಕರ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಷಕರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಸಮುದ್ರ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗದದಲAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸಮದರAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಸ್ನೇಹಿತ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಸನಹತAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮಗಗAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಪಕಷAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+    ],
+    3: [
+      {
+        word: "ಅಂದದ ಸರ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಚಂದಿರ ಬಂದ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮರ ಒಣಗಿದೆ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಅದು ಗುಡಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಚೆಂಡು ಹೂ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಏಳು ಎಲೆಗಳು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಬಾಗಿಲಿನ ತೋರಣ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅದಗಡAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚಡಹAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಆಕಾಶದ ತಾರೆಗಳು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ಕಾಡಿನ ಪ್ರಾಣಿಗಳು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ನವಿಲಿನ ನರ್ತನ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಏಳಎಲಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S1",
+        type: "pictureWords",
+      },
+      {
+        word: "ರುಚಿಯಾದ ಸಾರು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ದಾಸವಾಳ ಗಿಡಗಳು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಆಗಸದ ಚಂದಿರ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆಗಸದಚದರAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಉಯ್ಯಾಲೆ ಆಡುವೆನು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಉಯಯಲಆಡವನAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ನಾಲ್ಕು ಎಲೆಗಳು",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಚದರಬದAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮರಒಣಗದAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಮಾವಿನ ಮರ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಬಗಲನತರಣAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆಕಶದತರಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಮವನಮರAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಗೆಳೆಯರ ಮಾತುಕತೆ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಗಳಯರಮತಕತAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಕಡನಪರಣಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನವಲನನರತನAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಇದು ಮಸೀದಿ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ರಚಯದಸರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಇದಮಸದAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ದಸವಳಗಡಗಳAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಉದಯನ ಮನೆ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಆಗಸದಚದರAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಉಯಯಲಆಡವನAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಉದಯನಮನAudio),
+            isCorrect: true,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+      {
+        word: "ಖೋ ಖೋ ಆಟ",
+        audioOptions: [
+          {
+            audio: getAssetAudioUrl(s3Assets.ಖಖಆಟAudio),
+            isCorrect: true,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ನಲಕಎಲಗಳAudio),
+            isCorrect: false,
+          },
+          {
+            audio: getAssetAudioUrl(s3Assets.ಅದದಸರAudio),
+            isCorrect: false,
+          },
+        ],
+        flowName: "S2",
+        type: "pictureWords",
+      },
+    ],
+  },
 };
 
 // Helper function to randomly select N items from an array
@@ -5077,6 +7614,12 @@ const SoundHuntS1Combined = ({
       });
 
       console.log("S1 result:", result);
+
+      // Call engagement predictor after getsetresult
+      // Interactions and lesson are automatically retrieved
+      callEngagementPredictor(sub_session_id);
+
+      setLocalData("previous_level", result?.data?.previous_level);
       setLocalData("s1_complete", true);
       setLocalData("s1_result", JSON.stringify(result));
 

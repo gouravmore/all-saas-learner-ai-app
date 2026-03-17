@@ -1,6 +1,6 @@
 import axios from "axios";
 import config from "../../utils/urlConstants.json";
-import { getLocalData } from "../../utils/constants";
+import { getLocalData, setLocalData } from "../../utils/constants";
 import { getVirtualId } from "../userservice/userService";
 
 const API_LEARNER_AI_APP_HOST = process.env.REACT_APP_LEARNER_AI_APP_HOST;
@@ -211,6 +211,53 @@ export const getSetResultPractice = async ({
   }
 };
 
+export const addInteraction = (subSessionId, interaction) => {
+  try {
+    if (!subSessionId) return;
+
+    const storageKey = `interactions_${subSessionId}`;
+    const existingInteractions = getLocalData(storageKey) || [];
+    const interactions = Array.isArray(existingInteractions)
+      ? existingInteractions
+      : [];
+
+    interactions.push({
+      original_text: interaction.original_text || "",
+      response_text: interaction.response_text || "",
+      audio_path: interaction.audio_path || "",
+      created_at: interaction.created_at || new Date().toISOString(),
+    });
+
+    setLocalData(storageKey, interactions);
+  } catch (error) {
+    console.error("Error adding interaction:", error);
+  }
+};
+
+const getInteractions = (subSessionId) => {
+  try {
+    if (!subSessionId) return [];
+
+    const storageKey = `interactions_${subSessionId}`;
+    const interactions = getLocalData(storageKey);
+    return Array.isArray(interactions) ? interactions : [];
+  } catch (error) {
+    console.error("Error getting interactions:", error);
+    return [];
+  }
+};
+
+export const clearInteractions = (subSessionId) => {
+  try {
+    if (!subSessionId) return;
+
+    const storageKey = `interactions_${subSessionId}`;
+    localStorage.removeItem(storageKey);
+  } catch (error) {
+    console.error("Error clearing interactions:", error);
+  }
+};
+
 export const updateLearnerProfile = async (lang, requestBody) => {
   for (let key in requestBody) {
     if (typeof requestBody[key] === "string") {
@@ -227,6 +274,27 @@ export const updateLearnerProfile = async (lang, requestBody) => {
       requestBody,
       getHeaders()
     );
+
+    // Track interaction for engagement prediction
+    // Only track if we have original_text and response_text
+    if (requestBody.audio) {
+      const subSessionId =
+        requestBody.sub_session_id || getLocalData("sub_session_id");
+      if (subSessionId) {
+        // Get audio_path if available (from requestBody.audio_path or requestBody.audioFileName)
+        // audio_path might be set later in VoiceAnalyser, so we'll update it if needed
+        const audioPath =
+          requestBody.audio_path || requestBody.audioFileName || "";
+
+        addInteraction(subSessionId, {
+          original_text: requestBody.original_text,
+          response_text: response.data.responseText,
+          audio_path: audioPath,
+          created_at: new Date().toISOString(),
+        });
+      }
+    }
+
     return response.data;
   } catch (error) {
     console.error("Error updating learner profile:", error);
@@ -303,5 +371,96 @@ export const setMilestoneScore = async (
   } catch (error) {
     console.error("Error setting milestone score:", error);
     throw error;
+  }
+};
+
+export const predictEngagement = (payload) => {
+  const token = localStorage.getItem("apiToken");
+  const url = process.env.REACT_APP_ENGAGEMENT_PREDICT_URL;
+
+  axios
+    .post(url, payload, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .catch((error) => {
+      console.error("Error predicting engagement:", error);
+    });
+};
+
+export const callEngagementPredictor = async (subSessionId = null) => {
+  try {
+    const lang = getLocalData("lang");
+
+    // Only call for English language
+    if (lang !== "en") {
+      return;
+    }
+
+    const token = localStorage.getItem("apiToken");
+    const session_id = getLocalData("sessionId");
+
+    if (!token || !session_id) {
+      console.warn("Missing token or session_id for engagement prediction");
+      return;
+    }
+
+    // Get milestone level
+    let milestoneLevel = "m0";
+    try {
+      const milestoneData = getLocalData("getMilestone");
+      if (milestoneData) {
+        const parsed = JSON.parse(milestoneData);
+        milestoneLevel = parsed?.data?.milestone_level || "m0";
+      }
+    } catch (e) {
+      console.error("Error parsing milestone data:", e);
+    }
+
+    // Get interactions from localStorage using subSessionId
+    const sessionIdToUse = subSessionId || getLocalData("sub_session_id");
+    if (!sessionIdToUse) {
+      console.log("No sub_session_id found for engagement prediction");
+      return;
+    }
+
+    const interactionsToUse = getInteractions(sessionIdToUse);
+
+    // Only call engagement predictor if we have interactions
+    if (!interactionsToUse || interactionsToUse.length === 0) {
+      console.log("No interactions found for engagement prediction");
+      return;
+    }
+
+    // Get lesson number
+    let practiceProgress = getLocalData("practiceProgress");
+    practiceProgress = practiceProgress ? JSON.parse(practiceProgress) : {};
+    let lessonNumber = practiceProgress?.currentPracticeStep || "0";
+
+    // Format interactions
+    const formattedInteractions = interactionsToUse.map(
+      (interaction, index) => ({
+        interaction_id: index + 1,
+        original_text: interaction.original_text,
+        response_text: interaction.response_text,
+        audio_path: interaction.audio_path,
+        created_at: interaction.created_at || new Date().toISOString(),
+      })
+    );
+
+    const engagementPayload = {
+      token: token,
+      session_id: session_id,
+      milestone_level: milestoneLevel,
+      lesson: String(lessonNumber),
+      language: "en",
+      interactions: formattedInteractions,
+    };
+
+    predictEngagement(engagementPayload);
+  } catch (error) {
+    console.error("Error calling engagement/predict API:", error);
   }
 };

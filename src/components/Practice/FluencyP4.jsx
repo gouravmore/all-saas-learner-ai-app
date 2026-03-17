@@ -321,6 +321,9 @@ function CircularTimer({ duration = 30, isActive = true }) {
 }
 const theme = createTheme();
 
+// Timer duration
+const TIMER_DURATION_SECONDS = 60;
+
 const FluencyP4 = ({
   setVoiceText,
   setRecordedAudio,
@@ -372,6 +375,7 @@ const FluencyP4 = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(null);
   const [startTime, setStartTime] = useState(null);
+  const [elapsedTime, setElapsedTime] = useState(null);
   const lang = getLocalData("lang");
   const [open, setOpen] = useState(false);
   const [parentModalOpen, setParentModalOpen] = useState(false);
@@ -430,6 +434,7 @@ const FluencyP4 = ({
   const handleStart = () => {
     setStartTime(Date.now());
     setSpeed(null);
+    setElapsedTime(null);
   };
 
   useEffect(() => {
@@ -464,7 +469,8 @@ const FluencyP4 = ({
   const handleStop = () => {
     if (!startTime) return;
     const duration = (Date.now() - startTime) / 1000;
-    if (duration <= 30) {
+    setElapsedTime(Math.round(duration));
+    if (duration <= TIMER_DURATION_SECONDS) {
       setSpeed("Fast");
     } else {
       setSpeed("Slow");
@@ -768,7 +774,10 @@ const FluencyP4 = ({
                   marginBottom: "10px",
                 }}
               >
-                <CircularTimer duration={30} isActive={!parentModalOpen} />
+                <CircularTimer
+                  duration={TIMER_DURATION_SECONDS}
+                  isActive={!parentModalOpen}
+                />
               </div>
             )}
 
@@ -1056,7 +1065,10 @@ const FluencyP4 = ({
                   alt="book"
                   style={{ width: "30px", height: "25px" }}
                 />
-                <span>You read 5 sentences in 30 seconds</span>
+                <span>
+                  You read {sentencesData.length} sentences in{" "}
+                  {TIMER_DURATION_SECONDS} seconds
+                </span>
               </div>
 
               <img

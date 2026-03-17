@@ -12,7 +12,7 @@ import homeBackground from "../../assets/images/homeBackground.png";
 import { Typography } from "../../../node_modules/@mui/material/index";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import LevelCompleteAudio from "../../assets/audio/levelComplete.wav";
 import { ProfileHeader } from "../Assesment/Assesment";
 import desktopLevel5 from "../../assets/images/assesmentComplete.png";
@@ -31,13 +31,20 @@ const AssesmentEnd = () => {
   const [vocabCount, setVocabCount] = useState(0);
   const [wordCount, setWordCount] = useState(0);
   const lang = getLocalData("lang");
+  const hasFetchedData = useRef(false);
 
   useEffect(() => {
+    if (levelCompleteAudioSrc && !hasFetchedData.current) {
+      let audio = new Audio(levelCompleteAudioSrc);
+      audio.play();
+    }
+  }, [levelCompleteAudioSrc]);
+
+  useEffect(() => {
+    if (hasFetchedData.current) return;
+
     (async () => {
-      if (levelCompleteAudioSrc) {
-        let audio = new Audio(levelCompleteAudioSrc);
-        audio.play();
-      }
+      hasFetchedData.current = true;
       const virtualId = getLocalData("virtualId");
       const lang = getLocalData("lang");
       const previous_level = getLocalData("previous_level");
@@ -70,7 +77,7 @@ const AssesmentEnd = () => {
     setTimeout(() => {
       setShake(false);
     }, 4000);
-  }, [levelCompleteAudioSrc]);
+  }, []);
 
   const navigate = useNavigate();
   let newLevel = level.replace("m", "");

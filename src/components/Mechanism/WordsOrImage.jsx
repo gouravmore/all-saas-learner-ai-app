@@ -108,17 +108,21 @@ const WordsOrImage = ({
   showStopButton: showStopButtonProp,
   showListenRetryButtons: showListenRetryButtonsProp,
   isRecording: isRecordingProp,
+  isAudioPlaying: isAudioPlayingProp,
   onMicClick,
   onStopClick,
   onPlayClick,
   onRetryClick,
   onNextClick,
   isInstructionPlaying,
+  onInteractionComplete,
+  showPointer = false,
+  pointerTarget = "",
 }) => {
   const audioRefs = createRef(null);
   const [audioInstance, setAudioInstance] = useState(null);
   const [isReady, setIsReady] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlayingState, setIsPlaying] = useState(false);
   const [storedData, setStoredData] = useState([]);
   const [recognition, setRecognition] = useState(null);
   const [isRecordingState, setIsRecording] = useState(false);
@@ -145,6 +149,10 @@ const WordsOrImage = ({
     isDemo && showListenRetryButtonsProp !== undefined
       ? showListenRetryButtonsProp
       : showListenRetryButtonsState;
+  const isPlaying =
+    isDemo && isAudioPlayingProp !== undefined
+      ? isAudioPlayingProp
+      : isPlayingState;
   const [recordedAudioBlob, setRecordedAudioBlob] = useState(null);
   const [showHint, setShowHint] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -382,8 +390,8 @@ const WordsOrImage = ({
       audioRefNew.current.pause();
       audioRefNew.current.currentTime = 0;
       audioRefNew.current = null;
-      setIsPlaying(false);
     }
+    setIsPlaying(false);
   }, []);
 
   const initializeRecognition = () => {
@@ -734,7 +742,7 @@ const WordsOrImage = ({
       </Box>
       <CardContent
         sx={{
-          overflow: "hidden",
+          overflow: isDemo ? "visible" : "hidden",
           pt: isMobile ? "40px" : isTablet ? "70px" : "100px",
           opacity: disableScreen ? 0.25 : 1,
           pointerEvents: disableScreen ? "none" : "initial",
@@ -1305,6 +1313,7 @@ const WordsOrImage = ({
               {showSpeakButton && (
                 <Box
                   sx={{
+                    position: "relative",
                     cursor:
                       isDemo && isInstructionPlaying
                         ? "not-allowed"
@@ -1320,6 +1329,22 @@ const WordsOrImage = ({
                   }
                 >
                   <SpeakButton size={isMobile ? "small" : "medium"} />
+                  {showPointer && pointerTarget === "mic" && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: "100%",
+                        left: "20%",
+                        transform: "translateX(-50%)",
+                        fontSize: "40px",
+                        pointerEvents: "none",
+                        animation: "pointerBounce 1.5s ease-in-out infinite",
+                        filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.3))",
+                      }}
+                    >
+                      👆
+                    </span>
+                  )}
                 </Box>
               )}
               {showStopButton && (
@@ -1334,6 +1359,7 @@ const WordsOrImage = ({
                 >
                   <Box
                     sx={{
+                      position: "relative",
                       cursor:
                         isDemo && isInstructionPlaying
                           ? "not-allowed"
@@ -1349,6 +1375,22 @@ const WordsOrImage = ({
                     }
                   >
                     <StopButton size={isMobile ? "small" : "medium"} />
+                    {showPointer && pointerTarget === "stop" && (
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          left: "20%",
+                          transform: "translateX(-50%)",
+                          fontSize: "40px",
+                          pointerEvents: "none",
+                          animation: "pointerBounce 1.5s ease-in-out infinite",
+                          filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.3))",
+                        }}
+                      >
+                        👆
+                      </span>
+                    )}
                   </Box>
                   <Box
                     style={{
@@ -1403,7 +1445,13 @@ const WordsOrImage = ({
                       </Box>
                     </div>
                   ) : (
-                    <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
                       <Box
                         className="walkthrough-step-4"
                         sx={{
@@ -1445,12 +1493,29 @@ const WordsOrImage = ({
                                 : "pointer",
                           }}
                         />
-                        {/* <ListenButton height={50} width={50} /> */}
+                        {showPointer && pointerTarget === "play" && (
+                          <span
+                            style={{
+                              position: "absolute",
+                              top: "100%",
+                              left: "20%",
+                              transform: "translateX(-50%)",
+                              fontSize: "40px",
+                              pointerEvents: "none",
+                              animation:
+                                "pointerBounce 1.5s ease-in-out infinite",
+                              filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.3))",
+                            }}
+                          >
+                            👆
+                          </span>
+                        )}
                       </Box>
                     </div>
                   )}
                   <Box
                     sx={{
+                      position: "relative",
                       cursor:
                         isDemo && isInstructionPlaying
                           ? "not-allowed"
@@ -1467,9 +1532,26 @@ const WordsOrImage = ({
                     }
                   >
                     <RetryIcon />
+                    {showPointer && pointerTarget === "retry" && (
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          left: "80%",
+                          transform: "translateX(-50%)",
+                          fontSize: "40px",
+                          pointerEvents: "none",
+                          animation: "pointerBounce 1.5s ease-in-out infinite",
+                          filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.3))",
+                        }}
+                      >
+                        👆
+                      </span>
+                    )}
                   </Box>
                   <Box
                     sx={{
+                      position: "relative",
                       cursor:
                         isDemo && isInstructionPlaying
                           ? "not-allowed"
@@ -1484,6 +1566,22 @@ const WordsOrImage = ({
                     }
                   >
                     <NextButtonRound />
+                    {showPointer && pointerTarget === "continue" && (
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          left: "20%",
+                          transform: "translateX(-50%)",
+                          fontSize: "40px",
+                          pointerEvents: "none",
+                          animation: "pointerBounce 1.5s ease-in-out infinite",
+                          filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.3))",
+                        }}
+                      >
+                        👆
+                      </span>
+                    )}
                   </Box>
                 </div>
               )}
@@ -1519,11 +1617,20 @@ const WordsOrImage = ({
                 setOpenMessageDialog,
                 isNextButtonCalled,
                 setIsNextButtonCalled,
+                onInteractionComplete,
               }}
             />
           )}
         </Box>
       </CardContent>
+      {isDemo && (
+        <style>{`
+          @keyframes pointerBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+        `}</style>
+      )}
     </MainLayout>
   );
 };

@@ -10263,7 +10263,7 @@ export const practiceSteps = [
     name: "P3",
     fullName: "Practice 3",
     fullNameMOne: "Practice 1",
-    fullNameMTwo: "Learn 2",
+    fullNameMTwo: "Practice 1",
     fullNameMThree: "Practice 1", // M3 P2: Correct Image Phrase
     title: "P1",
     titleNew: "P1",
@@ -12857,7 +12857,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_L1",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["कार", "रात", "पिता", "किला", "तीर"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "कार",
+          "रात",
+          "पिता",
+          "किला",
+          "तीर",
+          "गीत",
+          "सुख",
+          "रुक",
+          "मुख",
+          "फूल",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 1 - Letter Hunt (1 level, 10 content)
       {
@@ -12881,7 +12892,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P1",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["गीत", "सुख", "रुक", "मुख", "फूल"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "रूह",
+          "गृह",
+          "कृपा",
+          "तेल",
+          "केला",
+          "बैठ",
+          "कैसे",
+          "शोर",
+          "मोर",
+          "कौन",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 2 - Letter Hunt (1 level, 10 content)
       {
@@ -12905,7 +12927,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_L3",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["रूह", "गृह", "कृपा", "तेल", "केला"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "मौज",
+          "हंस",
+          "नमः",
+          "पानी",
+          "रुचि",
+          "सामने",
+          "शुरू",
+          "होगा",
+          "दिशा",
+          "कितने",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 3 - Letter Hunt (1 level, 10 content)
       {
@@ -12945,7 +12978,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P4",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
-        customLetters: ["बैठ", "कैसे", "शोर", "मोर", "कौन"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "चिड़िया",
+          "सुना",
+          "रुपया",
+          "कविता",
+          "मिला",
+          "सोमारू",
+          "पहेली",
+          "कहानी",
+          "तोसिया",
+          "बारिश",
+        ], // Placeholder - adjust based on F2 requirements
         contentCount: 10,
       },
       // Practice 4 - Letter Hunt (1 level, 10 content)
@@ -12970,7 +13014,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P6",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
-        customLetters: ["मौज", "हंस", "नमः", "पानी", "रुचि"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "कटोरी",
+          "थाली",
+          "मुझे",
+          "तैरना",
+          "पिताजी",
+          "जाता",
+          "खाने",
+          "केतकी",
+          "सारा",
+          "नीमा",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 5 - Letter Hunt (1 level, 10 content)
       {
@@ -12993,7 +13048,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P8",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["सामने", "शुरू", "होगा", "दिशा", "कितने"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "लिखना",
+          "लेकिन",
+          "देखा",
+          "सभी",
+          "गाना",
+          "मेरे",
+          "सवारी",
+          "दादाजी",
+          "खेलने",
+          "भाषा",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 6 - Letter Hunt (1 level, 10 content)
       {
@@ -13032,7 +13098,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P11",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
-        customLetters: ["चिड़िया", "सुना", "रुपया", "कविता", "मिला"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "चाचाजी",
+          "सही",
+          "बिरंगे",
+          "कुछ",
+          "दुनिया",
+          "किसी",
+          "तुमने",
+          "चाची",
+          "रोटी",
+          "छोटी",
+        ], // Placeholder - adjust based on F2 requirements
         contentCount: 10,
       },
       // Practice 7 - Letter Hunt (1 level, 10 content)
@@ -13056,7 +13133,18 @@ export const levelGetContent = {
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
         contentCount: 10,
-        customLetters: ["सोमारू", "पहेली", "कहानी", "तोसिया", "बारिश"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "खिलौने",
+          "गिनो",
+          "लिखो",
+          "देखो",
+          "जितनी",
+          "निकला",
+          "बोला",
+          "चूजा",
+          "घूमने",
+          "बोले",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 8 - Letter Hunt (1 level, 10 content)
       {
@@ -13079,7 +13167,18 @@ export const levelGetContent = {
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
         contentCount: 10,
-        customLetters: ["कटोरी", "थाली", "मुझे", "तैरना", "पिताजी"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "गिलास",
+          "मिलाना",
+          "रूठा",
+          "रुकना",
+          "रुकाव",
+          "रूपा",
+          "सिपाही",
+          "तितली",
+          "हाथी",
+          "छाता",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 9 - Letter Hunt (1 level, 10 content)
       {
@@ -13484,6 +13583,807 @@ export const levelGetContent = {
         multilingual: true,
       },
     ],
+    F1: [
+      // Learn 1 - Letter Train
+      {
+        title: "L1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L1",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ರ", "ಗ", "ಸ", "ದ", "ಅ"],
+        contentCount: 10,
+      },
+      // Practice 1 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L2",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 1,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 2 - Letter Train
+      {
+        title: "L2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P1",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಜ", "ವ", "ಮ", "ಬ", "ನ"],
+        contentCount: 10,
+      },
+      // Practice 2 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P2",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 2,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 3 - Letter Train
+      {
+        title: "L3",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L3",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಪ", "ಯ", "ಉ", "ಡ", "ಟ"],
+        contentCount: 10,
+      },
+      // Practice 3 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P3",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L4",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 3,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 1 - Letter Hunt (3 levels, 13 content per level, showcase mode)
+      {
+        title: "A1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P3",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 1,
+        letterHuntEndLevel: 3,
+        letterHuntContentCount: 13,
+        isShowcase: true,
+        applyStep: 1,
+        contentCount: 30,
+        failRedirect: "L1", // If fail at any level, go to Learn 1
+        passRedirect: "L4", // If pass all levels, go to Learn 4
+      },
+      // Learn 4 - Letter Train
+      {
+        title: "L4",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P4",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಚ", "ಲ", "ಈ", "ಊ", "ಕ"],
+        contentCount: 10,
+      },
+      // Practice 4 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P4",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P5",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 4,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 5 - Letter Train
+      {
+        title: "L5",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L5",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಎ", "ಏ", "ಇ", "ಆ", "ತ"],
+        contentCount: 10,
+      },
+      // Practice 5 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P5",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L6",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 5,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 6 - Letter Train
+      {
+        title: "L6",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P6",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಳ", "ಓ", "ಔ", "ಹ", "ಶ"],
+        contentCount: 10,
+      },
+      // Practice 6 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P6",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P7",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 6,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 2 - Letter Hunt (3 levels, 13 content per level, showcase mode)
+      {
+        title: "A2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P8",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 4,
+        letterHuntEndLevel: 6,
+        letterHuntContentCount: 13,
+        isShowcase: true,
+        applyStep: 2,
+        contentCount: 30,
+        failRedirect: "L4", // If fail at any level, go to Learn 4
+        passRedirect: "L7", // If pass all levels, go to Learn 7
+      },
+      // Learn 7 - Letter Train
+      {
+        title: "L7",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P9",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಷ", "ಐ", "ಋ", "ಣ", "ಛ"],
+        contentCount: 10,
+      },
+      // Practice 7 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P7",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P10",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 7,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 8 - Letter Train
+      {
+        title: "L8",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P11",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಒ", "ಧ", "ಥ", "ಢ", "ಭ"],
+        contentCount: 10,
+      },
+      // Practice 8 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P8",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P12",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 8,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 9 - Letter Train
+      {
+        title: "L9",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P13",
+        multilingual: false,
+        mechanism: { id: "letterTrain", name: "letterTrain" },
+        customLetters: ["ಘ", "ಠ", "ಫ", "ಝ", "ಖ"],
+        contentCount: 10,
+      },
+      // Practice 9 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P9",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P14",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 9,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 3 - Letter Hunt (3 levels, 13 content per level, showcase mode)
+      {
+        title: "A3",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P15",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 7,
+        letterHuntEndLevel: 9,
+        letterHuntContentCount: 13,
+        isShowcase: true,
+        applyStep: 3,
+        contentCount: 30,
+        failRedirect: "L7", // If fail at any level, go to Learn 7
+        passRedirect: "F2", // If pass all levels, go to F2
+      },
+    ],
+    F2: [
+      // Learn 1 - Syllable Clap/Letter Train (English) or Barakadi (Indic)
+      {
+        title: "L1",
+        contentCount: 10,
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L1",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
+        customLetters: [
+          "ಕಾಗೆ",
+          "ಮಾಲೆ",
+          "ಗಿಳಿ",
+          "ಕಿಟಕಿ",
+          "ಗುರು",
+          "ಹುಲಿ",
+          "ಮೂರು",
+          "ಗೂಡು",
+          "ಗೃಹ",
+          "ಕೃತಿ",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 1 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L2",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 10,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+        // customLetters: ["In", "The", "On", "An", "Am"],
+      },
+      // Learn 2 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L2",
+        contentCount: 10,
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P1",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
+        customLetters: [
+          "ಕೆರೆ",
+          "ಮೆರೆ",
+          "ದೇವಿ",
+          "ವೇಷ",
+          "ಕೈದಿ",
+          "ಪೈರು",
+          "ಹೊರೆ",
+          "ಕೊಳೆ",
+          "ಹೋರಿ",
+          "ನೋಟು",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 2 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P2",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        // customLetters: ["At", "It", "He", "She", "His"],
+        multilingual: false,
+        letterHuntLevel: 11,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 3 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L3",
+        contentCount: 10,
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L3",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
+        customLetters: [
+          "ದೌಡು",
+          "ಜೌಗು",
+          "ಕಂಸ",
+          "ನಂದಿ",
+          "ಹಾವು",
+          "ಬಿಳಿ",
+          "ಹೊಗೆ",
+          "ಕೆನೆ",
+          "ಕೇಳು",
+          "ನೌಕೆ",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 3 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P3",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_L4",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        // customLetters: ["The", "Is", "Are", "Or", "Up", "On"],
+        multilingual: false,
+        letterHuntLevel: 12,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 1 - Letter Hunt (3 levels, 13 content per level, showcase mode)
+      {
+        title: "A1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P3",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 10,
+        letterHuntEndLevel: 12,
+        letterHuntContentCount: 13,
+        isShowcase: true,
+        applyStep: 1,
+        contentCount: 30,
+        failRedirect: "L1", // If fail at any level, go to Learn 1
+        passRedirect: "L4", // If pass all levels, go to Learn 4
+      },
+      // Learn 4 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L4",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P4",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" },
+        customLetters: [
+          "ನಾಳೆ",
+          "ಚೀಟಿ",
+          "ಠೀವಿ",
+          "ಸುಲಿ",
+          "ಬೆವರು",
+          "ಹೇರು",
+          "ಹಾಡು",
+          "ತೊರೆ",
+          "ಚೇಳು",
+          "ಗೇಟು",
+        ], // Placeholder - adjust based on F2 requirements
+        contentCount: 10,
+      },
+      // Practice 4 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P4",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P5",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        // customLetters: ["All", "In", "Ter", "Ing", "Up", "Him"],
+        multilingual: false,
+        letterHuntLevel: 13,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 5 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L5",
+        contentCount: 10,
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P6",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" },
+        customLetters: [
+          "ಜೈಲು",
+          "ಬಾಯಿ",
+          "ಮೊರೆ",
+          "ಡಾಬಾ",
+          "ಗೋವು",
+          "ಕುದಿಸು",
+          "ಡೋಲು",
+          "ಪೌಳಿ",
+          "ಮೋರಿ",
+          "ನೀರು",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 5 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P5",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P7",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 14,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 6 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L6",
+        contentCount: 10,
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P8",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
+        customLetters: [
+          "ದೋಣಿ",
+          "ದಾರಿ",
+          "ಸೇರು",
+          "ಲೈಲಾ",
+          "ವೈರಿ",
+          "ಕುರಿ",
+          "ಗಾಡಿ",
+          "ಸೌತೆ",
+          "ಸಾರಿಗೆ",
+          "ರಾಣಿ",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 6 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P6",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P9",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 15,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 2 - Letter Hunt (3 levels, 13 content per level, showcase mode)
+      {
+        title: "A2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P10",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 13,
+        letterHuntEndLevel: 15,
+        letterHuntContentCount: 13,
+        isShowcase: true,
+        applyStep: 2,
+        contentCount: 30,
+        failRedirect: "L4", // If fail at any level, go to Learn 4
+        passRedirect: "L7", // If pass all levels, go to Learn 7
+      },
+      // Learn 7 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L7",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P11",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" },
+        customLetters: [
+          "ಬೇಸಿಗೆ",
+          "ವೋಟು",
+          "ತೊಲೆ",
+          "ಯಾರಿಗೆ",
+          "ಮೌನಿ",
+          "ಸೌದೆ",
+          "ತೌರು",
+          "ಕೋಡು",
+          "ಗೋಡೆ",
+          "ಚೋಟು",
+        ], // Placeholder - adjust based on F2 requirements
+        contentCount: 10,
+      },
+      // Practice 7 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P7",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P12",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 16,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 8 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L8",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P13",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" },
+        contentCount: 10,
+        customLetters: [
+          "ರೋಗಿ",
+          "ಟೋಪಿ",
+          "ತೋಟಿ",
+          "ಕೈದು",
+          "ಪೈಪು",
+          "ಬೆಳೆ",
+          "ವಾಸಿಸು",
+          "ಮುದುಕ",
+          "ಮೈಸೂರು",
+          "ಜೋಗುಳ",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 8 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P8",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P14",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 17,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Learn 9 - Syllable Clap/Letter Hunt (English) or Barakadi (Indic)
+      {
+        title: "L9",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P15",
+        multilingual: false,
+        mechanism: { id: "barakhadi", name: "barakhadi" },
+        contentCount: 10,
+        customLetters: [
+          "ಗುಡಿಸು",
+          "ಯುವತಿ",
+          "ಜೊತೆಗೆ",
+          "ಯೋಜಿಸು",
+          "ಪಾಲಿಸು",
+          "ಜಿನುಗು",
+          "ಸಿರಿ",
+          "ಚಿರತೆ",
+          "ಸೈನಿಕ",
+          "ಜೇನು",
+        ], // Placeholder - adjust based on F2 requirements
+      },
+      // Practice 9 - Letter Hunt (1 level, 10 content)
+      {
+        title: "P9",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P16",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 18,
+        letterHuntContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 3 - Letter Hunt (3 levels, 13 content per level, showcase mode)
+      {
+        title: "A3",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_P17",
+        mechanism: { id: "letterHunt", name: "letterHunt" },
+        multilingual: false,
+        letterHuntLevel: 16,
+        letterHuntEndLevel: 18,
+        letterHuntContentCount: 13,
+        isShowcase: true,
+        applyStep: 3,
+        contentCount: 30,
+        failRedirect: "L7", // If fail at any level, go to Learn 7
+        passRedirect: "F3", // If pass all levels, go to F3
+      },
+    ],
+    F3: [
+      // Practice 1 - Letter Speed (Letter Launcher) - Alphabet sets
+      {
+        title: "P1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P1",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "letter", // Alphabet sets
+        letterLauncherLevel: 19,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 2 - Letter Speed (Letter Launcher) - Alphabet sets
+      {
+        title: "P2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P2",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "letter",
+        letterLauncherLevel: 20,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 3 - Letter Speed (Letter Launcher) - Alphabet sets
+      {
+        title: "P3",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P3",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "letter",
+        letterLauncherLevel: 21,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 4 - Letter Speed (Letter Launcher) - Alphabet sets
+      {
+        title: "P4",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P4",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "letter",
+        letterLauncherLevel: 20,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 5 - Letter Speed (Letter Launcher) - Alphabet sets
+      {
+        title: "P5",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P5",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "letter",
+        letterLauncherLevel: 21,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 1 - Letter Speed (Letter Launcher) 3 levels + Memory Challenge 3 levels
+      {
+        title: "A1",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_A1",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "letter",
+        letterLauncherLevel: 19,
+        letterLauncherEndLevel: 21,
+        letterLauncherContentCount: 20,
+        isShowcase: true,
+        applyStep: 1,
+        contentCount: 35, // 20 letterLauncher + 15 memoryChallenge (3 levels × 5 sequences)
+        failRedirect: "P1", // If fail at any level, go to Practice 1
+        passRedirect: "P6", // If pass all levels, go to Practice 6
+        // After Letter Launcher completes, show Memory Challenge
+        memoryChallengeLevel: 19,
+        memoryChallengeEndLevel: 21,
+        memoryChallengeContentCount: 5, // 5 sequences per level
+      },
+      // Practice 6 - Syllable Speed (Letter Launcher) - Syllable sets
+      {
+        title: "P6",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P6",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "syllable", // Syllable sets
+        letterLauncherLevel: 22,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 7 - Syllable Speed (Letter Launcher) - Syllable sets
+      {
+        title: "P7",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P7",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "syllable",
+        letterLauncherLevel: 23,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 8 - Syllable Speed (Letter Launcher) - Syllable sets
+      {
+        title: "P8",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P8",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "syllable",
+        letterLauncherLevel: 24,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 9 - Syllable Speed (Letter Launcher) - Syllable sets
+      {
+        title: "P9",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P9",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "syllable",
+        letterLauncherLevel: 23,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Practice 10 - Syllable Speed (Letter Launcher) - Syllable sets
+      {
+        title: "P10",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_P10",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "syllable",
+        letterLauncherLevel: 24,
+        letterLauncherContentCount: 10,
+        contentCount: 10,
+      },
+      // Apply 2 - Syllable Speed (Letter Launcher) 1 level + Memory Challenge 3 levels + Read Aloud
+      {
+        title: "A2",
+        criteria: "word",
+        template: "simple",
+        tags: "CEFR_GEN_M1_F3_A2",
+        mechanism: { id: "letterLauncher", name: "letterLauncher" },
+        multilingual: false,
+        contentType: "syllable",
+        letterLauncherLevel: 22,
+        letterLauncherEndLevel: 24,
+        letterLauncherContentCount: 20,
+        isShowcase: true,
+        applyStep: 2,
+        contentCount: 45, // 20 letterLauncher + 15 memoryChallenge (3 levels × 5 sequences) + 10 readAloud
+        failRedirect: "P6", // If fail at any level, go to Practice 6
+        passRedirect: "complete", // If pass all levels, complete F3
+        // After Letter Launcher completes, show Memory Challenge
+        memoryChallengeLevel: 22,
+        memoryChallengeEndLevel: 24,
+        memoryChallengeContentCount: 5, // 5 sequences per level
+        // After Memory Challenge completes, show Read Aloud
+        readAloudContentCount: 10, // 10 simple root words
+      },
+    ],
     0: [
       { title: "P1", criteria: "word", template: "simple" },
       { title: "P2", criteria: "word", template: "simple" },
@@ -13502,75 +14402,89 @@ export const levelGetContent = {
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_L1",
-        storyMode: true,
+        contentCount: 10,
+        // storyMode: true,
         mechanism: { id: "mechanic_7", name: "formAWord2" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P2",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_L2",
+        contentCount: 10,
         mechanism: { id: "mechanic_7", name: "formAWord2" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P3",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_P1",
-        multilingual: true,
+        contentCount: 10,
+        mechanism: { id: "soundHunt", name: "soundHunt" },
+        multilingual: false,
       },
       {
         title: "P4",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_P2",
-        multilingual: true,
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "S1",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_S1",
-        multilingual: true,
+        contentCount: 10,
+        mechanism: { id: "soundHuntS1Combined", name: "soundHuntS1Combined" },
+        multilingual: false,
       },
       {
         title: "P5",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_L3",
+        contentCount: 10,
         mechanism: { id: "mechanic_7", name: "formAWord2" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P6",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_L4",
+        contentCount: 10,
         mechanism: { id: "mechanic_7", name: "formAWord2" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P7",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_P3",
-        multilingual: true,
+        mechanism: { id: "soundHunt", name: "soundHunt" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P8",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M1_P4",
-        multilingual: true,
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "S2",
         criteria: "word",
         template: "simple",
+        mechanism: { id: "soundHuntS1Combined", name: "soundHuntS1Combined" },
+        contentCount: 10,
         tags: "CEFR_M1_S2",
-        multilingual: true,
+        multilingual: false,
       },
     ],
     2: [
@@ -13578,39 +14492,44 @@ export const levelGetContent = {
         title: "P1",
         criteria: "word",
         template: "simple",
-        tags: "CEFR_M2_P1",
+        tags: "CEFR_M2_L1",
+        mechanism: { id: "bingo_card", name: "bingoCard" },
         //storyMode: true,
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P2",
         criteria: "word",
         template: "simple",
-        tags: "CEFR_M2_L1",
+        tags: "CEFR_M2_L2",
         mechanism: { id: "bingo_card", name: "bingoCard" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P3",
         criteria: "word",
         template: "simple",
-        tags: "CEFR_M2_L2",
-        mechanism: { id: "bingo_card", name: "bingoCard" },
-        multilingual: true,
+        tags: "CEFR_M2_P1",
+        // mechanism: { id: "soundHunt", name: "soundHunt" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P4",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M2_P2",
-        multilingual: true,
+        mechanism: { id: "soundHunt", name: "soundHunt" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "S1",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M2_S1",
-        multilingual: true,
+        mechanism: { id: "soundHuntS1Combined", name: "soundHuntS1Combined" },
+        multilingual: false,
       },
       {
         title: "P5",
@@ -13618,7 +14537,7 @@ export const levelGetContent = {
         template: "simple",
         tags: "CEFR_M2_L3",
         mechanism: { id: "bingo_card", name: "bingoCard" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P6",
@@ -13626,28 +14545,31 @@ export const levelGetContent = {
         template: "simple",
         tags: "CEFR_M2_L4",
         mechanism: { id: "bingo_card", name: "bingoCard" },
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "P7",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M2_P3",
-        multilingual: true,
+        mechanism: { id: "soundHunt", name: "soundHunt" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P8",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M2_P4",
-        multilingual: true,
+        multilingual: false,
       },
       {
         title: "S2",
         criteria: "word",
         template: "simple",
         tags: "CEFR_M2_S2",
-        multilingual: true,
+        mechanism: { id: "soundHuntS1Combined", name: "soundHuntS1Combined" },
+        multilingual: false,
       },
     ],
     3: [
@@ -13655,26 +14577,29 @@ export const levelGetContent = {
         title: "P1",
         criteria: "sentence",
         template: "simple",
-        tags: "CEFR_M3_P1",
+        tags: "CEFR_M3_L1",
         //storyMode: true,
-        //mechanism: { id: "syllable_puzzle", name: "syllablePuzzle" },
-        multilingual: true,
+        mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P2",
         criteria: "sentence",
         template: "simple",
-        tags: "CEFR_M3_L1",
+        tags: "CEFR_M3_L2",
         mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
-        multilingual: true,
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P3",
         criteria: "sentence",
         template: "simple",
-        tags: "CEFR_M3_L2",
-        mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
-        multilingual: true,
+        tags: "CEFR_M3_P1",
+        // mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P4",
@@ -13682,15 +14607,16 @@ export const levelGetContent = {
         template: "simple",
         tags: "CEFR_M3_P2",
         //competency: "L1.1",
-        //mechanism: { id: "mechanic_1", name: "fillInTheBlank" },
-        multilingual: true,
+        // mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "S1",
         criteria: "sentence",
         template: "simple",
         tags: "CEFR_M3_S1",
-        multilingual: true,
+        mechanism: { id: "soundHuntS1Combined", name: "soundHuntS1Combined" },
       },
       {
         title: "P5",
@@ -13698,23 +14624,26 @@ export const levelGetContent = {
         template: "simple",
         tags: "CEFR_M3_L3",
         mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
-        multilingual: true,
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P6",
         criteria: "sentence",
         template: "simple",
-        tags: "CEFR_M3_P3",
-        //mechanism: { id: "syllable_puzzle", name: "syllablePuzzle" },
-        multilingual: true,
+        tags: "CEFR_M3_L4",
+        mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P7",
         criteria: "sentence",
         template: "simple",
-        tags: "CEFR_M3_L4",
-        mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
-        multilingual: true,
+        tags: "CEFR_M3_P3",
+        // mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "P8",
@@ -13722,15 +14651,16 @@ export const levelGetContent = {
         template: "simple",
         tags: "CEFR_M3_P4",
         //competency: "L1.1",
-        //mechanism: { id: "mechanic_1", name: "fillInTheBlank" },
-        multilingual: true,
+        // mechanism: { id: "PhrasesInAction", name: "PhrasesInAction" },
+        contentCount: 10,
+        multilingual: false,
       },
       {
         title: "S2",
         criteria: "sentence",
         template: "simple",
         tags: "CEFR_M3_S2",
-        multilingual: true,
+        mechanism: { id: "soundHuntS1Combined", name: "soundHuntS1Combined" },
       },
     ],
     4: [
@@ -14293,7 +15223,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_L1",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["గది", "చేను", "చీర", "గెల", "సౌధం"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "గది",
+          "చేను",
+          "చీర",
+          "గెల",
+          "సౌధం",
+          "గృహం",
+          "జాతర",
+          "గీరు",
+          "జైలు",
+          "కోకిల",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 1 - Letter Hunt (1 level, 10 content)
       {
@@ -14317,7 +15258,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P1",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["గృహం", "జాతర", "గీరు", "జైలు", "కోకిల"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "నౌక",
+          "నీకు",
+          "పోరు",
+          "మెడ",
+          "టోపీ",
+          "డైరీ",
+          "రోకలి",
+          "సూది",
+          "జౌళి",
+          "సీసా",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 2 - Letter Hunt (1 level, 10 content)
       {
@@ -14341,7 +15293,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_L3",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["నౌక", "నీకు", "పోరు", "మెడ", "టోపీ"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "బంతి",
+          "టౌను",
+          "బాలిక",
+          "నెమలి",
+          "పశువు",
+          "బూడిద",
+          "నుదురు",
+          "మైదానం",
+          "నొసలు",
+          "పొదుపు",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 3 - Letter Hunt (1 level, 10 content)
       {
@@ -14381,7 +15344,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P4",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
-        customLetters: ["డైరీ", "రోకలి", "సూది", "జౌళి", "సీసా"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "జెండా",
+          "పెరుగు",
+          "భూకంపం",
+          "పావురం",
+          "జూకాలు",
+          "పసిడి",
+          "గాజులు",
+          "నృపతి",
+          "పైసలు",
+          "మొదలు",
+        ], // Placeholder - adjust based on F2 requirements
         contentCount: 10,
       },
       // Practice 4 - Letter Hunt (1 level, 10 content)
@@ -14406,7 +15380,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P6",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
-        customLetters: ["బంతి", "టౌను", "బాలిక", "నెమలి", "పశువు"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "మాటలు",
+          "వివాహం",
+          "మూకుడు",
+          "హృదయం",
+          "బేడీలు",
+          "శైశవం",
+          "గొడుగు",
+          "పొడవైన",
+          "సొరకాయ",
+          "జలపాతం",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 5 - Letter Hunt (1 level, 10 content)
       {
@@ -14429,7 +15414,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P8",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" }, // For English, use LetterTrain; for Indic, will use Barakhadi
-        customLetters: ["బూడిద", "నుదురు", "మైదానం", "నొసలు", "పొదుపు"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "గిజిగాడు",
+          "ఊరేగింపు",
+          "చూడలేదు",
+          "గులాబీలు",
+          "మీగడ",
+          "చీపురు",
+          "రెండు",
+          "మేఘం",
+          "నేల",
+          "తోలు",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 6 - Letter Hunt (1 level, 10 content)
       {
@@ -14468,7 +15464,18 @@ export const levelGetContent = {
         tags: "CEFR_GEN_M1_P11",
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
-        customLetters: ["మేఘం", "పెరుగు", "భూకంపం", "పావురం", "జూకాలు"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "పూజారి",
+          "జాలరి",
+          "కూజా",
+          "దివిటి",
+          "గాలి",
+          "గోడ",
+          "దురద",
+          "చదువు",
+          "చేదు",
+          "కూతురు",
+        ], // Placeholder - adjust based on F2 requirements
         contentCount: 10,
       },
       // Practice 7 - Letter Hunt (1 level, 10 content)
@@ -14492,7 +15499,18 @@ export const levelGetContent = {
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
         contentCount: 10,
-        customLetters: ["పసిడి", "గాజులు", "నృపతి", "పైసలు", "మొదలు"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "పెసలు",
+          "హారం",
+          "కిటికి",
+          "చీకటి",
+          "శునకం",
+          "గెలుపు",
+          "మేక",
+          "కోడి",
+          "పాలు",
+          "నీడ",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 8 - Letter Hunt (1 level, 10 content)
       {
@@ -14515,7 +15533,18 @@ export const levelGetContent = {
         multilingual: false,
         mechanism: { id: "barakhadi", name: "barakhadi" },
         contentCount: 10,
-        customLetters: ["మాటలు", "వివాహం", "మూకుడు", "హృదయం", "బేడీలు"], // Placeholder - adjust based on F2 requirements
+        customLetters: [
+          "పూవులు",
+          "గురువు",
+          "జూలు",
+          "దుకాణం",
+          "పీట",
+          "సాగరం",
+          "మీసాలు",
+          "తిలకం",
+          "చామంతి",
+          "గిరి",
+        ], // Placeholder - adjust based on F2 requirements
       },
       // Practice 9 - Letter Hunt (1 level, 10 content)
       {

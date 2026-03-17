@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../../node_modules/axios/index";
 import elephant from "../../assets/images/elephant.svg";
@@ -22,7 +22,11 @@ import {
   fetchUserPoints,
   createLearnerProgress,
 } from "../../services/orchestration/orchestrationService";
-import { fetchGetSetResult } from "../../services/learnerAi/learnerAiService";
+import {
+  fetchGetSetResult,
+  callEngagementPredictor,
+  clearInteractions,
+} from "../../services/learnerAi/learnerAiService";
 import {
   fetchAssessmentData,
   fetchPaginatedContent,
@@ -51,6 +55,8 @@ const SpeakSentenceComponent = () => {
   const [openMessageDialog, setOpenMessageDialog] = useState("");
   const [totalSyllableCount, setTotalSyllableCount] = useState("");
   const [isNextButtonCalled, setIsNextButtonCalled] = useState(false);
+  const [interactions, setInteractions] = useState([]);
+  const interactionsRef = useRef([]);
 
   const levelCompleteAudioSrc = usePreloadAudio(LevelCompleteAudio);
   const sessionId = getLocalData("sessionId");
@@ -98,9 +104,33 @@ const SpeakSentenceComponent = () => {
 
   useEffect(() => {
     if (questions?.length) {
-      setLocalData("sub_session_id", uniqueId());
+      const oldSubSessionId = getLocalData("sub_session_id");
+      const newSubSessionId = uniqueId();
+      setLocalData("sub_session_id", newSubSessionId);
+
+      // Clear interactions for old sub session if it exists
+      if (oldSubSessionId) {
+        clearInteractions(oldSubSessionId);
+      }
+
+      setInteractions([]);
+      interactionsRef.current = [];
     }
   }, [questions]);
+
+  useEffect(() => {
+    interactionsRef.current = interactions;
+  }, [interactions]);
+
+  const handleInteractionComplete = (interactionData) => {
+    if (interactionData) {
+      setInteractions((prev) => {
+        const updated = [...prev, interactionData];
+        interactionsRef.current = updated;
+        return updated;
+      });
+    }
+  };
 
   useEffect(() => {
     if (voiceText === "error") {
@@ -158,6 +188,11 @@ const SpeakSentenceComponent = () => {
           currentCollectionId,
           totalSyllableCount
         );
+
+        // Call engagement predictor after getsetresult
+        // Interactions are automatically retrieved from localStorage
+        callEngagementPredictor(sub_session_id);
+
         if (!(localStorage.getItem("contentSessionId") !== null)) {
           let point = 1;
           let milestone = "m0";
@@ -233,6 +268,8 @@ const SpeakSentenceComponent = () => {
           setCurrentQuestion(0);
           setSentencePassedCounter(newSentencePassedCounter);
           setQuestions(quesArr);
+          setInteractions([]);
+          interactionsRef.current = [];
         } else if (
           getSetData.sessionResult === "pass" &&
           currentContentType === "Sentence"
@@ -261,6 +298,8 @@ const SpeakSentenceComponent = () => {
           let quesArr = [...(resWordsPagination?.data || [])];
           setCurrentQuestion(0);
           setQuestions(quesArr);
+          setInteractions([]);
+          interactionsRef.current = [];
         } else if (
           getSetData.sessionResult === "fail" &&
           currentContentType === "Word"
@@ -413,6 +452,7 @@ const SpeakSentenceComponent = () => {
           isNextButtonCalled,
           setIsNextButtonCalled,
           setOpenMessageDialog,
+          onInteractionComplete: handleInteractionComplete,
         }}
       />
     </>

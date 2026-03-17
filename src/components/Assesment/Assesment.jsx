@@ -39,6 +39,7 @@ import {
   setLocalData,
   getLanguageOrDefault,
 } from "../../utils/constants";
+import { getFontFamily } from "../../utils/fontUtils";
 import practicebg from "../../assets/images/practice-bg.svg";
 import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
 import { useEffect, useState } from "react";
@@ -536,7 +537,7 @@ export const ProfileHeader = ({
       console.error("Failed to parse milestone data:", e);
       setMilestone(0);
     }
-  }, []);
+  }, [lang]); // Update when language changes to refresh milestone data
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -592,6 +593,8 @@ export const ProfileHeader = ({
       };
 
       setTimeout(() => {
+        // 🛡️ Guard: if alphabetDemoStop cleared the ref, don't play
+        if (chartAudioRef.current !== audio) return;
         audio.play().catch(() => {
           setShowChartPointer(false);
           setIsAudioPlaying(false);
@@ -600,38 +603,94 @@ export const ProfileHeader = ({
         });
       }, 500);
     };
-
-    const checkDemoCompletion = () => {
+    // 🛡️ Initial mount check: validate F1 flow + milestone before playing
+    // This blocks stale showAlphabetDemo from a previous session
+    const checkDemoOnMount = () => {
       const demoState = getLocalData("showAlphabetDemo");
+      if (demoState !== "true") return;
 
-      // 🔥 Only trigger when demo JUST completed
+      // Check if F1 flow is actually active
+      let isF1Active = false;
+      try {
+        const msStr = getLocalData("getMilestone");
+        if (msStr) {
+          const msData = JSON.parse(msStr);
+          isF1Active =
+            msData?.data?.milestone_level === "B" &&
+            msData?.data?.sub_milestone_level === "F1";
+        }
+      } catch (e) {
+        // ignore parse errors
+      }
+
+      if (isF1Active) {
+        // 🎯 Only auto-play for IMMEDIATE milestones (L1=index 0)
+        // Deferred milestones (A1=6, A2=13, A3=20) should ONLY play
+        // when user clicks "Start Game" → alphabetDemoTriggerRequest event
+        const immediateOnlyMilestones = [0];
+        const rawIndex = getLocalData("f1FlowIndex");
+        const currentF1Index = rawIndex !== null ? Number(rawIndex) : -1;
+
+        // 🔒 Also check if this milestone was already played (prevents replay on re-login)
+        let playedIndices = [];
+        try {
+          const playedRaw = getLocalData("playedAlphabetDemoIndices");
+          playedIndices = playedRaw ? JSON.parse(playedRaw) : [];
+        } catch (e) {
+          playedIndices = [];
+        }
+
+        if (
+          immediateOnlyMilestones.includes(currentF1Index) &&
+          !playedIndices.includes(currentF1Index)
+        ) {
+          playChartAudio();
+          return;
+        }
+      }
+
+      // Not F1 flow or not at an allowed milestone → clear stale flag
+      setLocalData("showAlphabetDemo", "false");
+    };
+
+    // 🎬 Event-based trigger: Practice.jsx already validated the milestone
+    // before dispatching alphabetDemoComplete, so just play
+    const handleDemoEvent = () => {
+      const demoState = getLocalData("showAlphabetDemo");
       if (demoState === "true") {
         playChartAudio();
       }
     };
 
-    // Initial check
-    checkDemoCompletion();
+    // Initial check (validated)
+    checkDemoOnMount();
 
     const handleStorageChange = (e) => {
       if (e.key === "showAlphabetDemo" && e.newValue === "true") {
-        checkDemoCompletion();
+        handleDemoEvent();
       }
     };
 
-    const handleCustomStorageChange = () => {
-      checkDemoCompletion();
-    };
-
     window.addEventListener("storage", handleStorageChange);
-    window.addEventListener("alphabetDemoComplete", handleCustomStorageChange);
+    window.addEventListener("alphabetDemoComplete", handleDemoEvent);
+
+    // 🔇 Listen for stop signal from Practice.jsx (non-milestone cleanup)
+    const handleDemoStop = () => {
+      if (chartAudioRef.current) {
+        chartAudioRef.current.pause();
+        chartAudioRef.current.currentTime = 0;
+        chartAudioRef.current = null;
+      }
+      setShowChartPointer(false);
+      setIsAudioPlaying(false);
+      setLocalData("showAlphabetDemo", "false");
+    };
+    window.addEventListener("alphabetDemoStop", handleDemoStop);
 
     return () => {
       window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener(
-        "alphabetDemoComplete",
-        handleCustomStorageChange
-      );
+      window.removeEventListener("alphabetDemoComplete", handleDemoEvent);
+      window.removeEventListener("alphabetDemoStop", handleDemoStop);
 
       if (chartAudioRef.current) {
         chartAudioRef.current.pause();
@@ -643,7 +702,7 @@ export const ProfileHeader = ({
   const handleAlphabetChartOpen = () => {
     // Check if demo was already completed (returns null first time → falsy)
     const isDemoComplete = getLocalData("AlphabetDemoCompleted") === "true";
-
+    interact("ET", "Open Alphabet Chart", "alphabet-chart");
     if (isDemoComplete) {
       // 📘 User has seen demo before → show normal chart/modal
       setOpenAlphabetModal(true);
@@ -690,8 +749,8 @@ export const ProfileHeader = ({
         desc: "మీకు ఏదైనా అక్షరం లేదా అక్షర సమూహంతో సహాయం కావాలా? అయితే, ఇక్కడ ఉన్న పట్టికను చూడండి.",
       },
       kn: {
-        title: "📚 ಅಕ್ಷರಮಾಲೆ ಚಾರ್ಟ್",
-        desc: "ನಿಮಗೆ ಅಕ್ಷರಮಾಲೆ ಅಥವಾ ಉಚ್ಚಾರಾಂಶದ ಬಗ್ಗೆ ಸಹಾಯ ಬೇಕಾದರೆ, ಇಲ್ಲಿ ಚಾರ್ಟ್ ಪರಿಶೀಲಿಸಿ.",
+        title: "📚 ವರ್ಣಮಾಲೆ ಚಾರ್ಟ್‌",
+        desc: "ನಿಮಗೆ ಅಕ್ಷರಗಳು ಅಥವಾ ಗುಣಿತಾಕ್ಷರಗಳನ್ನು ನೆನಪಿಸಿಕೊಳ್ಳಲು ಸಹಾಯ ಬೇಕಾದರೆ, ಇಲ್ಲಿರುವ ಚಾರ್ಟ್‌ ನೋಡಿ.",
       },
     };
 
@@ -1637,6 +1696,7 @@ const Assesment = ({ discoverStart }) => {
   const [points, setPoints] = useState(0);
   const [vocabCount, setVocabCount] = useState(0);
   const [wordCount, setWordCount] = useState(0);
+  const [milestoneDataKey, setMilestoneDataKey] = useState(0); // Force re-render when milestone data changes
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [showModal, setShowModal] = useState(false);
   const nativeLangEnable = getLocalData("nativeLangEnable");
@@ -1644,6 +1704,38 @@ const Assesment = ({ discoverStart }) => {
   const rStepNo = getLocalData("rStepZero");
   const rFlows = String(getLocalData("rFlow"));
   const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";
+
+  const getAssessmentText = () => {
+    const texts = {
+      en: {
+        testSkills: "Let's test your language skills",
+        goodSkills: "You have good language skills",
+        discoverLevel: "Take the assessment to discover your level",
+        completeLevel: (level) =>
+          `Take the assessment to complete Level ${level}.`,
+        startAssessment: "Start Assessment",
+      },
+      te: {
+        testSkills: "మీ భాషా నైపుణ్యాలను పరీక్షించుకుందాం",
+        goodSkills: "మీకు మంచి భాషా నైపుణ్యాలు ఉన్నాయి",
+        discoverLevel: "మీ స్థాయిని తెలుసుకోవడానికి మూల్యాంకనాన్ని చేయండి.",
+        completeLevel: (level) =>
+          `Level ${level} పూర్తి చేయడానికి మూల్యాంకనాన్ని చేయండి.`,
+        startAssessment: "మూల్యాంకనాన్ని ప్రారంభించండి",
+      },
+      kn: {
+        testSkills: "Let's test your language skills",
+        goodSkills: "You have good language skills",
+        discoverLevel: "Take the assessment to discover your level",
+        completeLevel: (level) =>
+          `Take the assessment to complete Level ${level}.`,
+        startAssessment: "Start Assessment",
+      },
+    };
+
+    return texts[lang] || texts.en;
+  };
+  const assessmentText = getAssessmentText();
 
   const handleWordClick = () => {
     setShowModal(true);
@@ -1697,6 +1789,8 @@ const Assesment = ({ discoverStart }) => {
           "getMilestone",
           JSON.stringify({ ...getMilestoneDetails })
         );
+        // Force re-render to update milestone data display
+        setMilestoneDataKey((prev) => prev + 1);
 
         if (
           levelMapping[usernameDetails?.data?.result?.virtualID] !== undefined
@@ -1769,6 +1863,8 @@ const Assesment = ({ discoverStart }) => {
           "getMilestone",
           JSON.stringify({ ...getMilestoneDetails })
         );
+        // Force re-render to update milestone data display
+        setMilestoneDataKey((prev) => prev + 1);
         const level = getMilestoneDetails?.data?.milestone_level;
         setLevel(
           level?.startsWith("m") ? Number(level.replace("m", "")) : level
@@ -2129,15 +2225,15 @@ const Assesment = ({ discoverStart }) => {
                 color: "#322020",
                 fontWeight: 700,
                 fontSize: { xs: "24px", md: "40px" },
-                fontFamily: "Quicksand",
+                fontFamily: getFontFamily(lang),
                 lineHeight: { xs: "36px", md: "62px" },
                 textAlign: "center",
               }}
               fontSize={{ md: "40px", xs: "30px" }}
             >
               {discoverStart
-                ? "Let's test your language skills"
-                : "You have good language skills"}
+                ? assessmentText.testSkills
+                : assessmentText.goodSkills}
             </Typography>
             <Box>
               <Typography
@@ -2145,15 +2241,15 @@ const Assesment = ({ discoverStart }) => {
                   color: "#1CB0F6",
                   fontWeight: 600,
                   fontSize: { xs: "20px", md: "30px" },
-                  fontFamily: "Quicksand",
+                  fontFamily: getFontFamily(lang),
                   lineHeight: { xs: "30px", md: "50px" },
                   textAlign: "center",
                 }}
                 fontSize={{ md: "30px", xs: "20px" }}
               >
                 {level > 0
-                  ? `Take the assessment to complete Level ${level}.`
-                  : "Take the assessment to discover your level"}
+                  ? assessmentText.completeLevel(level)
+                  : assessmentText.discoverLevel}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -2178,7 +2274,35 @@ const Assesment = ({ discoverStart }) => {
                 }}
                 onClick={handleRedirect}
               >
-                <StartAssessmentButton />
+                {lang === "te" ? (
+                  <Box
+                    sx={{
+                      background: "#EDB530",
+                      border: "2px solid #322020",
+                      borderRadius: "9px",
+                      padding: "12px 24px",
+                      minWidth: "218px",
+                      height: "60px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#322020",
+                        fontWeight: 600,
+                        fontSize: "20px",
+                        fontFamily: getFontFamily(lang),
+                      }}
+                    >
+                      {assessmentText.startAssessment}
+                    </span>
+                  </Box>
+                ) : (
+                  <StartAssessmentButton />
+                )}
               </Box>
             </Box>
           </Box>

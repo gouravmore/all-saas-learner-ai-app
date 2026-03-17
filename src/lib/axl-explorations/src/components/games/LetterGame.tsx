@@ -33,6 +33,7 @@ interface LetterGameProps {
   onLevel1Failure?: () => void; // Optional: callback when level 1 fails in showcase mode (deprecated, use onLevelFailure)
   onLevelFailure?: (level: number) => void; // Optional: callback when any level fails in showcase mode
   customLetters?: string[]; // Optional: custom letters to use instead of level-based letters
+  confidentLetters?: string[]; // Optional: letters user is confident with (appear less frequently)
   sub_session_id?: string; // Optional: Sub session ID for F1 flow
   sessionId?: string; // Optional: Session ID
   sub_milestone_level?: string; // Optional: Sub milestone level (e.g., "F1")
@@ -42,7 +43,7 @@ interface LetterGameProps {
   skipPreview?: boolean; // Optional: if true, skip the game preview/demo
 }
 
-export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disableNavigation = false, onLevelComplete, isShowcase = false, onLevel1Failure, onLevelFailure, customLetters, sub_session_id,sessionId, sub_milestone_level, apply_level, sub_apply_level, onA3Pass, skipPreview = false }: LetterGameProps) {
+export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disableNavigation = false, onLevelComplete, isShowcase = false, onLevel1Failure, onLevelFailure, customLetters, confidentLetters, sub_session_id,sessionId, sub_milestone_level, apply_level, sub_apply_level, onA3Pass, skipPreview = false }: LetterGameProps) {
   const navigate = useNavigate();
   const params = useParams<{ level?: string }>();
   const { level: urlLevel } = params || {};
@@ -231,39 +232,87 @@ export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disable
     };
     
     const lettersToUse = getLevelLetters(language, level);
+    
+    // Build weighted letter array based on confidentLetters
+    const buildWeightedLetterArray = (letters: string[]): string[] => {
+      if (!confidentLetters || confidentLetters.length === 0 || letters.length === 0) {
+        return [...letters,...letters];
+      }
+      
+      // Normalize confident letters to uppercase
+      const normalizedConfident = confidentLetters
+        .map((letter: string) => typeof letter === 'string' ? letter.toUpperCase() : '')
+        .filter(Boolean);
+      
+      // Separate letters into confident and non-confident
+      const confident: string[] = [];
+      const nonConfident: string[] = [];
+      
+      letters.forEach((letter: string) => {
+        const upperLetter = letter.toUpperCase();
+        if (normalizedConfident.includes(upperLetter)) {
+          confident.push(letter);
+        } else {
+          nonConfident.push(letter);
+        }
+      });
+      
+      // Build weighted array:
+      // - Confident letters: appear 1 time (reduced frequency)
+      // - Non-confident letters: appear 3 times (increased frequency for practice)
+      const weightedArray: string[] = [];
+      
+      // Add confident letters once
+      confident.forEach((letter) => {
+        weightedArray.push(letter);
+      });
+      
+      // Add non-confident letters multiple times (3x for more practice)
+      for (let i = 0; i < 3; i++) {
+        nonConfident.forEach((letter) => {
+          weightedArray.push(letter);
+        });
+      }
+      
+      console.log("LetterGame - Weighted array with confident letters:", {
+        totalLetters: letters.length,
+        confidentLetters: confident,
+        nonConfidentLetters: nonConfident,
+        weightedArrayLength: weightedArray.length,
+        confidentCount: confident.length,
+        nonConfidentCount: nonConfident.length * 3
+      });
+      
+      return weightedArray.length > 0 ? weightedArray : letters;
+    };
+    
+    const weightedLetters = buildWeightedLetterArray(lettersToUse);
     const questions: MultilingualLetterQuestion[] = [];
     
-    // Strategy:
-    // 1. If we have >= count letters: use all unique letters
-    // 2. If we have < count letters: use all unique letters first, then fill remaining with random unique selections
-    const availableUniqueCount = Math.min(lettersToUse.length, count);
-    const remainingCount = count - availableUniqueCount;
+    // Strategy with weighted letters:
+    // Select from weighted array (confident letters appear less, non-confident appear more)
+    const availableCount = Math.min(weightedLetters.length, count);
+    const remainingCount = count - availableCount;
     
-    // First phase: Use all available unique letters (shuffled)
-    const shuffledLetters = [...lettersToUse].sort(() => Math.random() - 0.5);
-    const uniqueTargets = shuffledLetters.slice(0, availableUniqueCount);
+    // First phase: Select from weighted array (shuffled)
+    const shuffledWeighted = [...weightedLetters].sort(() => Math.random() - 0.5);
+    const selectedTargets = shuffledWeighted.slice(0, availableCount);
     
-    // Second phase: For remaining questions, select randomly but ensure no duplicates among remaining ones
+    // Second phase: For remaining questions, select from weighted array
     const remainingTargets: string[] = [];
-    const remainingUsed = new Set<string>();
-    
     for (let i = 0; i < remainingCount; i++) {
-      let target: string;
-      let attempts = 0;
-      const maxAttempts = 50;
-      
-      // Select a random letter that hasn't been used in the remaining batch
-      do {
-        target = lettersToUse[Math.floor(Math.random() * lettersToUse.length)];
-        attempts++;
-      } while (remainingUsed.has(target) && attempts < maxAttempts);
-      
-      remainingTargets.push(target);
-      remainingUsed.add(target);
+      const randomIndex = Math.floor(Math.random() * weightedLetters.length);
+      remainingTargets.push(weightedLetters[randomIndex]);
     }
     
     // Combine all targets
-    const allTargets = [...uniqueTargets, ...remainingTargets];
+    const allTargets = [...selectedTargets, ...remainingTargets];
+    
+    // Shuffle all targets to randomize order
+    for (let i = allTargets.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allTargets[i], allTargets[j]] = [allTargets[j], allTargets[i]];
+    }
     
     for (let i = 0; i < count; i++) {
       const target = allTargets[i];
@@ -551,6 +600,21 @@ export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disable
               gameEndedByLives: true, // Flag indicating game ended due to lives lost
               livesLost: true
             }
+          }).then((assessmentResponse) => {
+            // Extract familiarity_syllables from API response and store as confidentLetters
+            // Only store for Apply steps (A1, A2, A3)
+            if (apply_level && (apply_level === "A1" || apply_level === "A2" || apply_level === "A3")) {
+              if (assessmentResponse?.data?.familiarity_syllables && Array.isArray(assessmentResponse.data.familiarity_syllables)) {
+                const familiaritySyllables = assessmentResponse.data.familiarity_syllables;
+                // Store in localStorage for use in subsequent LetterHunt components
+                if (typeof window !== 'undefined') {
+                  localStorage.setItem('confidentLetters', JSON.stringify(familiaritySyllables));
+                  console.log(`✅ Stored confidentLetters from API response (${apply_level}, lives lost):`, familiaritySyllables);
+                }
+              }
+            }
+          }).catch((error) => {
+            console.error("Error in assessment tracking (lives lost):", error);
           });
           return latestSummaries;
         });
@@ -689,6 +753,19 @@ export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disable
               gameEndedByLives: false
             }
           }).then((assessmentResponse) => {
+            // Extract familiarity_syllables from API response and store as confidentLetters
+            // Only store for Apply steps (A1, A2, A3)
+            if (apply_level && (apply_level === "A1" || apply_level === "A2" || apply_level === "A3")) {
+              if (assessmentResponse?.data?.familiarity_syllables && Array.isArray(assessmentResponse.data.familiarity_syllables)) {
+                const familiaritySyllables = assessmentResponse.data.familiarity_syllables;
+                // Store in localStorage for use in subsequent LetterHunt components
+                if (typeof window !== 'undefined') {
+                  localStorage.setItem('confidentLetters', JSON.stringify(familiaritySyllables));
+                  console.log(`✅ Stored confidentLetters from API response (${apply_level}):`, familiaritySyllables);
+                }
+              }
+            }
+            
             // Check if this is A3 and sessionResult is "Pass"
             if (apply_level === "A3" && assessmentResponse?.data?.sessionResult === "Pass" && onA3Pass) {
               console.log("A3 passed with sessionResult: Pass - calling onA3Pass callback");
@@ -1086,13 +1163,13 @@ export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disable
   }
 
   return (
-    <div className="h-screen bg-gradient-cool p-2 sm:p-4 overflow-hidden flex flex-col">
+    <div className="h-screen bg-gradient-cool p-0 sm:p-0.5 md:p-1 lg:p-2 xl:p-4 overflow-hidden flex flex-col">
       <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col min-h-0">
         {/* Header */}
-        <div className="flex flex-row items-center justify-center mb-1.5 sm:mb-2 gap-2 flex-shrink-0">
+        <div className="flex flex-row items-center justify-center mb-0 gap-0 sm:gap-0.5 md:gap-1 flex-shrink-0">
           {/* Back button removed - using justify-center instead of justify-between */}
           <div className="text-center flex-1">
-            <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white drop-shadow-lg leading-tight">
+            <h1 className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-white drop-shadow-lg leading-tight">
               Letter Recognition
             </h1>
             {/* <div className="hidden sm:flex items-center justify-center gap-1.5 text-white/80 text-sm sm:text-base md:text-lg mt-0.5">
@@ -1117,7 +1194,7 @@ export function LetterGame({ onBack, initialLevel, startLevel, endLevel, disable
         </div>
 
         {/* Main Content Card */}
-        <div className="flex-1 flex flex-col min-h-0">
+        <div className="flex-1 flex flex-col min-h-0 overflow-y-auto">
           {/* Game Core Component */}
           <LetterHuntGameCore
             questions={currentDisplayedQuestion ? [currentDisplayedQuestion] : questions}
