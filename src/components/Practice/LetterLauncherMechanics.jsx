@@ -613,6 +613,10 @@ const LetterLauncherMechanicsContent = ({
     setShowStoryPreview(false);
     // After story preview, start the game
     setShowPreview(false);
+    // Reset audio refs so the first question's audio plays fresh after the demo
+    isPlayingAudioRef.current = false;
+    currentQuestionAudioKeyRef.current = null;
+    lockedQuestionForAudioRef.current = null;
   };
 
   // Reset completion state when step changes (detected by f3FlowStep change)
@@ -735,6 +739,11 @@ const LetterLauncherMechanicsContent = ({
       return;
     }
 
+    // For P1 step: wait for preview/demo (countdown + story preview) to complete before playing audio
+    if (showPreview || showStoryPreview) {
+      return;
+    }
+
     // For Apply steps, wait for start screen to be dismissed
     if (effectiveIsShowCase && !effectiveStartShowCase) {
       return;
@@ -846,6 +855,8 @@ const LetterLauncherMechanicsContent = ({
     currentQuestionIndex,
     showFeedback,
     isGameComplete,
+    showPreview,
+    showStoryPreview,
     effectiveIsShowCase,
     effectiveStartShowCase,
     initialLanguage,

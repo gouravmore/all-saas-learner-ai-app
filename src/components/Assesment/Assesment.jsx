@@ -1972,6 +1972,20 @@ const Assesment = ({ discoverStart }) => {
       });
       return;
     }
+    // When milestone_level is "B" and sub_milestone_level is empty (e.g. after discovery fail), route to letter-hunt
+    const milestoneDataForRedirect = getMilestoneData();
+    const milestoneLevelForRedirect =
+      milestoneDataForRedirect?.data?.milestone_level || null;
+    const subMilestoneLevelForRedirect =
+      milestoneDataForRedirect?.data?.sub_milestone_level ?? "";
+    if (
+      (level === "B" || level === "b") &&
+      milestoneLevelForRedirect === "B" &&
+      (!subMilestoneLevelForRedirect || subMilestoneLevelForRedirect === "")
+    ) {
+      navigate("/letter-hunt");
+      return;
+    }
     if (level === 0) {
       navigate("/discover");
     } else {

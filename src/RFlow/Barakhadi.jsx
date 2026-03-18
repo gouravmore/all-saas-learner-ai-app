@@ -60,6 +60,7 @@ import {
   fetchPaginatedContent,
 } from "../services/content/contentService";
 import { updateLearnerProfile } from "../services/learnerAi/learnerAiService";
+import { splitGraphemes } from "split-graphemes";
 
 const theme = createTheme();
 
@@ -4574,9 +4575,13 @@ const Barakhadi = ({
   };
 
   const handleLetterClick = (letter, rowIndex, colIndex) => {
-    const remainingTarget = targetWord.slice(word.length);
+    // Use grapheme segmentation for Indic scripts to correctly compare
+    // multi-codepoint characters (e.g., "ది" should not match "ద")
+    const targetGraphemes = splitGraphemes(targetWord);
+    const wordGraphemes = splitGraphemes(word);
+    const nextExpectedGrapheme = targetGraphemes[wordGraphemes.length];
 
-    const isCorrect = remainingTarget.startsWith(letter);
+    const isCorrect = letter === nextExpectedGrapheme;
 
     const newWord = word + letter;
     setWord(newWord);
@@ -4608,12 +4613,21 @@ const Barakhadi = ({
   };
 
   const handleDelete = () => {
-    const newWord = word.slice(0, -1);
+    // Use grapheme segmentation to delete the last visual character,
+    // not just the last code point (important for Indic scripts)
+    const wordGraphemes = splitGraphemes(word);
+    wordGraphemes.pop();
+    const newWord = wordGraphemes.join("");
     setWord(newWord);
     setIncorrectCell(null);
-    // Check if the remaining word is still wrong
+    // Check if the remaining word is still correct so far using grapheme comparison
     if (newWord.length > 0) {
-      setIsWordWrong(!targetWord.startsWith(newWord));
+      const targetGraphemes = splitGraphemes(targetWord);
+      const newWordGraphemes = splitGraphemes(newWord);
+      const isCorrectSoFar = newWordGraphemes.every(
+        (g, i) => g === targetGraphemes[i]
+      );
+      setIsWordWrong(!isCorrectSoFar);
     } else {
       setIsWordWrong(false);
     }
