@@ -26,6 +26,7 @@ import {
   SpeakButton,
   compareArrays,
   getLocalData,
+  parseGetMilestoneData,
   setLocalData,
   replaceAll,
   NextButtonRound,
@@ -361,8 +362,7 @@ function VoiceAnalyser(props) {
       const virtualId = getLocalData("virtualId");
       const sessionId = getLocalData("sessionId");
       const sub_session_id = getLocalData("sub_session_id");
-      let milestoneData = getLocalData("getMilestone");
-      let milestone = JSON.parse(milestoneData);
+      let milestone = parseGetMilestoneData(getLocalData("getMilestone"));
       const { originalText, contentType, contentId, currentLine } = props;
       const responseStartTime = new Date().getTime();
       let responseText = "";

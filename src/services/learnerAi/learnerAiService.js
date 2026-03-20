@@ -1,6 +1,10 @@
 import axios from "axios";
 import config from "../../utils/urlConstants.json";
-import { getLocalData, setLocalData } from "../../utils/constants";
+import {
+  getLocalData,
+  parseGetMilestoneData,
+  setLocalData,
+} from "../../utils/constants";
 import { getVirtualId } from "../userservice/userService";
 
 const API_LEARNER_AI_APP_HOST = process.env.REACT_APP_LEARNER_AI_APP_HOST;
@@ -410,9 +414,8 @@ export const callEngagementPredictor = async (subSessionId = null) => {
     // Get milestone level
     let milestoneLevel = "m0";
     try {
-      const milestoneData = getLocalData("getMilestone");
-      if (milestoneData) {
-        const parsed = JSON.parse(milestoneData);
+      const parsed = parseGetMilestoneData(getLocalData("getMilestone"));
+      if (parsed) {
         milestoneLevel = parsed?.data?.milestone_level || "m0";
       }
     } catch (e) {

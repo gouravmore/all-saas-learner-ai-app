@@ -33,7 +33,9 @@ import {
   SelectLanguageButton,
   StartAssessmentButton,
   getLocalData,
+  getParsedGetMilestoneData,
   getParameter,
+  parseGetMilestoneData,
   languages,
   levelConfig,
   setLocalData,
@@ -452,18 +454,7 @@ export const ProfileHeader = ({
     profileName || getLocalData("profileName") || getLocalData("name");
 
   // Check if F2 flow is active and update username display
-  const getMilestoneData = () => {
-    try {
-      const milestoneStr = getLocalData("getMilestone");
-      if (milestoneStr) {
-        return JSON.parse(milestoneStr);
-      }
-    } catch (e) {
-      console.error("Error parsing getMilestone:", e);
-    }
-    return null;
-  };
-  const milestoneData = getMilestoneData();
+  const milestoneData = getParsedGetMilestoneData();
   const milestoneLevel = milestoneData?.data?.milestone_level || null;
   const subMilestoneLevel = milestoneData?.data?.sub_milestone_level || null;
   const shouldShowF1 = milestoneLevel === "B" && subMilestoneLevel === "F1";
@@ -526,13 +517,11 @@ export const ProfileHeader = ({
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   useEffect(() => {
-    const rawMilestone = getLocalData("getMilestone");
-
     try {
-      const parsed = rawMilestone ? JSON.parse(rawMilestone) : null;
+      const parsed = parseGetMilestoneData(getLocalData("getMilestone"));
       const levelStr = parsed?.data?.milestone_level || "m0";
-      const levelNum = parseInt(levelStr.replace("m", ""), 10);
-      setMilestone(levelNum);
+      const levelNum = parseInt(String(levelStr).replace("m", ""), 10);
+      setMilestone(Number.isFinite(levelNum) ? levelNum : 0);
     } catch (e) {
       console.error("Failed to parse milestone data:", e);
       setMilestone(0);
@@ -612,9 +601,8 @@ export const ProfileHeader = ({
       // Check if F1 flow is actually active
       let isF1Active = false;
       try {
-        const msStr = getLocalData("getMilestone");
-        if (msStr) {
-          const msData = JSON.parse(msStr);
+        const msData = parseGetMilestoneData(getLocalData("getMilestone"));
+        if (msData) {
           isF1Active =
             msData?.data?.milestone_level === "B" &&
             msData?.data?.sub_milestone_level === "F1";
@@ -1973,7 +1961,7 @@ const Assesment = ({ discoverStart }) => {
       return;
     }
     // When milestone_level is "B" and sub_milestone_level is empty (e.g. after discovery fail), route to letter-hunt
-    const milestoneDataForRedirect = getMilestoneData();
+    const milestoneDataForRedirect = getParsedGetMilestoneData();
     const milestoneLevelForRedirect =
       milestoneDataForRedirect?.data?.milestone_level || null;
     const subMilestoneLevelForRedirect =
@@ -2030,19 +2018,7 @@ const Assesment = ({ discoverStart }) => {
   const tFlow = String(getLocalData("tFlow"));
   const rStep = Number(getLocalData("rStep")) || 0;
 
-  // Get milestone_level from API to determine if F1 flow should be active
-  const getMilestoneData = () => {
-    try {
-      const milestoneStr = getLocalData("getMilestone");
-      if (milestoneStr) {
-        return JSON.parse(milestoneStr);
-      }
-    } catch (e) {
-      console.error("Error parsing getMilestone:", e);
-    }
-    return null;
-  };
-  const milestoneData = getMilestoneData();
+  const milestoneData = getParsedGetMilestoneData();
   const milestoneLevel = milestoneData?.data?.milestone_level || null;
   const subMilestoneLevel = milestoneData?.data?.sub_milestone_level || null;
 

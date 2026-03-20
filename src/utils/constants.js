@@ -59,6 +59,26 @@ export const normalizeCorrectPracticeWords = (raw) => {
   return [];
 };
 
+/**
+ * getMilestone in storage may be a JSON string or already an object (after getLocalData auto-parse).
+ * Legacy corrupt values return null.
+ */
+export const parseGetMilestoneData = (raw) => {
+  if (raw == null || raw === "") return null;
+  if (typeof raw === "object") return raw;
+  if (typeof raw === "string") {
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+};
+
+export const getParsedGetMilestoneData = () =>
+  parseGetMilestoneData(getLocalData("getMilestone"));
+
 export function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
 }
@@ -10108,8 +10128,7 @@ export const AssesmentCompletePlane = (props) => (
 );
 
 export const Diamond = (props) => {
-  const milestone =
-    JSON.parse(getLocalData("getMilestone")).data?.milestone_level || "m1";
+  const milestone = getParsedGetMilestoneData()?.data?.milestone_level || "m1";
 
   // Define color mapping for each milestone
   const colorMap = {

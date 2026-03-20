@@ -33,6 +33,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {
   callConfetti,
   getLocalData,
+  getParsedGetMilestoneData,
   levelGetContent,
   practiceSteps,
   sendTestRigScore,
@@ -4296,18 +4297,7 @@ const Practice = () => {
   //console.log("prog", progressDatas);
 
   // Get milestone_level to determine flow initialization
-  const getMilestoneDataForInit = () => {
-    try {
-      const milestoneStr = getLocalData("getMilestone");
-      if (milestoneStr) {
-        return JSON.parse(milestoneStr);
-      }
-    } catch (e) {
-      console.error("Error parsing getMilestone:", e);
-    }
-    return null;
-  };
-  const milestoneDataForInit = getMilestoneDataForInit();
+  const milestoneDataForInit = getParsedGetMilestoneData();
   const milestoneLevelForInit =
     milestoneDataForInit?.data?.milestone_level || null;
 
@@ -4341,18 +4331,7 @@ const Practice = () => {
   const wordWallFlow = String(getLocalData("wordWall"));
 
   // Get milestone_level from API response to determine which flow to show
-  const getMilestoneData = () => {
-    try {
-      const milestoneStr = getLocalData("getMilestone");
-      if (milestoneStr) {
-        return JSON.parse(milestoneStr);
-      }
-    } catch (e) {
-      console.error("Error parsing getMilestone:", e);
-    }
-    return null;
-  };
-  const milestoneData = getMilestoneData();
+  const milestoneData = getParsedGetMilestoneData();
   const milestoneLevel = milestoneData?.data?.milestone_level || null;
   const subMilestoneLevel = milestoneData?.data?.sub_milestone_level || null;
 

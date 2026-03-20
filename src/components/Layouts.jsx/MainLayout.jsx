@@ -42,6 +42,7 @@ import {
   practiceSteps,
   levelGetContent,
   getLocalData,
+  getParsedGetMilestoneData,
   LevelTen,
   LevelEleven,
   LevelTwelve,
@@ -185,19 +186,7 @@ const MainLayout = (props) => {
   const mFlow = getLocalData("mFail");
   const allCompleted = getLocalData("allCompleted");
 
-  // Get milestone_level from API to determine if F1 flow should be active
-  const getMilestoneData = () => {
-    try {
-      const milestoneStr = getLocalData("getMilestone");
-      if (milestoneStr) {
-        return JSON.parse(milestoneStr);
-      }
-    } catch (e) {
-      console.error("Error parsing getMilestone:", e);
-    }
-    return null;
-  };
-  const milestoneData = getMilestoneData();
+  const milestoneData = getParsedGetMilestoneData();
   const milestoneLevel = milestoneData?.data?.milestone_level || null;
   const subMilestoneLevel = milestoneData?.data?.sub_milestone_level || null;
 
