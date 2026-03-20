@@ -13,6 +13,7 @@ import Confetti from "react-confetti";
 import {
   practiceSteps,
   getLocalData,
+  normalizeCorrectPracticeWords,
   NextButtonRound,
   RetryIcon,
   setLocalData,
@@ -101,7 +102,9 @@ const BingoPage = React.memo(
     const [localRecAudio, setLocalRecAudio] = useState("");
     const [currentWordIndex, setCurrentWordIndex] = useState(0); // Track current word index
     const [isRecordingDone, setIsRecordingDone] = useState(false); // Track if recording is completed
-    const correctPracticeWords = getLocalData("correctPracticeWords");
+    const correctPracticeWords = normalizeCorrectPracticeWords(
+      getLocalData("correctPracticeWords")
+    );
     const [currentText, setCurrentText] = useState("");
     const sessionId = getLocalData("sessionId");
 

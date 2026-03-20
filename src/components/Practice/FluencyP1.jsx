@@ -24,6 +24,7 @@ import {
   NextButtonRound,
   RetryIcon,
   getLocalData,
+  normalizeCorrectPracticeWords,
   setLocalData,
 } from "../../utils/constants";
 import { getFontFamily } from "../../utils/fontUtils";
@@ -318,7 +319,9 @@ const FluencyP1 = ({
   const [startTime, setStartTime] = useState(null);
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const correctPracticeWords = getLocalData("correctPracticeWords");
+  const correctPracticeWords = normalizeCorrectPracticeWords(
+    getLocalData("correctPracticeWords")
+  );
   const sessionId = getLocalData("sessionId");
   const lang = getLocalData("lang");
   const [open, setOpen] = useState(false);

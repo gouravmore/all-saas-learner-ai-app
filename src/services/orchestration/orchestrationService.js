@@ -1,5 +1,8 @@
 import axios from "axios";
-import { getLocalData } from "../../utils/constants";
+import {
+  getLocalData,
+  normalizeCorrectPracticeWords,
+} from "../../utils/constants";
 import config from "../../utils/urlConstants.json";
 import { getVirtualId } from "../userservice/userService";
 
@@ -101,7 +104,9 @@ export const addPointer = async (points, milestone) => {
 };
 
 export const addCorrectPracticeWords = async () => {
-  const correctPracticeWords = getLocalData("correctPracticeWords");
+  const correctPracticeWords = normalizeCorrectPracticeWords(
+    getLocalData("correctPracticeWords")
+  );
   const token = localStorage.getItem("apiToken");
   const parentToken = localStorage.getItem("token"); // From all-saas-app
   const isEmbedded = process.env.REACT_APP_IS_APP_IFRAME === "true";

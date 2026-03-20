@@ -9,9 +9,18 @@ export const getLocalData = (item) => {
   // Try to decrypt first (for backward compatibility with encrypted values)
   const decryptedValue = handleDecrypt(storedValue);
 
-  // If decryption fails or returns null, return the raw value
-  // This handles both encrypted (when apiToken exists) and unencrypted (when embedded) values
+  // If decryption fails or returns null, read plain stored value.
+  // Objects/arrays are stored as JSON (see setLocalData); legacy scalar strings stay as-is.
   if (decryptedValue === null) {
+    if (storedValue === "null") return null;
+    const trimmed = storedValue.trim();
+    if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+      try {
+        return JSON.parse(storedValue);
+      } catch {
+        return storedValue;
+      }
+    }
     return storedValue;
   }
   return decryptedValue;
@@ -19,12 +28,35 @@ export const getLocalData = (item) => {
 
 export const setLocalData = (item, value) => {
   const encryptValue = handleEncrypt(value);
-  // If encryption fails (returns null), store the value directly
-  // This is needed when embedded and apiToken is not available
+  // If encryption fails (returns null), store plain text.
+  // localStorage only accepts strings — objects/arrays must be JSON.stringify'd or they become "[object Object]".
   if (encryptValue === null) {
-    return localStorage.setItem(item, value);
+    const toStore =
+      typeof value === "object" && value !== null
+        ? JSON.stringify(value)
+        : String(value);
+    return localStorage.setItem(item, toStore);
   }
   return localStorage.setItem(item, encryptValue);
+};
+
+/** Ensures correctPracticeWords from storage is always an array (handles legacy corrupt string values). */
+export const normalizeCorrectPracticeWords = (raw) => {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
+  if (typeof raw === "string") {
+    const trimmed = raw.trim();
+    if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
+      try {
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  }
+  return [];
 };
 
 export function replaceAll(string, search, replace) {

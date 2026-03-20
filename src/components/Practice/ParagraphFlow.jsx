@@ -21,6 +21,7 @@ import { callTelemetryApi } from "../../utils/apiUtil";
 import {
   practiceSteps,
   getLocalData,
+  normalizeCorrectPracticeWords,
   setLocalData,
 } from "../../utils/constants";
 import { getFontFamily } from "../../utils/fontUtils";
@@ -192,7 +193,9 @@ const ParagraphFlow = ({
   const [finalTranscript, setFinalTranscript] = useState("");
   const [isMatch, setIsMatch] = useState(false);
   const [open, setOpen] = useState(false);
-  const correctPracticeWords = getLocalData("correctPracticeWords");
+  const correctPracticeWords = normalizeCorrectPracticeWords(
+    getLocalData("correctPracticeWords")
+  );
   const sessionId = getLocalData("sessionId");
   console.log("audios", parentWords);
 

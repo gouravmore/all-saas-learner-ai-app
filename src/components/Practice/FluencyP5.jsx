@@ -29,6 +29,7 @@ import {
   NextButtonRound,
   RetryIcon,
   getLocalData,
+  normalizeCorrectPracticeWords,
   setLocalData,
 } from "../../utils/constants";
 import { phoneticMatch } from "../../utils/phoneticUtils";
@@ -246,7 +247,9 @@ const FluencyP5 = ({
   const [finalTranscript, setFinalTranscript] = useState("");
   const [isMatch, setIsMatch] = useState(false);
   const [open, setOpen] = useState(false);
-  const correctPracticeWords = getLocalData("correctPracticeWords");
+  const correctPracticeWords = normalizeCorrectPracticeWords(
+    getLocalData("correctPracticeWords")
+  );
   const sessionId = getLocalData("sessionId");
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));

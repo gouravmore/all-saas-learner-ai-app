@@ -30,6 +30,7 @@ import {
   NextButtonRound,
   RetryIcon,
   getLocalData,
+  normalizeCorrectPracticeWords,
   setLocalData,
 } from "../../utils/constants";
 import { phoneticMatch } from "../../utils/phoneticUtils";
@@ -229,7 +230,9 @@ const Mechanics7 = ({
   const isLastSyllable = true;
   const [currentText, setCurrentText] = useState("");
   const sessionId = getLocalData("sessionId");
-  const correctPracticeWords = getLocalData("correctPracticeWords");
+  const correctPracticeWords = normalizeCorrectPracticeWords(
+    getLocalData("correctPracticeWords")
+  );
   const [showModal, setShowModal] = useState(false);
   const [selectedWord, setSelectedWord] = useState("");
   const [isLoading, setIsLoading] = useState(null);
